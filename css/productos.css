@@ -1,0 +1,359 @@
+/* ============================================================
+   productos.css — NXR TECH
+   Estilos exclusivos de la página Productos & Servicios
+   ============================================================ */
+
+/* --------------------------------------------------------
+   CAROUSEL / PORTADA (Bootstrap override al tema oscuro)
+   -------------------------------------------------------- */
+#prod-carousel {
+    padding-top: 80px; /* compensa navbar fija */
+}
+
+.prod-slide {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.prod-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(5,10,20,0.90) 0%, rgba(10,22,40,0.72) 100%);
+}
+
+.prod-slide-contenido {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 24px;
+    gap: 16px;
+}
+
+.prod-slide-contenido h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    color: var(--color-texto-claro);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.prod-slide-contenido h2 span {
+    color: var(--color-acento);
+}
+
+.prod-slide-contenido p {
+    font-size: 1rem;
+    color: var(--color-texto-gris-claro);
+    max-width: 500px;
+    margin: 0;
+}
+
+/* controles del carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 113, 227, 0.5);
+    border-radius: 50%;
+    padding: 18px;
+    background-size: 50%;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: var(--color-acento);
+    border-radius: 50px;
+    width: 28px;
+    height: 4px;
+    border: none;
+    opacity: 0.4;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+/* --------------------------------------------------------
+   CABECERA DE SECCIÓN (patrón reutilizable)
+   -------------------------------------------------------- */
+.prod-seccion-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.prod-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-acento);
+    background: rgba(0, 113, 227, 0.1);
+    border: 1px solid rgba(0, 113, 227, 0.2);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+}
+
+.prod-seccion-titulo {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--color-texto-claro);
+    margin-bottom: 10px;
+}
+
+.prod-seccion-subtitulo {
+    font-size: 0.95rem;
+    color: var(--color-texto-gris);
+}
+
+/* --------------------------------------------------------
+   SECCIÓN CATEGORÍAS (visual, no filtra)
+   -------------------------------------------------------- */
+#prod-categorias {
+    background: var(--color-fondo-medio);
+    padding: 80px 0;
+    border-top: 1px solid var(--color-borde);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.prod-cats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.prod-cats-grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.prod-cat-card {
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: 28px 16px;
+    text-align: center;
+    transition: var(--transicion);
+}
+
+.prod-cat-card:hover {
+    border-color: var(--color-acento);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 113, 227, 0.15);
+}
+
+.prod-cat-card i {
+    font-size: 1.8rem;
+    color: var(--color-acento);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.prod-cat-card .cat-nombre {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-texto-gris-claro);
+    display: block;
+}
+
+.prod-cat-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-texto-gris);
+    margin-bottom: 14px;
+    margin-top: 32px;
+}
+
+/* --------------------------------------------------------
+   SECCIÓN BÚSQUEDA + FILTROS + LISTA
+   -------------------------------------------------------- */
+#prod-busqueda {
+    background: var(--color-fondo-oscuro);
+    padding: 80px 0;
+}
+
+/* input de búsqueda dinámica */
+.prod-buscador {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto 36px;
+}
+
+.prod-buscador i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-texto-gris);
+    pointer-events: none;
+}
+
+#inputBusqueda {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: 50px;
+    color: var(--color-texto-claro);
+    font-family: var(--fuente-principal);
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transicion);
+}
+
+#inputBusqueda:focus {
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 3px var(--color-acento-glow);
+}
+
+#inputBusqueda::placeholder {
+    color: var(--color-texto-gris);
+}
+
+/* botones de filtro estático */
+.prod-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.prod-filtros-label {
+    width: 100%;
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-texto-gris);
+    margin: 8px 0 2px;
+}
+
+.filtro-btn {
+    padding: 8px 22px;
+    border-radius: 50px;
+    border: 1px solid var(--color-borde);
+    background: transparent;
+    color: var(--color-texto-gris-claro);
+    font-family: var(--fuente-principal);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.filtro-btn:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+}
+
+.filtro-btn.activo {
+    background: var(--color-acento);
+    border-color: var(--color-acento);
+    color: #fff;
+    box-shadow: 0 4px 14px var(--color-acento-glow);
+}
+
+/* contador de resultados */
+#prod-contador {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--color-texto-gris);
+    margin: 28px 0 36px;
+    min-height: 20px;
+}
+
+/* grid de cards (extiende .js-productos-grid de main.css) */
+.prod-lista-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* badge tipo: Producto / Servicio */
+.prod-tipo-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    z-index: 2;
+}
+
+.prod-badge-producto {
+    background: rgba(0, 113, 227, 0.88);
+    color: #fff;
+}
+
+.prod-badge-servicio {
+    background: rgba(0, 195, 120, 0.88);
+    color: #fff;
+}
+
+/* mensaje sin resultados */
+#prod-sin-resultados {
+    display: none;
+    text-align: center;
+    padding: 60px 0;
+}
+
+#prod-sin-resultados i {
+    font-size: 2.8rem;
+    color: var(--color-texto-gris);
+    display: block;
+    margin-bottom: 16px;
+}
+
+#prod-sin-resultados p {
+    font-size: 1rem;
+    color: var(--color-texto-gris);
+}
+
+/* --------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------- */
+@media (max-width: 992px) {
+    .prod-cats-grid,
+    .prod-cats-grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .prod-lista-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .prod-slide { height: 380px; }
+
+    .prod-cats-grid,
+    .prod-cats-grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .prod-lista-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .prod-cats-grid,
+    .prod-cats-grid-servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXR TECH - Productos & Servicios</title>
+    <link rel="icon" type="image/x-icon" href="img/nxrtech.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Bootstrap 5 (solo para el carousel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Estilos del proyecto -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/productos.css">
+</head>
+
+<body>
+
+    <!-- =============================================
+         NAVBAR
+         ============================================= -->
+    <header id="navbar">
+        <div class="ep-navbar-bar">
+            <nav class="container">
+                <a href="inicio.html" class="nav-logo">
+                    <img src="img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="productos.html" style="color: var(--color-acento);">Productos</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#" class="nav-cta">Contactos</a></li>
+                </ul>
+                <button class="nav-hamburger" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- =============================================
+             CAROUSEL / PORTADA (Bootstrap)
+             ============================================= -->
+        <section id="prod-carousel">
+            <div id="carouselProductos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
+
+                <!-- indicadores -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="2"></button>
+                </div>
+
+                <!-- slides -->
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <div class="prod-slide" style="background-image: url('img/catalogo/banner/banner-1.jpg');">
+                            <div class="prod-slide-contenido">
+                                <h2>Catálogo <span>NXR TECH</span></h2>
+                                <p>Encuentra los mejores productos tecnológicos y servicios especializados en un solo lugar.</p>
+                                <a href="#prod-busqueda" class="btn-primario">Ver catálogo →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="prod-slide" style="background-image: url('img/catalogo/banner/banner-2.jpg');">
+                            <div class="prod-slide-contenido">
+                                <h2>Tecnología <span>de Punta</span></h2>
+                                <p>Teléfonos, laptops, gaming y componentes de las mejores marcas del mercado.</p>
+                                <a href="#prod-busqueda" class="btn-primario">Ver productos →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="prod-slide" style="background-image: url('img/catalogo/banner/banner-3.jpg');">
+                            <div class="prod-slide-contenido">
+                                <h2>Servicios <span>Especializados</span></h2>
+                                <p>Soporte, mantenimiento, reparación e instalación con técnicos certificados.</p>
+                                <a href="#prod-busqueda" class="btn-primario">Ver servicios →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- controles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductos" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProductos" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- =============================================
+             CATEGORÍAS (sección visual — no filtra)
+             ============================================= -->
+        <section id="prod-categorias">
+            <div class="container">
+
+                <div class="prod-seccion-header">
+                    <span class="prod-badge"><i class="fas fa-th-large"></i> Categorías</span>
+                    <h2 class="prod-seccion-titulo">Explora Nuestras Categorías</h2>
+                    <p class="prod-seccion-subtitulo">Productos tecnológicos y servicios especializados para cada necesidad.</p>
+                </div>
+
+                <!-- Productos -->
+                <p class="prod-cat-label"><i class="fas fa-box"></i> Productos</p>
+                <div class="prod-cats-grid">
+                    <div class="prod-cat-card">
+                        <i class="fas fa-mobile-screen-button"></i>
+                        <span class="cat-nombre">Teléfonos</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-laptop"></i>
+                        <span class="cat-nombre">Laptops</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-gamepad"></i>
+                        <span class="cat-nombre">Gaming</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-headphones"></i>
+                        <span class="cat-nombre">Accesorios</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-microchip"></i>
+                        <span class="cat-nombre">Componentes</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-desktop"></i>
+                        <span class="cat-nombre">Monitores</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-tablet-screen-button"></i>
+                        <span class="cat-nombre">Tablets</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-tv"></i>
+                        <span class="cat-nombre">Smart TV</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-print"></i>
+                        <span class="cat-nombre">Impresoras</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-clock"></i>
+                        <span class="cat-nombre">Wearables</span>
+                    </div>
+                </div>
+
+                <!-- Servicios -->
+                <p class="prod-cat-label"><i class="fas fa-tools"></i> Servicios</p>
+                <div class="prod-cats-grid-servicios">
+                    <div class="prod-cat-card">
+                        <i class="fas fa-headset"></i>
+                        <span class="cat-nombre">Soporte</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-screwdriver-wrench"></i>
+                        <span class="cat-nombre">Mantenimiento</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-hammer"></i>
+                        <span class="cat-nombre">Reparación</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-download"></i>
+                        <span class="cat-nombre">Instalación</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <span class="cat-nombre">Asesoría</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-shield-halved"></i>
+                        <span class="cat-nombre">Ciberseguridad</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-pen-nib"></i>
+                        <span class="cat-nombre">Diseño Digital</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-network-wired"></i>
+                        <span class="cat-nombre">Networking</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-cloud"></i>
+                        <span class="cat-nombre">Cloud &amp; Backup</span>
+                    </div>
+                    <div class="prod-cat-card">
+                        <i class="fas fa-code"></i>
+                        <span class="cat-nombre">Desarrollo Web</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =============================================
+             BÚSQUEDA + FILTROS + LISTA DE PRODUCTOS
+             ============================================= -->
+        <section id="prod-busqueda">
+            <div class="container">
+
+                <div class="prod-seccion-header">
+                    <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
+                    <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
+                    <p class="prod-seccion-subtitulo">Busca en tiempo real o filtra por categoría. 120 ítems disponibles.</p>
+                </div>
+
+                <!-- Buscador dinámico (oninput) -->
+                <div class="prod-buscador">
+                    <i class="fas fa-search"></i>
+                    <input
+                        type="text"
+                        id="inputBusqueda"
+                        oninput="filtrar()"
+                        placeholder="Buscar producto o servicio..."
+                        autocomplete="off">
+                </div>
+
+                <!-- Filtros estáticos (onclick) -->
+                <div class="prod-filtros">
+
+                    <!-- Categorías grandes -->
+                    <p class="prod-filtros-label">Categoría</p>
+                    <button class="filtro-btn activo" onclick="setFiltro('todos', this)">
+                        Todos (120)
+                    </button>
+                    <button class="filtro-btn" onclick="setFiltro('Producto', this)">
+                        <i class="fas fa-box"></i> Productos
+                    </button>
+                    <button class="filtro-btn" onclick="setFiltro('Servicio', this)">
+                        <i class="fas fa-tools"></i> Servicios
+                    </button>
+
+                    <!-- Subcategorías de productos -->
+                    <p class="prod-filtros-label">Subcategoría — Productos</p>
+                    <button class="filtro-btn" onclick="setFiltro('Teléfonos', this)">Teléfonos</button>
+                    <button class="filtro-btn" onclick="setFiltro('Laptops', this)">Laptops</button>
+                    <button class="filtro-btn" onclick="setFiltro('Gaming', this)">Gaming</button>
+                    <button class="filtro-btn" onclick="setFiltro('Accesorios', this)">Accesorios</button>
+                    <button class="filtro-btn" onclick="setFiltro('Componentes', this)">Componentes</button>
+                    <button class="filtro-btn" onclick="setFiltro('Monitores', this)">Monitores</button>
+                    <button class="filtro-btn" onclick="setFiltro('Tablets', this)">Tablets</button>
+                    <button class="filtro-btn" onclick="setFiltro('Smart TV', this)">Smart TV</button>
+                    <button class="filtro-btn" onclick="setFiltro('Impresoras', this)">Impresoras</button>
+                    <button class="filtro-btn" onclick="setFiltro('Wearables', this)">Wearables</button>
+
+                    <!-- Subcategorías de servicios -->
+                    <p class="prod-filtros-label">Subcategoría — Servicios</p>
+                    <button class="filtro-btn" onclick="setFiltro('Soporte', this)">Soporte</button>
+                    <button class="filtro-btn" onclick="setFiltro('Mantenimiento', this)">Mantenimiento</button>
+                    <button class="filtro-btn" onclick="setFiltro('Reparación', this)">Reparación</button>
+                    <button class="filtro-btn" onclick="setFiltro('Instalación', this)">Instalación</button>
+                    <button class="filtro-btn" onclick="setFiltro('Asesoría', this)">Asesoría</button>
+                    <button class="filtro-btn" onclick="setFiltro('Ciberseguridad', this)">Ciberseguridad</button>
+                    <button class="filtro-btn" onclick="setFiltro('Diseño Digital', this)">Diseño Digital</button>
+                    <button class="filtro-btn" onclick="setFiltro('Networking', this)">Networking</button>
+                    <button class="filtro-btn" onclick="setFiltro('Cloud &amp; Backup', this)">Cloud &amp; Backup</button>
+                    <button class="filtro-btn" onclick="setFiltro('Desarrollo Web', this)">Desarrollo Web</button>
+
+                </div>
+
+                <!-- Contador de resultados -->
+                <p id="prod-contador"></p>
+
+                <!-- Grid de cards (renderizado por productos.js) -->
+                <div id="prod-lista" class="prod-lista-grid"></div>
+
+                <!-- Sin resultados -->
+                <div id="prod-sin-resultados">
+                    <i class="fas fa-search-minus"></i>
+                    <p>No se encontraron resultados para tu búsqueda.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-top">
+
+                <div class="footer-marca">
+                    <a href="inicio.html" class="nav-logo">
+                        <img src="img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
+                    </a>
+                    <p class="footer-descripcion">
+                        Tu aliado en soluciones tecnológicas completas. Comercializamos teléfonos,
+                        computadoras y accesorios, y ofrecemos soporte técnico, mantenimiento y
+                        asesoría especializada con calidad y confianza.
+                    </p>
+                    <p class="footer-redes-titulo">Síguenos en redes</p>
+                    <div class="footer-redes">
+                        <a href="https://www.facebook.com/NXRDuroCorp/" target="_blank" class="red-social facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/nxrdigitalsolution/" target="_blank" class="red-social instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/nxrt_io" target="_blank" class="red-social twitter" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://wa.me/51912016161" target="_blank" class="red-social whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@nxr.projects" target="_blank" class="red-social tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-asociadas">
+                    <p class="footer-asociadas-label">Empresas Asociadas</p>
+                    <div class="footer-asociadas-lista">
+                        <a href="https://www.intel.com" target="_blank" class="footer-asociadas-item">
+                            <img src="img/logo-intel.svg" alt="Intel">
+                        </a>
+                        <a href="https://www.nvidia.com" target="_blank" class="footer-asociadas-item">
+                            <img src="img/logo-nvidia.svg" alt="NVIDIA">
+                        </a>
+                        <a href="https://www.samsung.com" target="_blank" class="footer-asociadas-item">
+                            <img src="img/logo-samsung.svg" alt="Samsung">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-ubicacion">
+                <div class="footer-mapa-info">
+                    <h4><i class="fas fa-map-marker-alt"></i> Encuéntranos</h4>
+                    <p>Edificio Gerpal, Av Alfredo Benavides 768, Miraflores, Lima<br>Lima, Perú<br><br>
+                        <i class="fas fa-clock" style="color:var(--color-acento);margin-right:6px;"></i>Lun - Sab: 9am - 7pm<br>
+                        <i class="fas fa-phone" style="color:var(--color-acento);margin-right:6px;"></i>+51 999 888 777
+                    </p>
+                </div>
+                <div class="footer-mapa-wrapper">
+                    <iframe title="Ubicación de NXR TECH en Google Maps"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.807089340955!2d-77.02765046312203!3d-12.125347888167074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81ec97e7907%3A0x18b4e5cf9fd504b9!2sNextech%20Education%20Center!5e0!3m2!1ses-419!2spe!4v1775803092590!5m2!1ses-419!2spe"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 NXR TECH. Todos los derechos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (necesario para el carousel) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts del proyecto -->
+    <script src="js/main.js"></script>
+    <script src="js/producto.js"></script>
+    <script src="js/datos.js"></script>
+    <script src="js/busqueda.js"></script>
+
+</body>
+
+</html>
