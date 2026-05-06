@@ -87,8 +87,11 @@ ul {
 
 /* ------------------------------------------------------------
    ANIMACIONES BASE
+   TODO: estas clases se usarán más adelante para animar
+   elementos al hacer scroll. Por ahora ningún elemento
+   del HTML las tiene asignadas.
    ------------------------------------------------------------ */
-.animar {
+/* .animar {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s ease, transform 0.7s ease;
@@ -102,7 +105,7 @@ ul {
 .animar-delay-1 { transition-delay: 0.1s; }
 .animar-delay-2 { transition-delay: 0.2s; }
 .animar-delay-3 { transition-delay: 0.3s; }
-.animar-delay-4 { transition-delay: 0.4s; }
+.animar-delay-4 { transition-delay: 0.4s; } */
 
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
