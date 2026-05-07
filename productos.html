@@ -227,10 +227,10 @@
                 <div class="prod-seccion-header">
                     <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
                     <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
-                    <p class="prod-seccion-subtitulo">Busca en tiempo real o filtra por categoría. 120 ítems disponibles.</p>
+                    <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120 ítems disponibles.</p>
                 </div>
 
-                <!-- Buscador dinámico (oninput) -->
+                <!-- Buscador dinámico (oninput) — ancho completo -->
                 <div class="prod-buscador">
                     <i class="fas fa-search"></i>
                     <input
@@ -241,59 +241,100 @@
                         autocomplete="off">
                 </div>
 
-                <!-- Filtros estáticos (onclick) -->
-                <div class="prod-filtros">
+                <!-- Layout: sidebar de filtros + área de resultados -->
+                <div class="prod-busqueda-layout">
 
-                    <!-- Categorías grandes -->
-                    <p class="prod-filtros-label">Categoría</p>
-                    <button class="filtro-btn activo" onclick="setFiltro('todos', this)">
-                        Todos (120)
-                    </button>
-                    <button class="filtro-btn" onclick="setFiltro('Producto', this)">
-                        <i class="fas fa-box"></i> Productos
-                    </button>
-                    <button class="filtro-btn" onclick="setFiltro('Servicio', this)">
-                        <i class="fas fa-tools"></i> Servicios
-                    </button>
+                    <!-- SIDEBAR: Filtros estáticos (onclick) -->
+                    <aside class="prod-sidebar">
+                        <div class="prod-sidebar-header">
+                            <p class="prod-sidebar-titulo"><i class="fas fa-sliders"></i> Filtros</p>
+                            <button class="btn-limpiar" onclick="limpiarFiltros()">
+                                <i class="fas fa-rotate-left"></i> Limpiar
+                            </button>
+                        </div>
 
-                    <!-- Subcategorías de productos -->
-                    <p class="prod-filtros-label">Subcategoría — Productos</p>
-                    <button class="filtro-btn" onclick="setFiltro('Teléfonos', this)">Teléfonos</button>
-                    <button class="filtro-btn" onclick="setFiltro('Laptops', this)">Laptops</button>
-                    <button class="filtro-btn" onclick="setFiltro('Gaming', this)">Gaming</button>
-                    <button class="filtro-btn" onclick="setFiltro('Accesorios', this)">Accesorios</button>
-                    <button class="filtro-btn" onclick="setFiltro('Componentes', this)">Componentes</button>
-                    <button class="filtro-btn" onclick="setFiltro('Monitores', this)">Monitores</button>
-                    <button class="filtro-btn" onclick="setFiltro('Tablets', this)">Tablets</button>
-                    <button class="filtro-btn" onclick="setFiltro('Smart TV', this)">Smart TV</button>
-                    <button class="filtro-btn" onclick="setFiltro('Impresoras', this)">Impresoras</button>
-                    <button class="filtro-btn" onclick="setFiltro('Wearables', this)">Wearables</button>
+                        <p class="prod-filtros-label">Categoría</p>
+                        <div class="prod-filtros-col">
+                            <button id="btn-todos" class="filtro-btn activo" onclick="setFiltro('todos', this)">Todos (120)</button>
+                            <button id="btn-productos" class="filtro-btn" onclick="setFiltro('Producto', this)">
+                                <i class="fas fa-box"></i> Productos
+                            </button>
+                            <button id="btn-servicios" class="filtro-btn" onclick="setFiltro('Servicio', this)">
+                                <i class="fas fa-tools"></i> Servicios
+                            </button>
+                        </div>
 
-                    <!-- Subcategorías de servicios -->
-                    <p class="prod-filtros-label">Subcategoría — Servicios</p>
-                    <button class="filtro-btn" onclick="setFiltro('Soporte', this)">Soporte</button>
-                    <button class="filtro-btn" onclick="setFiltro('Mantenimiento', this)">Mantenimiento</button>
-                    <button class="filtro-btn" onclick="setFiltro('Reparación', this)">Reparación</button>
-                    <button class="filtro-btn" onclick="setFiltro('Instalación', this)">Instalación</button>
-                    <button class="filtro-btn" onclick="setFiltro('Asesoría', this)">Asesoría</button>
-                    <button class="filtro-btn" onclick="setFiltro('Ciberseguridad', this)">Ciberseguridad</button>
-                    <button class="filtro-btn" onclick="setFiltro('Diseño Digital', this)">Diseño Digital</button>
-                    <button class="filtro-btn" onclick="setFiltro('Networking', this)">Networking</button>
-                    <button class="filtro-btn" onclick="setFiltro('Cloud &amp; Backup', this)">Cloud &amp; Backup</button>
-                    <button class="filtro-btn" onclick="setFiltro('Desarrollo Web', this)">Desarrollo Web</button>
+                        <p class="prod-filtros-label">Subcategoría — Productos</p>
+                        <select id="selectProductos" class="filtro-select" onchange="setFiltroSelect(this)">
+                            <option value="">— Todas las categorías —</option>
+                            <option value="Teléfonos">Teléfonos</option>
+                            <option value="Laptops">Laptops</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Componentes">Componentes</option>
+                            <option value="Monitores">Monitores</option>
+                            <option value="Tablets">Tablets</option>
+                            <option value="Smart TV">Smart TV</option>
+                            <option value="Impresoras">Impresoras</option>
+                            <option value="Wearables">Wearables</option>
+                        </select>
 
-                </div>
+                        <p class="prod-filtros-label">Subcategoría — Servicios</p>
+                        <select id="selectServicios" class="filtro-select" onchange="setFiltroSelect(this)">
+                            <option value="">— Todos los servicios —</option>
+                            <option value="Soporte">Soporte</option>
+                            <option value="Mantenimiento">Mantenimiento</option>
+                            <option value="Reparación">Reparación</option>
+                            <option value="Instalación">Instalación</option>
+                            <option value="Asesoría">Asesoría</option>
+                            <option value="Ciberseguridad">Ciberseguridad</option>
+                            <option value="Diseño Digital">Diseño Digital</option>
+                            <option value="Networking">Networking</option>
+                            <option value="Cloud &amp; Backup">Cloud &amp; Backup</option>
+                            <option value="Desarrollo Web">Desarrollo Web</option>
+                        </select>
 
-                <!-- Contador de resultados -->
-                <p id="prod-contador"></p>
+                        <p class="prod-filtros-label">Precio (S/.)</p>
+                        <div class="precio-slider-container">
+                            <div class="precio-slider-track-wrapper">
+                                <div class="precio-slider-track">
+                                    <div class="precio-slider-range" id="sliderRange"></div>
+                                </div>
+                                <input type="range" id="sliderMin" class="precio-range"
+                                       min="0" max="10000" value="0" step="100"
+                                       oninput="actualizarSliderVisual()"
+                                       onchange="updateSlider('min')">
+                                <input type="range" id="sliderMax" class="precio-range"
+                                       min="0" max="10000" value="10000" step="100"
+                                       oninput="actualizarSliderVisual()"
+                                       onchange="updateSlider('max')">
+                            </div>
+                            <div class="precio-display">
+                                <span id="displayMin">S/. 0</span>
+                                <span id="displayMax">S/. 10,000+</span>
+                            </div>
+                        </div>
+                    </aside>
 
-                <!-- Grid de cards (renderizado por productos.js) -->
-                <div id="prod-lista" class="prod-lista-grid"></div>
+                    <!-- CONTENIDO PRINCIPAL: barra superior + grid + sin resultados -->
+                    <div class="prod-main">
+                        <div class="prod-main-barra">
+                            <p id="prod-contador"></p>
+                            <select id="selectOrden" class="filtro-select prod-orden-select" onchange="setOrden(this)">
+                                <option value="relevancia">Relevancia</option>
+                                <option value="precio-asc">Precio: menor a mayor</option>
+                                <option value="precio-desc">Precio: mayor a menor</option>
+                                <option value="nombre-az">Nombre: A → Z</option>
+                                <option value="nombre-za">Nombre: Z → A</option>
+                            </select>
+                        </div>
+                        <div id="prod-lista" class="prod-lista-grid"></div>
+                        <div id="prod-sin-resultados">
+                            <i class="fas fa-search-minus"></i>
+                            <p>No se encontraron resultados para tu búsqueda.</p>
+                        </div>
+                    </div>
 
-                <!-- Sin resultados -->
-                <div id="prod-sin-resultados">
-                    <i class="fas fa-search-minus"></i>
-                    <p>No se encontraron resultados para tu búsqueda.</p>
                 </div>
 
             </div>
