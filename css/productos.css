@@ -4,10 +4,30 @@
    ============================================================ */
 
 /* --------------------------------------------------------
+   NAVBAR — fondo oscuro fijo (no hay hero de pantalla completa)
+   En inicio.html el hero está dentro del header, por eso la
+   navbar puede ser transparente. Aquí se fuerza el estado oscuro.
+   -------------------------------------------------------- */
+#navbar .ep-navbar-bar {
+    background-color: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* Bootstrap interfiere con el ancestro de posicionamiento de .nav-links.
+   Forzamos position:relative en el nav para que left:50% siempre se
+   calcule relativo al contenedor centrado, igual que en inicio.html. */
+#navbar .ep-navbar-bar nav {
+    position: relative;
+}
+
+/* --------------------------------------------------------
    CAROUSEL / PORTADA (Bootstrap override al tema oscuro)
    -------------------------------------------------------- */
 #prod-carousel {
-    padding-top: 80px; /* compensa navbar fija */
+    /* Sin padding-top: el carousel arranca desde y=0 igual que el
+       hero de inicio.html. La navbar flota encima de la imagen. */
 }
 
 .prod-slide {
@@ -32,7 +52,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 24px;
+    padding: 80px 24px 0; /* top: compensa altura de la navbar fija */
     gap: 16px;
 }
 
@@ -322,6 +342,49 @@
 #prod-sin-resultados p {
     font-size: 1rem;
     color: var(--color-texto-gris);
+}
+
+/* --------------------------------------------------------
+   PAGINACIÓN
+   -------------------------------------------------------- */
+.prod-paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    grid-column: 1 / -1; /* ocupa todo el ancho del grid */
+}
+
+.pag-btn {
+    padding: 8px 14px;
+    border: 1px solid var(--color-borde, #333);
+    background: transparent;
+    color: var(--color-texto);
+    border-radius: var(--radio-borde, 8px);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.pag-btn:hover:not(:disabled) {
+    background: var(--color-acento);
+    border-color: var(--color-acento);
+    color: #fff;
+}
+
+.pag-btn.pag-activo {
+    background: var(--color-acento);
+    border-color: var(--color-acento);
+    color: #fff;
+    font-weight: 600;
+}
+
+.pag-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
 }
 
 /* --------------------------------------------------------
