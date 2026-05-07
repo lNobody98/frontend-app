@@ -6,9 +6,13 @@
 
 
 // ============================================================
-//  ESTADO DEL FILTRO ACTIVO
+//  ESTADO
 // ============================================================
-let filtroActivo = "todos";
+let filtroActivo      = "todos";
+let paginaActual      = 1;
+let resultadoFiltrado = [];
+
+const POR_PAGINA = 12;
 
 
 // ============================================================
@@ -37,6 +41,7 @@ function setFiltro(filtro, btn) {
 
 // ============================================================
 //  FILTRAR — dinámico (oninput en el buscador)
+//  Solo calcula el array completo y delega en renderizar()
 // ============================================================
 function filtrar() {
     let resultado = listaProductos;
@@ -54,14 +59,28 @@ function filtrar() {
         resultado = resultado.filter(item => norm(item.nombre).includes(texto));
     }
 
-    renderizar(resultado);
+    // Guardar resultado completo y reiniciar página antes de renderizar
+    resultadoFiltrado = resultado;
+    paginaActual      = 1;
+    renderizar();
+}
+
+
+// ============================================================
+//  CAMBIAR PÁGINA
+// ============================================================
+function irAPagina(n) {
+    paginaActual = n;
+    renderizar();
+    document.getElementById("prod-busqueda").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 
 // ============================================================
 //  RENDERIZAR CARDS EN EL DOM
 // ============================================================
-function renderizar(lista) {
+function renderizar() {
+    const lista         = resultadoFiltrado;
     const contenedor    = document.getElementById("prod-lista");
     const sinResultados = document.getElementById("prod-sin-resultados");
     const contador      = document.getElementById("prod-contador");
@@ -77,7 +96,13 @@ function renderizar(lista) {
 
     sinResultados.style.display = "none";
 
-    contenedor.innerHTML = lista.map(item => `
+    // Recorte de página (independiente del filtrado)
+    const totalPaginas = Math.ceil(lista.length / POR_PAGINA);
+    const inicio       = (paginaActual - 1) * POR_PAGINA;
+    const pagina       = lista.slice(inicio, inicio + POR_PAGINA);
+
+    // Cards
+    let html = pagina.map(item => `
         <div class="js-producto">
             <div class="js-producto-img-wrapper">
                 <img src="${item.imagen}" alt="${item.nombre}" class="js-producto-img">
@@ -95,6 +120,19 @@ function renderizar(lista) {
             </div>
         </div>
     `).join("");
+
+    // Paginación (solo aparece si hay más de una página)
+    if (totalPaginas > 1) {
+        html += '<div class="prod-paginacion">';
+        html += `<button class="pag-btn" ${paginaActual === 1 ? "disabled" : ""} onclick="irAPagina(${paginaActual - 1})">&#8592; Anterior</button>`;
+        for (let i = 1; i <= totalPaginas; i++) {
+            html += `<button class="pag-btn ${i === paginaActual ? "pag-activo" : ""}" onclick="irAPagina(${i})">${i}</button>`;
+        }
+        html += `<button class="pag-btn" ${paginaActual === totalPaginas ? "disabled" : ""} onclick="irAPagina(${paginaActual + 1})">Siguiente &#8594;</button>`;
+        html += '</div>';
+    }
+
+    contenedor.innerHTML = html;
 }
 
 
