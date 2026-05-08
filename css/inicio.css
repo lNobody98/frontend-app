@@ -1,204 +1,11 @@
 /* ============================================================
-   main.css — NXR TECH
-   Aquí se irán agregando los CSS de cada integrante
-   conforme hagan sus pull requests.
+   inicio.css — NXR TECH
+   Estilos exclusivos de inicio.html
    ============================================================ */
 
 /* ------------------------------------------------------------
-   ENRIQUE PRADA — Navbar + Hero + Footer
+   ENRIQUE PRADA — Hero
    ------------------------------------------------------------ */
-
-/* BOTONES GLOBALES */
-.btn-primario {
-    display: inline-block;
-    background-color: var(--color-acento);
-    color: #fff;
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: var(--transicion);
-    letter-spacing: 0.5px;
-}
-
-.btn-primario:hover {
-    background-color: var(--color-acento-hover);
-    box-shadow: 0 0 20px var(--color-acento-glow);
-    transform: translateY(-2px);
-}
-
-.btn-secundario {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--color-texto-claro);
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: var(--transicion);
-}
-
-.btn-secundario:hover {
-    border-color: var(--color-acento);
-    color: var(--color-acento);
-    transform: translateY(-2px);
-}
-
-/* NAVBAR */
-.ep-navbar-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: var(--transicion);
-    padding: 20px 0;
-    background-color: transparent;
-}
-
-header.scrolled .ep-navbar-bar {
-    background-color: rgba(13, 13, 13, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 12px 0;
-    border-bottom: 1px solid var(--color-borde);
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav-logo {
-    display: flex;
-    align-items: center;
-}
-
-.nav-logo-img {
-    height: 45px;
-    width: auto;
-    object-fit: contain;
-}
-
-.nav-links {
-    display: flex;
-    gap: 36px;
-    align-items: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links a {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--color-texto-gris-claro);
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-acento);
-    transition: var(--transicion);
-}
-
-.nav-links a:hover { color: var(--color-texto-claro); }
-.nav-links a:hover::after { width: 100%; }
-
-.nav-cta {
-    background-color: transparent;
-    color: var(--color-texto-claro) !important;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600 !important;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.nav-cta:hover {
-    border-color: var(--color-acento);
-    color: var(--color-acento) !important;
-}
-
-.nav-cta::after { display: none !important; }
-
-.nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 4px;
-}
-
-.nav-hamburger span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background-color: var(--color-texto-claro);
-    border-radius: 2px;
-    transition: var(--transicion);
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: static;
-        transform: none;
-    }
-    .nav-hamburger { display: flex; }
-
-    .nav-links.nav-abierto {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        transform: none;
-        width: 100%;
-        background-color: #0d0d0d;
-        padding: 8px 0 16px;
-        gap: 0;
-        border-bottom: 1px solid var(--color-borde);
-        z-index: 999;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    }
-
-    .nav-links.nav-abierto li a {
-        display: block;
-        padding: 14px 24px;
-        font-size: 1rem;
-        color: var(--color-texto-gris-claro);
-        border-bottom: 1px solid var(--color-borde);
-    }
-
-    .nav-links.nav-abierto li a:hover {
-        color: var(--color-texto-claro);
-        background-color: rgba(255,255,255,0.04);
-    }
-
-    .nav-links.nav-abierto li:last-child a {
-        margin: 12px 24px 0;
-        border-bottom: none;
-        text-align: center;
-        border-radius: 50px;
-        padding: 12px 24px;
-    }
-}
-
-/* HERO */
 #ep-hero {
     min-height: 100vh;
     display: flex;
@@ -326,212 +133,8 @@ nav {
     .ep-hero-titulo { font-size: 2rem; }
 }
 
-/* FOOTER */
-footer {
-    background-color: #080808;
-    padding: 70px 0 30px;
-    border-top: 1px solid var(--color-borde);
-}
-
-.footer-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-    margin-bottom: 48px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid var(--color-borde);
-}
-
-.footer-marca {
-    max-width: 380px;
-}
-
-.footer-ubicacion {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 32px;
-    align-items: start;
-    margin-bottom: 40px;
-}
-
-.footer-mapa-wrapper {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--color-borde);
-    width: 100%;
-    height: 240px;
-}
-
-.footer-mapa-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    display: block;
-    filter: grayscale(30%) invert(90%) hue-rotate(180deg);
-}
-
-.footer-descripcion {
-    font-size: 0.875rem;
-    color: var(--color-texto-gris);
-    line-height: 1.8;
-    margin-bottom: 24px;
-    max-width: 280px;
-}
-
-.footer-redes-titulo {
-    font-size: 0.8rem;
-    color: var(--color-texto-gris);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    font-weight: 600;
-}
-
-.footer-redes {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.red-social {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background-color: var(--color-fondo-medio);
-    border: 1px solid var(--color-borde);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    transition: var(--transicion);
-    cursor: pointer;
-    color: var(--color-texto-claro);
-    text-decoration: none;
-}
-
-.red-social:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
-.red-social.facebook:hover  { background-color: #1877f2; border-color: #1877f2; }
-.red-social.instagram:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: #e6683c; }
-.red-social.twitter:hover   { background-color: #000; border-color: #555; }
-.red-social.whatsapp:hover  { background-color: #25d366; border-color: #25d366; }
-.red-social.tiktok:hover    { background-color: #010101; border-color: #69c9d0; }
-
-.footer-mapa-info h4 {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--color-texto-claro);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-}
-
-.footer-mapa-info h4 i { color: var(--color-acento); margin-right: 8px; }
-
-.footer-mapa-info p {
-    font-size: 0.875rem;
-    color: var(--color-texto-gris);
-    line-height: 1.7;
-}
-
-.footer-col h4 {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--color-texto-claro);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
-.footer-col ul { display: flex; flex-direction: column; gap: 12px; }
-
-.footer-col ul li a {
-    font-size: 0.875rem;
-    color: var(--color-texto-gris);
-    transition: var(--transicion);
-}
-
-.footer-col ul li a:hover { color: var(--color-acento); padding-left: 4px; }
-
-.footer-asociadas {
-    padding-top: 8px;
-}
-
-.footer-asociadas-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    color: var(--color-texto-gris);
-    margin-bottom: 16px;
-}
-
-.footer-asociadas-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.footer-asociadas-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(255, 255, 255, 0.03);
-    transition: var(--transicion);
-    text-decoration: none;
-}
-
-.footer-asociadas-item:hover {
-    border-color: rgba(255, 255, 255, 0.18);
-    background: rgba(255, 255, 255, 0.07);
-    transform: translateX(4px);
-}
-
-.footer-asociadas-item img {
-    height: 22px;
-    width: auto;
-    opacity: 0.45;
-    transition: var(--transicion);
-    flex-shrink: 0;
-}
-
-.footer-asociadas-item:hover img {
-    opacity: 1;
-}
-
-
-.footer-bottom {
-    border-top: 1px solid var(--color-borde);
-    padding-top: 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.footer-bottom p { font-size: 0.8rem; color: var(--color-texto-gris); }
-.footer-bottom-links { display: flex; gap: 24px; }
-.footer-bottom-links a { font-size: 0.8rem; color: var(--color-texto-gris); }
-.footer-bottom-links a:hover { color: var(--color-acento); }
-
-@media (max-width: 768px) {
-    .footer-top { grid-template-columns: 1fr; gap: 40px; }
-    .footer-marca { max-width: 100%; }
-    .footer-asociadas-lista { flex-direction: row; flex-wrap: wrap; }
-    .footer-asociadas-item { flex: 1 1 calc(50% - 5px); }
-    .footer-ubicacion { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-}
-
-@media (max-width: 480px) {
-    .footer-asociadas-item { flex: 1 1 100%; }
-}
-
 /* ------------------------------------------------------------
-   JUAN MORALES — Video + Contador
+   JUAN MORALES — Video
    ------------------------------------------------------------ */
 #jm-video {
     background: var(--color-fondo-medio);
@@ -540,7 +143,6 @@ footer {
     font-family: var(--fuente-principal);
 }
 
-/* HEADER */
 .jm-video-header {
     max-width: 600px;
     margin: 0 auto 48px;
@@ -553,13 +155,10 @@ footer {
     letter-spacing: 1px;
     color: var(--color-acento);
     font-weight: 600;
-
     padding: 6px 14px;
     border-radius: 999px;
-
-    background: rgba(0, 123, 255, 0.1); /* efecto suave */
+    background: rgba(0, 123, 255, 0.1);
     border: 1px solid rgba(0, 123, 255, 0.25);
-
     margin-bottom: 16px;
 }
 
@@ -577,7 +176,6 @@ footer {
     line-height: 1.6;
 }
 
-/* VIDEO */
 .jm-video-wrapper {
     max-width: 900px;
     margin: 0 auto 40px;
@@ -592,52 +190,44 @@ footer {
     display: block;
 }
 
-/* BOTÓN */
 .jm-video-boton {
     text-align: center;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
-    .jm-video-titulo {
-        font-size: 2rem;
-    }
-
-    .jm-video-wrapper {
-        max-width: 100%;
-    }
+    .jm-video-titulo { font-size: 2rem; }
+    .jm-video-wrapper { max-width: 100%; }
 }
+
+/* ------------------------------------------------------------
+   JUAN MORALES — Contador
+   ------------------------------------------------------------ */
 #jm-contador {
     background: var(--color-fondo-oscuro);
-    padding: 80px 0; 
+    padding: 80px 0;
     border-top: 1px solid var(--color-borde);
     border-bottom: 1px solid var(--color-borde);
     font-family: var(--fuente-principal);
 }
 
-
 .jm-contador-grid {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; 
-    
+    padding: 0 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
-
     text-align: center;
 }
-
 
 .jm-contador-item {
     padding: 20px;
     transition: var(--transicion);
-
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    min-height: 120px; 
+    min-height: 120px;
 }
 
 .jm-contador-item:hover {
@@ -653,7 +243,6 @@ footer {
     color: var(--color-acento);
 }
 
-
 .jm-contador-label {
     margin: 0;
     font-size: 0.9rem;
@@ -663,29 +252,18 @@ footer {
     color: var(--color-texto-gris-claro);
 }
 
-
 @media (max-width: 768px) {
-    .jm-contador-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .jm-contador-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-
 @media (max-width: 480px) {
-    #jm-contador {
-        padding: 60px 0;
-    }
-
-    .jm-contador-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
+    #jm-contador { padding: 60px 0; }
+    .jm-contador-grid { grid-template-columns: 1fr; gap: 24px; }
 }
 
 /* ------------------------------------------------------------
    MAYKOL CALLE — Soluciones
    ------------------------------------------------------------ */
-/* Contenedor Principal de la Sección */
 .mc-S {
     background-color: var(--color-fondo-claro);
     padding: 80px 20px;
@@ -693,10 +271,9 @@ footer {
     font-family: var(--fuente-principal);
 }
 
-/* Encabezado */
 .mc-contenedor-header {
     max-width: 800px;
-    margin: 0 auto 50px; 
+    margin: 0 auto 50px;
 }
 
 .mc-titulo-pequeno {
@@ -706,11 +283,12 @@ footer {
     border-radius: 20px;
     font-size: 0.78rem;
     font-weight: 600;
-    display: inline-flex;  
-    align-items: center;   
-    gap: 8px;                
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 20px;
 }
+
 .mc-titulo-pequeno i {
     font-size: 14px;
 }
@@ -729,7 +307,6 @@ footer {
     font-size: 16px;
 }
 
-/* Grid de Tarjetas */
 .mc-grid-tarjetas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -738,30 +315,28 @@ footer {
     margin: 0 auto;
 }
 
-/* Estilo de cada Tarjeta Individual */
 .mc-tarjeta-item {
     background-color: #ffffff;
     padding: 40px 30px;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 2px solid transparent; 
+    border: 2px solid transparent;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
+
 .mc-tarjeta-item:hover {
     transform: translateY(-10px);
     border-color: var(--color-acento);
     box-shadow: 0 15px 35px rgba(0, 113, 227, 0.15);
 }
 
-/* Agregado por Enrique Prada — efecto de movimiento en el ícono al hacer hover */
 .mc-tarjeta-item:hover .mc-icon-bg {
     background-color: rgba(0, 113, 227, 0.15);
     transform: scale(1.05);
 }
 
-/* Fondo del Icono */
 .mc-icon-bg {
     background-color: #f1f5ff;
     width: 70px;
@@ -779,7 +354,6 @@ footer {
     height: auto;
 }
 
-/* Textos dentro de la tarjeta */
 .mc-tarjeta-item h3 {
     font-size: 18px;
     color: #111;
@@ -794,9 +368,8 @@ footer {
 }
 
 /* ------------------------------------------------------------
-   JOEL SALDANA — Productos
+   JOEL SALDAÑA — Sección Productos (inicio.html)
    ------------------------------------------------------------ */
-
 #js-productos {
   background-color: var(--color-fondo-oscuro);
   padding: 100px 0;
@@ -840,6 +413,17 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
+}
+
+.js-catalogo-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .js-productos-grid { grid-template-columns: 1fr; }
+  .js-productos-titulo { font-size: 2rem; }
 }
 
 .js-producto {
@@ -925,45 +509,28 @@ footer {
   text-align: center;
 }
 
-.js-catalogo-btn {
-  display: flex;
-  justify-content: center;
-  margin-top: 48px;
-}
-
-@media (max-width: 768px) {
-  .js-productos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .js-productos-titulo {
-    font-size: 2rem;
-  }
-}
-
 /* ------------------------------------------------------------
    CHRISTIAN DIAZ — Testimonios
    ------------------------------------------------------------ */
-
-.cd-section{
+.cd-section {
   background: var(--color-fondo-claro);
   padding: 100px 0;
   color: var(--color-texto-oscuro);
   font-family: var(--fuente-principal);
 }
-.cd-header{
+
+.cd-header {
   max-width: 600px;
   margin: 0 auto 64px;
   text-align: center;
 }
 
-.cd-badge{
+.cd-badge {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-acento);
-  /* CONTORNO ICONO*/
   background-color: rgba(0, 113, 227, 0.1);
   display: inline-flex;
   align-items: center;
@@ -972,12 +539,11 @@ footer {
   border-radius: 50px;
 }
 
-.cd-badge i{
+.cd-badge i {
   font-size: 14px;
   color: var(--color-acento);
 }
 
-/* ENCABEZADO */
 .cd-titulo {
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
@@ -991,15 +557,13 @@ footer {
   font-size: 1rem;
 }
 
-/* COLUMNAS */
-.cd-grid{
+.cd-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
 
-/* CARD */
-.cd-card{
+.cd-card {
   background: #fff;
   border-radius: var(--radio-borde);
   padding: 36px 28px;
@@ -1008,13 +572,13 @@ footer {
   transition: var(--transicion);
 }
 
-.cd-card:hover{
+.cd-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 40px rgba(0,113,227,0.12);
   border-color: var(--color-acento);
 }
 
-.cd-comilla{
+.cd-comilla {
   font-size: 4rem;
   color: var(--color-acento);
   font-family: Georgia;
@@ -1022,27 +586,27 @@ footer {
   margin-bottom: 20px;
 }
 
-.cd-texto{
+.cd-texto {
   font-size: 0.95rem;
   color: var(--color-texto-gris);
   line-height: 1.8;
   margin-bottom: 24px;
 }
 
-.cd-estrellas{
+.cd-estrellas {
   color: #f5a623;
   font-size: 1rem;
   letter-spacing: 2px;
   margin-bottom: 20px;
 }
 
-.cd-autor{
+.cd-autor {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-.cd-avatar{
+.cd-avatar {
   width: 46px;
   height: 46px;
   border-radius: 50%;
@@ -1055,35 +619,30 @@ footer {
   background: linear-gradient(135deg, var(--color-acento), #00c8ff);
 }
 
-.cd-nombre{
+.cd-nombre {
   font-weight: 700;
   font-size: 0.9rem;
   color: var(--color-texto-oscuro);
 }
 
-.cd-cargo{
+.cd-cargo {
   font-size: 0.8rem;
   color: var(--color-texto-gris);
 }
 
-/* RESPONSIVA */
-@media (max-width: 768px){
-  .cd-grid{
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+  .cd-grid { grid-template-columns: 1fr; }
 }
 
 /* ------------------------------------------------------------
-   XIOMARA SOLIS — Noticias + CTA
+   XIOMARA SOLIS — Noticias
    ------------------------------------------------------------ */
-
 #xs-noticias {
   background: var(--color-fondo-claro);
   padding: 100px 20px;
   text-align: center;
 }
 
-/* HEADER */
 .xs-header {
   max-width: 600px;
   margin: 0 auto 64px;
@@ -1121,7 +680,6 @@ footer {
   margin: 0 auto;
 }
 
-/* GRID */
 .xs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1129,7 +687,6 @@ footer {
   width: 100%;
 }
 
-/* CARD */
 .xs-card {
   background: #fff;
   border-radius: var(--radio-borde);
@@ -1139,20 +696,17 @@ footer {
   transition: var(--transicion);
 }
 
-/* IMAGEN */
 .xs-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-/* CONTENIDO */
 .xs-card-content {
   padding: 24px;
   text-align: left;
 }
 
-/* META */
 .xs-meta {
   display: flex;
   gap: 12px;
@@ -1175,7 +729,6 @@ footer {
   color: var(--color-texto-gris);
 }
 
-/* TEXTO */
 .xs-card h3 {
   font-size: 1rem;
   font-weight: 700;
@@ -1191,7 +744,6 @@ footer {
   margin-bottom: 20px;
 }
 
-/* LINK */
 .xs-leer-mas {
   font-size: 0.875rem;
   font-weight: 600;
@@ -1207,13 +759,11 @@ footer {
   gap: 10px;
 }
 
-/* HOVER CARD */
 .xs-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 16px 40px rgba(0,113,227,0.15);
 }
 
-/* BOTÓN FINAL */
 .xs-footer {
   margin-top: 40px;
   text-align: center;
@@ -1235,15 +785,13 @@ footer {
   color: #fff;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
-  .xs-grid {
-    grid-template-columns: 1fr;
-  }
+  .xs-grid { grid-template-columns: 1fr; }
 }
 
-/*CTA*/
-
+/* ------------------------------------------------------------
+   XIOMARA SOLIS — CTA
+   ------------------------------------------------------------ */
 #xs-cta {
   background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
   padding: 100px 20px;
@@ -1251,7 +799,6 @@ footer {
   position: relative;
 }
 
-/* efecto de luz */
 #xs-cta::before {
   content: "";
   position: absolute;
@@ -1266,14 +813,12 @@ footer {
   );
 }
 
-/* contenedor */
 .xs-cta-contenido {
   max-width: 700px;
   margin: 0 auto;
   position: relative;
 }
 
-/* badge (ÚNETE A NXR TECH) */
 .xs-cta-badge {
   display: inline-block;
   color: var(--color-acento);
@@ -1287,12 +832,10 @@ footer {
   margin-bottom: 20px;
 }
 
-/* icono */
 .xs-cta-badge i {
   margin-right: 6px;
 }
 
-/* título */
 #xs-cta h2 {
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
@@ -1301,14 +844,12 @@ footer {
   margin-bottom: 20px;
 }
 
-/* texto */
 #xs-cta p {
   font-size: 1rem;
   color: var(--color-texto-gris-claro);
   margin-bottom: 40px;
 }
 
-/* botones */
 .xs-cta-botones {
   display: flex;
   gap: 16px;
@@ -1316,7 +857,6 @@ footer {
   flex-wrap: wrap;
 }
 
-/* responsive */
 @media (max-width: 480px) {
   .xs-cta-botones {
     flex-direction: column;
