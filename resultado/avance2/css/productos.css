@@ -10,7 +10,7 @@
    - RESULTADOS (.mc-*)   → Maykol Calle
    - CARDS (.js-producto) → Maykol Calle
    - PAGINACIÓN (.mc-pag*)→ Maykol Calle
-   - RESPONSIVE           → cada uno en su bloque
+   - RESPONSIVE           → inline en cada sección (no hay bloque al final)
 
    Los estilos globales (variables, reset, navbar base, footer,
    botones .btn-primario/.btn-secundario) están en base.css y
@@ -83,11 +83,6 @@
    TU TAREA: ajustar altura de slides (.jm-slide height),
    colores del gradiente (::before), tamaño de texto o animaciones.
    -------------------------------------------------------- */
-#prod-carousel {
-    /* Sin padding-top: el carousel arranca desde y=0 igual que el
-       hero de inicio.html. La navbar flota encima de la imagen. */
-}
-
 .jm-slide {
     height: 650px;
     background-size: cover;
@@ -156,6 +151,12 @@
     opacity: 1;
 }
 
+/* En tablets y móviles el slide se acorta para que el contenido
+   sea visible sin necesidad de hacer scroll */
+@media (max-width: 768px) {
+    .jm-slide { height: 380px; }
+}
+
 /* ============================================================
    CABECERA DE SECCIÓN — patrón reutilizado en todas las secciones
 
@@ -218,7 +219,7 @@
    El prefijo xs- corresponde a Xiomara Solis.
 
    TU TAREA: ajustar diseño de cards, colores hover, tamaño de íconos.
-   En responsive (al final del archivo) los grids pasan a 3 y 2 columnas.
+   En responsive (justo debajo de esta sección) los grids pasan de 5 a 3 y a 2 columnas.
    -------------------------------------------------------- */
 #prod-categorias {
     background: var(--color-fondo-medio);
@@ -277,6 +278,30 @@
     color: var(--color-texto-gris);
     margin-bottom: 14px;
     margin-top: 32px;
+}
+
+/* Tablet landscape: de 5 columnas a 3 — las cards siguen legibles */
+@media (max-width: 992px) {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet portrait / móvil grande: se mantienen 3 columnas */
+@media (max-width: 768px) {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Móvil pequeño: de 3 columnas a 2 para que las cards no queden diminutas */
+@media (max-width: 480px) {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* ============================================================
@@ -583,6 +608,31 @@
     color: var(--color-acento);
 }
 
+/* Tablet landscape: el sidebar deja de ser sticky y se apila encima
+   del grid de resultados (una sola columna en lugar de sidebar + contenido) */
+@media (max-width: 992px) {
+    .prod-busqueda-layout {
+        grid-template-columns: 1fr; /* sidebar y resultados apilados verticalmente */
+    }
+    .js-sidebar {
+        position: static;   /* deja de pegarse al scroll */
+        max-height: none;
+        overflow-y: visible;
+    }
+    /* botones de filtro pasan a flujo horizontal con wrap */
+    .js-filtros-col {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .js-filtro-btn {
+        width: auto;        /* cada botón solo ocupa el espacio necesario */
+        text-align: center;
+        border-radius: 50px;
+        padding: 7px 18px;
+    }
+}
+
 /* barra superior del área de resultados: contador + ordenar */
 .mc-main-barra {
     display: flex;
@@ -833,73 +883,16 @@
     cursor: not-allowed;
 }
 
-/* ============================================================
-   RESPONSIVE — cada responsable debe mantener sus propias reglas
-
-   Los breakpoints del proyecto son:
-   - max-width: 992px → tablet landscape (sidebar pasa arriba)
-   - max-width: 768px → tablet portrait / móvil grande
-   - max-width: 480px → móvil pequeño
-
-   REGLAS POR RESPONSABLE:
-   - Christian Diaz  → navbar (ya manejado por Bootstrap collapse)
-   - Juan Morales    → .jm-slide height (650px → 380px en 768px)
-   - Xiomara Solis   → .xs-cats-grid columns (5 → 3 → 2)
-   - Joel Saldaña    → .js-sidebar (sticky → static), .js-filtros-col wrap
-   - Maykol Calle    → .mc-lista-grid columns (3 → 2 → 1)
-   -------------------------------------------------------- */
+/* Tablet landscape: el grid pasa de 3 columnas a 2 */
 @media (max-width: 992px) {
-    /* sidebar pasa a estar arriba del grid */
-    .prod-busqueda-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .js-sidebar {
-        position: static;
-        max-height: none;
-        overflow-y: visible;
-    }
-
-    /* filtros vuelven a ser horizontal wrapping */
-    .js-filtros-col {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .js-filtro-btn {
-        width: auto;
-        text-align: center;
-        border-radius: 50px;
-        padding: 7px 18px;
-    }
-
-    .xs-cats-grid,
-    .xs-cats-grid-servicios {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
     .mc-lista-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* Móvil: una sola columna para que las cards tengan espacio suficiente */
 @media (max-width: 768px) {
-    .jm-slide { height: 380px; }
-
-    .xs-cats-grid,
-    .xs-cats-grid-servicios {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
     .mc-lista-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .xs-cats-grid,
-    .xs-cats-grid-servicios {
-        grid-template-columns: repeat(2, 1fr);
     }
 }

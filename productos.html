@@ -64,18 +64,51 @@
         <!-- =============================================
              BÚSQUEDA + FILTROS — Joel Saldaña
              LISTA DE RESULTADOS  — Maykol Calle
+
+             IMPORTANTE: cada uno trabaja en su bloque.
+             No tocar el bloque del otro.
+             Referencia completa: resultado/avance2/productos.html
              ============================================= -->
-        <!-- ELIMINAR este bloque al empezar tu sección -->
         <section id="prod-busqueda">
-            <div style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;">
-                <div>
+            <div class="container">
+
+                <!-- Cabecera decorativa — sin responsable asignado -->
+                <div class="prod-seccion-header">
+                    <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
+                    <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
+                    <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120 ítems disponibles.</p>
+                </div>
+
+                <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner tu código ════
+                     Incluye: buscador dinámico + aside.js-sidebar completo
+                     Ver referencia: resultado/avance2/productos.html -->
+                <div style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 48px 32px; text-align: center; font-family: sans-serif; margin-bottom: 16px;">
                     <strong style="font-size: 1rem;">JOEL SALDAÑA</strong><br>
-                    <span style="font-size: 0.85rem; color: #666;">Búsqueda + Filtros — input dinámico (oninput) y sidebar<br>con botones, selects de subcategoría y slider de precio</span>
+                    <span style="font-size: 0.85rem; color: #666;">Búsqueda dinámica (oninput) + sidebar con botones,<br>selects de subcategoría y slider de precio</span>
                 </div>
-                <div style="border-left: 2px dashed #aaa; padding-left: 32px;">
-                    <strong style="font-size: 1rem;">MAYKOL CALLE</strong><br>
-                    <span style="font-size: 0.85rem; color: #666;">Lista de resultados — barra de orden, grid de cards<br>generado por listado.js y mensaje sin resultados</span>
+                <!-- ════ JOEL SALDAÑA — FIN PLACEHOLDER ════ -->
+
+                <div class="prod-busqueda-layout">
+
+                    <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner aside.js-sidebar ════ -->
+                    <div style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 60px 16px; text-align: center; font-family: sans-serif;">
+                        <strong>JOEL</strong><br>
+                        <span style="font-size: 0.8rem; color: #666;">aside.js-sidebar<br>(filtros)</span>
+                    </div>
+                    <!-- ════ JOEL SALDAÑA — FIN ════ -->
+
+                    <!-- ════ MAYKOL CALLE — ELIMINAR este placeholder y poner div.mc-main ════
+                         Incluye: barra de orden + #prod-lista + #prod-sin-resultados
+                         Para testear solo: agrega renderizar(listaProductos) al final de listado.js
+                         Ver referencia: resultado/avance2/productos.html -->
+                    <div style="border: 2px dashed #0071e3; background: #f0f6ff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif; flex: 1;">
+                        <strong style="font-size: 1rem;">MAYKOL CALLE</strong><br>
+                        <span style="font-size: 0.85rem; color: #666;">div.mc-main — barra de orden, grid de cards<br>generado por listado.js y mensaje sin resultados</span>
+                    </div>
+                    <!-- ════ MAYKOL CALLE — FIN ════ -->
+
                 </div>
+
             </div>
         </section>
 
