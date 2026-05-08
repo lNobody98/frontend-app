@@ -28,19 +28,28 @@
 
     <!-- =============================================
          NAVBAR — Christian Diaz
+
+         ⚠️ IMPORTANTE: el <header id="navbar"> también contiene
+         el CAROUSEL de Juan Morales. NO agregues </header> al
+         final de tu sección — ya está colocado después del carousel.
+
+         Referencia completa: resultado/avance2/productos.html
          ============================================= -->
     <!-- ELIMINAR este bloque al empezar tu sección -->
     <header id="navbar">
         <div style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 24px 32px; text-align: center; font-family: sans-serif;">
             <strong style="font-size: 1rem;">CHRISTIAN DIAZ</strong><br>
-            <span style="font-size: 0.85rem; color: #666;">Navbar — barra de navegación fija con logo, links y menú hamburguesa (Bootstrap collapse)</span>
+            <span style="font-size: 0.85rem; color: #666;">Navbar — barra de navegación fija con logo, links y menú hamburguesa (Bootstrap collapse)</span><br>
+            <span style="font-size: 0.8rem; color: #c00;">⚠️ No cierres &lt;/header&gt; aquí — el carousel de Juan también va dentro del header</span>
         </div>
-    </header>
-
-    <main>
 
         <!-- =============================================
              CAROUSEL — Juan Morales
+
+             ⚠️ IMPORTANTE: este section va DENTRO del <header>.
+             El </header> se cierra después de tu </section>.
+
+             Referencia completa: resultado/avance2/productos.html
              ============================================= -->
         <!-- ELIMINAR este bloque al empezar tu sección -->
         <section id="prod-carousel">
@@ -49,6 +58,10 @@
                 <span style="font-size: 0.85rem; color: #666;">Carousel — 6 slides con imagen de fondo, título, descripción y botón CTA (Bootstrap Carousel)</span>
             </div>
         </section>
+
+    </header>
+
+    <main>
 
         <!-- =============================================
              CATEGORÍAS — Xiomara Solis

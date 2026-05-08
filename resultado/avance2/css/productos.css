@@ -57,6 +57,7 @@
     font-size: inherit;
 }
 
+/* Escritorio: el collapse no empuja links hacia la derecha */
 @media (min-width: 769px) {
     #navbar .navbar-collapse {
         flex-basis: auto;
