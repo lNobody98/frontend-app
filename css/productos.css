@@ -48,21 +48,21 @@
        hero de inicio.html. La navbar flota encima de la imagen. */
 }
 
-.prod-slide {
+.jm-slide {
     height: 650px;
     background-size: cover;
     background-position: center;
     position: relative;
 }
 
-.prod-slide::before {
+.jm-slide::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(120deg, rgba(5,10,20,0.72) 0%, rgba(10,22,40,0.50) 100%);
 }
 
-.prod-slide-contenido {
+.jm-slide-contenido {
     position: absolute;
     inset: 0;
     display: flex;
@@ -74,7 +74,7 @@
     gap: 16px;
 }
 
-.prod-slide-contenido h2 {
+.jm-slide-contenido h2 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2rem, 5vw, 3.8rem);
     font-weight: 800;
@@ -83,11 +83,11 @@
     margin: 0;
 }
 
-.prod-slide-contenido h2 span {
+.jm-slide-contenido h2 span {
     color: var(--color-acento);
 }
 
-.prod-slide-contenido p {
+.jm-slide-contenido p {
     font-size: 1rem;
     color: var(--color-texto-gris-claro);
     max-width: 500px;
@@ -160,20 +160,20 @@
     border-bottom: 1px solid var(--color-borde);
 }
 
-.prod-cats-grid {
+.xs-cats-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
     margin-bottom: 16px;
 }
 
-.prod-cats-grid-servicios {
+.xs-cats-grid-servicios {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
 }
 
-.prod-cat-card {
+.xs-cat-card {
     background: var(--color-fondo-card);
     border: 1px solid var(--color-borde);
     border-radius: var(--radio-borde);
@@ -182,27 +182,27 @@
     transition: var(--transicion);
 }
 
-.prod-cat-card:hover {
+.xs-cat-card:hover {
     border-color: var(--color-acento);
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(0, 113, 227, 0.15);
 }
 
-.prod-cat-card i {
+.xs-cat-card i {
     font-size: 1.8rem;
     color: var(--color-acento);
     margin-bottom: 10px;
     display: block;
 }
 
-.prod-cat-card .cat-nombre {
+.xs-cat-card .xs-cat-nombre {
     font-size: 0.82rem;
     font-weight: 600;
     color: var(--color-texto-gris-claro);
     display: block;
 }
 
-.prod-cat-label {
+.xs-cat-label {
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -221,13 +221,13 @@
 }
 
 /* input de búsqueda dinámica */
-.prod-buscador {
+.js-buscador {
     position: relative;
     max-width: 560px;
     margin: 0 auto 36px;
 }
 
-.prod-buscador i {
+.js-buscador i {
     position: absolute;
     left: 18px;
     top: 50%;
@@ -268,7 +268,7 @@
 }
 
 /* sidebar pegajosa */
-.prod-sidebar {
+.js-sidebar {
     position: sticky;
     top: 80px;
     background: var(--color-fondo-card);
@@ -279,7 +279,7 @@
     overflow-y: auto;
 }
 
-.prod-sidebar-header {
+.js-sidebar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -288,7 +288,7 @@
     border-bottom: 1px solid var(--color-borde);
 }
 
-.prod-sidebar-titulo {
+.js-sidebar-titulo {
     font-size: 0.9rem;
     font-weight: 700;
     color: var(--color-texto-claro);
@@ -298,7 +298,7 @@
     margin: 0;
 }
 
-.btn-limpiar {
+.js-btn-limpiar {
     background: transparent;
     border: none;
     color: var(--color-texto-gris);
@@ -312,12 +312,12 @@
     transition: var(--transicion);
 }
 
-.btn-limpiar:hover {
+.js-btn-limpiar:hover {
     color: var(--color-acento);
 }
 
 /* columna vertical de filtros dentro del sidebar */
-.prod-filtros-col {
+.js-filtros-col {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -325,7 +325,7 @@
 }
 
 /* labels de filtro */
-.prod-filtros-label {
+.js-filtros-label {
     font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -335,7 +335,7 @@
 }
 
 /* botones de filtro — base */
-.filtro-btn {
+.js-filtro-btn {
     padding: 8px 14px;
     border-radius: 8px;
     border: 1px solid var(--color-borde);
@@ -350,13 +350,13 @@
     text-align: left;
 }
 
-.filtro-btn:hover {
+.js-filtro-btn:hover {
     border-color: var(--color-acento);
     color: var(--color-acento);
     background: rgba(0, 113, 227, 0.06);
 }
 
-.filtro-btn.activo {
+.js-filtro-btn.activo {
     background: var(--color-acento);
     border-color: var(--color-acento);
     color: #fff;
@@ -364,7 +364,7 @@
 }
 
 /* selects de subcategoría */
-.filtro-select {
+.js-filtro-select {
     width: 100%;
     padding: 9px 36px 9px 14px;
     background: var(--color-fondo-oscuro);
@@ -383,34 +383,34 @@
     background-position: right 12px center;
 }
 
-.filtro-select:focus {
+.js-filtro-select:focus {
     border-color: var(--color-acento);
     box-shadow: 0 0 0 3px var(--color-acento-glow);
 }
 
-.filtro-select option {
+.js-filtro-select option {
     background: var(--color-fondo-card);
     color: var(--color-texto-claro);
 }
 
-.filtro-select:disabled {
+.js-filtro-select:disabled {
     opacity: 0.35;
     cursor: not-allowed;
     border-color: transparent;
 }
 
 /* slider dual de precio */
-.precio-slider-container {
+.js-precio-slider-container {
     padding: 4px 0 4px;
 }
 
-.precio-slider-track-wrapper {
+.js-precio-slider-track-wrapper {
     position: relative;
     height: 40px;
     margin: 6px 0;
 }
 
-.precio-slider-track {
+.js-precio-slider-track {
     position: absolute;
     top: 50%;
     left: 0;
@@ -422,7 +422,7 @@
     pointer-events: none;
 }
 
-.precio-slider-range {
+.js-precio-slider-range {
     position: absolute;
     height: 100%;
     background: var(--color-acento);
@@ -431,7 +431,7 @@
     width: 100%;
 }
 
-.precio-range {
+.js-precio-range {
     position: absolute;
     top: 0;
     left: 0;
@@ -446,7 +446,7 @@
     outline: none;
 }
 
-.precio-range::-webkit-slider-thumb {
+.js-precio-range::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 16px;
     height: 16px;
@@ -459,11 +459,11 @@
     transition: box-shadow 0.2s;
 }
 
-.precio-range::-webkit-slider-thumb:hover {
+.js-precio-range::-webkit-slider-thumb:hover {
     box-shadow: 0 0 0 5px var(--color-acento-glow);
 }
 
-.precio-range::-moz-range-thumb {
+.js-precio-range::-moz-range-thumb {
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -474,20 +474,20 @@
     box-shadow: 0 0 0 2px var(--color-acento);
 }
 
-.precio-display {
+.js-precio-display {
     display: flex;
     justify-content: space-between;
     margin-top: 6px;
 }
 
-.precio-display span {
+.js-precio-display span {
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--color-acento);
 }
 
 /* barra superior del área de resultados: contador + ordenar */
-.prod-main-barra {
+.mc-main-barra {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -504,21 +504,21 @@
 }
 
 /* select de orden — ancho automático, no full-width */
-.prod-orden-select {
+.mc-orden-select {
     width: auto;
     min-width: 190px;
     font-size: 0.8rem;
 }
 
 /* grid de cards (extiende .js-productos-grid de main.css) */
-.prod-lista-grid {
+.mc-lista-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
 }
 
 /* badge tipo: Producto / Servicio */
-.prod-tipo-badge {
+.mc-tipo-badge {
     position: absolute;
     top: 14px;
     right: 14px;
@@ -531,12 +531,12 @@
     z-index: 2;
 }
 
-.prod-badge-producto {
+.mc-badge-producto {
     background: rgba(0, 113, 227, 0.88);
     color: #fff;
 }
 
-.prod-badge-servicio {
+.mc-badge-servicio {
     background: rgba(0, 195, 120, 0.88);
     color: #fff;
 }
@@ -563,7 +563,7 @@
 /* --------------------------------------------------------
    PAGINACIÓN
    -------------------------------------------------------- */
-.prod-paginacion {
+.mc-paginacion {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -573,7 +573,7 @@
     grid-column: 1 / -1; /* ocupa todo el ancho del grid */
 }
 
-.pag-btn {
+.mc-pag-btn {
     padding: 8px 14px;
     border: 1px solid var(--color-borde, #333);
     background: transparent;
@@ -585,20 +585,20 @@
     transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
-.pag-btn:hover:not(:disabled) {
+.mc-pag-btn:hover:not(:disabled) {
     background: var(--color-acento);
     border-color: var(--color-acento);
     color: #fff;
 }
 
-.pag-btn.pag-activo {
+.mc-pag-btn.mc-pag-activo {
     background: var(--color-acento);
     border-color: var(--color-acento);
     color: #fff;
     font-weight: 600;
 }
 
-.pag-btn:disabled {
+.mc-pag-btn:disabled {
     opacity: 0.35;
     cursor: not-allowed;
 }
@@ -612,52 +612,52 @@
         grid-template-columns: 1fr;
     }
 
-    .prod-sidebar {
+    .js-sidebar {
         position: static;
         max-height: none;
         overflow-y: visible;
     }
 
     /* filtros vuelven a ser horizontal wrapping */
-    .prod-filtros-col {
+    .js-filtros-col {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 8px;
     }
 
-    .filtro-btn {
+    .js-filtro-btn {
         width: auto;
         text-align: center;
         border-radius: 50px;
         padding: 7px 18px;
     }
 
-    .prod-cats-grid,
-    .prod-cats-grid-servicios {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .prod-lista-grid {
+    .mc-lista-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .prod-slide { height: 380px; }
+    .jm-slide { height: 380px; }
 
-    .prod-cats-grid,
-    .prod-cats-grid-servicios {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .prod-lista-grid {
+    .mc-lista-grid {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 480px) {
-    .prod-cats-grid,
-    .prod-cats-grid-servicios {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
         grid-template-columns: repeat(2, 1fr);
     }
 }
