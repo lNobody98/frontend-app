@@ -11,6 +11,8 @@
 //  ── QUÉ HACE ESTE ARCHIVO ───────────────────────────────────
 //  Define la clase Producto: el molde (blueprint) que describe
 //  qué atributos y qué métodos tiene cada ítem del catálogo.
+//  Por convención en e-commerce, "Producto" abarca tanto bienes
+//  físicos como servicios — la propiedad `tipo` los distingue.
 //  Debe cargarse ANTES que datos.js en el HTML porque datos.js
 //  usa `new Producto(...)` y necesita que la clase ya exista.
 //

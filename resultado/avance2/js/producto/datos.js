@@ -12,8 +12,8 @@
 //  ── QUÉ HACE ESTE ARCHIVO ───────────────────────────────────
 //  Define el array global listaProductos con los 120 ítems del
 //  catálogo: 60 Productos + 60 Servicios, agrupados en
-//  10 subcategorías cada uno. Cada ítem es una instancia de la
-//  clase Producto definida en producto.js.
+//  10 subcategorías cada uno. Por convención en e-commerce,
+//  "Producto" abarca ambos — la propiedad `tipo` los distingue.
 //  filtros.js y listado.js consumen este array para filtrar y
 //  renderizar el catálogo dinámicamente.
 //
@@ -38,26 +38,24 @@
 //      tipo,         → "Producto" | "Servicio"  ← EXACTAMENTE así, con mayúscula
 //      subcategoria, → ver lista de subcategorías válidas más abajo
 //      precio,       → entero en soles (ej: 3499). Usar 0 para "Gratis"
-//      marca,        → fabricante o proveedor  (ej: "Apple", "Samsung")
+//      marca,        → fabricante o proveedor  (ej: "Apple", "NXR TECH")
 //      descripcion,  → texto corto para la card (máx. 2 líneas recomendado)
 //      imagen        → ruta relativa a la imagen.
-//                      ⚠️  LA RUTA DEPENDE DE DÓNDE ESTÁ ESTE ARCHIVO:
-//
-//                      Este archivo está en:
-//                        resultado/avance2/js/producto/datos.js
-//                      Las imágenes están en:
-//                        img/catalogo/  (carpeta raíz del proyecto)
-//                      Por eso la ruta sube 4 niveles con "../../":
-//                        "../../img/catalogo/productos/p-XX.jpg"
-//                        "../../img/catalogo/servicios/s-XX.jpg"
-//
-//                      Si copias este archivo a otra carpeta distinta,
-//                      debes contar cuántos niveles tienes que subir
-//                      hasta llegar a la carpeta raíz y ajustar
-//                      los "../" en consecuencia.
-//                      Ejemplo: si estuviera en la raíz del proyecto,
-//                      la ruta sería simplemente "img/catalogo/..."
 //    )
+//
+//  ⚠️  LA RUTA DE IMAGEN DEPENDE DE DÓNDE ESTÁ ESTE ARCHIVO:
+//
+//      Este archivo está en:
+//        resultado/avance2/js/producto/datos.js
+//      Las imágenes están en:
+//        img/catalogo/  (carpeta raíz del proyecto)
+//      Por eso la ruta sube 4 niveles con "../../":
+//        "../../img/catalogo/productos/p-XX.jpg"
+//        "../../img/catalogo/servicios/s-XX.jpg"
+//
+//      En el archivo principal  js/producto/datos.js  la ruta es:
+//        "img/catalogo/productos/p-XX.jpg"   (sin los "../../")
+//      porque ese archivo está en la raíz del proyecto.
 //
 //  SUBCATEGORÍAS VÁLIDAS:
 //  El valor debe coincidir EXACTAMENTE (mayúsculas y tildes incluidas)
@@ -75,7 +73,7 @@
 //    "Cloud & Backup"  | "Desarrollo Web"
 //
 //  DEPENDENCIAS (este archivo debe cargarse DESPUÉS de producto.js):
-//  - producto.js → define la clase Producto usada en cada new Producto(...)
+//  - producto.js → define ItemCatalogo, Producto y Servicio
 // ============================================================
 
 const listaProductos = [

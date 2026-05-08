@@ -1,14 +1,9 @@
-// ============================================================
-//  Producto.js — NXR TECH
-//  Definición de la clase Producto (POO)
-// ============================================================
-
 class Producto {
 
     constructor(id, nombre, tipo, subcategoria, precio, marca, descripcion, imagen) {
         this.id           = id;
         this.nombre       = nombre;
-        this.tipo         = tipo;           // "Producto" | "Servicio"
+        this.tipo         = tipo;
         this.subcategoria = subcategoria;
         this.precio       = precio;
         this.marca        = marca;

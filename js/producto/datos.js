@@ -1,8 +1,3 @@
-// ============================================================
-//  datos.js — NXR TECH
-//  ArrayList: 60 Productos + 60 Servicios = 120 ítems (10 subcategorías c/u)
-//  Requiere: producto.js
-// ============================================================
 
 const listaProductos = [
 

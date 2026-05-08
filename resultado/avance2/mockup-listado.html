@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--
+    ============================================================
+    mockup-listado.html — NXR TECH
+    PARA: Maykol Calle
+
+    PROPÓSITO:
+    Este archivo es un MOCKUP ESTÁTICO. Su único objetivo es que
+    veas exactamente cómo debe verse una card antes de escribir
+    una sola línea de JavaScript.
+
+    PROCESO RECOMENDADO:
+    1. Lee este HTML y entiende la estructura de una card.
+    2. Ajusta los estilos en css/productos.css hasta que se vea bien.
+    3. Recién ahí lleva esa estructura a listado.js como template literal.
+    4. Elimina este archivo cuando ya no lo necesites.
+
+    IMPORTANTE:
+    Las 6 cards de abajo son FALSAS (datos escritos a mano).
+    En listado.js las generarás dinámicamente usando Array.map()
+    sobre los objetos reales de listaProductos (datos.js).
+    ============================================================
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup Cards — Maykol Calle</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="css/productos.css">
+</head>
+
+<body>
+
+    <div class="container" style="padding-top: 60px; padding-bottom: 80px;">
+
+        <!-- ================================================
+             PASO 1 — Lee esto antes de codear
+             ================================================ -->
+        <div style="background: #1e1e1e; border: 1px solid rgba(0,113,227,0.4); border-radius: 14px; padding: 32px; margin-bottom: 48px;">
+            <h2 style="color: #0071e3; font-size: 1.1rem; margin-bottom: 16px;">
+                <i class="fas fa-lightbulb"></i> &nbsp;Guía para Maykol Calle — Cómo funcionan las cards
+            </h2>
+            <ol style="color: #a1a1a6; font-size: 0.9rem; line-height: 2; padding-left: 20px;">
+                <li>Debajo hay <strong style="color:#f5f5f7;">6 cards estáticas</strong> con HTML escrito a mano. Así deben verse las cards reales.</li>
+                <li>Estudia la estructura HTML de una card (están comentadas línea por línea más abajo).</li>
+                <li>Ajusta los estilos en <code style="color:#0071e3;">css/productos.css</code> en la sección "CARDS DE PRODUCTO" hasta que quede perfecto.</li>
+                <li>Cuando estés conforme, ve a <code style="color:#0071e3;">js/producto/listado.js</code> y dentro de <code style="color:#0071e3;">_pintar()</code> usa <code style="color:#0071e3;">Array.map()</code> para generar el mismo HTML dinámicamente con los datos reales del array.</li>
+                <li>Los valores que ves escritos a mano (<em>"iPhone 16 Pro"</em>, <em>"S/ 5,499.00"</em>, etc.) en JS los reemplazas por <code style="color:#0071e3;">${item.nombre}</code>, <code style="color:#0071e3;">${item.getPrecioTexto()}</code>, etc.</li>
+            </ol>
+        </div>
+
+        <!-- ================================================
+             ESTRUCTURA DE UNA CARD (con anotaciones)
+             ================================================ -->
+        <h3 style="color: #f5f5f7; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; opacity: 0.5;">
+            Estructura de una card — lee los comentarios del HTML
+        </h3>
+
+        <!--
+            GRID que contiene las cards.
+            En listado.js esto ya existe en el HTML: <div id="prod-lista" class="mc-lista-grid">
+            Tú inyectas las cards dentro con: contenedor.innerHTML = html
+        -->
+        <div class="mc-lista-grid">
+
+
+            <!-- ============================================
+                 CARD 1 — Producto (tipo = "Producto")
+                 ============================================ -->
+            <div class="js-producto">
+
+                <!-- Wrapper de la imagen — posición relative para el badge -->
+                <div class="js-producto-img-wrapper">
+
+                    <!-- Imagen del producto → en JS: src="${item.imagen}" -->
+                    <img
+                        src="../../img/catalogo/productos/p-01.jpg"
+                        alt="iPhone 16 Pro"
+                        class="js-producto-img">
+
+                    <!--
+                        Badge que muestra si es "Producto" o "Servicio".
+                        Clases dinámicas en JS:
+                          mc-badge-producto → fondo azul
+                          mc-badge-servicio → fondo verde
+                        En JS: mc-badge-${item.tipo.toLowerCase()}
+                               y el texto: ${item.tipo}
+                    -->
+                    <span class="mc-tipo-badge mc-badge-producto">Producto</span>
+
+                </div>
+
+                <!-- Contenido de texto de la card -->
+                <div class="js-producto-contenido">
+
+                    <!-- Subcategoría · Marca → en JS: ${item.subcategoria} · ${item.marca} -->
+                    <h5 class="js-producto-categoria">Teléfonos · Apple</h5>
+
+                    <!-- Nombre → en JS: ${item.nombre} -->
+                    <h3 class="js-producto-titulo">iPhone 16 Pro</h3>
+
+                    <!-- Descripción → en JS: ${item.descripcion} -->
+                    <p class="js-producto-descripcion">
+                        Pantalla Super Retina XDR 6.3", chip A18 Pro, cámara 48 MP zoom 5x.
+                    </p>
+
+                    <!-- Precio → en JS: ${item.getPrecioTexto()} llama el método de la clase -->
+                    <span class="js-producto-precio">S/ 5,499.00</span>
+
+                    <!-- Botones — estos son estáticos, no cambian -->
+                    <div class="js-producto-botones">
+                        <button class="btn-primario">Consultar</button>
+                        <button class="btn-secundario">Ver más</button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIN CARD 1 -->
+
+
+            <!-- ============================================
+                 CARD 2 — Producto
+                 ============================================ -->
+            <div class="js-producto">
+                <div class="js-producto-img-wrapper">
+                    <img src="../../img/catalogo/productos/p-04.jpg" alt="MacBook Air M4" class="js-producto-img">
+                    <span class="mc-tipo-badge mc-badge-producto">Producto</span>
+                </div>
+                <div class="js-producto-contenido">
+                    <h5 class="js-producto-categoria">Laptops · Apple</h5>
+                    <h3 class="js-producto-titulo">MacBook Air M4</h3>
+                    <p class="js-producto-descripcion">
+                        Chip M4, 16 GB RAM, SSD 512 GB, pantalla Liquid Retina 13.6".
+                    </p>
+                    <span class="js-producto-precio">S/ 5,999.00</span>
+                    <div class="js-producto-botones">
+                        <button class="btn-primario">Consultar</button>
+                        <button class="btn-secundario">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+                 CARD 3 — Producto
+                 ============================================ -->
+            <div class="js-producto">
+                <div class="js-producto-img-wrapper">
+                    <img src="../../img/catalogo/productos/p-07.jpg" alt="PlayStation 5 Pro" class="js-producto-img">
+                    <span class="mc-tipo-badge mc-badge-producto">Producto</span>
+                </div>
+                <div class="js-producto-contenido">
+                    <h5 class="js-producto-categoria">Gaming · Sony</h5>
+                    <h3 class="js-producto-titulo">PlayStation 5 Pro</h3>
+                    <p class="js-producto-descripcion">
+                        Trazado de rayos 4K a 60 fps, SSD ultrarrápido, DualSense mejorado.
+                    </p>
+                    <span class="js-producto-precio">S/ 3,599.00</span>
+                    <div class="js-producto-botones">
+                        <button class="btn-primario">Consultar</button>
+                        <button class="btn-secundario">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+                 CARD 4 — Servicio (tipo = "Servicio")
+                 Fíjate que mc-badge-servicio cambia el color del badge a verde
+                 ============================================ -->
+            <div class="js-producto">
+                <div class="js-producto-img-wrapper">
+                    <img src="../../img/catalogo/servicios/s-01.jpg" alt="Soporte Técnico 24/7" class="js-producto-img">
+
+                    <!-- Badge verde para servicios -->
+                    <span class="mc-tipo-badge mc-badge-servicio">Servicio</span>
+
+                </div>
+                <div class="js-producto-contenido">
+                    <h5 class="js-producto-categoria">Soporte · NXR TECH</h5>
+                    <h3 class="js-producto-titulo">Soporte Técnico 24/7</h3>
+                    <p class="js-producto-descripcion">
+                        Atención remota y presencial con técnicos certificados disponibles todo el día.
+                    </p>
+                    <span class="js-producto-precio">S/ 299.00</span>
+                    <div class="js-producto-botones">
+                        <button class="btn-primario">Consultar</button>
+                        <button class="btn-secundario">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+                 CARD 5 — Servicio
+                 ============================================ -->
+            <div class="js-producto">
+                <div class="js-producto-img-wrapper">
+                    <img src="../../img/catalogo/servicios/s-07.jpg" alt="Diseño Digital" class="js-producto-img">
+                    <span class="mc-tipo-badge mc-badge-servicio">Servicio</span>
+                </div>
+                <div class="js-producto-contenido">
+                    <h5 class="js-producto-categoria">Diseño Digital · NXR TECH</h5>
+                    <h3 class="js-producto-titulo">Diseño de Identidad Visual</h3>
+                    <p class="js-producto-descripcion">
+                        Creación de logo, paleta de colores, tipografías y manual de marca corporativa.
+                    </p>
+                    <span class="js-producto-precio">S/ 850.00</span>
+                    <div class="js-producto-botones">
+                        <button class="btn-primario">Consultar</button>
+                        <button class="btn-secundario">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+                 CARD 6 — Producto precio = 0 → muestra "Gratis"
+                 Fíjate que getPrecioTexto() retorna "Gratis" cuando precio === 0
+                 ============================================ -->
+            <div class="js-producto">
+                <div class="js-producto-img-wrapper">
+                    <img src="../../img/catalogo/servicios/s-03.jpg" alt="Diagnóstico Gratuito" class="js-producto-img">
+                    <span class="mc-tipo-badge mc-badge-servicio">Servicio</span>
+                </div>
+                <div class="js-producto-contenido">
+                    <h5 class="js-producto-categoria">Mantenimiento · NXR TECH</h5>
+                    <h3 class="js-producto-titulo">Diagnóstico Gratuito</h3>
+                    <p class="js-producto-descripcion">
+                        Revisión completa de hardware y software sin costo. Presencial o remoto.
+                    </p>
+                    <!-- Cuando precio = 0, getPrecioTexto() retorna "Gratis" -->
+                    <span class="js-producto-precio">Gratis</span>
+                    <div class="js-producto-botones">
+                        <button class="btn-primario">Consultar</button>
+                        <button class="btn-secundario">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- FIN GRID -->
+
+
+        <!-- ================================================
+             PASO 2 — Cómo pasar esto a JavaScript
+             ================================================ -->
+        <div style="background: #1e1e1e; border: 1px solid rgba(0,113,227,0.4); border-radius: 14px; padding: 32px; margin-top: 56px;">
+            <h2 style="color: #0071e3; font-size: 1.1rem; margin-bottom: 16px;">
+                <i class="fas fa-code"></i> &nbsp;Cómo llevar una card estática a JavaScript
+            </h2>
+            <p style="color: #a1a1a6; font-size: 0.88rem; line-height: 1.8; margin-bottom: 16px;">
+                Una vez que la card se vea bien en HTML, en <code style="color:#0071e3;">listado.js</code> dentro de <code style="color:#0071e3;">_pintar()</code>
+                usas <code style="color:#0071e3;">Array.map()</code> para generar el HTML de cada ítem del array.
+                Reemplaza los valores fijos por las propiedades del objeto:
+            </p>
+            <pre style="background:#111; color:#a1a1a6; padding:20px; border-radius:10px; font-size:0.8rem; overflow-x:auto; line-height:1.7;"><code>let html = pagina.map(item =&gt; `
+    &lt;div class="js-producto"&gt;
+        &lt;div class="js-producto-img-wrapper"&gt;
+            &lt;img src="<span style="color:#0071e3;">${item.imagen}</span>"
+                 alt="<span style="color:#0071e3;">${item.nombre}</span>"
+                 class="js-producto-img"&gt;
+            &lt;span class="mc-tipo-badge mc-badge-<span style="color:#0071e3;">${item.tipo.toLowerCase()}</span>"&gt;
+                <span style="color:#0071e3;">${item.tipo}</span>
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="js-producto-contenido"&gt;
+            &lt;h5 class="js-producto-categoria"&gt;<span style="color:#0071e3;">${item.subcategoria}</span> · <span style="color:#0071e3;">${item.marca}</span>&lt;/h5&gt;
+            &lt;h3 class="js-producto-titulo"&gt;<span style="color:#0071e3;">${item.nombre}</span>&lt;/h3&gt;
+            &lt;p class="js-producto-descripcion"&gt;<span style="color:#0071e3;">${item.descripcion}</span>&lt;/p&gt;
+            &lt;span class="js-producto-precio"&gt;<span style="color:#0071e3;">${item.getPrecioTexto()}</span>&lt;/span&gt;
+            &lt;div class="js-producto-botones"&gt;
+                &lt;button class="btn-primario"&gt;Consultar&lt;/button&gt;
+                &lt;button class="btn-secundario"&gt;Ver más&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+`).join("");</code></pre>
+        </div>
+
+    </div>
+
+</body>
+</html>
