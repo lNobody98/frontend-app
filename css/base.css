@@ -116,3 +116,403 @@ ul {
     from { opacity: 0; transform: translateY(-20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ------------------------------------------------------------
+   BOTONES GLOBALES
+   ------------------------------------------------------------ */
+.btn-primario {
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: var(--transicion);
+    letter-spacing: 0.5px;
+}
+
+.btn-primario:hover {
+    background-color: var(--color-acento-hover);
+    box-shadow: 0 0 20px var(--color-acento-glow);
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-texto-claro);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.btn-secundario:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+    transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------
+   NAVBAR (Enrique Prada)
+   ------------------------------------------------------------ */
+.ep-navbar-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transicion);
+    padding: 20px 0;
+    background-color: transparent;
+}
+
+header.scrolled .ep-navbar-bar {
+    background-color: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-texto-gris-claro);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-acento);
+    transition: var(--transicion);
+}
+
+.nav-links a:hover { color: var(--color-texto-claro); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+    background-color: transparent;
+    color: var(--color-texto-claro) !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600 !important;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.nav-cta:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento) !important;
+}
+
+.nav-cta::after { display: none !important; }
+
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-texto-claro);
+    border-radius: 2px;
+    transition: var(--transicion);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: static;
+        transform: none;
+    }
+    .nav-hamburger { display: flex; }
+
+    .nav-links.nav-abierto {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transform: none;
+        width: 100%;
+        background-color: #0d0d0d;
+        padding: 8px 0 16px;
+        gap: 0;
+        border-bottom: 1px solid var(--color-borde);
+        z-index: 999;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .nav-links.nav-abierto li a {
+        display: block;
+        padding: 14px 24px;
+        font-size: 1rem;
+        color: var(--color-texto-gris-claro);
+        border-bottom: 1px solid var(--color-borde);
+    }
+
+    .nav-links.nav-abierto li a:hover {
+        color: var(--color-texto-claro);
+        background-color: rgba(255,255,255,0.04);
+    }
+
+    .nav-links.nav-abierto li:last-child a {
+        margin: 12px 24px 0;
+        border-bottom: none;
+        text-align: center;
+        border-radius: 50px;
+        padding: 12px 24px;
+    }
+}
+
+/* ------------------------------------------------------------
+   FOOTER (Enrique Prada)
+   ------------------------------------------------------------ */
+footer {
+    background-color: #080808;
+    padding: 70px 0 30px;
+    border-top: 1px solid var(--color-borde);
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.footer-marca {
+    max-width: 380px;
+}
+
+.footer-ubicacion {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 40px;
+}
+
+.footer-mapa-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    width: 100%;
+    height: 240px;
+}
+
+.footer-mapa-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: grayscale(30%) invert(90%) hue-rotate(180deg);
+}
+
+.footer-descripcion {
+    font-size: 0.875rem;
+    color: var(--color-texto-gris);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    max-width: 280px;
+}
+
+.footer-redes-titulo {
+    font-size: 0.8rem;
+    color: var(--color-texto-gris);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.footer-redes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.red-social {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--color-fondo-medio);
+    border: 1px solid var(--color-borde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: var(--transicion);
+    cursor: pointer;
+    color: var(--color-texto-claro);
+    text-decoration: none;
+}
+
+.red-social:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+.red-social.facebook:hover  { background-color: #1877f2; border-color: #1877f2; }
+.red-social.instagram:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: #e6683c; }
+.red-social.twitter:hover   { background-color: #000; border-color: #555; }
+.red-social.whatsapp:hover  { background-color: #25d366; border-color: #25d366; }
+.red-social.tiktok:hover    { background-color: #010101; border-color: #69c9d0; }
+
+.footer-mapa-info h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-texto-claro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.footer-mapa-info h4 i { color: var(--color-acento); margin-right: 8px; }
+
+.footer-mapa-info p {
+    font-size: 0.875rem;
+    color: var(--color-texto-gris);
+    line-height: 1.7;
+}
+
+.footer-col h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-texto-claro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+
+.footer-col ul li a {
+    font-size: 0.875rem;
+    color: var(--color-texto-gris);
+    transition: var(--transicion);
+}
+
+.footer-col ul li a:hover { color: var(--color-acento); padding-left: 4px; }
+
+.footer-asociadas {
+    padding-top: 8px;
+}
+
+.footer-asociadas-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--color-texto-gris);
+    margin-bottom: 16px;
+}
+
+.footer-asociadas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-asociadas-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.03);
+    transition: var(--transicion);
+    text-decoration: none;
+}
+
+.footer-asociadas-item:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateX(4px);
+}
+
+.footer-asociadas-item img {
+    height: 22px;
+    width: auto;
+    opacity: 0.45;
+    transition: var(--transicion);
+    flex-shrink: 0;
+}
+
+.footer-asociadas-item:hover img {
+    opacity: 1;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--color-borde);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-bottom p { font-size: 0.8rem; color: var(--color-texto-gris); }
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom-links a { font-size: 0.8rem; color: var(--color-texto-gris); }
+.footer-bottom-links a:hover { color: var(--color-acento); }
+
+@media (max-width: 768px) {
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    .footer-marca { max-width: 100%; }
+    .footer-asociadas-lista { flex-direction: row; flex-wrap: wrap; }
+    .footer-asociadas-item { flex: 1 1 calc(50% - 5px); }
+    .footer-ubicacion { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .footer-asociadas-item { flex: 1 1 100%; }
+}
+
