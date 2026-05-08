@@ -71,9 +71,6 @@
                 </div>
             </nav>
         </div>
-    </header>
-
-    <main>
 
         <!-- =============================================
              CAROUSEL / PORTADA — RESPONSABLE: Juan Morales
@@ -196,6 +193,10 @@
 
             </div>
         </section>
+
+    </header>
+
+    <main>
 
         <!-- =============================================
              CATEGORÍAS — RESPONSABLE: Xiomara Solis
@@ -329,57 +330,45 @@
             </div>
         </section>
 
-        <!-- =============================================
-             BÚSQUEDA + FILTROS + LISTA — RESPONSABLES:
-             Joel Saldaña  → buscador + sidebar de filtros
-             Maykol Calle  → área de resultados (grid + paginación)
+        <!--
+             SECCIÓN COMPARTIDA — id="prod-busqueda"
+             ┌─────────────────────┬──────────────────────────┐
+             │   JOEL SALDAÑA      │   MAYKOL CALLE           │
+             │   Búsqueda + Filtros│   Lista de Resultados    │
+             │   filtros.js        │   listado.js             │
+             └─────────────────────┴──────────────────────────┘
+             Trabajan en bloques independientes dentro del mismo
+             <section>. El div.prod-busqueda-layout los une como
+             columnas: Joel a la izquierda, Maykol a la derecha.
 
-             Esta sección tiene tres partes diferenciadas:
-
-             1. BUSCADOR DINÁMICO (Joel Saldaña)
-                <input id="inputBusqueda"> dispara oninput="filtrar()"
-                en filtros.js. Filtra en tiempo real por nombre, marca
-                y descripción sin necesidad de presionar Enter.
-
-             2. SIDEBAR DE FILTROS — aside.js-sidebar (Joel Saldaña)
-                Controles que llaman funciones de filtros.js:
-                · Botones Todos / Productos / Servicios
-                  onclick="setFiltro('todos'|'Producto'|'Servicio', this)"
-                · Selects de subcategoría
-                  onchange="setFiltroSelect(this)"
-                · Botón "Limpiar"
-                  onclick="limpiarFiltros()"
-                · Sliders de precio mínimo/máximo
-                  oninput="actualizarSliderVisual()"
-                  onchange="updateSlider('min'|'max')"
-                IDs clave: #btn-todos, #btn-productos, #btn-servicios,
-                           #selectProductos, #selectServicios,
-                           #sliderMin, #sliderMax, #sliderRange,
-                           #displayMin, #displayMax
-
-             3. ÁREA DE RESULTADOS — div.mc-main (Maykol Calle)
-                · .mc-main-barra → contador de resultados + select de orden
-                  El select #selectOrden llama onchange="setOrden(this)"
-                  definido en listado.js.
-                · #prod-lista → grid donde listado.js inyecta las cards
-                  dinámicamente al llamar renderizar(array).
-                · #prod-sin-resultados → mensaje visible cuando el array
-                  filtrado queda vacío.
-
-             FLUJO COMPLETO:
-             usuario interactúa → filtros.js filtra listaProductos
-             → llama renderizar(array) → listado.js pinta #prod-lista
-             ============================================= -->
+             FLUJO:
+             Joel filtra listaProductos → llama renderizar(array)
+             → Maykol pinta las cards en #prod-lista
+        -->
         <section id="prod-busqueda">
             <div class="container">
 
+                <!-- Cabecera decorativa compartida — sin responsable asignado -->
                 <div class="prod-seccion-header">
                     <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
                     <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
                     <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120 ítems disponibles.</p>
                 </div>
 
-                <!-- Buscador dinámico (oninput) — ancho completo -->
+                <!-- ════════════════════════════════════════════════════
+                     JOEL SALDAÑA — INICIO
+                     Archivo: js/producto/filtros.js
+                     Estilos: css/productos.css  (prefijo js-)
+
+                     Controla: buscador dinámico (oninput) + sidebar
+                     con botones, selects y sliders de precio.
+                     IDs que usa: #inputBusqueda, #btn-todos, #btn-productos,
+                     #btn-servicios, #selectProductos, #selectServicios,
+                     #sliderMin, #sliderMax, #sliderRange,
+                     #displayMin, #displayMax
+                     ════════════════════════════════════════════════════ -->
+
+                <!-- Buscador dinámico — ancho completo, encima del layout -->
                 <div class="js-buscador">
                     <i class="fas fa-search"></i>
                     <input
@@ -390,10 +379,10 @@
                         autocomplete="off">
                 </div>
 
-                <!-- Layout: sidebar de filtros + área de resultados -->
+                <!-- Layout dos columnas: sidebar (Joel) | resultados (Maykol) -->
                 <div class="prod-busqueda-layout">
 
-                    <!-- SIDEBAR: Filtros estáticos (onclick) -->
+                    <!-- Sidebar de filtros estáticos (onclick / onchange) -->
                     <aside class="js-sidebar">
                         <div class="js-sidebar-header">
                             <p class="js-sidebar-titulo"><i class="fas fa-sliders"></i> Filtros</p>
@@ -464,8 +453,20 @@
                             </div>
                         </div>
                     </aside>
+                <!-- ════════════════════════════════════════════════════
+                     JOEL SALDAÑA — FIN
+                     ════════════════════════════════════════════════════ -->
 
-                    <!-- CONTENIDO PRINCIPAL: barra superior + grid + sin resultados -->
+                    <!-- ════════════════════════════════════════════════════
+                         MAYKOL CALLE — INICIO
+                         Archivo: js/producto/listado.js
+                         Estilos: css/productos.css  (prefijo mc-)
+
+                         Recibe el array filtrado de filtros.js via
+                         renderizar(array) y pinta las cards en #prod-lista.
+                         IDs que usa: #prod-lista, #prod-contador,
+                         #prod-sin-resultados, #selectOrden
+                         ════════════════════════════════════════════════════ -->
                     <div class="mc-main">
                         <div class="mc-main-barra">
                             <p id="prod-contador"></p>
@@ -483,6 +484,9 @@
                             <p>No se encontraron resultados para tu búsqueda.</p>
                         </div>
                     </div>
+                    <!-- ════════════════════════════════════════════════════
+                         MAYKOL CALLE — FIN
+                         ════════════════════════════════════════════════════ -->
 
                 </div>
 
