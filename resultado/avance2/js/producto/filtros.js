@@ -48,13 +48,22 @@
 //  usuario interactúa → filtros.js filtra listaProductos
 //  → llama renderizar(array) → listado.js pinta las cards
 //
-//  ── VARIABLES INTERNAS ──────────────────────────────────────
+//  ── VARIABLES GLOBALES ──────────────────────────────────────
+//  Las variables declaradas con `let` fuera de cualquier función
+//  son GLOBALES AL ARCHIVO. Como todos los scripts se cargan en
+//  el mismo HTML, comparten el mismo scope global del navegador.
+//  Eso permite que filtros.js lea/escriba `ordenActivo` que está
+//  declarado en listado.js — ambos están en la misma "ventana".
+//
 //  - filtroActivo → filtro de categoría activo. Valores:
 //                   "todos" | "Producto" | "Servicio" | subcategoría
 //  - precioMin    → precio mínimo del slider (0 = sin límite inferior)
 //  - precioMax    → precio máximo del slider (Infinity = sin límite)
-//  - iniciado     → evita hacer scroll automático en la carga inicial
-//  - SLIDER_MAX   → constante: valor máximo del slider (S/. 10,000)
+//  - iniciado     → flag booleano: evita scroll automático en la carga
+//                   inicial. Pasa a true después del primer filtrar().
+//  - SLIDER_MAX   → constante en MAYÚSCULAS (convención del equipo:
+//                   MAYÚSCULAS = valor que nunca debe cambiar en runtime.
+//                   No es una regla del lenguaje, es un acuerdo de código)
 //
 //  ── FUNCIONES ───────────────────────────────────────────────
 //  norm(texto)
@@ -261,5 +270,9 @@ function updateSlider(fuente) {
 }
 
 
-// Auto-ejecución: carga todos los productos al iniciar la página
+// Auto-ejecución al cargar la página.
+// Esta línea NO está dentro de ninguna función — se ejecuta
+// automáticamente cuando el navegador termina de leer este archivo.
+// Resultado: la lista aparece llena desde el primer instante,
+// sin que el usuario tenga que hacer clic en nada.
 filtrar();

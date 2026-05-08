@@ -588,7 +588,22 @@
     <!-- Bootstrap JS (necesario para el carousel) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Scripts del proyecto -->
+    <!--
+        ORDEN DE SCRIPTS — IMPORTANTE (no cambiar el orden)
+
+        El navegador ejecuta los scripts en el orden en que aparecen.
+        Cada archivo depende de que el anterior ya haya sido cargado:
+
+        1. main.js      → navbar scroll, menú móvil (independiente)
+        2. producto.js  → define class Producto (el molde)
+        3. datos.js     → crea listaProductos usando new Producto(...)
+                          NECESITA producto.js ya cargado
+        4. listado.js   → define renderizar(), declara ordenActivo
+                          NECESITA producto.js (para getPrecioTexto)
+        5. filtros.js   → usa listaProductos y llama renderizar()
+                          NECESITA datos.js y listado.js ya cargados
+                          Su última línea filtrar() se auto-ejecuta aquí
+    -->
     <script src="../../js/main.js"></script>
     <script src="js/producto/producto.js"></script>
     <script src="js/producto/datos.js"></script>

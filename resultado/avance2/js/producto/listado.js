@@ -39,13 +39,19 @@
 //  → _pintar() ordena → pagina → genera HTML → inyecta en el DOM
 //
 //  ── VARIABLES GLOBALES (accesibles desde filtros.js) ────────
+//  Declaradas con `let`/`const` fuera de funciones → scope global
+//  del navegador. filtros.js puede leer y escribir estas variables
+//  directamente porque ambos scripts viven en el mismo HTML.
+//
 //  - _listaActual  → copia del array recibido en renderizar()
 //                    (prefijo _ = uso interno, no llamar desde fuera)
 //  - paginaActual  → página visible actualmente (empieza en 1)
 //  - ordenActivo   → criterio de orden actual. Valores:
 //                    "relevancia" | "precio-asc" | "precio-desc"
 //                    "nombre-az"  | "nombre-za"
-//  - POR_PAGINA    → constante: ítems por página (12)
+//                    ⚠️ filtros.js la modifica en limpiarFiltros()
+//  - POR_PAGINA    → en MAYÚSCULAS (convención: constante que nunca
+//                    cambia en runtime, no es sintaxis del lenguaje)
 //
 //  ── FUNCIONES PÚBLICAS (llamadas desde HTML o filtros.js) ───
 //  renderizar(items)
@@ -62,6 +68,21 @@
 //  → Lee el valor del <select> de orden, actualiza ordenActivo,
 //    resetea a página 1 y redibuja.
 //    Llamada via onchange="#selectOrden" en el HTML.
+//
+//  ── CONVENCIÓN PREFIJO _ (guión bajo) ──────────────────────
+//  En JavaScript no existe la palabra `private` para funciones
+//  fuera de una clase. Por convención, el prefijo _ indica que
+//  esa función o variable es de USO INTERNO — no debe llamarse
+//  desde el HTML ni desde otros archivos.
+//
+//  Sin _ → PÚBLICA:   renderizar(), irAPagina(), setOrden()
+//           Se llaman desde el HTML (onclick, onchange) o
+//           desde filtros.js.
+//
+//  Con _ → PRIVADA:   _pintar(), _listaActual
+//           Solo se usan dentro de listado.js.
+//           El _ es una señal para el equipo: "no la toques
+//           desde fuera, puede romper el estado interno."
 //
 //  ── FUNCIÓN PRIVADA (solo para uso interno) ─────────────────
 //  sortLista(lista)
@@ -177,6 +198,9 @@ function _pintar() {
     const inicio       = (paginaActual - 1) * POR_PAGINA;
     const pagina       = lista.slice(inicio, inicio + POR_PAGINA);
 
+    // map() devuelve un array de strings HTML, uno por card.
+    // join("") los fusiona en un solo string sin separadores.
+    // Sin join("") el innerHTML tendría comas entre cada card.
     let html = pagina.map(item => `
         <div class="js-producto">
             <div class="js-producto-img-wrapper">
