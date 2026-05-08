@@ -1,7 +1,87 @@
 // ============================================================
 //  listado.js — NXR TECH
-//  Renderizado de cards, paginación y ordenamiento
-//  Requiere: producto.js, datos.js (cargados antes en el HTML)
+//  RESPONSABLE: Maykol Calle
+//
+//  ── TIPO DE PROGRAMACIÓN ────────────────────────────────────
+//  Programación funcional / imperativa — funciones reutilizables
+//  con estado compartido a través de variables globales de módulo.
+//  No define clases, pero usa los objetos Producto (definidos en
+//  producto.js) para llamar sus métodos (item.getPrecioTexto()).
+//
+//  ── LENGUAJE ────────────────────────────────────────────────
+//  JavaScript ES6+  — const/let, arrow functions, template literals,
+//  Array.map(), Array.sort(), Array.slice(), spread operator [...],
+//  Math.ceil(), String.localeCompare()
+//
+//  ── ESTRUCTURAS DE PROGRAMACIÓN USADAS ─────────────────────
+//  - if / else          → en _pintar(): detecta lista vacía para
+//                         mostrar el mensaje "sin resultados"
+//  - switch / case      → en sortLista(): decide el criterio de
+//                         ordenamiento según ordenActivo
+//  - for (clásico)      → en _pintar(): genera los botones de
+//                         paginación numerados (i = 1..totalPaginas)
+//  - Array.map()        → en _pintar(): convierte cada objeto Producto
+//                         en un string HTML de card (bucle implícito)
+//  - Array.sort()       → en sortLista(): ordena la copia del array
+//  - Array.slice()      → en _pintar(): recorta la página actual
+//  - Spread [...lista]  → en sortLista(): crea copia para no mutar
+//                         el array original _listaActual
+//  - Operador ternario  → en _pintar(): plural de "resultado/s" y
+//                         en la paginación para disabled/activo
+//
+//  ── QUÉ HACE ESTE ARCHIVO ───────────────────────────────────
+//  Recibe el array filtrado de filtros.js, lo ordena, lo pagina
+//  y genera el HTML de las cards que se inyectan en #prod-lista.
+//  También genera la barra de paginación y actualiza el contador.
+//
+//  FLUJO:
+//  filtros.js llama renderizar(array)
+//  → _pintar() ordena → pagina → genera HTML → inyecta en el DOM
+//
+//  ── VARIABLES GLOBALES (accesibles desde filtros.js) ────────
+//  - _listaActual  → copia del array recibido en renderizar()
+//                    (prefijo _ = uso interno, no llamar desde fuera)
+//  - paginaActual  → página visible actualmente (empieza en 1)
+//  - ordenActivo   → criterio de orden actual. Valores:
+//                    "relevancia" | "precio-asc" | "precio-desc"
+//                    "nombre-az"  | "nombre-za"
+//  - POR_PAGINA    → constante: ítems por página (12)
+//
+//  ── FUNCIONES PÚBLICAS (llamadas desde HTML o filtros.js) ───
+//  renderizar(items)
+//  → Punto de entrada. Recibe array filtrado, lo guarda en
+//    _listaActual, resetea a página 1 y llama _pintar().
+//    Llamada por filtros.js cada vez que cambia un filtro.
+//
+//  irAPagina(n)
+//  → Cambia paginaActual a n y redibuja las cards.
+//    Llamada via onclick desde los botones de paginación generados
+//    dinámicamente por _pintar().
+//
+//  setOrden(select)
+//  → Lee el valor del <select> de orden, actualiza ordenActivo,
+//    resetea a página 1 y redibuja.
+//    Llamada via onchange="#selectOrden" en el HTML.
+//
+//  ── FUNCIÓN PRIVADA (solo para uso interno) ─────────────────
+//  sortLista(lista)
+//  → Crea una copia del array y lo ordena según ordenActivo.
+//    Usa switch/case para elegir el comparador de sort().
+//    No modifica el array original (inmutabilidad).
+//
+//  _pintar()
+//  → Función privada central (prefijo _ = interna).
+//    1. Ordena con sortLista()
+//    2. Calcula páginas y recorta el slice de la página actual
+//    3. Genera el HTML de cada card con Array.map()
+//       (llama item.getPrecioTexto() — método POO de producto.js)
+//    4. Si totalPaginas > 1, añade botones de paginación
+//    5. Inyecta todo en contenedor.innerHTML
+//
+//  ── DEPENDENCIAS (cargar antes en el HTML) ──────────────────
+//  - producto.js → clase Producto (para getPrecioTexto())
+//  - datos.js    → array listaProductos (no usado directamente,
+//                  pero lo necesita filtros.js para llamar renderizar)
 // ============================================================
 
 let _listaActual = [];
@@ -12,7 +92,9 @@ const POR_PAGINA = 12;
 
 
 // ============================================================
-//  PUNTO DE ENTRADA — recibe el array ya filtrado
+//  renderizar(items) — PUNTO DE ENTRADA
+//  filtros.js llama esta función cada vez que el usuario filtra.
+//  Guarda el array, vuelve a página 1 y redibuja las cards.
 // ============================================================
 function renderizar(items) {
     _listaActual = items;
@@ -22,7 +104,9 @@ function renderizar(items) {
 
 
 // ============================================================
-//  CAMBIAR PÁGINA
+//  irAPagina(n) — PAGINACIÓN
+//  Cambia a la página n y hace scroll suave a la sección.
+//  Llamada via onclick desde los botones que genera _pintar().
 // ============================================================
 function irAPagina(n) {
     paginaActual = n;
@@ -32,7 +116,9 @@ function irAPagina(n) {
 
 
 // ============================================================
-//  CAMBIAR ORDEN (llamado desde el select del HTML)
+//  setOrden(select) — ORDENAMIENTO
+//  Lee el valor del <select id="selectOrden">, actualiza
+//  ordenActivo y redibuja. Llamada via onchange en el HTML.
 // ============================================================
 function setOrden(select) {
     ordenActivo  = select.value;
@@ -42,7 +128,10 @@ function setOrden(select) {
 
 
 // ============================================================
-//  ORDENAR (no muta _listaActual)
+//  sortLista(lista) — FUNCIÓN PRIVADA DE APOYO
+//  Crea una copia del array con spread [...lista] para no mutar
+//  _listaActual y la ordena según ordenActivo usando switch/case.
+//  Cada case retorna la copia ordenada con Array.sort().
 // ============================================================
 function sortLista(lista) {
     const copia = [...lista];
@@ -57,7 +146,15 @@ function sortLista(lista) {
 
 
 // ============================================================
-//  PINTAR — genera HTML de cards + paginación
+//  _pintar() — FUNCIÓN PRIVADA CENTRAL (prefijo _ = interna)
+//  1. Ordena la lista con sortLista()
+//  2. Actualiza el contador de resultados (operador ternario)
+//  3. Si lista vacía: muestra #prod-sin-resultados (if/else)
+//  4. Calcula totalPaginas con Math.ceil() y recorta el slice
+//  5. Genera el HTML de cada card con Array.map() y template literals
+//     — llama item.getPrecioTexto() (método POO de producto.js)
+//  6. Si hay más de 1 página: genera botones con bucle for clásico
+//  7. Inyecta el HTML final en contenedor.innerHTML (DOM)
 // ============================================================
 function _pintar() {
     const lista         = sortLista(_listaActual);

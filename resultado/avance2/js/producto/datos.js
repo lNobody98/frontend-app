@@ -1,7 +1,81 @@
 // ============================================================
 //  datos.js — NXR TECH
-//  ArrayList: 60 Productos + 60 Servicios = 120 ítems (10 subcategorías c/u)
-//  Requiere: producto.js
+//  RESPONSABLE: Juan Morales  (array de Productos — 60 ítems)
+//               Xiomara Solis (array de Servicios  — 60 ítems)
+//
+//  ── TIPO DE DATO ────────────────────────────────────────────
+//  ArrayList — array de objetos en JavaScript.
+//  Cada elemento es una instancia de la clase Producto (POO),
+//  creada con el operador `new` y el constructor de la clase.
+//  El array se llama listaProductos y contiene 120 instancias.
+//
+//  ── QUÉ HACE ESTE ARCHIVO ───────────────────────────────────
+//  Define el array global listaProductos con los 120 ítems del
+//  catálogo: 60 Productos + 60 Servicios, agrupados en
+//  10 subcategorías cada uno. Cada ítem es una instancia de la
+//  clase Producto definida en producto.js.
+//  filtros.js y listado.js consumen este array para filtrar y
+//  renderizar el catálogo dinámicamente.
+//
+//  ── LENGUAJE ────────────────────────────────────────────────
+//  JavaScript ES6+ — operador new, template literals, array literal
+//
+//  ── CONCEPTOS APLICADOS ─────────────────────────────────────
+//  - ArrayList (array)     → estructura de datos que agrupa objetos
+//  - Constructor           → new Producto(...) crea cada instancia
+//  - Instanciación (POO)   → cada línea del array instancia la clase
+//
+//  VARIABLE GLOBAL EXPORTADA:
+//  - listaProductos  → array accesible desde cualquier JS cargado
+//                      después de este archivo en el HTML.
+//
+//  CÓMO AGREGAR UN NUEVO ÍTEM:
+//  Copia una línea existente y ajusta los 8 argumentos:
+//
+//    new Producto(
+//      id,           → número único (sigue la secuencia, nunca repetir)
+//      nombre,       → nombre comercial  (ej: "MacBook Pro M4")
+//      tipo,         → "Producto" | "Servicio"  ← EXACTAMENTE así, con mayúscula
+//      subcategoria, → ver lista de subcategorías válidas más abajo
+//      precio,       → entero en soles (ej: 3499). Usar 0 para "Gratis"
+//      marca,        → fabricante o proveedor  (ej: "Apple", "Samsung")
+//      descripcion,  → texto corto para la card (máx. 2 líneas recomendado)
+//      imagen        → ruta relativa a la imagen.
+//                      ⚠️  LA RUTA DEPENDE DE DÓNDE ESTÁ ESTE ARCHIVO:
+//
+//                      Este archivo está en:
+//                        resultado/avance2/js/producto/datos.js
+//                      Las imágenes están en:
+//                        img/catalogo/  (carpeta raíz del proyecto)
+//                      Por eso la ruta sube 4 niveles con "../../":
+//                        "../../img/catalogo/productos/p-XX.jpg"
+//                        "../../img/catalogo/servicios/s-XX.jpg"
+//
+//                      Si copias este archivo a otra carpeta distinta,
+//                      debes contar cuántos niveles tienes que subir
+//                      hasta llegar a la carpeta raíz y ajustar
+//                      los "../" en consecuencia.
+//                      Ejemplo: si estuviera en la raíz del proyecto,
+//                      la ruta sería simplemente "img/catalogo/..."
+//    )
+//
+//  SUBCATEGORÍAS VÁLIDAS:
+//  El valor debe coincidir EXACTAMENTE (mayúsculas y tildes incluidas)
+//  con las opciones del <select> en productos.html. Si no coincide,
+//  el filtro por subcategoría no mostrará ese ítem.
+//
+//  Tipo "Producto":
+//    "Teléfonos"   | "Laptops"       | "Gaming"      | "Accesorios"
+//    "Componentes" | "Monitores"     | "Tablets"     | "Smart TV"
+//    "Impresoras"  | "Wearables"
+//
+//  Tipo "Servicio":
+//    "Soporte"         | "Mantenimiento"  | "Reparación"      | "Instalación"
+//    "Asesoría"        | "Ciberseguridad" | "Diseño Digital"  | "Networking"
+//    "Cloud & Backup"  | "Desarrollo Web"
+//
+//  DEPENDENCIAS (este archivo debe cargarse DESPUÉS de producto.js):
+//  - producto.js → define la clase Producto usada en cada new Producto(...)
 // ============================================================
 
 const listaProductos = [
