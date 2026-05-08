@@ -76,16 +76,16 @@
             <!-- ============================================
                  CARD 1 — Producto (tipo = "Producto")
                  ============================================ -->
-            <div class="js-producto">
+            <div class="mc-producto">
 
                 <!-- Wrapper de la imagen — posición relative para el badge -->
-                <div class="js-producto-img-wrapper">
+                <div class="mc-producto-img-wrapper">
 
                     <!-- Imagen del producto → en JS: src="${item.imagen}" -->
                     <img
                         src="../../img/catalogo/productos/p-01.jpg"
                         alt="iPhone 16 Pro"
-                        class="js-producto-img">
+                        class="mc-producto-img">
 
                     <!--
                         Badge que muestra si es "Producto" o "Servicio".
@@ -100,24 +100,24 @@
                 </div>
 
                 <!-- Contenido de texto de la card -->
-                <div class="js-producto-contenido">
+                <div class="mc-producto-contenido">
 
                     <!-- Subcategoría · Marca → en JS: ${item.subcategoria} · ${item.marca} -->
-                    <h5 class="js-producto-categoria">Teléfonos · Apple</h5>
+                    <h5 class="mc-producto-categoria">Teléfonos · Apple</h5>
 
                     <!-- Nombre → en JS: ${item.nombre} -->
-                    <h3 class="js-producto-titulo">iPhone 16 Pro</h3>
+                    <h3 class="mc-producto-titulo">iPhone 16 Pro</h3>
 
                     <!-- Descripción → en JS: ${item.descripcion} -->
-                    <p class="js-producto-descripcion">
+                    <p class="mc-producto-descripcion">
                         Pantalla Super Retina XDR 6.3", chip A18 Pro, cámara 48 MP zoom 5x.
                     </p>
 
                     <!-- Precio → en JS: ${item.getPrecioTexto()} llama el método de la clase -->
-                    <span class="js-producto-precio">S/ 5,499.00</span>
+                    <span class="mc-producto-precio">S/ 5,499.00</span>
 
                     <!-- Botones — estos son estáticos, no cambian -->
-                    <div class="js-producto-botones">
+                    <div class="mc-producto-botones">
                         <button class="btn-primario">Consultar</button>
                         <button class="btn-secundario">Ver más</button>
                     </div>
@@ -130,19 +130,19 @@
             <!-- ============================================
                  CARD 2 — Producto
                  ============================================ -->
-            <div class="js-producto">
-                <div class="js-producto-img-wrapper">
-                    <img src="../../img/catalogo/productos/p-04.jpg" alt="MacBook Air M4" class="js-producto-img">
+            <div class="mc-producto">
+                <div class="mc-producto-img-wrapper">
+                    <img src="../../img/catalogo/productos/p-04.jpg" alt="MacBook Air M4" class="mc-producto-img">
                     <span class="mc-tipo-badge mc-badge-producto">Producto</span>
                 </div>
-                <div class="js-producto-contenido">
-                    <h5 class="js-producto-categoria">Laptops · Apple</h5>
-                    <h3 class="js-producto-titulo">MacBook Air M4</h3>
-                    <p class="js-producto-descripcion">
+                <div class="mc-producto-contenido">
+                    <h5 class="mc-producto-categoria">Laptops · Apple</h5>
+                    <h3 class="mc-producto-titulo">MacBook Air M4</h3>
+                    <p class="mc-producto-descripcion">
                         Chip M4, 16 GB RAM, SSD 512 GB, pantalla Liquid Retina 13.6".
                     </p>
-                    <span class="js-producto-precio">S/ 5,999.00</span>
-                    <div class="js-producto-botones">
+                    <span class="mc-producto-precio">S/ 5,999.00</span>
+                    <div class="mc-producto-botones">
                         <button class="btn-primario">Consultar</button>
                         <button class="btn-secundario">Ver más</button>
                     </div>
@@ -153,19 +153,19 @@
             <!-- ============================================
                  CARD 3 — Producto
                  ============================================ -->
-            <div class="js-producto">
-                <div class="js-producto-img-wrapper">
-                    <img src="../../img/catalogo/productos/p-07.jpg" alt="PlayStation 5 Pro" class="js-producto-img">
+            <div class="mc-producto">
+                <div class="mc-producto-img-wrapper">
+                    <img src="../../img/catalogo/productos/p-07.jpg" alt="PlayStation 5 Pro" class="mc-producto-img">
                     <span class="mc-tipo-badge mc-badge-producto">Producto</span>
                 </div>
-                <div class="js-producto-contenido">
-                    <h5 class="js-producto-categoria">Gaming · Sony</h5>
-                    <h3 class="js-producto-titulo">PlayStation 5 Pro</h3>
-                    <p class="js-producto-descripcion">
+                <div class="mc-producto-contenido">
+                    <h5 class="mc-producto-categoria">Gaming · Sony</h5>
+                    <h3 class="mc-producto-titulo">PlayStation 5 Pro</h3>
+                    <p class="mc-producto-descripcion">
                         Trazado de rayos 4K a 60 fps, SSD ultrarrápido, DualSense mejorado.
                     </p>
-                    <span class="js-producto-precio">S/ 3,599.00</span>
-                    <div class="js-producto-botones">
+                    <span class="mc-producto-precio">S/ 3,599.00</span>
+                    <div class="mc-producto-botones">
                         <button class="btn-primario">Consultar</button>
                         <button class="btn-secundario">Ver más</button>
                     </div>
@@ -177,22 +177,22 @@
                  CARD 4 — Servicio (tipo = "Servicio")
                  Fíjate que mc-badge-servicio cambia el color del badge a verde
                  ============================================ -->
-            <div class="js-producto">
-                <div class="js-producto-img-wrapper">
-                    <img src="../../img/catalogo/servicios/s-01.jpg" alt="Soporte Técnico 24/7" class="js-producto-img">
+            <div class="mc-producto">
+                <div class="mc-producto-img-wrapper">
+                    <img src="../../img/catalogo/servicios/s-01.jpg" alt="Soporte Técnico 24/7" class="mc-producto-img">
 
                     <!-- Badge verde para servicios -->
                     <span class="mc-tipo-badge mc-badge-servicio">Servicio</span>
 
                 </div>
-                <div class="js-producto-contenido">
-                    <h5 class="js-producto-categoria">Soporte · NXR TECH</h5>
-                    <h3 class="js-producto-titulo">Soporte Técnico 24/7</h3>
-                    <p class="js-producto-descripcion">
+                <div class="mc-producto-contenido">
+                    <h5 class="mc-producto-categoria">Soporte · NXR TECH</h5>
+                    <h3 class="mc-producto-titulo">Soporte Técnico 24/7</h3>
+                    <p class="mc-producto-descripcion">
                         Atención remota y presencial con técnicos certificados disponibles todo el día.
                     </p>
-                    <span class="js-producto-precio">S/ 299.00</span>
-                    <div class="js-producto-botones">
+                    <span class="mc-producto-precio">S/ 299.00</span>
+                    <div class="mc-producto-botones">
                         <button class="btn-primario">Consultar</button>
                         <button class="btn-secundario">Ver más</button>
                     </div>
@@ -203,19 +203,19 @@
             <!-- ============================================
                  CARD 5 — Servicio
                  ============================================ -->
-            <div class="js-producto">
-                <div class="js-producto-img-wrapper">
-                    <img src="../../img/catalogo/servicios/s-07.jpg" alt="Diseño Digital" class="js-producto-img">
+            <div class="mc-producto">
+                <div class="mc-producto-img-wrapper">
+                    <img src="../../img/catalogo/servicios/s-07.jpg" alt="Diseño Digital" class="mc-producto-img">
                     <span class="mc-tipo-badge mc-badge-servicio">Servicio</span>
                 </div>
-                <div class="js-producto-contenido">
-                    <h5 class="js-producto-categoria">Diseño Digital · NXR TECH</h5>
-                    <h3 class="js-producto-titulo">Diseño de Identidad Visual</h3>
-                    <p class="js-producto-descripcion">
+                <div class="mc-producto-contenido">
+                    <h5 class="mc-producto-categoria">Diseño Digital · NXR TECH</h5>
+                    <h3 class="mc-producto-titulo">Diseño de Identidad Visual</h3>
+                    <p class="mc-producto-descripcion">
                         Creación de logo, paleta de colores, tipografías y manual de marca corporativa.
                     </p>
-                    <span class="js-producto-precio">S/ 850.00</span>
-                    <div class="js-producto-botones">
+                    <span class="mc-producto-precio">S/ 850.00</span>
+                    <div class="mc-producto-botones">
                         <button class="btn-primario">Consultar</button>
                         <button class="btn-secundario">Ver más</button>
                     </div>
@@ -227,20 +227,20 @@
                  CARD 6 — Producto precio = 0 → muestra "Gratis"
                  Fíjate que getPrecioTexto() retorna "Gratis" cuando precio === 0
                  ============================================ -->
-            <div class="js-producto">
-                <div class="js-producto-img-wrapper">
-                    <img src="../../img/catalogo/servicios/s-03.jpg" alt="Diagnóstico Gratuito" class="js-producto-img">
+            <div class="mc-producto">
+                <div class="mc-producto-img-wrapper">
+                    <img src="../../img/catalogo/servicios/s-03.jpg" alt="Diagnóstico Gratuito" class="mc-producto-img">
                     <span class="mc-tipo-badge mc-badge-servicio">Servicio</span>
                 </div>
-                <div class="js-producto-contenido">
-                    <h5 class="js-producto-categoria">Mantenimiento · NXR TECH</h5>
-                    <h3 class="js-producto-titulo">Diagnóstico Gratuito</h3>
-                    <p class="js-producto-descripcion">
+                <div class="mc-producto-contenido">
+                    <h5 class="mc-producto-categoria">Mantenimiento · NXR TECH</h5>
+                    <h3 class="mc-producto-titulo">Diagnóstico Gratuito</h3>
+                    <p class="mc-producto-descripcion">
                         Revisión completa de hardware y software sin costo. Presencial o remoto.
                     </p>
                     <!-- Cuando precio = 0, getPrecioTexto() retorna "Gratis" -->
-                    <span class="js-producto-precio">Gratis</span>
-                    <div class="js-producto-botones">
+                    <span class="mc-producto-precio">Gratis</span>
+                    <div class="mc-producto-botones">
                         <button class="btn-primario">Consultar</button>
                         <button class="btn-secundario">Ver más</button>
                     </div>
@@ -265,21 +265,21 @@
                 Reemplaza los valores fijos por las propiedades del objeto:
             </p>
             <pre style="background:#111; color:#a1a1a6; padding:20px; border-radius:10px; font-size:0.8rem; overflow-x:auto; line-height:1.7;"><code>let html = pagina.map(item =&gt; `
-    &lt;div class="js-producto"&gt;
-        &lt;div class="js-producto-img-wrapper"&gt;
+    &lt;div class="mc-producto"&gt;
+        &lt;div class="mc-producto-img-wrapper"&gt;
             &lt;img src="<span style="color:#0071e3;">${item.imagen}</span>"
                  alt="<span style="color:#0071e3;">${item.nombre}</span>"
-                 class="js-producto-img"&gt;
+                 class="mc-producto-img"&gt;
             &lt;span class="mc-tipo-badge mc-badge-<span style="color:#0071e3;">${item.tipo.toLowerCase()}</span>"&gt;
                 <span style="color:#0071e3;">${item.tipo}</span>
             &lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class="js-producto-contenido"&gt;
-            &lt;h5 class="js-producto-categoria"&gt;<span style="color:#0071e3;">${item.subcategoria}</span> · <span style="color:#0071e3;">${item.marca}</span>&lt;/h5&gt;
-            &lt;h3 class="js-producto-titulo"&gt;<span style="color:#0071e3;">${item.nombre}</span>&lt;/h3&gt;
-            &lt;p class="js-producto-descripcion"&gt;<span style="color:#0071e3;">${item.descripcion}</span>&lt;/p&gt;
-            &lt;span class="js-producto-precio"&gt;<span style="color:#0071e3;">${item.getPrecioTexto()}</span>&lt;/span&gt;
-            &lt;div class="js-producto-botones"&gt;
+        &lt;div class="mc-producto-contenido"&gt;
+            &lt;h5 class="mc-producto-categoria"&gt;<span style="color:#0071e3;">${item.subcategoria}</span> · <span style="color:#0071e3;">${item.marca}</span>&lt;/h5&gt;
+            &lt;h3 class="mc-producto-titulo"&gt;<span style="color:#0071e3;">${item.nombre}</span>&lt;/h3&gt;
+            &lt;p class="mc-producto-descripcion"&gt;<span style="color:#0071e3;">${item.descripcion}</span>&lt;/p&gt;
+            &lt;span class="mc-producto-precio"&gt;<span style="color:#0071e3;">${item.getPrecioTexto()}</span>&lt;/span&gt;
+            &lt;div class="mc-producto-botones"&gt;
                 &lt;button class="btn-primario"&gt;Consultar&lt;/button&gt;
                 &lt;button class="btn-secundario"&gt;Ver más&lt;/button&gt;
             &lt;/div&gt;
