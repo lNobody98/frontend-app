@@ -202,17 +202,17 @@ function _pintar() {
     // join("") los fusiona en un solo string sin separadores.
     // Sin join("") el innerHTML tendría comas entre cada card.
     let html = pagina.map(item => `
-        <div class="js-producto">
-            <div class="js-producto-img-wrapper">
-                <img src="${item.imagen}" alt="${item.nombre}" class="js-producto-img">
+        <div class="mc-producto">
+            <div class="mc-producto-img-wrapper">
+                <img src="${item.imagen}" alt="${item.nombre}" class="mc-producto-img">
                 <span class="mc-tipo-badge mc-badge-${item.tipo.toLowerCase()}">${item.tipo}</span>
             </div>
-            <div class="js-producto-contenido">
-                <h5 class="js-producto-categoria">${item.subcategoria} · ${item.marca}</h5>
-                <h3 class="js-producto-titulo">${item.nombre}</h3>
-                <p class="js-producto-descripcion">${item.descripcion}</p>
-                <span class="js-producto-precio">${item.getPrecioTexto()}</span>
-                <div class="js-producto-botones">
+            <div class="mc-producto-contenido">
+                <h5 class="mc-producto-categoria">${item.subcategoria} · ${item.marca}</h5>
+                <h3 class="mc-producto-titulo">${item.nombre}</h3>
+                <p class="mc-producto-descripcion">${item.descripcion}</p>
+                <span class="mc-producto-precio">${item.getPrecioTexto()}</span>
+                <div class="mc-producto-botones">
                     <button class="btn-primario">Consultar</button>
                     <button class="btn-secundario">Ver más</button>
                 </div>
