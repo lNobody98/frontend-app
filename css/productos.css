@@ -20,6 +20,24 @@
    calcule relativo al contenedor centrado, igual que en inicio.html. */
 #navbar .ep-navbar-bar nav {
     position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
+
+/* Reset Bootstrap padding/sizing que infla el alto del navbar */
+#navbar .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    font-size: inherit;
+}
+
+@media (min-width: 769px) {
+    #navbar .navbar-collapse {
+        flex-basis: auto;
+        flex-grow: 0;
+    }
 }
 
 /* --------------------------------------------------------

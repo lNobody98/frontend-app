@@ -31,21 +31,25 @@
          ============================================= -->
     <header id="navbar">
         <div class="ep-navbar-bar">
-            <nav class="container">
-                <a href="inicio.html" class="nav-logo">
+            <nav class="container navbar navbar-expand-md">
+                <a href="inicio.html" class="nav-logo navbar-brand">
                     <img src="img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
                 </a>
-                <ul class="nav-links">
-                    <li><a href="inicio.html">Inicio</a></li>
-                    <li><a href="productos.html" style="color: var(--color-acento);">Productos</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#" class="nav-cta">Contactos</a></li>
-                </ul>
-                <button class="nav-hamburger" aria-label="Menú">
+                <button class="navbar-toggler nav-hamburger" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navProductos"
+                    aria-controls="navProductos" aria-expanded="false" aria-label="Menú">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
+                <div class="collapse navbar-collapse" id="navProductos">
+                    <ul class="nav-links">
+                        <li><a href="inicio.html">Inicio</a></li>
+                        <li><a href="productos.html" style="color: var(--color-acento);">Productos</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#" class="nav-cta">Contactos</a></li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </header>
