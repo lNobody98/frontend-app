@@ -27,7 +27,26 @@
 <body>
 
     <!-- =============================================
-         NAVBAR
+         NAVBAR — RESPONSABLE: Christian Diaz
+
+         Barra de navegación fija en la parte superior.
+         Mezcla la estructura HTML custom de NXR TECH con el
+         collapse de Bootstrap 5 para el menú hamburguesa móvil.
+
+         CLASES CLAVE (estilos en base.css y productos.css):
+         - ep-navbar-bar      → barra contenedora fija (base.css)
+         - nav-links          → lista de links centrada (base.css)
+         - navbar-toggler     → botón hamburguesa Bootstrap
+                                (activa/colapsa #navProductos)
+         - .navbar-collapse   → se despliega en pantallas < 768px
+
+         OVERRIDE EN productos.css (sección NAVBAR):
+         - Fuerza fondo oscuro desde el inicio (sin esperar scroll)
+         - Corrige el posicionamiento de .nav-links sobre Bootstrap
+
+         TU TAREA: ajustar estilos, agregar/quitar links de navegación
+         o cambiar el diseño del navbar. Si reemplazas la estructura
+         HTML, actualiza también los selectores en productos.css.
          ============================================= -->
     <header id="navbar">
         <div class="ep-navbar-bar">
@@ -57,7 +76,35 @@
     <main>
 
         <!-- =============================================
-             CAROUSEL / PORTADA (Bootstrap)
+             CAROUSEL / PORTADA — RESPONSABLE: Juan Morales
+
+             Carrusel de 6 slides con imagen de fondo, texto
+             superpuesto y botón CTA que lleva al catálogo.
+             Implementado con el componente Carousel de Bootstrap 5
+             (data-bs-ride="carousel", intervalo 4500 ms).
+
+             CLASES CLAVE (estilos en productos.css):
+             - jm-slide           → contenedor de cada slide
+                                    (altura 650px + background-image)
+             - jm-slide-contenido → texto y botón centrados encima
+             - carousel-indicators → puntos de navegación Bootstrap
+             - carousel-control-* → flechas prev/next Bootstrap
+
+             IMÁGENES: ../../img/catalogo/banner/banner-N.jpg
+             Resolución recomendada: 1920 × 650 px.
+             Para cambiar una imagen edita el atributo
+             style="background-image: url('../../img/...')" del
+             div.jm-slide correspondiente.
+
+             CÓMO AGREGAR UN SLIDE:
+             1. Añade un <button> en .carousel-indicators con el
+                data-bs-slide-to siguiente (el último es 5, el nuevo sería 6).
+             2. Copia un <div class="carousel-item"> existente,
+                cambia imagen, título y descripción.
+             3. No olvides incrementar el data-bs-slide-to del indicador.
+
+             TU TAREA: agregar/quitar slides, cambiar textos, imágenes
+             o ajustar el intervalo de rotación (data-bs-interval en ms).
              ============================================= -->
         <section id="prod-carousel">
             <div id="carouselProductos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
@@ -151,7 +198,34 @@
         </section>
 
         <!-- =============================================
-             CATEGORÍAS (sección visual — no filtra)
+             CATEGORÍAS — RESPONSABLE: Xiomara Solis
+
+             Sección visual que muestra las 20 categorías del catálogo
+             en dos grids de 5 columnas: 10 de Productos y 10 de
+             Servicios. Es meramente decorativa — no interactúa con
+             los filtros ni con datos.js.
+
+             CLASES CLAVE (estilos en productos.css):
+             - xs-cats-grid           → grid 5 col (productos)
+             - xs-cats-grid-servicios → grid 5 col (servicios)
+             - xs-cat-card            → tarjeta individual de categoría
+             - xs-cat-nombre          → nombre dentro de la card
+             - xs-cat-label           → etiqueta "Productos"/"Servicios"
+
+             ICONOS: Font Awesome 6 (fas fa-...). El <i class="fas fa-...">
+             dentro de cada xs-cat-card es el ícono visual.
+
+             CATEGORÍAS ACTUALES (deben coincidir con datos.js y los
+             <select> del sidebar para que los filtros funcionen):
+             Productos: Teléfonos, Laptops, Gaming, Accesorios, Componentes,
+                        Monitores, Tablets, Smart TV, Impresoras, Wearables
+             Servicios: Soporte, Mantenimiento, Reparación, Instalación,
+                        Asesoría, Ciberseguridad, Diseño Digital, Networking,
+                        Cloud & Backup, Desarrollo Web
+
+             TU TAREA: ajustar el diseño de las cards, cambiar íconos
+             o colores. Si añades una categoría nueva, también debes
+             agregarla en los <select> del sidebar y en datos.js.
              ============================================= -->
         <section id="prod-categorias">
             <div class="container">
@@ -256,7 +330,45 @@
         </section>
 
         <!-- =============================================
-             BÚSQUEDA + FILTROS + LISTA DE PRODUCTOS
+             BÚSQUEDA + FILTROS + LISTA — RESPONSABLES:
+             Joel Saldaña  → buscador + sidebar de filtros
+             Maykol Calle  → área de resultados (grid + paginación)
+
+             Esta sección tiene tres partes diferenciadas:
+
+             1. BUSCADOR DINÁMICO (Joel Saldaña)
+                <input id="inputBusqueda"> dispara oninput="filtrar()"
+                en filtros.js. Filtra en tiempo real por nombre, marca
+                y descripción sin necesidad de presionar Enter.
+
+             2. SIDEBAR DE FILTROS — aside.js-sidebar (Joel Saldaña)
+                Controles que llaman funciones de filtros.js:
+                · Botones Todos / Productos / Servicios
+                  onclick="setFiltro('todos'|'Producto'|'Servicio', this)"
+                · Selects de subcategoría
+                  onchange="setFiltroSelect(this)"
+                · Botón "Limpiar"
+                  onclick="limpiarFiltros()"
+                · Sliders de precio mínimo/máximo
+                  oninput="actualizarSliderVisual()"
+                  onchange="updateSlider('min'|'max')"
+                IDs clave: #btn-todos, #btn-productos, #btn-servicios,
+                           #selectProductos, #selectServicios,
+                           #sliderMin, #sliderMax, #sliderRange,
+                           #displayMin, #displayMax
+
+             3. ÁREA DE RESULTADOS — div.mc-main (Maykol Calle)
+                · .mc-main-barra → contador de resultados + select de orden
+                  El select #selectOrden llama onchange="setOrden(this)"
+                  definido en listado.js.
+                · #prod-lista → grid donde listado.js inyecta las cards
+                  dinámicamente al llamar renderizar(array).
+                · #prod-sin-resultados → mensaje visible cuando el array
+                  filtrado queda vacío.
+
+             FLUJO COMPLETO:
+             usuario interactúa → filtros.js filtra listaProductos
+             → llama renderizar(array) → listado.js pinta #prod-lista
              ============================================= -->
         <section id="prod-busqueda">
             <div class="container">
@@ -380,7 +492,29 @@
     </main>
 
     <!-- =============================================
-         FOOTER
+         FOOTER — RESPONSABLE: Enrique Prada
+
+         Pie de página compartido entre inicio.html y productos.html.
+         Sus estilos están en base.css (clases footer-*).
+
+         ESTRUCTURA:
+         - footer-top
+           · footer-marca      → logo, descripción breve y redes sociales
+           · footer-asociadas  → logos de Intel, NVIDIA y Samsung
+         - footer-ubicacion    → datos de contacto + mapa embed de Google Maps
+         - footer-bottom       → copyright y links legales
+
+         CLASES CLAVE (estilos en base.css):
+         footer, .footer-top, .footer-marca, .footer-redes,
+         .red-social, .footer-asociadas, .footer-ubicacion,
+         .footer-mapa-wrapper, .footer-bottom, .footer-bottom-links
+
+         REDES SOCIALES: cada .red-social tiene una clase adicional
+         (facebook, instagram, twitter, whatsapp, tiktok) que activa
+         el color de fondo específico en el :hover de base.css.
+
+         TU TAREA: mantener el footer con la información actualizada
+         de NXR TECH (datos de contacto, redes, asociadas).
          ============================================= -->
     <footer>
         <div class="container">

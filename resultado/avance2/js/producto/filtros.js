@@ -1,7 +1,120 @@
 // ============================================================
 //  filtros.js — NXR TECH
-//  Lógica de búsqueda dinámica y filtros del catálogo
-//  Requiere: producto.js, datos.js, render.js (cargados antes)
+//  RESPONSABLE: Joel Saldaña
+//
+//  ── TIPO DE BÚSQUEDA ────────────────────────────────────────
+//  Este archivo implementa DOS tipos de búsqueda/filtrado:
+//
+//  1. BÚSQUEDA DINÁMICA (en tiempo real)
+//     El campo #inputBusqueda tiene oninput="filtrar()".
+//     Cada tecla que escribe el usuario dispara filtrar() al instante
+//     sin necesidad de presionar ningún botón.
+//     Busca simultáneamente en: nombre, marca y descripción del ítem.
+//
+//  2. FILTROS ESTÁTICOS (requieren acción del usuario)
+//     Los botones "Todos / Productos / Servicios" (onclick),
+//     los selects de subcategoría (onchange) y los sliders de
+//     precio (onchange) se activan solo cuando el usuario hace
+//     clic o cambia el valor — no se auto-disparan.
+//
+//  ── TIPO DE PROGRAMACIÓN ────────────────────────────────────
+//  Programación funcional / imperativa — funciones reutilizables,
+//  sin clases. Se apoya en los métodos de array de JavaScript:
+//  filter(), includes(), normalize() (NFD), toLocaleString().
+//
+//  ── LENGUAJE ────────────────────────────────────────────────
+//  JavaScript ES6+  — arrow functions, const/let, template literals,
+//  Array.filter(), String.normalize("NFD"), String.includes()
+//
+//  ── ESTRUCTURAS DE PROGRAMACIÓN USADAS ─────────────────────
+//  - if / else if / else  → en filtrar(): decide qué criterio aplicar
+//                           según el valor de filtroActivo
+//  - Operador ternario    → en actualizarSliderVisual() y en
+//                           limpiarFiltros() para textos condicionales
+//  - Array.filter()       → itera el array y retiene solo los ítems
+//                           que cumplen la condición (bucle implícito)
+//  - String.includes()    → comprueba si el texto de búsqueda aparece
+//                           dentro del nombre/marca/descripción del ítem
+//  - querySelectorAll + forEach → recorre los botones para quitar/poner
+//                                 la clase CSS "activo"
+//
+//  ── QUÉ HACE ESTE ARCHIVO ───────────────────────────────────
+//  Controla toda la lógica de búsqueda y filtrado del catálogo.
+//  Toma el array completo de datos.js, aplica los filtros activos
+//  y pasa el resultado a renderizar() de listado.js para pintarlo.
+//  Se auto-ejecuta al cargar la página mostrando todos los ítems.
+//
+//  FLUJO:
+//  usuario interactúa → filtros.js filtra listaProductos
+//  → llama renderizar(array) → listado.js pinta las cards
+//
+//  ── VARIABLES INTERNAS ──────────────────────────────────────
+//  - filtroActivo → filtro de categoría activo. Valores:
+//                   "todos" | "Producto" | "Servicio" | subcategoría
+//  - precioMin    → precio mínimo del slider (0 = sin límite inferior)
+//  - precioMax    → precio máximo del slider (Infinity = sin límite)
+//  - iniciado     → evita hacer scroll automático en la carga inicial
+//  - SLIDER_MAX   → constante: valor máximo del slider (S/. 10,000)
+//
+//  ── FUNCIONES ───────────────────────────────────────────────
+//  norm(texto)
+//  → Normaliza texto a minúsculas sin tildes para que la búsqueda
+//    no distinga entre "Teléfono" y "telefono".
+//    Usa String.normalize("NFD") + replace con regex Unicode.
+//    Usada internamente en filtrar().
+//
+//  filtrar(debeScrollear)
+//  → Función central. Aplica en cadena:
+//    1° filtro de categoría (if/else sobre filtroActivo)
+//    2° filtro de texto (includes sobre nombre+marca+descripcion)
+//    3° filtro de precio (rango precioMin–precioMax)
+//    Llama renderizar() con el array resultante.
+//
+//  setFiltro(filtro, btn)
+//  → Activa filtro por tipo al hacer clic en los botones
+//    "Todos / Productos / Servicios". Marca el botón activo con
+//    la clase CSS "activo" y resetea los selects.
+//    Llamado via onclick en el HTML.
+//
+//  setFiltroSelect(select)
+//  → Activa filtro por subcategoría desde los <select>.
+//    Al seleccionar en uno, deshabilita el del otro tipo.
+//    Llamado via onchange en el HTML.
+//
+//  limpiarFiltros()
+//  → Restablece todos los filtros, sliders, selects y búsqueda
+//    a su estado inicial y muestra los 120 ítems.
+//    Llamado via onclick en el botón "Limpiar" del sidebar.
+//
+//  actualizarSliderVisual()
+//  → Actualiza la barra coloreada del slider y los textos
+//    S/. mínimo / S/. máximo mostrados debajo.
+//    Llamado via oninput de los inputs range.
+//
+//  updateSlider(fuente)
+//  → Lee ambos sliders, evita que mínimo supere al máximo,
+//    actualiza precioMin/precioMax y llama filtrar().
+//    "fuente" indica qué slider movió el usuario: "min" o "max".
+//    Llamado via onchange de los inputs range.
+//
+//  ── IDs DEL HTML QUE MANIPULA ESTE ARCHIVO ──────────────────
+//  - #inputBusqueda    → campo de texto (búsqueda dinámica)
+//  - #btn-todos        → botón "Todos (120)" (filtro estático)
+//  - #btn-productos    → botón "Productos"   (filtro estático)
+//  - #btn-servicios    → botón "Servicios"   (filtro estático)
+//  - #selectProductos  → subcategorías de productos
+//  - #selectServicios  → subcategorías de servicios
+//  - #selectOrden      → orden (lee variable ordenActivo de listado.js)
+//  - #sliderMin        → input range precio mínimo
+//  - #sliderMax        → input range precio máximo
+//  - #sliderRange      → div visual de la barra del slider
+//  - #displayMin       → span precio mínimo actual
+//  - #displayMax       → span precio máximo actual
+//
+//  ── DEPENDENCIAS (cargar antes en el HTML) ──────────────────
+//  - producto.js → clase Producto
+//  - datos.js    → array listaProductos
+//  - listado.js  → función renderizar()
 // ============================================================
 
 let filtroActivo = "todos";
@@ -12,9 +125,6 @@ let iniciado     = false;
 const SLIDER_MAX = 10000;
 
 
-// ============================================================
-//  NORMALIZAR TEXTO (quita tildes y pone minúsculas)
-// ============================================================
 function norm(texto) {
     return texto
         .toLowerCase()
@@ -23,9 +133,6 @@ function norm(texto) {
 }
 
 
-// ============================================================
-//  FILTRAR — calcula el array resultante y llama renderizar()
-// ============================================================
 function filtrar(debeScrollear = true) {
     let resultado = listaProductos;
 
@@ -57,9 +164,6 @@ function filtrar(debeScrollear = true) {
 }
 
 
-// ============================================================
-//  BOTONES DE CATEGORÍA (Todos / Productos / Servicios)
-// ============================================================
 function setFiltro(filtro, btn) {
     filtroActivo = filtro;
 
@@ -77,9 +181,6 @@ function setFiltro(filtro, btn) {
 }
 
 
-// ============================================================
-//  SELECTS DE SUBCATEGORÍA
-// ============================================================
 function setFiltroSelect(select) {
     const valor      = select.value;
     const esProd     = select.id === "selectProductos";
@@ -100,9 +201,6 @@ function setFiltroSelect(select) {
 }
 
 
-// ============================================================
-//  LIMPIAR TODOS LOS FILTROS
-// ============================================================
 function limpiarFiltros() {
     filtroActivo = "todos";
     precioMin    = 0;
@@ -129,9 +227,6 @@ function limpiarFiltros() {
 }
 
 
-// ============================================================
-//  SLIDER DE PRECIO (visual)
-// ============================================================
 function actualizarSliderVisual() {
     const min = parseInt(document.getElementById("sliderMin").value);
     const max = parseInt(document.getElementById("sliderMax").value);
@@ -166,7 +261,5 @@ function updateSlider(fuente) {
 }
 
 
-// ============================================================
-//  INICIO — carga todos los productos al arrancar
-// ============================================================
+// Auto-ejecución: carga todos los productos al iniciar la página
 filtrar();
