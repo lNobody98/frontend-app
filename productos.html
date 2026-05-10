@@ -10,7 +10,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -37,10 +39,13 @@
          ============================================= -->
     <!-- ELIMINAR este bloque al empezar tu sección -->
     <header id="navbar">
-        <div style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 24px 32px; text-align: center; font-family: sans-serif;">
+        <div
+            style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 24px 32px; text-align: center; font-family: sans-serif;">
             <strong style="font-size: 1rem;">CHRISTIAN DIAZ</strong><br>
-            <span style="font-size: 0.85rem; color: #666;">Navbar — barra de navegación fija con logo, links y menú hamburguesa (Bootstrap collapse)</span><br>
-            <span style="font-size: 0.8rem; color: #c00;">⚠️ No cierres &lt;/header&gt; aquí — el carousel de Juan también va dentro del header</span>
+            <span style="font-size: 0.85rem; color: #666;">Navbar — barra de navegación fija con logo, links y menú
+                hamburguesa (Bootstrap collapse)</span><br>
+            <span style="font-size: 0.8rem; color: #c00;">⚠️ No cierres &lt;/header&gt; aquí — el carousel de Juan
+                también va dentro del header</span>
         </div>
 
         <!-- =============================================
@@ -53,9 +58,11 @@
              ============================================= -->
         <!-- ELIMINAR este bloque al empezar tu sección -->
         <section id="prod-carousel">
-            <div style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 80px 32px; text-align: center; font-family: sans-serif;">
+            <div
+                style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 80px 32px; text-align: center; font-family: sans-serif;">
                 <strong style="font-size: 1rem;">JUAN MORALES</strong><br>
-                <span style="font-size: 0.85rem; color: #666;">Carousel — 6 slides con imagen de fondo, título, descripción y botón CTA (Bootstrap Carousel)</span>
+                <span style="font-size: 0.85rem; color: #666;">Carousel — 6 slides con imagen de fondo, título,
+                    descripción y botón CTA (Bootstrap Carousel)</span>
             </div>
         </section>
 
@@ -68,9 +75,11 @@
              ============================================= -->
         <!-- ELIMINAR este bloque al empezar tu sección -->
         <section id="prod-categorias">
-            <div style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif;">
+            <div
+                style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif;">
                 <strong style="font-size: 1rem;">XIOMARA SOLIS</strong><br>
-                <span style="font-size: 0.85rem; color: #666;">Categorías — grid visual con las 20 categorías del catálogo (10 productos + 10 servicios), solo decorativo</span>
+                <span style="font-size: 0.85rem; color: #666;">Categorías — grid visual con las 20 categorías del
+                    catálogo (10 productos + 10 servicios), solo decorativo</span>
             </div>
         </section>
 
@@ -85,38 +94,98 @@
         <section id="prod-busqueda">
             <div class="container">
 
-                <!-- Cabecera decorativa — sin responsable asignado -->
                 <div class="prod-seccion-header">
                     <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
                     <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
-                    <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120 ítems disponibles.</p>
+                    <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120
+                        ítems disponibles.</p>
                 </div>
 
-                <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner tu código ════
-                     Incluye: buscador dinámico + aside.js-sidebar completo
-                     Ver referencia: resultado/avance2/productos.html -->
-                <div style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 48px 32px; text-align: center; font-family: sans-serif; margin-bottom: 16px;">
-                    <strong style="font-size: 1rem;">JOEL SALDAÑA</strong><br>
-                    <span style="font-size: 0.85rem; color: #666;">Búsqueda dinámica (oninput) + sidebar con botones,<br>selects de subcategoría y slider de precio</span>
+                <div class="js-buscador">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="inputBusqueda" oninput="filtrar()"
+                        placeholder="Buscar por nombre, marca o descripción..." autocomplete="off">
                 </div>
-                <!-- ════ JOEL SALDAÑA — FIN PLACEHOLDER ════ -->
 
                 <div class="prod-busqueda-layout">
+                    <aside class="js-sidebar">
+                        <div class="js-sidebar-header">
+                            <p class="js-sidebar-titulo"><i class="fas fa-sliders"></i> Filtros</p>
+                            <button class="js-btn-limpiar" onclick="limpiarFiltros()">
+                                <i class="fas fa-rotate-left"></i> Limpiar
+                            </button>
+                        </div>
 
-                    <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner aside.js-sidebar ════ -->
-                    <div style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 60px 16px; text-align: center; font-family: sans-serif;">
-                        <strong>JOEL</strong><br>
-                        <span style="font-size: 0.8rem; color: #666;">aside.js-sidebar<br>(filtros)</span>
-                    </div>
-                    <!-- ════ JOEL SALDAÑA — FIN ════ -->
+                        <p class="js-filtros-label">Categoría</p>
+                        <div class="js-filtros-col">
+                            <button id="btn-todos" class="js-filtro-btn activo" onclick="setFiltro('todos', this)">Todos
+                                (120)</button>
+                            <button id="btn-productos" class="js-filtro-btn" onclick="setFiltro('Producto', this)">
+                                <i class="fas fa-box"></i> Productos
+                            </button>
+                            <button id="btn-servicios" class="js-filtro-btn" onclick="setFiltro('Servicio', this)">
+                                <i class="fas fa-tools"></i> Servicios
+                            </button>
+                        </div>
+
+                        <p class="js-filtros-label">Subcategoría — Productos</p>
+                        <select id="selectProductos" class="js-filtro-select" onchange="setFiltroSelect(this)">
+                            <option value="">— Todas las categorías —</option>
+                            <option value="Teléfonos">Teléfonos</option>
+                            <option value="Laptops">Laptops</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Componentes">Componentes</option>
+                            <option value="Monitores">Monitores</option>
+                            <option value="Tablets">Tablets</option>
+                            <option value="Smart TV">Smart TV</option>
+                            <option value="Impresoras">Impresoras</option>
+                            <option value="Wearables">Wearables</option>
+                        </select>
+
+                        <p class="js-filtros-label">Subcategoría — Servicios</p>
+                        <select id="selectServicios" class="js-filtro-select" onchange="setFiltroSelect(this)">
+                            <option value="">— Todos los servicios —</option>
+                            <option value="Soporte">Soporte</option>
+                            <option value="Mantenimiento">Mantenimiento</option>
+                            <option value="Reparación">Reparación</option>
+                            <option value="Instalación">Instalación</option>
+                            <option value="Asesoría">Asesoría</option>
+                            <option value="Ciberseguridad">Ciberseguridad</option>
+                            <option value="Diseño Digital">Diseño Digital</option>
+                            <option value="Networking">Networking</option>
+                            <option value="Cloud &amp; Backup">Cloud &amp; Backup</option>
+                            <option value="Desarrollo Web">Desarrollo Web</option>
+                        </select>
+
+                        <p class="js-filtros-label">Precio (S/.)</p>
+                        <div class="js-precio-slider-container">
+                            <div class="js-precio-slider-track-wrapper">
+                                <div class="js-precio-slider-track">
+                                    <div class="js-precio-slider-range" id="sliderRange"></div>
+                                </div>
+                                <input type="range" id="sliderMin" class="js-precio-range" min="0" max="10000" value="0"
+                                    step="100" oninput="actualizarSliderVisual()" onchange="updateSlider('min')">
+                                <input type="range" id="sliderMax" class="js-precio-range" min="0" max="10000"
+                                    value="10000" step="100" oninput="actualizarSliderVisual()"
+                                    onchange="updateSlider('max')">
+                            </div>
+                            <div class="js-precio-display">
+                                <span id="displayMin">S/. 0</span>
+                                <span id="displayMax">S/. 10,000+</span>
+                            </div>
+                        </div>
+                    </aside>
 
                     <!-- ════ MAYKOL CALLE — ELIMINAR este placeholder y poner div.mc-main ════
                          Incluye: barra de orden + #prod-lista + #prod-sin-resultados
                          Para testear solo: agrega renderizar(listaProductos) al final de listado.js
                          Ver referencia: resultado/avance2/productos.html -->
-                    <div style="border: 2px dashed #0071e3; background: #f0f6ff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif; flex: 1;">
+                    <div
+                        style="border: 2px dashed #0071e3; background: #f0f6ff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif; flex: 1;">
                         <strong style="font-size: 1rem;">MAYKOL CALLE</strong><br>
-                        <span style="font-size: 0.85rem; color: #666;">div.mc-main — barra de orden, grid de cards<br>generado por listado.js y mensaje sin resultados</span>
+                        <span style="font-size: 0.85rem; color: #666;">div.mc-main — barra de orden, grid de
+                            cards<br>generado por listado.js y mensaje sin resultados</span>
                     </div>
                     <!-- ════ MAYKOL CALLE — FIN ════ -->
 
@@ -146,11 +215,16 @@
                     </p>
                     <p class="footer-redes-titulo">Síguenos en redes</p>
                     <div class="footer-redes">
-                        <a href="https://www.facebook.com/NXRDuroCorp/" target="_blank" class="red-social facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/nxrdigitalsolution/" target="_blank" class="red-social instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/nxrt_io" target="_blank" class="red-social twitter" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://wa.me/51912016161" target="_blank" class="red-social whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.tiktok.com/@nxr.projects" target="_blank" class="red-social tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/NXRDuroCorp/" target="_blank" class="red-social facebook"
+                            title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/nxrdigitalsolution/" target="_blank"
+                            class="red-social instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/nxrt_io" target="_blank" class="red-social twitter" title="Twitter/X"><i
+                                class="fab fa-x-twitter"></i></a>
+                        <a href="https://wa.me/51912016161" target="_blank" class="red-social whatsapp"
+                            title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@nxr.projects" target="_blank" class="red-social tiktok"
+                            title="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -175,7 +249,8 @@
                 <div class="footer-mapa-info">
                     <h4><i class="fas fa-map-marker-alt"></i> Encuéntranos</h4>
                     <p>Edificio Gerpal, Av Alfredo Benavides 768, Miraflores, Lima<br>Lima, Perú<br><br>
-                        <i class="fas fa-clock" style="color:var(--color-acento);margin-right:6px;"></i>Lun - Sab: 9am - 7pm<br>
+                        <i class="fas fa-clock" style="color:var(--color-acento);margin-right:6px;"></i>Lun - Sab: 9am -
+                        7pm<br>
                         <i class="fas fa-phone" style="color:var(--color-acento);margin-right:6px;"></i>+51 999 888 777
                     </p>
                 </div>
