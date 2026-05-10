@@ -129,7 +129,7 @@
 let filtroActivo = "todos";
 let precioMin    = 0;
 let precioMax    = Infinity;
-let iniciado     = false;
+let iniciado     = true;
 
 const SLIDER_MAX = 10000;
 
@@ -270,9 +270,4 @@ function updateSlider(fuente) {
 }
 
 
-// Auto-ejecución al cargar la página.
-// Esta línea NO está dentro de ninguna función — se ejecuta
-// automáticamente cuando el navegador termina de leer este archivo.
-// Resultado: la lista aparece llena desde el primer instante,
-// sin que el usuario tenga que hacer clic en nada.
-filtrar();
+// La carga inicial la dispara listado.js con renderizar(listaProductos).
