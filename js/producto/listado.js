@@ -1,4 +1,3 @@
-
 let _listaActual = [];
 let paginaActual = 1;
 let ordenActivo  = "relevancia";
@@ -6,11 +5,7 @@ let ordenActivo  = "relevancia";
 const POR_PAGINA = 12;
 
 
-// ============================================================
-//  renderizar(items) — PUNTO DE ENTRADA
-//  filtros.js llama esta función cada vez que el usuario filtra.
-//  Guarda el array, vuelve a página 1 y redibuja las cards.
-// ============================================================
+
 function renderizar(items) {
     _listaActual = items;
     paginaActual = 1;
@@ -18,11 +13,7 @@ function renderizar(items) {
 }
 
 
-// ============================================================
-//  irAPagina(n) — PAGINACIÓN
-//  Cambia a la página n y hace scroll suave a la sección.
-//  Llamada via onclick desde los botones que genera _pintar().
-// ============================================================
+
 function irAPagina(n) {
     paginaActual = n;
     _pintar();
@@ -30,11 +21,7 @@ function irAPagina(n) {
 }
 
 
-// ============================================================
-//  setOrden(select) — ORDENAMIENTO
-//  Lee el valor del <select id="selectOrden">, actualiza
-//  ordenActivo y redibuja. Llamada via onchange en el HTML.
-// ============================================================
+
 function setOrden(select) {
     ordenActivo  = select.value;
     paginaActual = 1;
@@ -42,12 +29,7 @@ function setOrden(select) {
 }
 
 
-// ============================================================
-//  sortLista(lista) — FUNCIÓN PRIVADA DE APOYO
-//  Crea una copia del array con spread [...lista] para no mutar
-//  _listaActual y la ordena según ordenActivo usando switch/case.
-//  Cada case retorna la copia ordenada con Array.sort().
-// ============================================================
+
 function sortLista(lista) {
     const copia = [...lista];
     switch (ordenActivo) {
@@ -60,17 +42,7 @@ function sortLista(lista) {
 }
 
 
-// ============================================================
-//  _pintar() — FUNCIÓN PRIVADA CENTRAL (prefijo _ = interna)
-//  1. Ordena la lista con sortLista()
-//  2. Actualiza el contador de resultados (operador ternario)
-//  3. Si lista vacía: muestra #prod-sin-resultados (if/else)
-//  4. Calcula totalPaginas con Math.ceil() y recorta el slice
-//  5. Genera el HTML de cada card con Array.map() y template literals
-//     — llama item.getPrecioTexto() (método POO de producto.js)
-//  6. Si hay más de 1 página: genera botones con bucle for clásico
-//  7. Inyecta el HTML final en contenedor.innerHTML (DOM)
-// ============================================================
+
 function _pintar() {
     const lista         = sortLista(_listaActual);
     const contenedor    = document.getElementById("prod-lista");
@@ -126,3 +98,5 @@ function _pintar() {
 
     contenedor.innerHTML = html;
 }
+
+renderizar(listaProductos);

@@ -67,6 +67,7 @@
 /* ✏️ JOEL SALDAÑA — coloca aquí tu código */
 
 /* barra superior del área de resultados: contador + ordenar */
+/* barra superior del área de resultados: contador + ordenar */
 .mc-main-barra {
     display: flex;
     align-items: center;
@@ -89,6 +90,7 @@
     min-width: 190px;
     font-size: 0.8rem;
 }
+
 
 .mc-producto {
     background-color: var(--color-fondo-card);
