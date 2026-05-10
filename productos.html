@@ -288,54 +288,101 @@
              No tocar el bloque del otro.
              Referencia completa: resultado/avance2/productos.html
              ============================================= -->
-            <section id="prod-busqueda">
-                <div class="container">
+        <section id="prod-busqueda">
+            <div class="container">
 
-                    <!-- Cabecera decorativa — sin responsable asignado -->
-                    <div class="prod-seccion-header">
-                        <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
-                        <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
-                        <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120
-                            ítems disponibles.</p>
-                    </div>
+                <div class="prod-seccion-header">
+                    <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
+                    <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
+                    <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120
+                        ítems disponibles.</p>
+                </div>
 
-                    <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner tu código ════
-                     Incluye: buscador dinámico + aside.js-sidebar completo
-                     Ver referencia: resultado/avance2/productos.html -->
+                <div class="js-buscador">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="inputBusqueda" oninput="filtrar()"
+                        placeholder="Buscar por nombre, marca o descripción..." autocomplete="off">
+                </div>
+
+                <div class="prod-busqueda-layout">
+                    <aside class="js-sidebar">
+                        <div class="js-sidebar-header">
+                            <p class="js-sidebar-titulo"><i class="fas fa-sliders"></i> Filtros</p>
+                            <button class="js-btn-limpiar" onclick="limpiarFiltros()">
+                                <i class="fas fa-rotate-left"></i> Limpiar
+                            </button>
+                        </div>
+
+                        <p class="js-filtros-label">Categoría</p>
+                        <div class="js-filtros-col">
+                            <button id="btn-todos" class="js-filtro-btn activo" onclick="setFiltro('todos', this)">Todos
+                                (120)</button>
+                            <button id="btn-productos" class="js-filtro-btn" onclick="setFiltro('Producto', this)">
+                                <i class="fas fa-box"></i> Productos
+                            </button>
+                            <button id="btn-servicios" class="js-filtro-btn" onclick="setFiltro('Servicio', this)">
+                                <i class="fas fa-tools"></i> Servicios
+                            </button>
+                        </div>
+
+                        <p class="js-filtros-label">Subcategoría — Productos</p>
+                        <select id="selectProductos" class="js-filtro-select" onchange="setFiltroSelect(this)">
+                            <option value="">— Todas las categorías —</option>
+                            <option value="Teléfonos">Teléfonos</option>
+                            <option value="Laptops">Laptops</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Componentes">Componentes</option>
+                            <option value="Monitores">Monitores</option>
+                            <option value="Tablets">Tablets</option>
+                            <option value="Smart TV">Smart TV</option>
+                            <option value="Impresoras">Impresoras</option>
+                            <option value="Wearables">Wearables</option>
+                        </select>
+
+                        <p class="js-filtros-label">Subcategoría — Servicios</p>
+                        <select id="selectServicios" class="js-filtro-select" onchange="setFiltroSelect(this)">
+                            <option value="">— Todos los servicios —</option>
+                            <option value="Soporte">Soporte</option>
+                            <option value="Mantenimiento">Mantenimiento</option>
+                            <option value="Reparación">Reparación</option>
+                            <option value="Instalación">Instalación</option>
+                            <option value="Asesoría">Asesoría</option>
+                            <option value="Ciberseguridad">Ciberseguridad</option>
+                            <option value="Diseño Digital">Diseño Digital</option>
+                            <option value="Networking">Networking</option>
+                            <option value="Cloud &amp; Backup">Cloud &amp; Backup</option>
+                            <option value="Desarrollo Web">Desarrollo Web</option>
+                        </select>
+
+                        <p class="js-filtros-label">Precio (S/.)</p>
+                        <div class="js-precio-slider-container">
+                            <div class="js-precio-slider-track-wrapper">
+                                <div class="js-precio-slider-track">
+                                    <div class="js-precio-slider-range" id="sliderRange"></div>
+                                </div>
+                                <input type="range" id="sliderMin" class="js-precio-range" min="0" max="10000" value="0"
+                                    step="100" oninput="actualizarSliderVisual()" onchange="updateSlider('min')">
+                                <input type="range" id="sliderMax" class="js-precio-range" min="0" max="10000"
+                                    value="10000" step="100" oninput="actualizarSliderVisual()"
+                                    onchange="updateSlider('max')">
+                            </div>
+                            <div class="js-precio-display">
+                                <span id="displayMin">S/. 0</span>
+                                <span id="displayMax">S/. 10,000+</span>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- ════ MAYKOL CALLE — ELIMINAR este placeholder y poner div.mc-main ════
+                         Incluye: barra de orden + #prod-lista + #prod-sin-resultados
+                         Para testear solo: agrega renderizar(listaProductos) al final de listado.js
+                         Ver referencia: resultado/avance2/productos.html -->
                     <div
-                        style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 48px 32px; text-align: center; font-family: sans-serif; margin-bottom: 16px;">
-                        <strong style="font-size: 1rem;">JOEL SALDAÑA</strong><br>
-                        <span style="font-size: 0.85rem; color: #666;">Búsqueda dinámica (oninput) + sidebar con
-                            botones,<br>selects de subcategoría y slider de precio</span>
-                    </div>
-                    <!-- ════ JOEL SALDAÑA — FIN PLACEHOLDER ════ -->
-
-                    <div class="prod-busqueda-layout">
-
-                        <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner aside.js-sidebar ════ -->
-                        <div
-                            style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 60px 16px; text-align: center; font-family: sans-serif;">
-                            <strong>JOEL</strong><br>
-                            <span style="font-size: 0.8rem; color: #666;">aside.js-sidebar<br>(filtros)</span>
-                        </div>
-                        <!-- ════ JOEL SALDAÑA — FIN ════ -->
-
-                    <div class="mc-main">
-                        <div class="mc-main-barra">
-                            <p id="prod-contador"></p>
-                            <select id="selectOrden" class="mc-orden-select" onchange="setOrden(this)">
-                                <option value="relevancia">Relevancia</option>
-                                <option value="precio-asc">Precio: menor a mayor</option>
-                                <option value="precio-desc">Precio: mayor a menor</option>
-                                <option value="nombre-az">Nombre: A → Z</option>
-                                <option value="nombre-za">Nombre: Z → A</option>
-                            </select>
-                        </div>
-                        <div id="prod-lista" class="mc-lista-grid"></div>
-                        <div id="prod-sin-resultados">
-                            <i class="fas fa-search-minus"></i>
-                            <p>No se encontraron resultados para tu búsqueda.</p>
-                        </div>
+                        style="border: 2px dashed #0071e3; background: #f0f6ff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif; flex: 1;">
+                        <strong style="font-size: 1rem;">MAYKOL CALLE</strong><br>
+                        <span style="font-size: 0.85rem; color: #666;">div.mc-main — barra de orden, grid de
+                            cards<br>generado por listado.js y mensaje sin resultados</span>
                     </div>
 
                 </div>
