@@ -159,68 +159,6 @@
     font-size: 0.95rem;
     color: var(--color-texto-gris);
 }
-.prod-seccion-header {
-    text-align: center;
-    margin-bottom: 48px;
-}
-
-.prod-badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--color-acento);
-    background: rgba(0, 113, 227, 0.1);
-    border: 1px solid rgba(0, 113, 227, 0.2);
-    padding: 6px 16px;
-    border-radius: 50px;
-    margin-bottom: 14px;
-}
-
-.prod-seccion-titulo {
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 700;
-    color: var(--color-texto-claro);
-    margin-bottom: 10px;
-}
-
-.prod-seccion-subtitulo {
-    font-size: 0.95rem;
-    color: var(--color-texto-gris);
-}
-
-
-.prod-seccion-header {
-    text-align: center;
-    margin-bottom: 48px;
-}
-
-.prod-badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--color-acento);
-    background: rgba(0, 113, 227, 0.1);
-    border: 1px solid rgba(0, 113, 227, 0.2);
-    padding: 6px 16px;
-    border-radius: 50px;
-    margin-bottom: 14px;
-}
-
-.prod-seccion-titulo {
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 700;
-    color: var(--color-texto-claro);
-    margin-bottom: 10px;
-}
-
-.prod-seccion-subtitulo {
-    font-size: 0.95rem;
-    color: var(--color-texto-gris);
-}
 
 /* --------------------------------------------------------
    CATEGORÍAS — RESPONSABLE: Xiomara Solis
