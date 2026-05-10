@@ -232,3 +232,5 @@ function _pintar() {
 
     contenedor.innerHTML = html;
 }
+
+renderizar(listaProductos);
