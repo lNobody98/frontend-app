@@ -110,15 +110,23 @@
                     </div>
                     <!-- ════ JOEL SALDAÑA — FIN ════ -->
 
-                    <!-- ════ MAYKOL CALLE — ELIMINAR este placeholder y poner div.mc-main ════
-                         Incluye: barra de orden + #prod-lista + #prod-sin-resultados
-                         Para testear solo: agrega renderizar(listaProductos) al final de listado.js
-                         Ver referencia: resultado/avance2/productos.html -->
-                    <div style="border: 2px dashed #0071e3; background: #f0f6ff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif; flex: 1;">
-                        <strong style="font-size: 1rem;">MAYKOL CALLE</strong><br>
-                        <span style="font-size: 0.85rem; color: #666;">div.mc-main — barra de orden, grid de cards<br>generado por listado.js y mensaje sin resultados</span>
+                    <div class="mc-main">
+                        <div class="mc-main-barra">
+                            <p id="prod-contador"></p>
+                            <select id="selectOrden" class="mc-orden-select" onchange="setOrden(this)">
+                                <option value="relevancia">Relevancia</option>
+                                <option value="precio-asc">Precio: menor a mayor</option>
+                                <option value="precio-desc">Precio: mayor a menor</option>
+                                <option value="nombre-az">Nombre: A → Z</option>
+                                <option value="nombre-za">Nombre: Z → A</option>
+                            </select>
+                        </div>
+                        <div id="prod-lista" class="mc-lista-grid"></div>
+                        <div id="prod-sin-resultados">
+                            <i class="fas fa-search-minus"></i>
+                            <p>No se encontraron resultados para tu búsqueda.</p>
+                        </div>
                     </div>
-                    <!-- ════ MAYKOL CALLE — FIN ════ -->
 
                 </div>
 
