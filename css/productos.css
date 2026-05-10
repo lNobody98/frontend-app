@@ -43,16 +43,154 @@
 
 
 
-/* --------------------------------------------------------
-   CAROUSEL / PORTADA — RESPONSABLE: Juan Morales
-   Clases principales: .jm-slide, .jm-slide-contenido
+.jm-slide {
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.jm-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(5,10,20,0.72) 0%, rgba(10,22,40,0.50) 100%);
+}
+
+.jm-slide-contenido {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 0; /* top: compensa altura de la navbar fija */
+    gap: 16px;
+}
+
+.jm-slide-contenido h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    color: var(--color-texto-claro);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.jm-slide-contenido h2 span {
+    color: var(--color-acento);
+}
+
+.jm-slide-contenido p {
+    font-size: 1rem;
+    color: var(--color-texto-gris-claro);
+    max-width: 500px;
+    margin: 0;
+}
+
+/* controles del carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 113, 227, 0.5);
+    border-radius: 50%;
+    padding: 18px;
+    background-size: 50%;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: var(--color-acento);
+    border-radius: 50px;
+    width: 28px;
+    height: 4px;
+    border: none;
+    opacity: 0.4;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+/* En tablets y móviles el slide se acorta para que el contenido
+   sea visible sin necesidad de hacer scroll */
+@media (max-width: 768px) {
+    .jm-slide { height: 380px; }
+}
+
+/* ============================================================
+   CABECERA DE SECCIÓN — patrón reutilizado en todas las secciones
+
+   Clases usadas en el encabezado de cada sección principal:
+   - .prod-seccion-header  → contenedor centrado con margen inferior
+   - .prod-badge           → etiqueta azul redondeada (ej: "Categorías")
+   - .prod-seccion-titulo  → título grande de la sección (h2)
+   - .prod-seccion-subtitulo → subtítulo gris debajo del título
+
+   Estas clases las usa cualquier sección que tenga encabezado.
+   No pertenecen a ningún responsable en particular.
    -------------------------------------------------------- */
-/* ✏️ JUAN MORALES — coloca aquí tu código */
+.prod-seccion-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.prod-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-acento);
+    background: rgba(0, 113, 227, 0.1);
+    border: 1px solid rgba(0, 113, 227, 0.2);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+}
+
+.prod-seccion-titulo {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--color-texto-claro);
+    margin-bottom: 10px;
+}
+
+.prod-seccion-subtitulo {
+    font-size: 0.95rem;
+    color: var(--color-texto-gris);
+}
+.prod-seccion-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.prod-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-acento);
+    background: rgba(0, 113, 227, 0.1);
+    border: 1px solid rgba(0, 113, 227, 0.2);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+}
+
+.prod-seccion-titulo {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--color-texto-claro);
+    margin-bottom: 10px;
+}
+
+.prod-seccion-subtitulo {
+    font-size: 0.95rem;
+    color: var(--color-texto-gris);
+}
 
 
-/* --------------------------------------------------------
-   CABECERA DE SECCIÓN (patrón reutilizable — sin responsable)
-   -------------------------------------------------------- */
 .prod-seccion-header {
     text-align: center;
     margin-bottom: 48px;
