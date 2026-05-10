@@ -64,12 +64,18 @@
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="0"
                         class="active"></button>
+
                     <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="1"></button>
+
                     <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="2"></button>
+
                     <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="3"></button>
+
                     <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="4"></button>
+
                     <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="5"></button>
-                  
+
+                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="6"></button>
                 </div>
 
                 <!-- slides -->
@@ -135,38 +141,39 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="carousel-item">
-                        <div class="jm-slide" style="background-image: url('img/catalogo/banner/banner-7.jpg');">
-                            <div class="jm-slide-contenido">
-                                <h2>Conecta <span>Tu Mundo</span></h2>
-                                <p>Descubre innovación, tecnología y soluciones digitales para potenciar tu vida y tu
-                                    empresa.</p>
-                                <a href="#prod-busqueda" class="btn-primario">Explorar ahora →</a>
-                            </div>
-                        </div>
-                    </div>
+                <!-- controles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductos"
+                    data-bs-slide="prev">
+
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProductos"
+                    data-bs-slide="next">
+
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+
             </div>
         </section>
+        <main>
 
-    </header>
-
-    <main>
-
-        <!-- =============================================
+            <!-- =============================================
              CATEGORÍAS — Xiomara Solis
              ============================================= -->
-        <!-- ELIMINAR este bloque al empezar tu sección -->
-        <section id="prod-categorias">
-            <div
-                style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif;">
-                <strong style="font-size: 1rem;">XIOMARA SOLIS</strong><br>
-                <span style="font-size: 0.85rem; color: #666;">Categorías — grid visual con las 20 categorías del
-                    catálogo (10 productos + 10 servicios), solo decorativo</span>
-            </div>
-        </section>
+            <!-- ELIMINAR este bloque al empezar tu sección -->
+            <section id="prod-categorias">
+                <div
+                    style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif;">
+                    <strong style="font-size: 1rem;">XIOMARA SOLIS</strong><br>
+                    <span style="font-size: 0.85rem; color: #666;">Categorías — grid visual con las 20 categorías del
+                        catálogo (10 productos + 10 servicios), solo decorativo</span>
+                </div>
+            </section>
 
-        <!-- =============================================
+            <!-- =============================================
              BÚSQUEDA + FILTROS — Joel Saldaña
              LISTA DE RESULTADOS  — Maykol Calle
 
@@ -174,144 +181,146 @@
              No tocar el bloque del otro.
              Referencia completa: resultado/avance2/productos.html
              ============================================= -->
-        <section id="prod-busqueda">
-            <div class="container">
+            <section id="prod-busqueda">
+                <div class="container">
 
-                <!-- Cabecera decorativa — sin responsable asignado -->
-                <div class="prod-seccion-header">
-                    <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
-                    <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
-                    <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120
-                        ítems disponibles.</p>
-                </div>
+                    <!-- Cabecera decorativa — sin responsable asignado -->
+                    <div class="prod-seccion-header">
+                        <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
+                        <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
+                        <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120
+                            ítems disponibles.</p>
+                    </div>
 
-                <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner tu código ════
+                    <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner tu código ════
                      Incluye: buscador dinámico + aside.js-sidebar completo
                      Ver referencia: resultado/avance2/productos.html -->
-                <div
-                    style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 48px 32px; text-align: center; font-family: sans-serif; margin-bottom: 16px;">
-                    <strong style="font-size: 1rem;">JOEL SALDAÑA</strong><br>
-                    <span style="font-size: 0.85rem; color: #666;">Búsqueda dinámica (oninput) + sidebar con
-                        botones,<br>selects de subcategoría y slider de precio</span>
-                </div>
-                <!-- ════ JOEL SALDAÑA — FIN PLACEHOLDER ════ -->
-
-                <div class="prod-busqueda-layout">
-
-                    <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner aside.js-sidebar ════ -->
                     <div
-                        style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 60px 16px; text-align: center; font-family: sans-serif;">
-                        <strong>JOEL</strong><br>
-                        <span style="font-size: 0.8rem; color: #666;">aside.js-sidebar<br>(filtros)</span>
+                        style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 48px 32px; text-align: center; font-family: sans-serif; margin-bottom: 16px;">
+                        <strong style="font-size: 1rem;">JOEL SALDAÑA</strong><br>
+                        <span style="font-size: 0.85rem; color: #666;">Búsqueda dinámica (oninput) + sidebar con
+                            botones,<br>selects de subcategoría y slider de precio</span>
                     </div>
-                    <!-- ════ JOEL SALDAÑA — FIN ════ -->
+                    <!-- ════ JOEL SALDAÑA — FIN PLACEHOLDER ════ -->
 
-                    <!-- ════ MAYKOL CALLE — ELIMINAR este placeholder y poner div.mc-main ════
+                    <div class="prod-busqueda-layout">
+
+                        <!-- ════ JOEL SALDAÑA — ELIMINAR este placeholder y poner aside.js-sidebar ════ -->
+                        <div
+                            style="border: 2px dashed #f0a500; background: #fffbf0; color: #333; padding: 60px 16px; text-align: center; font-family: sans-serif;">
+                            <strong>JOEL</strong><br>
+                            <span style="font-size: 0.8rem; color: #666;">aside.js-sidebar<br>(filtros)</span>
+                        </div>
+                        <!-- ════ JOEL SALDAÑA — FIN ════ -->
+
+                        <!-- ════ MAYKOL CALLE — ELIMINAR este placeholder y poner div.mc-main ════
                          Incluye: barra de orden + #prod-lista + #prod-sin-resultados
                          Para testear solo: agrega renderizar(listaProductos) al final de listado.js
                          Ver referencia: resultado/avance2/productos.html -->
-                    <div
-                        style="border: 2px dashed #0071e3; background: #f0f6ff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif; flex: 1;">
-                        <strong style="font-size: 1rem;">MAYKOL CALLE</strong><br>
-                        <span style="font-size: 0.85rem; color: #666;">div.mc-main — barra de orden, grid de
-                            cards<br>generado por listado.js y mensaje sin resultados</span>
+                        <div
+                            style="border: 2px dashed #0071e3; background: #f0f6ff; color: #333; padding: 60px 32px; text-align: center; font-family: sans-serif; flex: 1;">
+                            <strong style="font-size: 1rem;">MAYKOL CALLE</strong><br>
+                            <span style="font-size: 0.85rem; color: #666;">div.mc-main — barra de orden, grid de
+                                cards<br>generado por listado.js y mensaje sin resultados</span>
+                        </div>
+                        <!-- ════ MAYKOL CALLE — FIN ════ -->
+
                     </div>
-                    <!-- ════ MAYKOL CALLE — FIN ════ -->
 
                 </div>
+            </section>
 
-            </div>
-        </section>
+        </main>
 
-    </main>
-
-    <!-- =============================================
+        <!-- =============================================
          FOOTER — RESPONSABLE: Enrique Prada
          ============================================= -->
-    <footer>
-        <div class="container">
+        <footer>
+            <div class="container">
 
-            <div class="footer-top">
+                <div class="footer-top">
 
-                <div class="footer-marca">
-                    <a href="inicio.html" class="nav-logo">
-                        <img src="img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
-                    </a>
-                    <p class="footer-descripcion">
-                        Tu aliado en soluciones tecnológicas completas. Comercializamos teléfonos,
-                        computadoras y accesorios, y ofrecemos soporte técnico, mantenimiento y
-                        asesoría especializada con calidad y confianza.
-                    </p>
-                    <p class="footer-redes-titulo">Síguenos en redes</p>
-                    <div class="footer-redes">
-                        <a href="https://www.facebook.com/NXRDuroCorp/" target="_blank" class="red-social facebook"
-                            title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/nxrdigitalsolution/" target="_blank"
-                            class="red-social instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/nxrt_io" target="_blank" class="red-social twitter" title="Twitter/X"><i
-                                class="fab fa-x-twitter"></i></a>
-                        <a href="https://wa.me/51912016161" target="_blank" class="red-social whatsapp"
-                            title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.tiktok.com/@nxr.projects" target="_blank" class="red-social tiktok"
-                            title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <div class="footer-marca">
+                        <a href="inicio.html" class="nav-logo">
+                            <img src="img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
+                        </a>
+                        <p class="footer-descripcion">
+                            Tu aliado en soluciones tecnológicas completas. Comercializamos teléfonos,
+                            computadoras y accesorios, y ofrecemos soporte técnico, mantenimiento y
+                            asesoría especializada con calidad y confianza.
+                        </p>
+                        <p class="footer-redes-titulo">Síguenos en redes</p>
+                        <div class="footer-redes">
+                            <a href="https://www.facebook.com/NXRDuroCorp/" target="_blank" class="red-social facebook"
+                                title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/nxrdigitalsolution/" target="_blank"
+                                class="red-social instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://x.com/nxrt_io" target="_blank" class="red-social twitter"
+                                title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                            <a href="https://wa.me/51912016161" target="_blank" class="red-social whatsapp"
+                                title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.tiktok.com/@nxr.projects" target="_blank" class="red-social tiktok"
+                                title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-asociadas">
+                        <p class="footer-asociadas-label">Empresas Asociadas</p>
+                        <div class="footer-asociadas-lista">
+                            <a href="https://www.intel.com" target="_blank" class="footer-asociadas-item">
+                                <img src="img/logo-intel.svg" alt="Intel">
+                            </a>
+                            <a href="https://www.nvidia.com" target="_blank" class="footer-asociadas-item">
+                                <img src="img/logo-nvidia.svg" alt="NVIDIA">
+                            </a>
+                            <a href="https://www.samsung.com" target="_blank" class="footer-asociadas-item">
+                                <img src="img/logo-samsung.svg" alt="Samsung">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="footer-ubicacion">
+                    <div class="footer-mapa-info">
+                        <h4><i class="fas fa-map-marker-alt"></i> Encuéntranos</h4>
+                        <p>Edificio Gerpal, Av Alfredo Benavides 768, Miraflores, Lima<br>Lima, Perú<br><br>
+                            <i class="fas fa-clock" style="color:var(--color-acento);margin-right:6px;"></i>Lun - Sab:
+                            9am -
+                            7pm<br>
+                            <i class="fas fa-phone" style="color:var(--color-acento);margin-right:6px;"></i>+51 999 888
+                            777
+                        </p>
+                    </div>
+                    <div class="footer-mapa-wrapper">
+                        <iframe title="Ubicación de NXR TECH en Google Maps"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.807089340955!2d-77.02765046312203!3d-12.125347888167074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81ec97e7907%3A0x18b4e5cf9fd504b9!2sNextech%20Education%20Center!5e0!3m2!1ses-419!2spe!4v1775803092590!5m2!1ses-419!2spe"
+                            style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
-                <div class="footer-asociadas">
-                    <p class="footer-asociadas-label">Empresas Asociadas</p>
-                    <div class="footer-asociadas-lista">
-                        <a href="https://www.intel.com" target="_blank" class="footer-asociadas-item">
-                            <img src="img/logo-intel.svg" alt="Intel">
-                        </a>
-                        <a href="https://www.nvidia.com" target="_blank" class="footer-asociadas-item">
-                            <img src="img/logo-nvidia.svg" alt="NVIDIA">
-                        </a>
-                        <a href="https://www.samsung.com" target="_blank" class="footer-asociadas-item">
-                            <img src="img/logo-samsung.svg" alt="Samsung">
-                        </a>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 NXR TECH. Todos los derechos reservados.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Política de Privacidad</a>
+                        <a href="#">Términos y Condiciones</a>
+                        <a href="#">Cookies</a>
                     </div>
                 </div>
 
             </div>
+        </footer>
 
-            <div class="footer-ubicacion">
-                <div class="footer-mapa-info">
-                    <h4><i class="fas fa-map-marker-alt"></i> Encuéntranos</h4>
-                    <p>Edificio Gerpal, Av Alfredo Benavides 768, Miraflores, Lima<br>Lima, Perú<br><br>
-                        <i class="fas fa-clock" style="color:var(--color-acento);margin-right:6px;"></i>Lun - Sab: 9am -
-                        7pm<br>
-                        <i class="fas fa-phone" style="color:var(--color-acento);margin-right:6px;"></i>+51 999 888 777
-                    </p>
-                </div>
-                <div class="footer-mapa-wrapper">
-                    <iframe title="Ubicación de NXR TECH en Google Maps"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.807089340955!2d-77.02765046312203!3d-12.125347888167074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81ec97e7907%3A0x18b4e5cf9fd504b9!2sNextech%20Education%20Center!5e0!3m2!1ses-419!2spe!4v1775803092590!5m2!1ses-419!2spe"
-                        style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
+        <!-- Bootstrap JS (necesario para el carousel) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 NXR TECH. Todos los derechos reservados.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Política de Privacidad</a>
-                    <a href="#">Términos y Condiciones</a>
-                    <a href="#">Cookies</a>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS (necesario para el carousel) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Scripts del proyecto -->
-    <script src="js/main.js"></script>
-    <script src="js/producto/producto.js"></script>
-    <script src="js/producto/datos.js"></script>
-    <script src="js/producto/listado.js"></script>
-    <script src="js/producto/filtros.js"></script>
+        <!-- Scripts del proyecto -->
+        <script src="js/main.js"></script>
+        <script src="js/producto/producto.js"></script>
+        <script src="js/producto/datos.js"></script>
+        <script src="js/producto/listado.js"></script>
+        <script src="js/producto/filtros.js"></script>
 
 </body>
 
