@@ -39,14 +39,30 @@
          ============================================= -->
     <!-- ELIMINAR este bloque al empezar tu sección -->
     <header id="navbar">
-        <div
-            style="border: 2px dashed #aaa; background: #fff; color: #333; padding: 24px 32px; text-align: center; font-family: sans-serif;">
-            <strong style="font-size: 1rem;">CHRISTIAN DIAZ</strong><br>
-            <span style="font-size: 0.85rem; color: #666;">Navbar — barra de navegación fija con logo, links y menú
-                hamburguesa (Bootstrap collapse)</span><br>
-            <span style="font-size: 0.8rem; color: #c00;">⚠️ No cierres &lt;/header&gt; aquí — el carousel de Juan
-                también va dentro del header</span>
+        
+        <div class="ep-navbar-bar">
+            <nav class="container navbar navbar-expand-md">
+                <a href="../../inicio.html" class="nav-logo navbar-brand">
+                    <img src="../../img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
+                </a>
+                <button class="navbar-toggler nav-hamburger" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navProductos"
+                    aria-controls="navProductos" aria-expanded="false" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navProductos">
+                    <ul class="nav-links">
+                        <li><a href="../../inicio.html">Inicio</a></li>
+                        <li><a href="productos.html" style="color: var(--color-acento);">Productos</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#" class="nav-cta">Contactos</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
+
 
         <!-- =============================================
              CAROUSEL — Juan Morales
