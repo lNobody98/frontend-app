@@ -51,12 +51,94 @@
     color: var(--color-texto-gris);
 }
 
-
 /* --------------------------------------------------------
    CATEGORÍAS — RESPONSABLE: Xiomara Solis
    Clases principales: .xs-cats-grid, .xs-cat-card, .xs-cat-nombre
    -------------------------------------------------------- */
 /* ✏️ XIOMARA SOLIS — coloca aquí tu código */
+
+#prod-categorias {
+    background: var(--color-fondo-medio);
+    padding: 80px 0;
+    border-top: 1px solid var(--color-borde);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.xs-cats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.xs-cats-grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.xs-cat-card {
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: 28px 16px;
+    text-align: center;
+    transition: var(--transicion);
+}
+
+.xs-cat-card:hover {
+    border-color: var(--color-acento);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 113, 227, 0.15);
+}
+
+.xs-cat-card i {
+    font-size: 1.8rem;
+    color: var(--color-acento);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.xs-cat-card .xs-cat-nombre {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-texto-gris-claro);
+    display: block;
+}
+
+.xs-cat-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-texto-gris);
+    margin-bottom: 14px;
+    margin-top: 32px;
+}
+
+/* Tablet landscape: de 5 columnas a 3 — las cards siguen legibles */
+@media (max-width: 992px) {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet portrait / móvil grande: se mantienen 3 columnas */
+@media (max-width: 768px) {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Móvil pequeño: de 3 columnas a 2 para que las cards no queden diminutas */
+@media (max-width: 480px) {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 
 /* --------------------------------------------------------
