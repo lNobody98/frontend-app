@@ -8,6 +8,39 @@
    NAVBAR — RESPONSABLE: Christian Diaz
    -------------------------------------------------------- */
 /* ✏️ CHRISTIAN DIAZ — coloca aquí tu código */
+#navbar .ep-navbar-bar {
+    background-color: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* Bootstrap interfiere con el ancestro de posicionamiento de .nav-links.
+   Forzamos position:relative en el nav para que left:50% siempre se
+   calcule relativo al contenedor centrado, igual que en inicio.html. */
+#navbar .ep-navbar-bar nav {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
+
+/* Reset Bootstrap padding/sizing que infla el alto del navbar */
+#navbar .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    font-size: inherit;
+}
+
+/* Escritorio: el collapse no empuja links hacia la derecha */
+@media (min-width: 769px) {
+    #navbar .navbar-collapse {
+        flex-basis: auto;
+        flex-grow: 0;
+    }
+}
+
 
 
 /* --------------------------------------------------------
