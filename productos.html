@@ -28,33 +28,23 @@
 
 <body>
 
-    <!-- =============================================
-         NAVBAR — Christian Diaz
-
-         ⚠️ IMPORTANTE: el <header id="navbar"> también contiene
-         el CAROUSEL de Juan Morales. NO agregues </header> al
-         final de tu sección — ya está colocado después del carousel.
-
-         Referencia completa: resultado/avance2/productos.html
-         ============================================= -->
-    <!-- ELIMINAR este bloque al empezar tu sección -->
+    <!-- NAVBAR — Christian Diaz -->
     <header id="navbar">
-        
+
         <div class="ep-navbar-bar">
             <nav class="container navbar navbar-expand-md">
                 <a href="inicio.html" class="nav-logo navbar-brand">
                     <img src="img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
                 </a>
-                <button class="navbar-toggler nav-hamburger" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#navProductos"
-                    aria-controls="navProductos" aria-expanded="false" aria-label="Menú">
+                <button class="navbar-toggler nav-hamburger" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navProductos" aria-controls="navProductos" aria-expanded="false" aria-label="Menú">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navProductos">
                     <ul class="nav-links">
-                        <li><a href="../../inicio.html">Inicio</a></li>
+                        <li><a href="inicio.html">Inicio</a></li>
                         <li><a href="productos.html" style="color: var(--color-acento);">Productos</a></li>
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#" class="nav-cta">Contactos</a></li>
@@ -64,15 +54,7 @@
         </div>
 
 
-        <!-- =============================================
-             CAROUSEL — Juan Morales
-
-             ⚠️ IMPORTANTE: este section va DENTRO del <header>.
-             El </header> se cierra después de tu </section>.
-
-             Referencia completa: resultado/avance2/productos.html
-             ============================================= -->
-        <!-- ELIMINAR este bloque al empezar tu sección -->
+        <!-- CAROUSEL — Juan Morales -->
         <section id="prod-carousel">
             <div id="carouselProductos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
 
@@ -175,18 +157,17 @@
     </header>
 
     <main>
-        <!-- =============================================
-             CATEGORÍAS — Xiomara Solis
-             ============================================= -->
+        <!-- CATEGORÍAS — Xiomara Solis -->
         <section id="prod-categorias">
             <div class="container">
-        
+
                 <div class="prod-seccion-header">
                     <span class="prod-badge"><i class="fas fa-th-large"></i> Categorías</span>
                     <h2 class="prod-seccion-titulo">Explora Nuestras Categorías</h2>
-                    <p class="prod-seccion-subtitulo">Productos tecnológicos y servicios especializados para cada necesidad.</p>
+                    <p class="prod-seccion-subtitulo">Productos tecnológicos y servicios especializados para cada
+                        necesidad.</p>
                 </div>
-        
+
                 <!-- Productos -->
                 <p class="xs-cat-label"><i class="fas fa-box"></i> Productos</p>
                 <div class="xs-cats-grid">
@@ -231,7 +212,7 @@
                         <span class="xs-cat-nombre">Wearables</span>
                     </div>
                 </div>
-        
+
                 <!-- Servicios -->
                 <p class="xs-cat-label"><i class="fas fa-tools"></i> Servicios</p>
                 <div class="xs-cats-grid-servicios">
@@ -276,18 +257,11 @@
                         <span class="xs-cat-nombre">Desarrollo Web</span>
                     </div>
                 </div>
-        
+
             </div>
         </section>
 
-            <!-- =============================================
-             BÚSQUEDA + FILTROS — Joel Saldaña
-             LISTA DE RESULTADOS  — Maykol Calle
-
-             IMPORTANTE: cada uno trabaja en su bloque.
-             No tocar el bloque del otro.
-             Referencia completa: resultado/avance2/productos.html
-             ============================================= -->
+        <!-- BÚSQUEDA + FILTROS — Joel Saldaña | LISTA DE RESULTADOS — Maykol Calle -->
         <section id="prod-busqueda">
             <div class="container">
 
@@ -374,10 +348,6 @@
                         </div>
                     </aside>
 
-                    <!-- ════ MAYKOL CALLE — ELIMINAR este placeholder y poner div.mc-main ════
-                         Incluye: barra de orden + #prod-lista + #prod-sin-resultados
-                         Para testear solo: agrega renderizar(listaProductos) al final de listado.js
-                         Ver referencia: resultado/avance2/productos.html -->
                     <div class="mc-main">
                         <div class="mc-main-barra">
                             <p id="prod-contador"></p>
@@ -397,99 +367,98 @@
                     </div>
 
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </main>
+    </main>
 
-        <!-- =============================================
-         FOOTER — RESPONSABLE: Enrique Prada
-         ============================================= -->
-        <footer>
-            <div class="container">
+    <!-- FOOTER — Enrique Prada -->
+    <footer>
+        <div class="container">
 
-                <div class="footer-top">
+            <div class="footer-top">
 
-                    <div class="footer-marca">
-                        <a href="inicio.html" class="nav-logo">
-                            <img src="img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
+                <div class="footer-marca">
+                    <a href="inicio.html" class="nav-logo">
+                        <img src="img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
+                    </a>
+                    <p class="footer-descripcion">
+                        Tu aliado en soluciones tecnológicas completas. Comercializamos teléfonos,
+                        computadoras y accesorios, y ofrecemos soporte técnico, mantenimiento y
+                        asesoría especializada con calidad y confianza.
+                    </p>
+                    <p class="footer-redes-titulo">Síguenos en redes</p>
+                    <div class="footer-redes">
+                        <a href="https://www.facebook.com/NXRDuroCorp/" target="_blank" class="red-social facebook"
+                            title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/nxrdigitalsolution/" target="_blank"
+                            class="red-social instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/nxrt_io" target="_blank" class="red-social twitter" title="Twitter/X"><i
+                                class="fab fa-x-twitter"></i></a>
+                        <a href="https://wa.me/51912016161" target="_blank" class="red-social whatsapp"
+                            title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@nxr.projects" target="_blank" class="red-social tiktok"
+                            title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-asociadas">
+                    <p class="footer-asociadas-label">Empresas Asociadas</p>
+                    <div class="footer-asociadas-lista">
+                        <a href="https://www.intel.com" target="_blank" class="footer-asociadas-item">
+                            <img src="img/logo-intel.svg" alt="Intel">
                         </a>
-                        <p class="footer-descripcion">
-                            Tu aliado en soluciones tecnológicas completas. Comercializamos teléfonos,
-                            computadoras y accesorios, y ofrecemos soporte técnico, mantenimiento y
-                            asesoría especializada con calidad y confianza.
-                        </p>
-                        <p class="footer-redes-titulo">Síguenos en redes</p>
-                        <div class="footer-redes">
-                            <a href="https://www.facebook.com/NXRDuroCorp/" target="_blank" class="red-social facebook"
-                                title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/nxrdigitalsolution/" target="_blank"
-                                class="red-social instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://x.com/nxrt_io" target="_blank" class="red-social twitter"
-                                title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
-                            <a href="https://wa.me/51912016161" target="_blank" class="red-social whatsapp"
-                                title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                            <a href="https://www.tiktok.com/@nxr.projects" target="_blank" class="red-social tiktok"
-                                title="TikTok"><i class="fab fa-tiktok"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="footer-asociadas">
-                        <p class="footer-asociadas-label">Empresas Asociadas</p>
-                        <div class="footer-asociadas-lista">
-                            <a href="https://www.intel.com" target="_blank" class="footer-asociadas-item">
-                                <img src="img/logo-intel.svg" alt="Intel">
-                            </a>
-                            <a href="https://www.nvidia.com" target="_blank" class="footer-asociadas-item">
-                                <img src="img/logo-nvidia.svg" alt="NVIDIA">
-                            </a>
-                            <a href="https://www.samsung.com" target="_blank" class="footer-asociadas-item">
-                                <img src="img/logo-samsung.svg" alt="Samsung">
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="footer-ubicacion">
-                    <div class="footer-mapa-info">
-                        <h4><i class="fas fa-map-marker-alt"></i> Encuéntranos</h4>
-                        <p>Edificio Gerpal, Av Alfredo Benavides 768, Miraflores, Lima<br>Lima, Perú<br><br>
-                            <i class="fas fa-clock" style="color:var(--color-acento);margin-right:6px;"></i>Lun - Sab:
-                            9am -
-                            7pm<br>
-                            <i class="fas fa-phone" style="color:var(--color-acento);margin-right:6px;"></i>+51 999 888
-                            777
-                        </p>
-                    </div>
-                    <div class="footer-mapa-wrapper">
-                        <iframe title="Ubicación de NXR TECH en Google Maps"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.807089340955!2d-77.02765046312203!3d-12.125347888167074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81ec97e7907%3A0x18b4e5cf9fd504b9!2sNextech%20Education%20Center!5e0!3m2!1ses-419!2spe!4v1775803092590!5m2!1ses-419!2spe"
-                            style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p>&copy; 2026 NXR TECH. Todos los derechos reservados.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#">Política de Privacidad</a>
-                        <a href="#">Términos y Condiciones</a>
-                        <a href="#">Cookies</a>
+                        <a href="https://www.nvidia.com" target="_blank" class="footer-asociadas-item">
+                            <img src="img/logo-nvidia.svg" alt="NVIDIA">
+                        </a>
+                        <a href="https://www.samsung.com" target="_blank" class="footer-asociadas-item">
+                            <img src="img/logo-samsung.svg" alt="Samsung">
+                        </a>
                     </div>
                 </div>
 
             </div>
-        </footer>
 
-        <!-- Bootstrap JS (necesario para el carousel) -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <div class="footer-ubicacion">
+                <div class="footer-mapa-info">
+                    <h4><i class="fas fa-map-marker-alt"></i> Encuéntranos</h4>
+                    <p>Edificio Gerpal, Av Alfredo Benavides 768, Miraflores, Lima<br>Lima, Perú<br><br>
+                        <i class="fas fa-clock" style="color:var(--color-acento);margin-right:6px;"></i>Lun - Sab:
+                        9am -
+                        7pm<br>
+                        <i class="fas fa-phone" style="color:var(--color-acento);margin-right:6px;"></i>+51 999 888
+                        777
+                    </p>
+                </div>
+                <div class="footer-mapa-wrapper">
+                    <iframe title="Ubicación de NXR TECH en Google Maps"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.807089340955!2d-77.02765046312203!3d-12.125347888167074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81ec97e7907%3A0x18b4e5cf9fd504b9!2sNextech%20Education%20Center!5e0!3m2!1ses-419!2spe!4v1775803092590!5m2!1ses-419!2spe"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
 
-        <!-- Scripts del proyecto -->
-        <script src="js/main.js"></script>
-        <script src="js/producto/producto.js"></script>
-        <script src="js/producto/datos.js"></script>
-        <script src="js/producto/listado.js"></script>
-        <script src="js/producto/filtros.js"></script>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NXR TECH. Todos los derechos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (necesario para el carousel) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts del proyecto -->
+    <script src="js/main.js"></script>
+    <script src="js/producto/producto.js"></script>
+    <script src="js/producto/datos.js"></script>
+    <script src="js/producto/listado.js"></script>
+    <script src="js/producto/filtros.js"></script>
 
 </body>
 

@@ -64,9 +64,6 @@ function _pintar() {
     const inicio       = (paginaActual - 1) * POR_PAGINA;
     const pagina       = lista.slice(inicio, inicio + POR_PAGINA);
 
-    // map() devuelve un array de strings HTML, uno por card.
-    // join("") los fusiona en un solo string sin separadores.
-    // Sin join("") el innerHTML tendría comas entre cada card.
     let html = pagina.map(item => `
         <div class="mc-producto">
             <div class="mc-producto-img-wrapper">
