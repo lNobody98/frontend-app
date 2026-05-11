@@ -1,12 +1,13 @@
-class Producto {
+// producto.js — Clases del catálogo NXR TECH — Enrique Prada
 
-    constructor(id, nombre, tipo, subcategoria, precio, marca, descripcion, imagen) {
+class ItemCatalogo {
+
+    constructor(id, nombre, tipo, subcategoria, precio, descripcion, imagen) {
         this.id           = id;
         this.nombre       = nombre;
         this.tipo         = tipo;
         this.subcategoria = subcategoria;
         this.precio       = precio;
-        this.marca        = marca;
         this.descripcion  = descripcion;
         this.imagen       = imagen;
     }
@@ -16,12 +17,37 @@ class Producto {
         return "S/ " + this.precio.toLocaleString("es-PE") + ".00";
     }
 
-    getTipo() {
-        return this.tipo;
+    getTipo()              { return this.tipo; }
+    getSubcategoria()      { return this.subcategoria; }
+    getEtiquetaComercial() { return ""; }
+    getDetalleExtra()      { return ""; }
+
+}
+
+
+class Producto extends ItemCatalogo {
+
+    constructor(id, nombre, subcategoria, precio, marca, stock, descripcion, imagen) {
+        super(id, nombre, "Producto", subcategoria, precio, descripcion, imagen);
+        this.marca = marca;
+        this.stock = stock;
     }
 
-    getSubcategoria() {
-        return this.subcategoria;
+    getEtiquetaComercial() { return this.marca; }
+    getDetalleExtra()      { return "Stock: " + this.stock + " unidades"; }
+
+}
+
+
+class Servicio extends ItemCatalogo {
+
+    constructor(id, nombre, subcategoria, precio, proveedor, modalidad, descripcion, imagen) {
+        super(id, nombre, "Servicio", subcategoria, precio, descripcion, imagen);
+        this.proveedor = proveedor;
+        this.modalidad = modalidad;
     }
+
+    getEtiquetaComercial() { return this.proveedor; }
+    getDetalleExtra()      { return "Modalidad: " + this.modalidad; }
 
 }

@@ -28,8 +28,9 @@ function filtrar(debeScrollear = true) {
     const texto = norm(document.getElementById("inputBusqueda").value);
     if (texto) {
         resultado = resultado.filter(item =>
-            norm(item.nombre).includes(texto) ||
-            norm(item.marca).includes(texto) ||
+            norm(item.nombre).includes(texto)                  ||
+            norm(item.getEtiquetaComercial()).includes(texto)  ||
+            norm(item.getDetalleExtra()).includes(texto)       ||
             norm(item.descripcion).includes(texto)
         );
     }

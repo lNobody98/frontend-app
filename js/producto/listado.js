@@ -71,8 +71,9 @@ function _pintar() {
                 <span class="mc-tipo-badge mc-badge-${item.tipo.toLowerCase()}">${item.tipo}</span>
             </div>
             <div class="mc-producto-contenido">
-                <h5 class="mc-producto-categoria">${item.subcategoria} · ${item.marca}</h5>
+                <h5 class="mc-producto-categoria">${item.subcategoria} · ${item.getEtiquetaComercial()}</h5>
                 <h3 class="mc-producto-titulo">${item.nombre}</h3>
+                <p class="mc-producto-extra">${item.getDetalleExtra()}</p>
                 <p class="mc-producto-descripcion">${item.descripcion}</p>
                 <span class="mc-producto-precio">${item.getPrecioTexto()}</span>
                 <div class="mc-producto-botones">
