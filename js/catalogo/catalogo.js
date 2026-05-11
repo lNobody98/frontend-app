@@ -1,4 +1,4 @@
-// producto.js — Clases del catálogo NXR TECH — Enrique Prada
+// catalogo.js — Clases del catálogo NXR TECH — Enrique Prada
 
 class ItemCatalogo {
 

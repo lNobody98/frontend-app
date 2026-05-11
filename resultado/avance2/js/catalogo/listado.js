@@ -6,7 +6,7 @@
 //  Programación funcional / imperativa — funciones reutilizables
 //  con estado compartido a través de variables globales de módulo.
 //  No define clases, pero usa los objetos del catálogo definidos en
-//  producto.js para llamar sus métodos: getPrecioTexto(),
+//  catalogo.js para llamar sus métodos: getPrecioTexto(),
 //  getEtiquetaComercial() y getDetalleExtra().
 //
 //  ── LENGUAJE ────────────────────────────────────────────────
@@ -32,7 +32,7 @@
 //
 //  ── QUÉ HACE ESTE ARCHIVO ───────────────────────────────────
 //  Recibe el array filtrado de filtros.js, lo ordena, lo pagina
-//  y genera el HTML de las cards que se inyectan en #prod-lista.
+//  y genera el HTML de las cards que se inyectan en #catalogo-lista.
 //  También genera la barra de paginación y actualiza el contador.
 //
 //  FLUJO:
@@ -96,15 +96,15 @@
 //    1. Ordena con sortLista()
 //    2. Calcula páginas y recorta el slice de la página actual
 //    3. Genera el HTML de cada card con Array.map()
-//       (llama item.getPrecioTexto() — método POO de producto.js)
+//       (llama item.getPrecioTexto() — método POO de catalogo.js)
 //    4. Si totalPaginas > 1, añade botones de paginación
 //    5. Inyecta todo en contenedor.innerHTML
 //
 //  ── DEPENDENCIAS (cargar antes en el HTML) ──────────────────
-//  - producto.js → clases ItemCatalogo, Producto y Servicio
+//  - catalogo.js → clases ItemCatalogo, Producto y Servicio
 //                  (para getPrecioTexto(), getEtiquetaComercial()
 //                  y getDetalleExtra())
-//  - datos.js    → array listaProductos (no usado directamente,
+//  - datos.js    → array listaCatalogo (no usado directamente,
 //                  pero lo necesita filtros.js para llamar renderizar)
 // ============================================================
 
@@ -135,7 +135,7 @@ function renderizar(items) {
 function irAPagina(n) {
     paginaActual = n;
     _pintar();
-    document.getElementById("prod-busqueda").scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById("catalogo-busqueda").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 
@@ -173,18 +173,18 @@ function sortLista(lista) {
 //  _pintar() — FUNCIÓN PRIVADA CENTRAL (prefijo _ = interna)
 //  1. Ordena la lista con sortLista()
 //  2. Actualiza el contador de resultados (operador ternario)
-//  3. Si lista vacía: muestra #prod-sin-resultados (if/else)
+//  3. Si lista vacía: muestra #catalogo-sin-resultados (if/else)
 //  4. Calcula totalPaginas con Math.ceil() y recorta el slice
 //  5. Genera el HTML de cada card con Array.map() y template literals
-//     — llama item.getPrecioTexto() (método POO de producto.js)
+//     — llama item.getPrecioTexto() (método POO de catalogo.js)
 //  6. Si hay más de 1 página: genera botones con bucle for clásico
 //  7. Inyecta el HTML final en contenedor.innerHTML (DOM)
 // ============================================================
 function _pintar() {
     const lista         = sortLista(_listaActual);
-    const contenedor    = document.getElementById("prod-lista");
-    const sinResultados = document.getElementById("prod-sin-resultados");
-    const contador      = document.getElementById("prod-contador");
+    const contenedor    = document.getElementById("catalogo-lista");
+    const sinResultados = document.getElementById("catalogo-sin-resultados");
+    const contador      = document.getElementById("catalogo-contador");
     const sufijo        = lista.length !== 1 ? "s" : "";
 
     contador.textContent = lista.length + " resultado" + sufijo + " encontrado" + sufijo;
@@ -205,19 +205,19 @@ function _pintar() {
     // join("") los fusiona en un solo string sin separadores.
     // Sin join("") el innerHTML tendría comas entre cada card.
     let html = pagina.map(item => `
-        <div class="mc-producto">
-            <div class="mc-producto-img-wrapper">
-                <img src="${item.imagen}" alt="${item.nombre}" class="mc-producto-img">
+        <div class="mc-item">
+            <div class="mc-item-img-wrapper">
+                <img src="${item.imagen}" alt="${item.nombre}" class="mc-item-img">
                 <span class="mc-tipo-badge mc-badge-${item.tipo.toLowerCase()}">${item.tipo}</span>
             </div>
-            <div class="mc-producto-contenido">
-                <h5 class="mc-producto-categoria">${item.subcategoria}${item.getEtiquetaComercial() ? " · " + item.getEtiquetaComercial() : ""}</h5>
-                <h3 class="mc-producto-titulo">${item.nombre}</h3>
-                <p class="mc-producto-extra">${item.getDetalleExtra()}</p>
-                ${item.getGarantiaTexto() ? `<p class="mc-producto-garantia">${item.getGarantiaTexto()}</p>` : ""}
-                <p class="mc-producto-descripcion">${item.descripcion}</p>
-                <span class="mc-producto-precio">${item.getPrecioTexto()}</span>
-                <div class="mc-producto-botones">
+            <div class="mc-item-contenido">
+                <h5 class="mc-item-categoria">${item.subcategoria}${item.getEtiquetaComercial() ? " · " + item.getEtiquetaComercial() : ""}</h5>
+                <h3 class="mc-item-titulo">${item.nombre}</h3>
+                <p class="mc-item-extra">${item.getDetalleExtra()}</p>
+                ${item.getGarantiaTexto() ? `<p class="mc-item-garantia">${item.getGarantiaTexto()}</p>` : ""}
+                <p class="mc-item-descripcion">${item.descripcion}</p>
+                <span class="mc-item-precio">${item.getPrecioTexto()}</span>
+                <div class="mc-item-botones">
                     <button class="btn-primario">Consultar</button>
                     <button class="btn-secundario">Ver más</button>
                 </div>
@@ -238,4 +238,4 @@ function _pintar() {
     contenedor.innerHTML = html;
 }
 
-renderizar(listaProductos);
+renderizar(listaCatalogo);

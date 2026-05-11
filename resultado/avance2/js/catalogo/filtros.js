@@ -47,7 +47,7 @@
 //  Se auto-ejecuta al cargar la página mostrando todos los ítems.
 //
 //  FLUJO:
-//  usuario interactúa → filtros.js filtra listaProductos
+//  usuario interactúa → filtros.js filtra listaCatalogo
 //  → llama renderizar(array) → listado.js pinta las cards
 //
 //  ── VARIABLES GLOBALES ──────────────────────────────────────
@@ -123,8 +123,8 @@
 //  - #displayMax       → span precio máximo actual
 //
 //  ── DEPENDENCIAS (cargar antes en el HTML) ──────────────────
-//  - producto.js → clases ItemCatalogo, Producto y Servicio
-//  - datos.js    → array listaProductos
+//  - catalogo.js → clases ItemCatalogo, Producto y Servicio
+//  - datos.js    → array listaCatalogo
 //  - listado.js  → función renderizar()
 // ============================================================
 
@@ -145,7 +145,7 @@ function norm(texto) {
 
 
 function filtrar(debeScrollear = true) {
-    let resultado = listaProductos;
+    let resultado = listaCatalogo;
 
     if (filtroActivo === "Producto" || filtroActivo === "Servicio") {
         resultado = resultado.filter(item => item.tipo === filtroActivo);
@@ -171,7 +171,7 @@ function filtrar(debeScrollear = true) {
     renderizar(resultado);
 
     if (iniciado && debeScrollear) {
-        document.getElementById("prod-busqueda").scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById("catalogo-busqueda").scrollIntoView({ behavior: "smooth", block: "start" });
     }
     iniciado = true;
 }
@@ -274,4 +274,4 @@ function updateSlider(fuente) {
 }
 
 
-// La carga inicial la dispara listado.js con renderizar(listaProductos).
+// La carga inicial la dispara listado.js con renderizar(listaCatalogo).

@@ -1,7 +1,7 @@
 /* ============================================================
-   productos.css — NXR TECH
-   Estilos exclusivos de productos.html
-   Guía completa: resultado/avance2/css/productos.css
+   catalogo.css — NXR TECH
+   Estilos exclusivos de catalogo.html
+   Guía completa: resultado/avance2/css/catalogo.css
    ============================================================ */
 
 /* NAVBAR — Christian Diaz */
@@ -111,12 +111,12 @@
 }
 
 /* Cabecera de sección — compartido */
-.prod-seccion-header {
+.catalogo-seccion-header {
   text-align: center;
   margin-bottom: 48px;
 }
 
-.prod-badge {
+.catalogo-badge {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 600;
@@ -130,21 +130,21 @@
   margin-bottom: 14px;
 }
 
-.prod-seccion-titulo {
+.catalogo-seccion-titulo {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 700;
   color: var(--color-texto-claro);
   margin-bottom: 10px;
 }
 
-.prod-seccion-subtitulo {
+.catalogo-seccion-subtitulo {
   font-size: 0.95rem;
   color: var(--color-texto-gris);
 }
 
 /* Categorías — Xiomara Solis */
 
-#prod-categorias {
+#catalogo-categorias {
   background: var(--color-fondo-medio);
   padding: 80px 0;
   border-top: 1px solid var(--color-borde);
@@ -226,7 +226,7 @@
 
 /* Búsqueda y filtros — Joel Saldaña */
 
-#prod-busqueda {
+#catalogo-busqueda {
   background: var(--color-fondo-oscuro);
   padding: 80px 0;
 }
@@ -268,7 +268,7 @@
   color: var(--color-texto-gris);
 }
 
-.prod-busqueda-layout {
+.catalogo-busqueda-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 32px;
@@ -490,7 +490,7 @@
 }
 
 @media (max-width: 992px) {
-  .prod-busqueda-layout {
+  .catalogo-busqueda-layout {
     grid-template-columns: 1fr;
   }
 
@@ -523,7 +523,7 @@
   margin-bottom: 20px;
 }
 
-#prod-contador {
+#catalogo-contador {
   font-size: 0.82rem;
   color: var(--color-texto-gris);
   min-height: 20px;
@@ -536,7 +536,7 @@
   font-size: 0.8rem;
 }
 
-.mc-producto {
+.mc-item {
   background-color: var(--color-fondo-card);
   border-radius: var(--radio-borde);
   overflow: hidden;
@@ -545,24 +545,24 @@
   transition: var(--transicion);
 }
 
-.mc-producto:hover {
+.mc-item:hover {
   transform: translateY(-10px);
   border-color: var(--color-acento);
   box-shadow: 0 20px 50px rgba(0, 113, 227, 0.25);
 }
 
-.mc-producto-img-wrapper {
+.mc-item-img-wrapper {
   position: relative;
 }
 
-.mc-producto-img {
+.mc-item-img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   display: block;
 }
 
-.mc-producto-img-wrapper::after {
+.mc-item-img-wrapper::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -572,11 +572,11 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
 }
 
-.mc-producto-contenido {
+.mc-item-contenido {
   padding: 24px;
 }
 
-.mc-producto-categoria {
+.mc-item-categoria {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -584,35 +584,35 @@
   margin-bottom: 8px;
 }
 
-.mc-producto-titulo {
+.mc-item-titulo {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-texto-claro);
   margin-bottom: 10px;
 }
 
-.mc-producto-descripcion {
+.mc-item-descripcion {
   font-size: 0.875rem;
   color: var(--color-texto-gris);
   line-height: 1.7;
   margin-bottom: 20px;
 }
 
-.mc-producto-extra {
+.mc-item-extra {
   font-size: 0.8rem;
   color: var(--color-acento);
   font-weight: 600;
   margin-bottom: 6px;
 }
 
-.mc-producto-garantia {
+.mc-item-garantia {
   font-size: 0.8rem;
   color: var(--color-texto-gris);
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.mc-producto-precio {
+.mc-item-precio {
   display: block;
   font-size: 1.3rem;
   font-weight: 700;
@@ -620,13 +620,13 @@
   margin-bottom: 20px;
 }
 
-.mc-producto-botones {
+.mc-item-botones {
   display: flex;
   gap: 10px;
 }
 
-.mc-producto-botones .btn-primario,
-.mc-producto-botones .btn-secundario {
+.mc-item-botones .btn-primario,
+.mc-item-botones .btn-secundario {
   flex: 1;
   padding: 10px 16px;
   font-size: 0.85rem;
@@ -662,20 +662,20 @@
   color: #fff;
 }
 
-#prod-sin-resultados {
+#catalogo-sin-resultados {
   display: none;
   text-align: center;
   padding: 60px 0;
 }
 
-#prod-sin-resultados i {
+#catalogo-sin-resultados i {
   font-size: 2.8rem;
   color: var(--color-texto-gris);
   display: block;
   margin-bottom: 16px;
 }
 
-#prod-sin-resultados p {
+#catalogo-sin-resultados p {
   font-size: 1rem;
   color: var(--color-texto-gris);
 }

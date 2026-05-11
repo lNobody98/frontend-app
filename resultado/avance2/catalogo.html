@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NXR TECH - Productos & Servicios</title>
+    <title>NXR TECH - Catálogo</title>
     <link rel="icon" type="image/x-icon" href="../../img/nxrtech.ico">
 
     <!-- Google Fonts -->
@@ -20,7 +20,7 @@
 
     <!-- Estilos del proyecto -->
     <link rel="stylesheet" href="../../css/base.css">
-    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="css/catalogo.css">
 
 </head>
 
@@ -33,20 +33,20 @@
          Mezcla la estructura HTML custom de NXR TECH con el
          collapse de Bootstrap 5 para el menú hamburguesa móvil.
 
-         CLASES CLAVE (estilos en base.css y productos.css):
+         CLASES CLAVE (estilos en base.css y catalogo.css):
          - ep-navbar-bar      → barra contenedora fija (base.css)
          - nav-links          → lista de links centrada (base.css)
          - navbar-toggler     → botón hamburguesa Bootstrap
-                                (activa/colapsa #navProductos)
+                                (activa/colapsa #navCatalogo)
          - .navbar-collapse   → se despliega en pantallas < 768px
 
-         OVERRIDE EN productos.css (sección NAVBAR):
+         OVERRIDE EN catalogo.css (sección NAVBAR):
          - Fuerza fondo oscuro desde el inicio (sin esperar scroll)
          - Corrige el posicionamiento de .nav-links sobre Bootstrap
 
          TU TAREA: ajustar estilos, agregar/quitar links de navegación
          o cambiar el diseño del navbar. Si reemplazas la estructura
-         HTML, actualiza también los selectores en productos.css.
+         HTML, actualiza también los selectores en catalogo.css.
          ============================================= -->
     <header id="navbar">
         <div class="ep-navbar-bar">
@@ -55,16 +55,16 @@
                     <img src="../../img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
                 </a>
                 <button class="navbar-toggler nav-hamburger" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#navProductos"
-                    aria-controls="navProductos" aria-expanded="false" aria-label="Menú">
+                    data-bs-toggle="collapse" data-bs-target="#navCatalogo"
+                    aria-controls="navCatalogo" aria-expanded="false" aria-label="Menú">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navProductos">
+                <div class="collapse navbar-collapse" id="navCatalogo">
                     <ul class="nav-links">
                         <li><a href="../../inicio.html">Inicio</a></li>
-                        <li><a href="productos.html" style="color: var(--color-acento);">Productos</a></li>
+                        <li><a href="catalogo.html" style="color: var(--color-acento);">Catálogo</a></li>
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#" class="nav-cta">Contactos</a></li>
                     </ul>
@@ -80,7 +80,7 @@
              Implementado con el componente Carousel de Bootstrap 5
              (data-bs-ride="carousel", intervalo 4500 ms).
 
-             CLASES CLAVE (estilos en productos.css):
+             CLASES CLAVE (estilos en catalogo.css):
              - jm-slide           → contenedor de cada slide
                                     (altura 650px + background-image)
              - jm-slide-contenido → texto y botón centrados encima
@@ -103,17 +103,17 @@
              TU TAREA: agregar/quitar slides, cambiar textos, imágenes
              o ajustar el intervalo de rotación (data-bs-interval en ms).
              ============================================= -->
-        <section id="prod-carousel">
-            <div id="carouselProductos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
+        <section id="catalogo-carousel">
+            <div id="carouselCatalogo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
 
                 <!-- indicadores -->
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="2"></button>
-                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="3"></button>
-                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="4"></button>
-                    <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="5"></button>
+                    <button type="button" data-bs-target="#carouselCatalogo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselCatalogo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselCatalogo" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#carouselCatalogo" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#carouselCatalogo" data-bs-slide-to="4"></button>
+                    <button type="button" data-bs-target="#carouselCatalogo" data-bs-slide-to="5"></button>
                 </div>
 
                 <!-- slides -->
@@ -124,7 +124,7 @@
                             <div class="jm-slide-contenido">
                                 <h2>Catálogo <span>NXR TECH</span></h2>
                                 <p>Encuentra los mejores productos tecnológicos y servicios especializados en un solo lugar.</p>
-                                <a href="#prod-busqueda" class="btn-primario">Ver catálogo →</a>
+                                <a href="#catalogo-busqueda" class="btn-primario">Ver catálogo →</a>
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                             <div class="jm-slide-contenido">
                                 <h2>Tecnología <span>de Punta</span></h2>
                                 <p>Teléfonos, laptops, gaming y componentes de las mejores marcas del mercado.</p>
-                                <a href="#prod-busqueda" class="btn-primario">Ver productos →</a>
+                                <a href="#catalogo-busqueda" class="btn-primario">Ver productos →</a>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                             <div class="jm-slide-contenido">
                                 <h2>Servicios <span>Especializados</span></h2>
                                 <p>Soporte, mantenimiento, reparación e instalación con técnicos certificados.</p>
-                                <a href="#prod-busqueda" class="btn-primario">Ver servicios →</a>
+                                <a href="#catalogo-busqueda" class="btn-primario">Ver servicios →</a>
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                             <div class="jm-slide-contenido">
                                 <h2>Espacios <span>de Trabajo</span></h2>
                                 <p>Equipamos tu oficina con la mejor tecnología para maximizar tu productividad.</p>
-                                <a href="#prod-busqueda" class="btn-primario">Ver productos →</a>
+                                <a href="#catalogo-busqueda" class="btn-primario">Ver productos →</a>
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                             <div class="jm-slide-contenido">
                                 <h2>Seguridad <span>Digital</span></h2>
                                 <p>Protege tu empresa con nuestros servicios de ciberseguridad y monitoreo avanzado.</p>
-                                <a href="#prod-busqueda" class="btn-primario">Ver servicios →</a>
+                                <a href="#catalogo-busqueda" class="btn-primario">Ver servicios →</a>
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                             <div class="jm-slide-contenido">
                                 <h2>Equipo <span>Colaborativo</span></h2>
                                 <p>Soluciones tecnológicas pensadas para equipos que buscan innovar y crecer juntos.</p>
-                                <a href="#prod-busqueda" class="btn-primario">Ver catálogo →</a>
+                                <a href="#catalogo-busqueda" class="btn-primario">Ver catálogo →</a>
                             </div>
                         </div>
                     </div>
@@ -182,11 +182,11 @@
                 </div>
 
                 <!-- controles -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductos" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselCatalogo" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Anterior</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselProductos" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselCatalogo" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Siguiente</span>
                 </button>
@@ -206,7 +206,7 @@
              Servicios. Es meramente decorativa — no interactúa con
              los filtros ni con datos.js.
 
-             CLASES CLAVE (estilos en productos.css):
+             CLASES CLAVE (estilos en catalogo.css):
              - xs-cats-grid           → grid 5 col (productos)
              - xs-cats-grid-servicios → grid 5 col (servicios)
              - xs-cat-card            → tarjeta individual de categoría
@@ -228,13 +228,13 @@
              o colores. Si añades una categoría nueva, también debes
              agregarla en los <select> del sidebar y en datos.js.
              ============================================= -->
-        <section id="prod-categorias">
+        <section id="catalogo-categorias">
             <div class="container">
 
-                <div class="prod-seccion-header">
-                    <span class="prod-badge"><i class="fas fa-th-large"></i> Categorías</span>
-                    <h2 class="prod-seccion-titulo">Explora Nuestras Categorías</h2>
-                    <p class="prod-seccion-subtitulo">Productos tecnológicos y servicios especializados para cada necesidad.</p>
+                <div class="catalogo-seccion-header">
+                    <span class="catalogo-badge"><i class="fas fa-th-large"></i> Categorías</span>
+                    <h2 class="catalogo-seccion-titulo">Explora Nuestras Categorías</h2>
+                    <p class="catalogo-seccion-subtitulo">Productos tecnológicos y servicios especializados para cada necesidad.</p>
                 </div>
 
                 <!-- Productos -->
@@ -331,34 +331,34 @@
         </section>
 
         <!--
-             SECCIÓN COMPARTIDA — id="prod-busqueda"
+             SECCIÓN COMPARTIDA — id="catalogo-busqueda"
              ┌─────────────────────┬──────────────────────────┐
              │   JOEL SALDAÑA      │   MAYKOL CALLE           │
              │   Búsqueda + Filtros│   Lista de Resultados    │
              │   filtros.js        │   listado.js             │
              └─────────────────────┴──────────────────────────┘
              Trabajan en bloques independientes dentro del mismo
-             <section>. El div.prod-busqueda-layout los une como
+             <section>. El div.catalogo-busqueda-layout los une como
              columnas: Joel a la izquierda, Maykol a la derecha.
 
              FLUJO:
-             Joel filtra listaProductos → llama renderizar(array)
-             → Maykol pinta las cards en #prod-lista
+             Joel filtra listaCatalogo → llama renderizar(array)
+             → Maykol pinta las cards en #catalogo-lista
         -->
-        <section id="prod-busqueda">
+        <section id="catalogo-busqueda">
             <div class="container">
 
                 <!-- Cabecera decorativa compartida — sin responsable asignado -->
-                <div class="prod-seccion-header">
-                    <span class="prod-badge"><i class="fas fa-search"></i> Catálogo</span>
-                    <h2 class="prod-seccion-titulo">Encuentra lo que Necesitas</h2>
-                    <p class="prod-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120 ítems disponibles.</p>
+                <div class="catalogo-seccion-header">
+                    <span class="catalogo-badge"><i class="fas fa-search"></i> Catálogo</span>
+                    <h2 class="catalogo-seccion-titulo">Encuentra lo que Necesitas</h2>
+                    <p class="catalogo-seccion-subtitulo">Búsqueda dinámica en tiempo real + filtros por categoría · 120 ítems disponibles.</p>
                 </div>
 
                 <!-- ════════════════════════════════════════════════════
                      JOEL SALDAÑA — INICIO
-                     Archivo: js/producto/filtros.js
-                     Estilos: css/productos.css  (prefijo js-)
+                     Archivo: js/catalogo/filtros.js
+                     Estilos: css/catalogo.css  (prefijo js-)
 
                      Controla: buscador dinámico (oninput) + sidebar
                      con botones, selects y sliders de precio.
@@ -380,7 +380,7 @@
                 </div>
 
                 <!-- Layout dos columnas: sidebar (Joel) | resultados (Maykol) -->
-                <div class="prod-busqueda-layout">
+                <div class="catalogo-busqueda-layout">
 
                     <!-- Sidebar de filtros estáticos (onclick / onchange) -->
                     <aside class="js-sidebar">
@@ -459,17 +459,17 @@
 
                     <!-- ════════════════════════════════════════════════════
                          MAYKOL CALLE — INICIO
-                         Archivo: js/producto/listado.js
-                         Estilos: css/productos.css  (prefijo mc-)
+                         Archivo: js/catalogo/listado.js
+                         Estilos: css/catalogo.css  (prefijo mc-)
 
                          Recibe el array filtrado de filtros.js via
-                         renderizar(array) y pinta las cards en #prod-lista.
-                         IDs que usa: #prod-lista, #prod-contador,
-                         #prod-sin-resultados, #selectOrden
+                         renderizar(array) y pinta las cards en #catalogo-lista.
+                         IDs que usa: #catalogo-lista, #catalogo-contador,
+                         #catalogo-sin-resultados, #selectOrden
                          ════════════════════════════════════════════════════ -->
                     <div class="mc-main">
                         <div class="mc-main-barra">
-                            <p id="prod-contador"></p>
+                            <p id="catalogo-contador"></p>
                             <select id="selectOrden" class="mc-orden-select" onchange="setOrden(this)">
                                 <option value="relevancia">Relevancia</option>
                                 <option value="precio-asc">Precio: menor a mayor</option>
@@ -478,8 +478,8 @@
                                 <option value="nombre-za">Nombre: Z → A</option>
                             </select>
                         </div>
-                        <div id="prod-lista" class="mc-lista-grid"></div>
-                        <div id="prod-sin-resultados">
+                        <div id="catalogo-lista" class="mc-lista-grid"></div>
+                        <div id="catalogo-sin-resultados">
                             <i class="fas fa-search-minus"></i>
                             <p>No se encontraron resultados para tu búsqueda.</p>
                         </div>
@@ -498,7 +498,7 @@
     <!-- =============================================
          FOOTER — RESPONSABLE: Enrique Prada
 
-         Pie de página compartido entre inicio.html y productos.html.
+         Pie de página compartido entre inicio.html y catalogo.html.
          Sus estilos están en base.css (clases footer-*).
 
          ESTRUCTURA:
@@ -599,21 +599,21 @@
         Cada archivo depende de que el anterior ya haya sido cargado:
 
         1. main.js      → navbar scroll, menú móvil (independiente)
-        2. producto.js  → define ItemCatalogo, Producto y Servicio
-        3. datos.js     → crea listaProductos usando new Producto(...)
+        2. catalogo.js  → define ItemCatalogo, Producto y Servicio
+        3. datos.js     → crea listaCatalogo usando new Producto(...)
                           y new Servicio(...)
-                          NECESITA producto.js ya cargado
+                          NECESITA catalogo.js ya cargado
         4. listado.js   → define renderizar(), declara ordenActivo
-                          NECESITA producto.js (métodos de las clases)
-        5. filtros.js   → usa listaProductos y llama renderizar()
+                          NECESITA catalogo.js (métodos de las clases)
+        5. filtros.js   → usa listaCatalogo y llama renderizar()
                           NECESITA datos.js y listado.js ya cargados
                           Su última línea filtrar() se auto-ejecuta aquí
     -->
     <script src="../../js/main.js"></script>
-    <script src="js/producto/producto.js"></script>
-    <script src="js/producto/datos.js"></script>
-    <script src="js/producto/listado.js"></script>
-    <script src="js/producto/filtros.js"></script>
+    <script src="js/catalogo/catalogo.js"></script>
+    <script src="js/catalogo/datos.js"></script>
+    <script src="js/catalogo/listado.js"></script>
+    <script src="js/catalogo/filtros.js"></script>
 
 </body>
 

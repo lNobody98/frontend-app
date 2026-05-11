@@ -17,7 +17,7 @@ function norm(texto) {
 
 
 function filtrar(debeScrollear = true) {
-    let resultado = listaProductos;
+    let resultado = listaCatalogo;
 
     if (filtroActivo === "Producto" || filtroActivo === "Servicio") {
         resultado = resultado.filter(item => item.tipo === filtroActivo);
@@ -31,6 +31,7 @@ function filtrar(debeScrollear = true) {
             norm(item.nombre).includes(texto)                  ||
             norm(item.getEtiquetaComercial()).includes(texto)  ||
             norm(item.getDetalleExtra()).includes(texto)       ||
+            norm(item.getGarantiaTexto()).includes(texto)      ||
             norm(item.descripcion).includes(texto)
         );
     }
@@ -42,7 +43,7 @@ function filtrar(debeScrollear = true) {
     renderizar(resultado);
 
     if (iniciado && debeScrollear) {
-        document.getElementById("prod-busqueda").scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById("catalogo-busqueda").scrollIntoView({ behavior: "smooth", block: "start" });
     }
     iniciado = true;
 }
