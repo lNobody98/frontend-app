@@ -102,11 +102,14 @@
                 <!-- Contenido de texto de la card -->
                 <div class="mc-producto-contenido">
 
-                    <!-- Subcategoría · Marca → en JS: ${item.subcategoria} · ${item.marca} -->
+                    <!-- Subcategoría · etiqueta comercial → en JS: ${item.subcategoria} · ${item.getEtiquetaComercial()} -->
                     <h5 class="mc-producto-categoria">Teléfonos · Apple</h5>
 
                     <!-- Nombre → en JS: ${item.nombre} -->
                     <h3 class="mc-producto-titulo">iPhone 16 Pro</h3>
+
+                    <!-- Extra → en JS: ${item.getDetalleExtra()} muestra stock o modalidad -->
+                    <p class="mc-producto-extra">Stock: 15 unidades</p>
 
                     <!-- Descripción → en JS: ${item.descripcion} -->
                     <p class="mc-producto-descripcion">
@@ -275,8 +278,9 @@
             &lt;/span&gt;
         &lt;/div&gt;
         &lt;div class="mc-producto-contenido"&gt;
-            &lt;h5 class="mc-producto-categoria"&gt;<span style="color:#0071e3;">${item.subcategoria}</span> · <span style="color:#0071e3;">${item.marca}</span>&lt;/h5&gt;
+            &lt;h5 class="mc-producto-categoria"&gt;<span style="color:#0071e3;">${item.subcategoria}</span> · <span style="color:#0071e3;">${item.getEtiquetaComercial()}</span>&lt;/h5&gt;
             &lt;h3 class="mc-producto-titulo"&gt;<span style="color:#0071e3;">${item.nombre}</span>&lt;/h3&gt;
+            &lt;p class="mc-producto-extra"&gt;<span style="color:#0071e3;">${item.getDetalleExtra()}</span>&lt;/p&gt;
             &lt;p class="mc-producto-descripcion"&gt;<span style="color:#0071e3;">${item.descripcion}</span>&lt;/p&gt;
             &lt;span class="mc-producto-precio"&gt;<span style="color:#0071e3;">${item.getPrecioTexto()}</span>&lt;/span&gt;
             &lt;div class="mc-producto-botones"&gt;

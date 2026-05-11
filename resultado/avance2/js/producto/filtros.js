@@ -9,7 +9,8 @@
 //     El campo #inputBusqueda tiene oninput="filtrar()".
 //     Cada tecla que escribe el usuario dispara filtrar() al instante
 //     sin necesidad de presionar ningún botón.
-//     Busca simultáneamente en: nombre, marca y descripción del ítem.
+//     Busca simultáneamente en: nombre, marca/proveedor, detalle extra
+//     y descripción del ítem.
 //
 //  2. FILTROS ESTÁTICOS (requieren acción del usuario)
 //     Los botones "Todos / Productos / Servicios" (onclick),
@@ -34,7 +35,8 @@
 //  - Array.filter()       → itera el array y retiene solo los ítems
 //                           que cumplen la condición (bucle implícito)
 //  - String.includes()    → comprueba si el texto de búsqueda aparece
-//                           dentro del nombre/marca/descripción del ítem
+//                           dentro del nombre, etiqueta comercial,
+//                           detalle extra o descripción del ítem
 //  - querySelectorAll + forEach → recorre los botones para quitar/poner
 //                                 la clase CSS "activo"
 //
@@ -75,7 +77,7 @@
 //  filtrar(debeScrollear)
 //  → Función central. Aplica en cadena:
 //    1° filtro de categoría (if/else sobre filtroActivo)
-//    2° filtro de texto (includes sobre nombre+marca+descripcion)
+//    2° filtro de texto (includes sobre nombre+etiqueta+extra+descripcion)
 //    3° filtro de precio (rango precioMin–precioMax)
 //    Llama renderizar() con el array resultante.
 //
@@ -121,7 +123,7 @@
 //  - #displayMax       → span precio máximo actual
 //
 //  ── DEPENDENCIAS (cargar antes en el HTML) ──────────────────
-//  - producto.js → clase Producto
+//  - producto.js → clases ItemCatalogo, Producto y Servicio
 //  - datos.js    → array listaProductos
 //  - listado.js  → función renderizar()
 // ============================================================
@@ -155,7 +157,8 @@ function filtrar(debeScrollear = true) {
     if (texto) {
         resultado = resultado.filter(item =>
             norm(item.nombre).includes(texto)      ||
-            norm(item.marca).includes(texto)       ||
+            norm(item.getEtiquetaComercial()).includes(texto) ||
+            norm(item.getDetalleExtra()).includes(texto)      ||
             norm(item.descripcion).includes(texto)
         );
     }
