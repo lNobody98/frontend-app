@@ -677,8 +677,9 @@
        ├── img.mc-producto-img       → imagen del producto
        └── span.mc-tipo-badge        → badge "Producto" / "Servicio"
    └── .mc-producto-contenido
-       ├── p.mc-producto-categoria   → subcategoría (ej: "Teléfonos")
+       ├── p.mc-producto-categoria   → subcategoría + marca (si aplica)
        ├── h3.mc-producto-titulo     → nombre del ítem
+       ├── p.mc-producto-extra       → stock o modalidad
        ├── p.mc-producto-descripcion → descripción breve
        ├── span.mc-producto-precio   → precio formateado (getPrecioTexto())
        └── .mc-producto-botones      → botones "Ver más" y "Cotizar"
@@ -745,6 +746,20 @@
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--color-texto-claro);
+    margin-bottom: 10px;
+}
+
+.mc-producto-extra {
+    font-size: 0.8rem;
+    color: var(--color-acento);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.mc-producto-garantia {
+    font-size: 0.8rem;
+    color: var(--color-texto-gris);
+    font-weight: 600;
     margin-bottom: 10px;
 }
 

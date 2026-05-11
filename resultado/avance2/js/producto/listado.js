@@ -5,8 +5,9 @@
 //  ── TIPO DE PROGRAMACIÓN ────────────────────────────────────
 //  Programación funcional / imperativa — funciones reutilizables
 //  con estado compartido a través de variables globales de módulo.
-//  No define clases, pero usa los objetos Producto (definidos en
-//  producto.js) para llamar sus métodos (item.getPrecioTexto()).
+//  No define clases, pero usa los objetos del catálogo definidos en
+//  producto.js para llamar sus métodos: getPrecioTexto(),
+//  getEtiquetaComercial() y getDetalleExtra().
 //
 //  ── LENGUAJE ────────────────────────────────────────────────
 //  JavaScript ES6+  — const/let, arrow functions, template literals,
@@ -20,7 +21,7 @@
 //                         ordenamiento según ordenActivo
 //  - for (clásico)      → en _pintar(): genera los botones de
 //                         paginación numerados (i = 1..totalPaginas)
-//  - Array.map()        → en _pintar(): convierte cada objeto Producto
+//  - Array.map()        → en _pintar(): convierte cada objeto del catálogo
 //                         en un string HTML de card (bucle implícito)
 //  - Array.sort()       → en sortLista(): ordena la copia del array
 //  - Array.slice()      → en _pintar(): recorta la página actual
@@ -100,7 +101,9 @@
 //    5. Inyecta todo en contenedor.innerHTML
 //
 //  ── DEPENDENCIAS (cargar antes en el HTML) ──────────────────
-//  - producto.js → clase Producto (para getPrecioTexto())
+//  - producto.js → clases ItemCatalogo, Producto y Servicio
+//                  (para getPrecioTexto(), getEtiquetaComercial()
+//                  y getDetalleExtra())
 //  - datos.js    → array listaProductos (no usado directamente,
 //                  pero lo necesita filtros.js para llamar renderizar)
 // ============================================================
@@ -208,8 +211,10 @@ function _pintar() {
                 <span class="mc-tipo-badge mc-badge-${item.tipo.toLowerCase()}">${item.tipo}</span>
             </div>
             <div class="mc-producto-contenido">
-                <h5 class="mc-producto-categoria">${item.subcategoria} · ${item.marca}</h5>
+                <h5 class="mc-producto-categoria">${item.subcategoria}${item.getEtiquetaComercial() ? " · " + item.getEtiquetaComercial() : ""}</h5>
                 <h3 class="mc-producto-titulo">${item.nombre}</h3>
+                <p class="mc-producto-extra">${item.getDetalleExtra()}</p>
+                ${item.getGarantiaTexto() ? `<p class="mc-producto-garantia">${item.getGarantiaTexto()}</p>` : ""}
                 <p class="mc-producto-descripcion">${item.descripcion}</p>
                 <span class="mc-producto-precio">${item.getPrecioTexto()}</span>
                 <div class="mc-producto-botones">
@@ -232,3 +237,5 @@ function _pintar() {
 
     contenedor.innerHTML = html;
 }
+
+renderizar(listaProductos);

@@ -375,7 +375,7 @@
                         type="text"
                         id="inputBusqueda"
                         oninput="filtrar()"
-                        placeholder="Buscar por nombre, marca o descripción..."
+                        placeholder="Buscar por nombre, marca, garantía o descripción..."
                         autocomplete="off">
                 </div>
 
@@ -599,11 +599,12 @@
         Cada archivo depende de que el anterior ya haya sido cargado:
 
         1. main.js      → navbar scroll, menú móvil (independiente)
-        2. producto.js  → define class Producto (el molde)
+        2. producto.js  → define ItemCatalogo, Producto y Servicio
         3. datos.js     → crea listaProductos usando new Producto(...)
+                          y new Servicio(...)
                           NECESITA producto.js ya cargado
         4. listado.js   → define renderizar(), declara ordenActivo
-                          NECESITA producto.js (para getPrecioTexto)
+                          NECESITA producto.js (métodos de las clases)
         5. filtros.js   → usa listaProductos y llama renderizar()
                           NECESITA datos.js y listado.js ya cargados
                           Su última línea filtrar() se auto-ejecuta aquí

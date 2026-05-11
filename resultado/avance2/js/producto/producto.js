@@ -4,61 +4,48 @@
 //
 //  ── TIPO DE PROGRAMACIÓN ────────────────────────────────────
 //  POO — Programación Orientada a Objetos (JavaScript ES6+)
-//  Se utiliza la sintaxis `class` de ES6 para definir la plantilla
-//  base de cada ítem del catálogo. Cada objeto del array en
-//  datos.js es una instancia creada con `new Producto(...)`.
+//  Se utiliza class, constructor, herencia con extends y super().
 //
 //  ── QUÉ HACE ESTE ARCHIVO ───────────────────────────────────
-//  Define la clase Producto: el molde (blueprint) que describe
-//  qué atributos y qué métodos tiene cada ítem del catálogo.
-//  Por convención en e-commerce, "Producto" abarca tanto bienes
-//  físicos como servicios — la propiedad `tipo` los distingue.
-//  Debe cargarse ANTES que datos.js en el HTML porque datos.js
-//  usa `new Producto(...)` y necesita que la clase ya exista.
+//  Define el modelo del catálogo con una clase padre y dos hijas:
 //
-//  ── LENGUAJE ────────────────────────────────────────────────
-//  JavaScript ES6+  — sintaxis: class, constructor, this, métodos
+//  ItemCatalogo → clase base con los atributos comunes.
+//  Producto     → clase hija para productos físicos.
+//  Servicio     → clase hija para servicios ofrecidos por NXR TECH.
+//
+//  Esta separación evita forzar que un servicio tenga "marca".
+//  Los productos tienen marca y stock; los servicios tienen
+//  garantia y modalidad.
+//
+//  Debe cargarse ANTES que datos.js porque datos.js crea objetos
+//  con new Producto(...) y new Servicio(...).
 //
 //  ── CONCEPTOS POO APLICADOS ─────────────────────────────────
-//  - Clase (class)        → plantilla que define la estructura
-//  - Constructor          → inicializa los atributos al crear el objeto
-//  - Atributos (this.x)   → datos que almacena cada instancia
-//  - Métodos              → funciones que pertenecen a la clase
-//  - Instanciación        → crear un objeto con `new Producto(...)`
-//  - Encapsulamiento      → los atributos y métodos están dentro de la clase
+//  - Clase padre          → ItemCatalogo
+//  - Clases hijas         → Producto y Servicio
+//  - Constructor          → inicializa atributos
+//  - Herencia             → Producto/Servicio heredan de ItemCatalogo
+//  - super()              → llama al constructor de la clase padre
+//  - Polimorfismo         → getEtiquetaComercial() y getDetalleExtra()
+//                           existen en ambas hijas, pero devuelven
+//                           información distinta según el tipo.
 //
-//  ── ATRIBUTOS DEL CONSTRUCTOR ───────────────────────────────
-//  - id           → número único e irrepetible del ítem
-//  - nombre       → nombre comercial  (ej: "iPhone 16 Pro")
-//  - tipo         → "Producto" | "Servicio"  — controla los filtros
-//  - subcategoria → categoría específica     (ej: "Teléfonos", "Soporte")
-//  - precio       → número entero en soles. Usar 0 para mostrar "Gratis"
-//  - marca        → fabricante o proveedor   (ej: "Apple", "Samsung")
-//  - descripcion  → texto corto para la card (máx. 2 líneas recomendado)
-//  - imagen       → ruta relativa a la imagen
+//  ── ATRIBUTOS COMUNES ───────────────────────────────────────
+//  id, nombre, tipo, subcategoria, precio, descripcion, imagen
 //
-//  ── MÉTODOS ─────────────────────────────────────────────────
-//  - getPrecioTexto() → retorna el precio formateado: "S/ 5,499.00"
-//                       o "Gratis" si precio === 0.
-//                       Usa condicional if/else (estructura de control).
-//                       Llamado por listado.js al generar cada card.
-//  - getTipo()        → retorna "Producto" o "Servicio"
-//  - getSubcategoria()→ retorna la subcategoría del ítem
-//
-//  ── ESTRUCTURA DE CONTROL USADA ─────────────────────────────
-//  getPrecioTexto(): condicional if/else para decidir entre
-//  mostrar "Gratis" o el precio formateado con toLocaleString().
+//  ── ATRIBUTOS PROPIOS ───────────────────────────────────────
+//  Producto: marca, stock
+//  Servicio: garantia, modalidad
 // ============================================================
 
-class Producto {
+class ItemCatalogo {
 
-    constructor(id, nombre, tipo, subcategoria, precio, marca, descripcion, imagen) {
+    constructor(id, nombre, tipo, subcategoria, precio, descripcion, imagen) {
         this.id           = id;
         this.nombre       = nombre;
         this.tipo         = tipo;
         this.subcategoria = subcategoria;
         this.precio       = precio;
-        this.marca        = marca;
         this.descripcion  = descripcion;
         this.imagen       = imagen;
     }
@@ -74,6 +61,60 @@ class Producto {
 
     getSubcategoria() {
         return this.subcategoria;
+    }
+
+    getEtiquetaComercial() {
+        return "";
+    }
+
+    getDetalleExtra() {
+        return "";
+    }
+
+    getGarantiaTexto() {
+        return "";
+    }
+
+}
+
+
+class Producto extends ItemCatalogo {
+
+    constructor(id, nombre, subcategoria, precio, marca, stock, descripcion, imagen) {
+        super(id, nombre, "Producto", subcategoria, precio, descripcion, imagen);
+        this.marca = marca;
+        this.stock = stock;
+    }
+
+    getEtiquetaComercial() {
+        return this.marca;
+    }
+
+    getDetalleExtra() {
+        return "Stock: " + this.stock + " unidades";
+    }
+
+}
+
+
+class Servicio extends ItemCatalogo {
+
+    constructor(id, nombre, subcategoria, precio, garantia, modalidad, descripcion, imagen) {
+        super(id, nombre, "Servicio", subcategoria, precio, descripcion, imagen);
+        this.garantia = garantia;
+        this.modalidad = modalidad;
+    }
+
+    getEtiquetaComercial() {
+        return "";
+    }
+
+    getGarantiaTexto() {
+        return "Garantía: " + this.garantia;
+    }
+
+    getDetalleExtra() {
+        return "Modalidad: " + this.modalidad;
     }
 
 }
