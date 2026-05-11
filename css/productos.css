@@ -8,17 +8,126 @@
    NAVBAR — RESPONSABLE: Christian Diaz
    -------------------------------------------------------- */
 /* ✏️ CHRISTIAN DIAZ — coloca aquí tu código */
+#navbar .ep-navbar-bar {
+    background-color: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* Bootstrap interfiere con el ancestro de posicionamiento de .nav-links.
+   Forzamos position:relative en el nav para que left:50% siempre se
+   calcule relativo al contenedor centrado, igual que en inicio.html. */
+#navbar .ep-navbar-bar nav {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
+
+/* Reset Bootstrap padding/sizing que infla el alto del navbar */
+#navbar .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    font-size: inherit;
+}
+
+/* Escritorio: el collapse no empuja links hacia la derecha */
+@media (min-width: 769px) {
+    #navbar .navbar-collapse {
+        flex-basis: auto;
+        flex-grow: 0;
+    }
+}
 
 
-/* --------------------------------------------------------
-   CAROUSEL / PORTADA — RESPONSABLE: Juan Morales
-   Clases principales: .jm-slide, .jm-slide-contenido
-   -------------------------------------------------------- */
-/* ✏️ JUAN MORALES — coloca aquí tu código */
 
+.jm-slide {
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
 
-/* --------------------------------------------------------
-   CABECERA DE SECCIÓN (patrón reutilizable — sin responsable)
+.jm-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(5,10,20,0.72) 0%, rgba(10,22,40,0.50) 100%);
+}
+
+.jm-slide-contenido {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 0; /* top: compensa altura de la navbar fija */
+    gap: 16px;
+}
+
+.jm-slide-contenido h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    color: var(--color-texto-claro);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.jm-slide-contenido h2 span {
+    color: var(--color-acento);
+}
+
+.jm-slide-contenido p {
+    font-size: 1rem;
+    color: var(--color-texto-gris-claro);
+    max-width: 500px;
+    margin: 0;
+}
+
+/* controles del carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 113, 227, 0.5);
+    border-radius: 50%;
+    padding: 18px;
+    background-size: 50%;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: var(--color-acento);
+    border-radius: 50px;
+    width: 28px;
+    height: 4px;
+    border: none;
+    opacity: 0.4;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+/* En tablets y móviles el slide se acorta para que el contenido
+   sea visible sin necesidad de hacer scroll */
+@media (max-width: 768px) {
+    .jm-slide { height: 380px; }
+}
+
+/* ============================================================
+   CABECERA DE SECCIÓN — patrón reutilizado en todas las secciones
+
+   Clases usadas en el encabezado de cada sección principal:
+   - .prod-seccion-header  → contenedor centrado con margen inferior
+   - .prod-badge           → etiqueta azul redondeada (ej: "Categorías")
+   - .prod-seccion-titulo  → título grande de la sección (h2)
+   - .prod-seccion-subtitulo → subtítulo gris debajo del título
+
+   Estas clases las usa cualquier sección que tenga encabezado.
+   No pertenecen a ningún responsable en particular.
    -------------------------------------------------------- */
 .prod-seccion-header {
     text-align: center;
@@ -51,12 +160,94 @@
     color: var(--color-texto-gris);
 }
 
-
 /* --------------------------------------------------------
    CATEGORÍAS — RESPONSABLE: Xiomara Solis
    Clases principales: .xs-cats-grid, .xs-cat-card, .xs-cat-nombre
    -------------------------------------------------------- */
 /* ✏️ XIOMARA SOLIS — coloca aquí tu código */
+
+#prod-categorias {
+    background: var(--color-fondo-medio);
+    padding: 80px 0;
+    border-top: 1px solid var(--color-borde);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.xs-cats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.xs-cats-grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.xs-cat-card {
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: 28px 16px;
+    text-align: center;
+    transition: var(--transicion);
+}
+
+.xs-cat-card:hover {
+    border-color: var(--color-acento);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 113, 227, 0.15);
+}
+
+.xs-cat-card i {
+    font-size: 1.8rem;
+    color: var(--color-acento);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.xs-cat-card .xs-cat-nombre {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-texto-gris-claro);
+    display: block;
+}
+
+.xs-cat-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-texto-gris);
+    margin-bottom: 14px;
+    margin-top: 32px;
+}
+
+/* Tablet landscape: de 5 columnas a 3 — las cards siguen legibles */
+@media (max-width: 992px) {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet portrait / móvil grande: se mantienen 3 columnas */
+@media (max-width: 768px) {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Móvil pequeño: de 3 columnas a 2 para que las cards no queden diminutas */
+@media (max-width: 480px) {
+    .xs-cats-grid,
+    .xs-cats-grid-servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 
 /* --------------------------------------------------------
