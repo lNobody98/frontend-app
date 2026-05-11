@@ -21,6 +21,7 @@ class ItemCatalogo {
     getSubcategoria()      { return this.subcategoria; }
     getEtiquetaComercial() { return ""; }
     getDetalleExtra()      { return ""; }
+    getGarantiaTexto()     { return ""; }
 
 }
 
@@ -41,13 +42,14 @@ class Producto extends ItemCatalogo {
 
 class Servicio extends ItemCatalogo {
 
-    constructor(id, nombre, subcategoria, precio, proveedor, modalidad, descripcion, imagen) {
+    constructor(id, nombre, subcategoria, precio, garantia, modalidad, descripcion, imagen) {
         super(id, nombre, "Servicio", subcategoria, precio, descripcion, imagen);
-        this.proveedor = proveedor;
+        this.garantia = garantia;
         this.modalidad = modalidad;
     }
 
-    getEtiquetaComercial() { return this.proveedor; }
+    getEtiquetaComercial() { return ""; }
     getDetalleExtra()      { return "Modalidad: " + this.modalidad; }
+    getGarantiaTexto()     { return "Garantía: " + this.garantia; }
 
 }

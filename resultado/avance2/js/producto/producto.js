@@ -15,7 +15,7 @@
 //
 //  Esta separación evita forzar que un servicio tenga "marca".
 //  Los productos tienen marca y stock; los servicios tienen
-//  proveedor y modalidad.
+//  garantia y modalidad.
 //
 //  Debe cargarse ANTES que datos.js porque datos.js crea objetos
 //  con new Producto(...) y new Servicio(...).
@@ -35,7 +35,7 @@
 //
 //  ── ATRIBUTOS PROPIOS ───────────────────────────────────────
 //  Producto: marca, stock
-//  Servicio: proveedor, modalidad
+//  Servicio: garantia, modalidad
 // ============================================================
 
 class ItemCatalogo {
@@ -71,6 +71,10 @@ class ItemCatalogo {
         return "";
     }
 
+    getGarantiaTexto() {
+        return "";
+    }
+
 }
 
 
@@ -95,14 +99,18 @@ class Producto extends ItemCatalogo {
 
 class Servicio extends ItemCatalogo {
 
-    constructor(id, nombre, subcategoria, precio, proveedor, modalidad, descripcion, imagen) {
+    constructor(id, nombre, subcategoria, precio, garantia, modalidad, descripcion, imagen) {
         super(id, nombre, "Servicio", subcategoria, precio, descripcion, imagen);
-        this.proveedor = proveedor;
+        this.garantia = garantia;
         this.modalidad = modalidad;
     }
 
     getEtiquetaComercial() {
-        return this.proveedor;
+        return "";
+    }
+
+    getGarantiaTexto() {
+        return "Garantía: " + this.garantia;
     }
 
     getDetalleExtra() {

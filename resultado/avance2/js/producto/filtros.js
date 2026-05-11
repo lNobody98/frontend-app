@@ -9,8 +9,8 @@
 //     El campo #inputBusqueda tiene oninput="filtrar()".
 //     Cada tecla que escribe el usuario dispara filtrar() al instante
 //     sin necesidad de presionar ningún botón.
-//     Busca simultáneamente en: nombre, marca/proveedor, detalle extra
-//     y descripción del ítem.
+//     Busca simultáneamente en: nombre, marca, detalle extra,
+//     garantía y descripción del ítem.
 //
 //  2. FILTROS ESTÁTICOS (requieren acción del usuario)
 //     Los botones "Todos / Productos / Servicios" (onclick),
@@ -159,6 +159,7 @@ function filtrar(debeScrollear = true) {
             norm(item.nombre).includes(texto)      ||
             norm(item.getEtiquetaComercial()).includes(texto) ||
             norm(item.getDetalleExtra()).includes(texto)      ||
+            norm(item.getGarantiaTexto()).includes(texto)     ||
             norm(item.descripcion).includes(texto)
         );
     }

@@ -602,6 +602,13 @@
   font-size: 0.8rem;
   color: var(--color-acento);
   font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.mc-producto-garantia {
+  font-size: 0.8rem;
+  color: var(--color-texto-gris);
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
