@@ -323,13 +323,9 @@
    - .js-sidebar-header        → título "Filtros" + botón Limpiar
    - .js-sidebar-titulo        → texto del header del sidebar
    - .js-btn-limpiar           → botón que llama limpiarFiltros()
-   - .js-filtros-col           → columna vertical de botones filtro
-   - .js-filtros-label         → etiqueta de cada grupo (CATEGORÍA, PRECIO...)
-   - .js-filtro-btn            → botón Todos/Productos/Servicios
-   - .js-filtro-btn.activo     → estado activo (fondo azul)
-   - .js-filtro-select         → <select> de subcategoría + orden (styled)
-   - .js-precio-slider-*       → slider dual de precio mínimo/máximo
-   - .js-precio-display        → textos S/. min — S/. max debajo del slider
+   - .js-filtros-label         → etiqueta de cada grupo (TIPO, SUBCATEGORÍA)
+   - .js-filtro-select         → selects de tipo/subcategoría + orden
+   - .js-filtro-select:disabled → estado visual del select inactivo
 
    BARRA SUPERIOR DE RESULTADOS (Maykol Calle):
    - .mc-main-barra            → flex row: contador + select de orden
@@ -439,14 +435,6 @@
     color: var(--color-acento);
 }
 
-/* columna vertical de filtros dentro del sidebar */
-.js-filtros-col {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 4px;
-}
-
 /* labels de filtro */
 .js-filtros-label {
     font-size: 0.68rem;
@@ -457,36 +445,7 @@
     margin: 16px 0 8px;
 }
 
-/* botones de filtro — base */
-.js-filtro-btn {
-    padding: 8px 14px;
-    border-radius: 8px;
-    border: 1px solid var(--color-borde);
-    background: transparent;
-    color: var(--color-texto-gris-claro);
-    font-family: var(--fuente-principal);
-    font-size: 0.82rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transicion);
-    width: 100%;
-    text-align: left;
-}
-
-.js-filtro-btn:hover {
-    border-color: var(--color-acento);
-    color: var(--color-acento);
-    background: rgba(0, 113, 227, 0.06);
-}
-
-.js-filtro-btn.activo {
-    background: var(--color-acento);
-    border-color: var(--color-acento);
-    color: #fff;
-    box-shadow: 0 4px 14px var(--color-acento-glow);
-}
-
-/* selects de subcategoría */
+/* selects de tipo y subcategoría */
 .js-filtro-select {
     width: 100%;
     padding: 9px 36px 9px 14px;
@@ -517,96 +476,9 @@
 }
 
 .js-filtro-select:disabled {
-    opacity: 0.35;
+    opacity: 0.45;
     cursor: not-allowed;
-    border-color: transparent;
-}
-
-/* slider dual de precio */
-.js-precio-slider-container {
-    padding: 4px 0 4px;
-}
-
-.js-precio-slider-track-wrapper {
-    position: relative;
-    height: 40px;
-    margin: 6px 0;
-}
-
-.js-precio-slider-track {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    height: 4px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 2px;
-    pointer-events: none;
-}
-
-.js-precio-slider-range {
-    position: absolute;
-    height: 100%;
-    background: var(--color-acento);
-    border-radius: 2px;
-    left: 0%;
-    width: 100%;
-}
-
-.js-precio-range {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    pointer-events: none;
-    outline: none;
-}
-
-.js-precio-range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--color-acento);
-    border: 2px solid var(--color-fondo-card);
-    cursor: pointer;
-    pointer-events: all;
-    box-shadow: 0 0 0 2px var(--color-acento);
-    transition: box-shadow 0.2s;
-}
-
-.js-precio-range::-webkit-slider-thumb:hover {
-    box-shadow: 0 0 0 5px var(--color-acento-glow);
-}
-
-.js-precio-range::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--color-acento);
-    border: 2px solid var(--color-fondo-card);
-    cursor: pointer;
-    pointer-events: all;
-    box-shadow: 0 0 0 2px var(--color-acento);
-}
-
-.js-precio-display {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 6px;
-}
-
-.js-precio-display span {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--color-acento);
+    border-color: rgba(255, 255, 255, 0.06);
 }
 
 /* Tablet landscape: el sidebar deja de ser sticky y se apila encima
@@ -619,18 +491,6 @@
         position: static;   /* deja de pegarse al scroll */
         max-height: none;
         overflow-y: visible;
-    }
-    /* botones de filtro pasan a flujo horizontal con wrap */
-    .js-filtros-col {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    .js-filtro-btn {
-        width: auto;        /* cada botón solo ocupa el espacio necesario */
-        text-align: center;
-        border-radius: 50px;
-        padding: 7px 18px;
     }
 }
 
