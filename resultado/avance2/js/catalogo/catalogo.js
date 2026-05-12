@@ -1,5 +1,5 @@
 // ============================================================
-//  producto.js — NXR TECH
+//  catalogo.js — NXR TECH
 //  RESPONSABLE: Enrique Prada
 //
 //  ── TIPO DE PROGRAMACIÓN ────────────────────────────────────

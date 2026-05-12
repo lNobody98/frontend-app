@@ -1,16 +1,16 @@
 // ============================================================
 //  datos.js — NXR TECH
-//  RESPONSABLE: Juan Morales  (array de Productos — 60 ítems)
-//               Xiomara Solis (array de Servicios  — 60 ítems)
+//  RESPONSABLE: Juan Morales  (productos físicos — 60 ítems)
+//               Xiomara Solis (servicios — 60 ítems)
 //
 //  ── TIPO DE DATO ────────────────────────────────────────────
 //  ArrayList — array de objetos en JavaScript.
 //  Cada elemento es una instancia de Producto o Servicio,
 //  creadas con `new` a partir de clases que heredan de ItemCatalogo.
-//  El array se llama listaProductos y contiene 120 instancias.
+//  El array se llama listaCatalogo y contiene 120 instancias.
 //
 //  ── QUÉ HACE ESTE ARCHIVO ───────────────────────────────────
-//  Define el array global listaProductos con los 120 ítems del
+//  Define el array global listaCatalogo con los 120 ítems del
 //  catálogo: 60 Productos + 60 Servicios, agrupados en
 //  10 subcategorías cada uno. La clase hija asigna el tipo:
 //  Producto → "Producto" y Servicio → "Servicio".
@@ -26,7 +26,7 @@
 //  - Instanciación (POO)   → cada línea del array instancia la clase
 //
 //  VARIABLE GLOBAL EXPORTADA:
-//  - listaProductos  → array accesible desde cualquier JS cargado
+//  - listaCatalogo  → array accesible desde cualquier JS cargado
 //                      después de este archivo en el HTML.
 //
 //  CÓMO AGREGAR UN NUEVO ÍTEM:
@@ -57,20 +57,20 @@
 //  ⚠️  LA RUTA DE IMAGEN DEPENDE DE DÓNDE ESTÁ ESTE ARCHIVO:
 //
 //      Este archivo está en:
-//        resultado/avance2/js/producto/datos.js
+//        resultado/avance2/js/catalogo/datos.js
 //      Las imágenes están en:
 //        img/catalogo/  (carpeta raíz del proyecto)
 //      Por eso la ruta sube 4 niveles con "../../":
 //        "../../img/catalogo/productos/p-XX.jpg"
 //        "../../img/catalogo/servicios/s-XX.jpg"
 //
-//      En el archivo principal  js/producto/datos.js  la ruta es:
+//      En el archivo principal  js/catalogo/datos.js  la ruta es:
 //        "img/catalogo/productos/p-XX.jpg"   (sin los "../../")
 //      porque ese archivo está en la raíz del proyecto.
 //
 //  SUBCATEGORÍAS VÁLIDAS:
 //  El valor debe coincidir EXACTAMENTE (mayúsculas y tildes incluidas)
-//  con las opciones del <select> en productos.html. Si no coincide,
+//  con las opciones del <select> en catalogo.html. Si no coincide,
 //  el filtro por subcategoría no mostrará ese ítem.
 //
 //  Tipo "Producto":
@@ -83,11 +83,11 @@
 //    "Asesoría"        | "Ciberseguridad" | "Diseño Digital"  | "Networking"
 //    "Cloud & Backup"  | "Desarrollo Web"
 //
-//  DEPENDENCIAS (este archivo debe cargarse DESPUÉS de producto.js):
-//  - producto.js → define ItemCatalogo, Producto y Servicio
+//  DEPENDENCIAS (este archivo debe cargarse DESPUÉS de catalogo.js):
+//  - catalogo.js → define ItemCatalogo, Producto y Servicio
 // ============================================================
 
-const listaProductos = [
+const listaCatalogo = [
 
     // ════════════════════════════════════════════════════════
     //  PRODUCTOS (60)

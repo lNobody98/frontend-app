@@ -1,5 +1,5 @@
 
-const listaProductos = [
+const listaCatalogo = [
 
     // ════════════════════════════════════════════════════════
     //  PRODUCTOS (60)

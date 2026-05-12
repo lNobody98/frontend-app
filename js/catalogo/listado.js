@@ -17,7 +17,7 @@ function renderizar(items) {
 function irAPagina(n) {
     paginaActual = n;
     _pintar();
-    document.getElementById("prod-busqueda").scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById("catalogo-busqueda").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 
@@ -45,9 +45,9 @@ function sortLista(lista) {
 
 function _pintar() {
     const lista         = sortLista(_listaActual);
-    const contenedor    = document.getElementById("prod-lista");
-    const sinResultados = document.getElementById("prod-sin-resultados");
-    const contador      = document.getElementById("prod-contador");
+    const contenedor    = document.getElementById("catalogo-lista");
+    const sinResultados = document.getElementById("catalogo-sin-resultados");
+    const contador      = document.getElementById("catalogo-contador");
     const sufijo        = lista.length !== 1 ? "s" : "";
 
     contador.textContent = lista.length + " resultado" + sufijo + " encontrado" + sufijo;
@@ -65,19 +65,19 @@ function _pintar() {
     const pagina       = lista.slice(inicio, inicio + POR_PAGINA);
 
     let html = pagina.map(item => `
-        <div class="mc-producto">
-            <div class="mc-producto-img-wrapper">
-                <img src="${item.imagen}" alt="${item.nombre}" class="mc-producto-img">
+        <div class="mc-item">
+            <div class="mc-item-img-wrapper">
+                <img src="${item.imagen}" alt="${item.nombre}" class="mc-item-img">
                 <span class="mc-tipo-badge mc-badge-${item.tipo.toLowerCase()}">${item.tipo}</span>
             </div>
-            <div class="mc-producto-contenido">
-                <h5 class="mc-producto-categoria">${item.subcategoria}${item.getEtiquetaComercial() ? " · " + item.getEtiquetaComercial() : ""}</h5>
-                <h3 class="mc-producto-titulo">${item.nombre}</h3>
-                <p class="mc-producto-extra">${item.getDetalleExtra()}</p>
-                ${item.getGarantiaTexto() ? `<p class="mc-producto-garantia">${item.getGarantiaTexto()}</p>` : ""}
-                <p class="mc-producto-descripcion">${item.descripcion}</p>
-                <span class="mc-producto-precio">${item.getPrecioTexto()}</span>
-                <div class="mc-producto-botones">
+            <div class="mc-item-contenido">
+                <h5 class="mc-item-categoria">${item.subcategoria}${item.getEtiquetaComercial() ? " · " + item.getEtiquetaComercial() : ""}</h5>
+                <h3 class="mc-item-titulo">${item.nombre}</h3>
+                <p class="mc-item-extra">${item.getDetalleExtra()}</p>
+                ${item.getGarantiaTexto() ? `<p class="mc-item-garantia">${item.getGarantiaTexto()}</p>` : ""}
+                <p class="mc-item-descripcion">${item.descripcion}</p>
+                <span class="mc-item-precio">${item.getPrecioTexto()}</span>
+                <div class="mc-item-botones">
                     <button class="btn-primario">Consultar</button>
                     <button class="btn-secundario">Ver más</button>
                 </div>
@@ -98,4 +98,4 @@ function _pintar() {
     contenedor.innerHTML = html;
 }
 
-renderizar(listaProductos);
+renderizar(listaCatalogo);

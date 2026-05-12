@@ -31,17 +31,17 @@ Página principal del sitio. Cada integrante desarrolló su sección en una rama
 
 ---
 
-### Avance 2 — `productos.html` 🚧
+### Avance 2 — `catalogo.html` 🚧
 Página de catálogo completo con búsqueda, filtros y listado dinámico generado con JavaScript.
 
 | Integrante | Sección | Archivo(s) |
 |---|---|---|
-| Christian Diaz | Navbar (fijo, con collapse móvil) | `productos.html` · `css/productos.css` |
-| Juan Morales | Carousel / Portada (Bootstrap Carousel, 6 slides) | `productos.html` · `css/productos.css` |
-| Xiomara Solis | Categorías (grid visual de 20 categorías) | `productos.html` · `css/productos.css` |
-| Joel Saldaña | Búsqueda dinámica + Filtros sidebar | `js/producto/filtros.js` · `css/productos.css` |
-| Maykol Calle | Lista de resultados + Paginación (generado con JS) | `js/producto/listado.js` · `css/productos.css` |
-| Enrique Prada | Footer · Clase `Producto` (POO) · Datos del catálogo | `js/producto/producto.js` · `js/producto/datos.js` |
+| Christian Diaz | Navbar (fijo, con collapse móvil) | `catalogo.html` · `css/catalogo.css` |
+| Juan Morales | Carousel / Portada (Bootstrap Carousel, 6 slides) | `catalogo.html` · `css/catalogo.css` |
+| Xiomara Solis | Categorías (grid visual de 20 categorías) | `catalogo.html` · `css/catalogo.css` |
+| Joel Saldaña | Búsqueda dinámica + Filtros sidebar | `js/catalogo/filtros.js` · `css/catalogo.css` |
+| Maykol Calle | Lista de resultados + Paginación (generado con JS) | `js/catalogo/listado.js` · `css/catalogo.css` |
+| Enrique Prada | Footer · Modelo de catálogo (POO) · Datos del catálogo | `js/catalogo/catalogo.js` · `js/catalogo/datos.js` |
 
 **Guía de referencia completa:** `resultado/avance2/` — código terminado con comentarios para la sustentación.
 
@@ -58,18 +58,18 @@ Página de catálogo completo con búsqueda, filtros y listado dinámico generad
 ```
 frontend-app/
 ├── inicio.html              # Avance 1 — página principal
-├── productos.html           # Avance 2 — catálogo de productos y servicios
+├── catalogo.html            # Avance 2 — catálogo de productos y servicios
 │
 ├── css/
 │   ├── base.css             # Variables globales y reset — NO MODIFICAR
 │   ├── main.css             # Estilos de inicio.html
-│   └── productos.css        # Estilos de productos.html
+│   └── catalogo.css         # Estilos de catalogo.html
 │
 ├── js/
 │   ├── main.js              # Navbar scroll, menú móvil, animaciones
-│   └── producto/
-│       ├── producto.js      # Clase Producto (POO) — Enrique Prada
-│       ├── datos.js         # Array listaProductos (120 ítems)
+│   └── catalogo/
+│       ├── catalogo.js      # Modelo ItemCatalogo, Producto y Servicio — Enrique Prada
+│       ├── datos.js         # Array listaCatalogo (120 ítems)
 │       ├── listado.js       # Renderizado de cards y paginación — Maykol Calle
 │       └── filtros.js       # Búsqueda y filtros — Joel Saldaña
 │
@@ -89,7 +89,7 @@ frontend-app/
 ## Flujo de Trabajo — Avance 2
 
 1. Consulta `resultado/avance2/` para ver el código de referencia completo
-2. Cada integrante trabaja en `productos.html`, `css/productos.css` y su archivo JS
+2. Cada integrante trabaja en `catalogo.html`, `css/catalogo.css` y su archivo JS
 3. Los placeholders en el HTML indican dónde va cada sección — eliminarlos al empezar
 4. Pull Request hacia `main` cuando la sección esté lista
 
@@ -100,7 +100,7 @@ frontend-app/
 | Página | Descripción |
 |---|---|
 | Inicio | Hero, productos, video, testimonios, noticias, CTA |
-| Productos | Catálogo completo, categorías, búsqueda, filtros, listado |
+| Catálogo | Catálogo completo, categorías, búsqueda, filtros, listado |
 | Nosotros | Misión, visión, equipo, historia, valores |
 | Contactos | Formulario, mapa, WhatsApp, soporte, FAQ |
 

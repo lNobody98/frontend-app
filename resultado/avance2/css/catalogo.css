@@ -1,6 +1,6 @@
 /* ============================================================
-   productos.css — NXR TECH
-   Estilos EXCLUSIVOS de productos.html. No afectan a inicio.html.
+   catalogo.css — NXR TECH
+   Estilos EXCLUSIVOS de catalogo.html. No afectan a inicio.html.
 
    SECCIONES Y RESPONSABLES:
    - NAVBAR override      → Christian Diaz
@@ -8,7 +8,7 @@
    - CATEGORÍAS (.xs-*)   → Xiomara Solis
    - FILTROS (.js-*)      → Joel Saldaña
    - RESULTADOS (.mc-*)   → Maykol Calle
-   - CARDS (.mc-producto) → Maykol Calle
+   - CARDS (.mc-item) → Maykol Calle
    - PAGINACIÓN (.mc-pag*)→ Maykol Calle
    - RESPONSIVE           → inline en cada sección (no hay bloque al final)
 
@@ -21,7 +21,7 @@
    NAVBAR OVERRIDE — RESPONSABLE: Christian Diaz
 
    Por defecto, la navbar de base.css arranca transparente y
-   se oscurece al hacer scroll (header.scrolled). En productos.html
+   se oscurece al hacer scroll (header.scrolled). En catalogo.html
    no hay hero de pantalla completa, así que se fuerza el estado
    oscuro desde el inicio para que el texto sea legible.
 
@@ -162,20 +162,20 @@
    CABECERA DE SECCIÓN — patrón reutilizado en todas las secciones
 
    Clases usadas en el encabezado de cada sección principal:
-   - .prod-seccion-header  → contenedor centrado con margen inferior
-   - .prod-badge           → etiqueta azul redondeada (ej: "Categorías")
-   - .prod-seccion-titulo  → título grande de la sección (h2)
-   - .prod-seccion-subtitulo → subtítulo gris debajo del título
+   - .catalogo-seccion-header  → contenedor centrado con margen inferior
+   - .catalogo-badge           → etiqueta azul redondeada (ej: "Categorías")
+   - .catalogo-seccion-titulo  → título grande de la sección (h2)
+   - .catalogo-seccion-subtitulo → subtítulo gris debajo del título
 
    Estas clases las usa cualquier sección que tenga encabezado.
    No pertenecen a ningún responsable en particular.
    -------------------------------------------------------- */
-.prod-seccion-header {
+.catalogo-seccion-header {
     text-align: center;
     margin-bottom: 48px;
 }
 
-.prod-badge {
+.catalogo-badge {
     display: inline-block;
     font-size: 0.75rem;
     font-weight: 600;
@@ -189,14 +189,14 @@
     margin-bottom: 14px;
 }
 
-.prod-seccion-titulo {
+.catalogo-seccion-titulo {
     font-size: clamp(1.6rem, 3vw, 2.4rem);
     font-weight: 700;
     color: var(--color-texto-claro);
     margin-bottom: 10px;
 }
 
-.prod-seccion-subtitulo {
+.catalogo-seccion-subtitulo {
     font-size: 0.95rem;
     color: var(--color-texto-gris);
 }
@@ -204,11 +204,11 @@
 /* ============================================================
    CATEGORÍAS — RESPONSABLE: Xiomara Solis
 
-   Estilos de la sección visual de categorías (#prod-categorias).
+   Estilos de la sección visual de categorías (#catalogo-categorias).
    No interactúa con los filtros, solo muestra íconos con nombres.
 
    CLASES PRINCIPALES:
-   - #prod-categorias          → sección con fondo medio y bordes
+   - #catalogo-categorias          → sección con fondo medio y bordes
    - .xs-cats-grid             → grid de 5 columnas (Productos)
    - .xs-cats-grid-servicios   → grid de 5 columnas (Servicios)
    - .xs-cat-card              → tarjeta individual con ícono y nombre
@@ -222,7 +222,7 @@
    TU TAREA: ajustar diseño de cards, colores hover, tamaño de íconos.
    En responsive (justo debajo de esta sección) los grids pasan de 5 a 3 y a 2 columnas.
    -------------------------------------------------------- */
-#prod-categorias {
+#catalogo-categorias {
     background: var(--color-fondo-medio);
     padding: 80px 0;
     border-top: 1px solid var(--color-borde);
@@ -318,27 +318,23 @@
    - #inputBusqueda:focus      → borde azul + glow al enfocar
 
    SIDEBAR DE FILTROS (Joel Saldaña):
-   - .prod-busqueda-layout     → grid 240px sidebar + 1fr contenido
+   - .catalogo-busqueda-layout     → grid 240px sidebar + 1fr contenido
    - .js-sidebar               → panel sticky con filtros
    - .js-sidebar-header        → título "Filtros" + botón Limpiar
    - .js-sidebar-titulo        → texto del header del sidebar
    - .js-btn-limpiar           → botón que llama limpiarFiltros()
-   - .js-filtros-col           → columna vertical de botones filtro
-   - .js-filtros-label         → etiqueta de cada grupo (CATEGORÍA, PRECIO...)
-   - .js-filtro-btn            → botón Todos/Productos/Servicios
-   - .js-filtro-btn.activo     → estado activo (fondo azul)
-   - .js-filtro-select         → <select> de subcategoría + orden (styled)
-   - .js-precio-slider-*       → slider dual de precio mínimo/máximo
-   - .js-precio-display        → textos S/. min — S/. max debajo del slider
+   - .js-filtros-label         → etiqueta de cada grupo (TIPO, SUBCATEGORÍA)
+   - .js-filtro-select         → selects de tipo/subcategoría + orden
+   - .js-filtro-select:disabled → estado visual del select inactivo
 
    BARRA SUPERIOR DE RESULTADOS (Maykol Calle):
    - .mc-main-barra            → flex row: contador + select de orden
-   - #prod-contador            → texto "Mostrando X de 120 resultados"
+   - #catalogo-contador            → texto "Mostrando X de 120 resultados"
    - .mc-orden-select          → select de ordenamiento (ancho auto)
 
    El prefijo js- = Joel Saldaña. El prefijo mc- = Maykol Calle.
    -------------------------------------------------------- */
-#prod-busqueda {
+#catalogo-busqueda {
     background: var(--color-fondo-oscuro);
     padding: 80px 0;
 }
@@ -382,7 +378,7 @@
 }
 
 /* layout principal: sidebar + resultados */
-.prod-busqueda-layout {
+.catalogo-busqueda-layout {
     display: grid;
     grid-template-columns: 240px 1fr;
     gap: 32px;
@@ -439,14 +435,6 @@
     color: var(--color-acento);
 }
 
-/* columna vertical de filtros dentro del sidebar */
-.js-filtros-col {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 4px;
-}
-
 /* labels de filtro */
 .js-filtros-label {
     font-size: 0.68rem;
@@ -457,36 +445,7 @@
     margin: 16px 0 8px;
 }
 
-/* botones de filtro — base */
-.js-filtro-btn {
-    padding: 8px 14px;
-    border-radius: 8px;
-    border: 1px solid var(--color-borde);
-    background: transparent;
-    color: var(--color-texto-gris-claro);
-    font-family: var(--fuente-principal);
-    font-size: 0.82rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transicion);
-    width: 100%;
-    text-align: left;
-}
-
-.js-filtro-btn:hover {
-    border-color: var(--color-acento);
-    color: var(--color-acento);
-    background: rgba(0, 113, 227, 0.06);
-}
-
-.js-filtro-btn.activo {
-    background: var(--color-acento);
-    border-color: var(--color-acento);
-    color: #fff;
-    box-shadow: 0 4px 14px var(--color-acento-glow);
-}
-
-/* selects de subcategoría */
+/* selects de tipo y subcategoría */
 .js-filtro-select {
     width: 100%;
     padding: 9px 36px 9px 14px;
@@ -517,120 +476,21 @@
 }
 
 .js-filtro-select:disabled {
-    opacity: 0.35;
+    opacity: 0.45;
     cursor: not-allowed;
-    border-color: transparent;
-}
-
-/* slider dual de precio */
-.js-precio-slider-container {
-    padding: 4px 0 4px;
-}
-
-.js-precio-slider-track-wrapper {
-    position: relative;
-    height: 40px;
-    margin: 6px 0;
-}
-
-.js-precio-slider-track {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    height: 4px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 2px;
-    pointer-events: none;
-}
-
-.js-precio-slider-range {
-    position: absolute;
-    height: 100%;
-    background: var(--color-acento);
-    border-radius: 2px;
-    left: 0%;
-    width: 100%;
-}
-
-.js-precio-range {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    pointer-events: none;
-    outline: none;
-}
-
-.js-precio-range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--color-acento);
-    border: 2px solid var(--color-fondo-card);
-    cursor: pointer;
-    pointer-events: all;
-    box-shadow: 0 0 0 2px var(--color-acento);
-    transition: box-shadow 0.2s;
-}
-
-.js-precio-range::-webkit-slider-thumb:hover {
-    box-shadow: 0 0 0 5px var(--color-acento-glow);
-}
-
-.js-precio-range::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--color-acento);
-    border: 2px solid var(--color-fondo-card);
-    cursor: pointer;
-    pointer-events: all;
-    box-shadow: 0 0 0 2px var(--color-acento);
-}
-
-.js-precio-display {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 6px;
-}
-
-.js-precio-display span {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--color-acento);
+    border-color: rgba(255, 255, 255, 0.06);
 }
 
 /* Tablet landscape: el sidebar deja de ser sticky y se apila encima
    del grid de resultados (una sola columna en lugar de sidebar + contenido) */
 @media (max-width: 992px) {
-    .prod-busqueda-layout {
+    .catalogo-busqueda-layout {
         grid-template-columns: 1fr; /* sidebar y resultados apilados verticalmente */
     }
     .js-sidebar {
         position: static;   /* deja de pegarse al scroll */
         max-height: none;
         overflow-y: visible;
-    }
-    /* botones de filtro pasan a flujo horizontal con wrap */
-    .js-filtros-col {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    .js-filtro-btn {
-        width: auto;        /* cada botón solo ocupa el espacio necesario */
-        text-align: center;
-        border-radius: 50px;
-        padding: 7px 18px;
     }
 }
 
@@ -644,7 +504,7 @@
 }
 
 /* contador de resultados */
-#prod-contador {
+#catalogo-contador {
     font-size: 0.82rem;
     color: var(--color-texto-gris);
     min-height: 20px;
@@ -659,42 +519,42 @@
 }
 
 /* ============================================================
-   CARDS DE PRODUCTO — RESPONSABLE: Maykol Calle
+   CARDS DEL CATÁLOGO — RESPONSABLE: Maykol Calle
 
    Estilos de las tarjetas de producto/servicio del catálogo.
    Las cards son generadas dinámicamente por listado.js dentro
-   del div #prod-lista. Cada card tiene la clase .mc-producto.
+   del div #catalogo-lista. Cada card tiene la clase .mc-item.
 
    NOTA SOBRE EL PREFIJO js-:
    El prefijo js- proviene de inicio.html donde Joel creó las cards
-   manualmente. En productos.html las genera listado.js (Maykol),
+   manualmente. En catalogo.html las genera listado.js (Maykol),
    pero se reutiliza el mismo prefijo para que los estilos apliquen
    en ambas páginas sin duplicación.
 
    ESTRUCTURA DE UNA CARD (generada por listado.js):
-   .mc-producto
-   └── .mc-producto-img-wrapper
-       ├── img.mc-producto-img       → imagen del producto
+   .mc-item
+   └── .mc-item-img-wrapper
+       ├── img.mc-item-img       → imagen del ítem
        └── span.mc-tipo-badge        → badge "Producto" / "Servicio"
-   └── .mc-producto-contenido
-       ├── p.mc-producto-categoria   → subcategoría + marca (si aplica)
-       ├── h3.mc-producto-titulo     → nombre del ítem
-       ├── p.mc-producto-extra       → stock o modalidad
-       ├── p.mc-producto-descripcion → descripción breve
-       ├── span.mc-producto-precio   → precio formateado (getPrecioTexto())
-       └── .mc-producto-botones      → botones "Ver más" y "Cotizar"
+   └── .mc-item-contenido
+       ├── p.mc-item-categoria   → subcategoría + marca (si aplica)
+       ├── h3.mc-item-titulo     → nombre del ítem
+       ├── p.mc-item-extra       → stock o modalidad
+       ├── p.mc-item-descripcion → descripción breve
+       ├── span.mc-item-precio   → precio formateado (getPrecioTexto())
+       └── .mc-item-botones      → botones "Ver más" y "Cotizar"
 
    CLASES AUXILIARES:
    - .mc-lista-grid    → grid de 3 columnas donde viven las cards
    - .mc-tipo-badge    → badge flotante en la esquina de la imagen
    - .mc-badge-producto → fondo azul (tipo Producto)
    - .mc-badge-servicio → fondo verde (tipo Servicio)
-   - #prod-sin-resultados → bloque visible cuando no hay resultados
+   - #catalogo-sin-resultados → bloque visible cuando no hay resultados
 
    TU TAREA: modificar estilos de la card, badge o grid.
    Para cambiar la cantidad de columnas, edita .mc-lista-grid.
    -------------------------------------------------------- */
-.mc-producto {
+.mc-item {
     background-color: var(--color-fondo-card);
     border-radius: var(--radio-borde);
     overflow: hidden;
@@ -703,24 +563,24 @@
     transition: var(--transicion);
 }
 
-.mc-producto:hover {
+.mc-item:hover {
     transform: translateY(-10px);
     border-color: var(--color-acento);
     box-shadow: 0 20px 50px rgba(0, 113, 227, 0.25);
 }
 
-.mc-producto-img-wrapper {
+.mc-item-img-wrapper {
     position: relative;
 }
 
-.mc-producto-img {
+.mc-item-img {
     width: 100%;
     height: 220px;
     object-fit: cover;
     display: block;
 }
 
-.mc-producto-img-wrapper::after {
+.mc-item-img-wrapper::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -730,11 +590,11 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
 }
 
-.mc-producto-contenido {
+.mc-item-contenido {
     padding: 24px;
 }
 
-.mc-producto-categoria {
+.mc-item-categoria {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -742,35 +602,35 @@
     margin-bottom: 8px;
 }
 
-.mc-producto-titulo {
+.mc-item-titulo {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--color-texto-claro);
     margin-bottom: 10px;
 }
 
-.mc-producto-extra {
+.mc-item-extra {
     font-size: 0.8rem;
     color: var(--color-acento);
     font-weight: 600;
     margin-bottom: 6px;
 }
 
-.mc-producto-garantia {
+.mc-item-garantia {
     font-size: 0.8rem;
     color: var(--color-texto-gris);
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.mc-producto-descripcion {
+.mc-item-descripcion {
     font-size: 0.875rem;
     color: var(--color-texto-gris);
     line-height: 1.7;
     margin-bottom: 20px;
 }
 
-.mc-producto-precio {
+.mc-item-precio {
     display: block;
     font-size: 1.3rem;
     font-weight: 700;
@@ -778,13 +638,13 @@
     margin-bottom: 20px;
 }
 
-.mc-producto-botones {
+.mc-item-botones {
     display: flex;
     gap: 10px;
 }
 
-.mc-producto-botones .btn-primario,
-.mc-producto-botones .btn-secundario {
+.mc-item-botones .btn-primario,
+.mc-item-botones .btn-secundario {
     flex: 1;
     padding: 10px 16px;
     font-size: 0.85rem;
@@ -823,20 +683,20 @@
 }
 
 /* mensaje sin resultados */
-#prod-sin-resultados {
+#catalogo-sin-resultados {
     display: none;
     text-align: center;
     padding: 60px 0;
 }
 
-#prod-sin-resultados i {
+#catalogo-sin-resultados i {
     font-size: 2.8rem;
     color: var(--color-texto-gris);
     display: block;
     margin-bottom: 16px;
 }
 
-#prod-sin-resultados p {
+#catalogo-sin-resultados p {
     font-size: 1rem;
     color: var(--color-texto-gris);
 }
@@ -846,7 +706,7 @@
 
    Estilos de la barra de paginación generada dinámicamente por
    listado.js cuando los resultados superan POR_PAGINA (12 items).
-   La paginación se inyecta dentro de #prod-lista al final del grid.
+   La paginación se inyecta dentro de #catalogo-lista al final del grid.
 
    CLASES PRINCIPALES:
    - .mc-paginacion        → flex row centrado con los botones de página
