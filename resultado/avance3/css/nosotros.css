@@ -1,0 +1,1229 @@
+/* ============================================================
+   nosotros.css — NXR TECH — Avance 3
+   Estilos EXCLUSIVOS de nosotros.html.
+   Prefijo: nos- (Enrique Prada — Coordinador)
+
+   SECCIONES:
+   - NAVBAR override      → nos-
+   - CAROUSEL (.jm-*)     → reutilizado de catalogo.css
+   - ORGANIGRAMA (.nos-org-*)
+   - INFO EMPRESA (.nos-info-*)
+   - CV INTEGRANTES (.nos-cv-*)
+   - GESTIÓN PROYECTO (.nos-gp-*)
+   - MATRIZ MODAL (.nos-modal-*, .nos-raci-*)
+   - RESPONSIVE
+   ============================================================ */
+
+/* ============================================================
+   NAVBAR OVERRIDE
+   ------------------------------------------------------------ */
+#navbar .ep-navbar-bar {
+    background-color: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+#navbar .ep-navbar-bar nav {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
+
+#navbar .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    font-size: inherit;
+}
+
+#navbar .ep-navbar-bar .collapse.navbar-collapse {
+    flex-grow: 0;
+}
+
+@media (max-width: 767px) {
+    #navbar .ep-navbar-bar .navbar-collapse {
+        background-color: rgba(13, 13, 13, 0.97);
+        padding: 16px 24px;
+        border-top: 1px solid var(--color-borde);
+    }
+    #navbar .nav-links {
+        position: static;
+        transform: none;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   CAROUSEL — estilos .jm-* (Juan Morales, mismo patrón)
+   ------------------------------------------------------------ */
+#nosotros-carousel .jm-slide {
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nosotros-carousel .jm-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 100%);
+}
+
+#nosotros-carousel .jm-slide-contenido {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    padding: 0 24px;
+}
+
+#nosotros-carousel .jm-slide-contenido h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.15;
+}
+
+#nosotros-carousel .jm-slide-contenido h2 span {
+    color: var(--color-acento);
+}
+
+#nosotros-carousel .jm-slide-contenido p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   SECCIONES — encabezados compartidos
+   ------------------------------------------------------------ */
+.nos-section {
+    padding: 90px 0;
+}
+
+/* ── Sección CLARA (mismo patrón que inicio.html) ── */
+.nos-section-alt {
+    background-color: var(--color-fondo-claro);
+}
+
+/* Todos los textos en sección clara → oscuros */
+.nos-section-alt .nos-section-header h2    { color: var(--color-texto-oscuro); }
+.nos-section-alt .nos-section-header p     { color: var(--color-texto-gris); }
+.nos-section-alt .nos-section-header h2 span { color: var(--color-acento); }
+
+/* Info cards → blancas con borde sutil */
+.nos-section-alt .nos-info-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.nos-section-alt .nos-info-card h3 { color: var(--color-acento); }
+.nos-section-alt .nos-info-card p  { color: var(--color-texto-oscuro); opacity: 0.75; }
+
+/* Objetivos → fondo blanco */
+.nos-section-alt .nos-obj-wrap {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.nos-section-alt .nos-obj-wrap h3        { color: var(--color-texto-oscuro); }
+.nos-section-alt .nos-obj-principal       { color: var(--color-texto-oscuro); }
+.nos-section-alt .nos-obj-sub             { color: var(--color-texto-gris); }
+.nos-section-alt .nos-obj-especificos li  { color: var(--color-texto-oscuro); opacity: 0.8; }
+
+/* GP tools → fondo blanco */
+.nos-section-alt .nos-gp-tool {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.nos-section-alt .nos-gp-tool:hover {
+    border-color: var(--color-acento);
+    box-shadow: 0 4px 20px rgba(0,113,227,0.15);
+}
+.nos-section-alt .nos-gp-tool-texto h4 { color: var(--color-texto-oscuro); }
+.nos-section-alt .nos-gp-tool-texto p  { color: var(--color-texto-gris); }
+
+/* GP descripción */
+.nos-section-alt .nos-gp-desc            { color: var(--color-texto-oscuro); opacity: 0.75; }
+.nos-section-alt .nos-gp-desc strong     { color: var(--color-texto-oscuro); opacity: 1; }
+.nos-section-alt .nos-gp-desc code {
+    color: var(--color-acento);
+    background: rgba(0,113,227,0.08);
+}
+
+/* Sprint cards → blancas */
+.nos-section-alt .nos-sprint {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.nos-section-alt .nos-sprint:hover {
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 1px var(--color-acento),
+                0 8px 30px rgba(0,113,227,0.15);
+}
+.nos-section-alt .nos-sprint-header {
+    background: linear-gradient(135deg,
+        rgba(0,113,227,0.12) 0%,
+        rgba(0,113,227,0.04) 100%
+    );
+    border-bottom: 1px solid rgba(0,113,227,0.15);
+}
+.nos-section-alt .nos-sprint-header h4   { color: var(--color-texto-oscuro); }
+.nos-section-alt .nos-sprint-body ul li  {
+    color: var(--color-texto-oscuro);
+    opacity: 0.8;
+    background: rgba(0,113,227,0.03);
+    border-left-color: rgba(0,113,227,0.3);
+}
+.nos-section-alt .nos-sprint:hover .nos-sprint-body ul li {
+    border-left-color: var(--color-acento);
+    background: rgba(0,113,227,0.06);
+    opacity: 1;
+}
+
+/* Línea del timeline → azul sobre fondo claro */
+.nos-section-alt .nos-gp-timeline-wrap::before {
+    background: linear-gradient(
+        90deg,
+        rgba(0,113,227,0.15) 0%,
+        var(--color-acento) 30%,
+        var(--color-acento) 70%,
+        rgba(0,113,227,0.15) 100%
+    );
+}
+
+.nos-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.nos-section-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--color-texto-claro);
+    margin-bottom: 12px;
+}
+
+.nos-section-header h2 span {
+    color: var(--color-acento);
+}
+
+.nos-section-header p {
+    color: var(--color-texto-gris-claro);
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* Organigrama — fondo medio igual a #catalogo-categorias */
+#nosotros-organigrama {
+    background-color: var(--color-fondo-medio);
+}
+
+/* ── Organigrama sobre fondo claro (nos-section-alt) ── */
+.nos-section-alt .nos-org-node {
+    background: #fff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+}
+.nos-section-alt .nos-org-coord {
+    border-color: var(--color-acento);
+    background: rgba(0,113,227,0.06);
+}
+.nos-section-alt .nos-org-node h4  { color: var(--color-texto-oscuro); }
+.nos-section-alt .nos-org-node span { color: var(--color-acento); }
+.nos-section-alt .nos-org-avatar   {
+    background: rgba(0,113,227,0.08);
+    color: var(--color-acento);
+}
+.nos-section-alt .nos-org-tree > li > .nos-org-node::after,
+.nos-section-alt .nos-org-tree > li > ul::before,
+.nos-section-alt .nos-org-tree > li > ul > li::before {
+    background: var(--color-acento);
+}
+
+/* ============================================================
+   MAPA ORGANIZACIONAL
+   ------------------------------------------------------------ */
+.nos-org-tree {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nos-org-tree > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.nos-org-tree > li > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    padding-top: 40px;
+    width: 100%;
+}
+
+/* Línea vertical desde el coordinador — margin crea el espacio real en flex */
+.nos-org-tree > li > .nos-org-node {
+    position: relative;
+    margin-bottom: 70px;
+    z-index: 1;
+}
+
+.nos-org-tree > li > .nos-org-node::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 70px;
+    background: var(--color-acento);
+    z-index: 2;
+}
+
+/* Línea horizontal que conecta al equipo */
+.nos-org-tree > li > ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: var(--color-acento);
+}
+
+/* Línea vertical bajando desde horizontal hasta cada integrante */
+.nos-org-tree > li > ul > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 0;
+}
+
+.nos-org-tree > li > ul > li::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: var(--color-acento);
+}
+
+/* Nodo base */
+.nos-org-node {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    width: 180px;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.nos-org-node:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-acento);
+}
+
+/* Nodo coordinador — destacado */
+.nos-org-coord {
+    border-color: var(--color-acento);
+    background: rgba(var(--color-acento-rgb, 0,180,216), 0.08);
+    width: 220px;
+    padding: 28px 24px;
+}
+
+/* Avatar circular */
+.nos-org-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    overflow: hidden;
+    border: 2px solid var(--color-acento);
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-acento);
+}
+
+.nos-org-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nos-org-coord .nos-org-avatar {
+    width: 96px;
+    height: 96px;
+    font-size: 1.6rem;
+}
+
+.nos-org-node h4 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.nos-org-node span {
+    font-size: 0.75rem;
+    color: var(--color-acento);
+    font-weight: 500;
+}
+
+/* ============================================================
+   INFORMACIÓN DE LA EMPRESA
+   ------------------------------------------------------------ */
+.nos-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 50px;
+}
+
+.nos-info-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nos-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--color-acento);
+    border-radius: 4px 0 0 4px;
+}
+
+.nos-info-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    color: var(--color-acento);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nos-info-card p {
+    color: var(--color-texto-gris);
+    line-height: 1.8;
+    font-size: 0.97rem;
+}
+
+.nos-obj-wrap {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    padding: 36px 32px;
+}
+
+.nos-obj-wrap h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    color: var(--color-texto);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nos-obj-principal {
+    background: rgba(var(--color-acento-rgb, 0,180,216), 0.08);
+    border-left: 4px solid var(--color-acento);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 20px;
+    margin-bottom: 24px;
+    color: var(--color-texto);
+    font-size: 0.97rem;
+    line-height: 1.7;
+}
+
+.nos-obj-sub {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-texto-gris);
+    margin-bottom: 12px;
+}
+
+.nos-obj-especificos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nos-obj-especificos li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--color-texto-gris);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.nos-obj-especificos li::before {
+    content: counter(item);
+    counter-increment: item;
+    min-width: 28px;
+    height: 28px;
+    background: var(--color-acento);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.nos-obj-especificos {
+    counter-reset: item;
+}
+
+/* ============================================================
+   CV INTEGRANTES
+   ------------------------------------------------------------ */
+
+/* Grid 6 cards iguales — 3 columnas × 2 filas */
+.nos-cv-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* Card base */
+.nos-cv-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.nos-cv-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-acento);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+/* Header de la card */
+.nos-cv-header {
+    background: rgba(255,255,255,0.04);
+    padding: 24px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* Avatar foto */
+.nos-cv-foto-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-acento);
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-acento);
+}
+
+
+.nos-cv-foto-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Si la foto no carga, oculta el img y muestra las iniciales */
+.nos-cv-foto-wrap img.nos-foto-error {
+    display: none;
+}
+
+.nos-cv-identidad h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+
+.nos-cv-rol {
+    font-size: 0.75rem;
+    color: var(--color-acento);
+    font-weight: 500;
+    background: rgba(var(--color-acento-rgb, 0,180,216), 0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+/* Cuerpo */
+.nos-cv-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+.nos-cv-bloque-titulo {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-texto-claro, #ccc);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nos-cv-bloque-titulo i {
+    color: var(--color-acento);
+    font-size: 0.85rem;
+}
+
+/* Sub-etiqueta dentro de Capacidad de Programación */
+.nos-cv-sub {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-texto-gris-claro, #a1a1a6);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 10px 0 6px;
+}
+
+.nos-cv-sub:first-of-type {
+    margin-top: 0;
+}
+
+/* Tags lenguajes y habilidades — se adaptan solos con flex-wrap */
+.nos-cv-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.nos-tag {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    background: rgba(255,255,255,0.07);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    white-space: nowrap;
+}
+
+.nos-tag-lang {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+    background: rgba(var(--color-acento-rgb, 0,180,216), 0.08);
+}
+
+.nos-tag-blanda {
+    border-color: rgba(255,255,255,0.2);
+    color: var(--color-texto-gris);
+}
+
+/* Certificados */
+.nos-cv-certs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nos-cv-certs li {
+    font-size: 0.8rem;
+    color: var(--color-texto-gris);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.nos-cv-certs li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-acento);
+    font-size: 0.7rem;
+    top: 1px;
+}
+
+/* Footer de la card */
+.nos-cv-footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--color-borde);
+}
+
+.nos-cv-footer a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 0.85rem;
+}
+
+/* ============================================================
+   GESTIÓN DEL PROYECTO
+   ------------------------------------------------------------ */
+
+/* Fila de herramientas — 4 chips centrados */
+.nos-gp-tools {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 50px;
+}
+
+.nos-gp-tool {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--color-borde);
+    border-radius: 50px;
+    padding: 12px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.nos-gp-tool:hover {
+    border-color: var(--color-acento);
+    transform: translateY(-2px);
+}
+
+.nos-gp-tool i {
+    font-size: 1.3rem;
+    color: var(--color-acento);
+}
+
+.nos-gp-tool-texto h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin: 0 0 2px;
+}
+
+.nos-gp-tool-texto p {
+    font-size: 0.75rem;
+    color: var(--color-texto-gris);
+    margin: 0;
+}
+
+/* Descripción centrada */
+.nos-gp-desc {
+    max-width: 780px;
+    margin: 0 auto 60px;
+    text-align: center;
+    color: var(--color-texto-gris);
+    line-height: 1.85;
+    font-size: 0.97rem;
+}
+
+.nos-gp-desc code {
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    color: var(--color-acento);
+    background: rgba(var(--color-acento-rgb, 0,180,216), 0.1);
+    padding: 1px 8px;
+    border-radius: 4px;
+}
+
+.nos-gp-desc strong {
+    color: var(--color-texto);
+    font-weight: 600;
+}
+
+/* ── Timeline wrapper: reserva espacio para los dots ── */
+.nos-gp-timeline-wrap {
+    position: relative;
+    padding-top: 32px;
+}
+
+/* Línea horizontal que conecta los 3 dots */
+.nos-gp-timeline-wrap::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(100% / 6);
+    right: calc(100% / 6);
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        rgba(var(--color-acento-rgb,0,180,216), 0.2) 0%,
+        var(--color-acento) 30%,
+        var(--color-acento) 70%,
+        rgba(var(--color-acento-rgb,0,180,216), 0.2) 100%
+    );
+    z-index: 0;
+}
+
+/* Grid de cards */
+.nos-gp-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Cada card */
+.nos-sprint {
+    border-radius: 20px;
+    overflow: visible;
+    border: 1px solid var(--color-borde);
+    background: rgba(255,255,255,0.03);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    margin-top: 0;
+}
+
+.nos-sprint:hover {
+    box-shadow: 0 0 0 1px var(--color-acento),
+                0 8px 40px rgba(var(--color-acento-rgb,0,180,216), 0.2);
+    border-color: var(--color-acento);
+}
+
+/* Dot de número — sobresale arriba de la card */
+.nos-sprint-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-acento);
+    color: #000;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 0 5px rgba(var(--color-acento-rgb,0,180,216),0.2),
+                0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* Header del sprint — sin número, solo texto */
+.nos-sprint-header {
+    background: linear-gradient(135deg,
+        rgba(var(--color-acento-rgb,0,180,216),0.18) 0%,
+        rgba(var(--color-acento-rgb,0,180,216),0.06) 100%
+    );
+    border-bottom: 1px solid rgba(var(--color-acento-rgb,0,180,216),0.2);
+    padding: 44px 20px 18px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.nos-sprint-header h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: var(--color-texto);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.nos-sprint-fecha {
+    font-size: 0.75rem;
+    color: var(--color-acento);
+    display: block;
+    font-weight: 500;
+}
+
+/* Cuerpo del sprint */
+.nos-sprint-body {
+    padding: 20px 20px 24px;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+}
+
+.nos-sprint-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nos-sprint-body ul li {
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.88);
+    padding: 8px 12px 8px 14px;
+    border-left: 2px solid rgba(var(--color-acento-rgb,0,180,216), 0.4);
+    border-radius: 0 8px 8px 0;
+    background: rgba(255,255,255,0.03);
+    line-height: 1.4;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.nos-sprint:hover .nos-sprint-body ul li {
+    border-left-color: var(--color-acento);
+    background: rgba(255,255,255,0.05);
+}
+
+/* ============================================================
+   SECCIÓN BOTÓN MATRIZ — gradiente oscuro como xs-cta de inicio
+   ------------------------------------------------------------ */
+#nosotros-matriz-cta {
+    background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#nosotros-matriz-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0,113,227,0.18) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.nos-matriz-cta {
+    text-align: center;
+    padding: 70px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.nos-matriz-cta h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: #fff;
+    margin-bottom: 14px;
+}
+
+.nos-matriz-cta h2 span {
+    color: var(--color-acento);
+}
+
+.nos-matriz-cta p {
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 32px;
+    font-size: 1rem;
+}
+
+.nos-btn-matriz {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background: var(--color-acento);
+    color: #000;
+    border: none;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.nos-btn-matriz:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   MODAL MATRIZ RACI
+   ------------------------------------------------------------ */
+.nos-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 18, 40, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.nos-modal-overlay.nos-modal-visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.nos-modal-content {
+    background: #ffffff;
+    border: none;
+    border-radius: 24px;
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 980px;
+    max-height: 88vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(24px) scale(0.98);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.25),
+                0 0 0 1px rgba(0,113,227,0.12);
+}
+
+.nos-modal-overlay.nos-modal-visible .nos-modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.nos-modal-cerrar {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.06);
+    border: none;
+    font-size: 1.2rem;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+    line-height: 1;
+}
+
+.nos-modal-cerrar:hover {
+    background: var(--color-acento);
+    color: #fff;
+}
+
+.nos-modal-content h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 6px;
+}
+
+.nos-modal-content > p {
+    font-size: 0.88rem;
+    color: var(--color-texto-gris);
+    margin-bottom: 28px;
+}
+
+/* Tabla RACI */
+.nos-matriz-wrap {
+    overflow-x: auto;
+    margin-bottom: 28px;
+}
+
+.nos-tabla-raci {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    min-width: 700px;
+}
+
+.nos-tabla-raci th,
+.nos-tabla-raci td {
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 10px 14px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.nos-tabla-raci th {
+    background: #f0f4ff;
+    color: var(--color-texto-oscuro);
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.nos-tabla-raci tr:nth-child(even) td {
+    background: #fafafa;
+}
+
+.nos-tabla-raci td:first-child {
+    text-align: left;
+    color: #444;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.nos-tabla-raci tbody tr {
+    transition: background 0.15s;
+}
+
+.nos-tabla-raci tbody tr:hover td {
+    background: #fffde7 !important;
+    cursor: default;
+}
+
+/* Celdas RACI coloreadas */
+.nos-r { background: rgba(239,68,68,0.25);  color: #f87171; font-weight: 700; }
+.nos-a { background: rgba(34,197,94,0.2);   color: #4ade80; font-weight: 700; }
+.nos-c { background: rgba(250,204,21,0.2);  color: #facc15; font-weight: 700; }
+.nos-i { background: rgba(96,165,250,0.2);  color: #60a5fa; font-weight: 700; }
+
+/* Leyenda */
+.nos-raci-leyenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.nos-raci-leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #444;
+    font-size: 0.82rem;
+    color: var(--color-texto-gris);
+}
+
+.nos-raci-chip {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width: 1100px) {
+    .nos-cv-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .nos-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nos-gp-tools {
+        gap: 10px;
+    }
+
+    .nos-gp-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .nos-gp-timeline-wrap::before {
+        display: none;
+    }
+
+    .nos-sprint-num {
+        position: static;
+        transform: none;
+        margin: -28px auto 0;
+    }
+
+    .nos-sprint-header {
+        padding-top: 20px;
+    }
+
+    .nos-org-tree > li > ul {
+        gap: 12px;
+    }
+
+    .nos-org-node {
+        width: 150px;
+    }
+}
+
+@media (max-width: 700px) {
+    .nos-cv-team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nos-org-tree > li > ul::before {
+        left: 5%;
+        right: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nos-org-tree > li > ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nos-org-tree > li > ul::before {
+        display: none;
+    }
+
+    .nos-org-tree > li > ul > li::before {
+        height: 24px;
+        top: -24px;
+    }
+
+    #nosotros-carousel .jm-slide {
+        height: 380px;
+    }
+}

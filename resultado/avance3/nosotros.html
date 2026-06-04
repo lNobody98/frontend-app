@@ -1,0 +1,1029 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXR TECH - Nosotros</title>
+    <link rel="icon" type="image/x-icon" href="../../img/nxrtech.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Estilos del proyecto -->
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="css/nosotros.css">
+</head>
+
+<body>
+
+    <!-- =============================================
+         NAVBAR — RESPONSABLE: Christian Diaz
+         Mismo patrón que catalogo.html.
+         "Nosotros" marcado como activo con color acento.
+         ============================================= -->
+    <header id="navbar">
+        <div class="ep-navbar-bar">
+            <nav class="container navbar navbar-expand-md">
+                <a href="../../inicio.html" class="nav-logo navbar-brand">
+                    <img src="../../img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
+                </a>
+                <button class="navbar-toggler nav-hamburger" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navNosotros"
+                    aria-controls="navNosotros" aria-expanded="false" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navNosotros">
+                    <ul class="nav-links">
+                        <li><a href="../../inicio.html">Inicio</a></li>
+                        <li><a href="../avance2/catalogo.html">Catálogo</a></li>
+                        <li><a href="nosotros.html" style="color: var(--color-acento);">Nosotros</a></li>
+                        <li><a href="#" class="nav-cta">Contactos</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- =============================================
+             CAROUSEL / BANNER — RESPONSABLE: Juan Morales
+             3 slides temáticos del equipo NXR TECH.
+             Mismo patrón Bootstrap que catalogo.html.
+             ============================================= -->
+        <section id="nosotros-carousel">
+            <div id="carouselNosotros" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselNosotros" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselNosotros" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselNosotros" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <div class="jm-slide" style="background-image: url('../../img/nosotros/banner-1.jpg');">
+                            <div class="jm-slide-contenido">
+                                <h2>Nuestro <span>Equipo</span></h2>
+                                <p>Somos NXR Team — seis ingenieros comprometidos con la innovación tecnológica y el trabajo colaborativo.</p>
+                                <a href="#nosotros-organigrama" class="btn-primario">Conoce al equipo →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="jm-slide" style="background-image: url('../../img/nosotros/banner-2.jpg');">
+                            <div class="jm-slide-contenido">
+                                <h2>Gestión <span>Ágil</span></h2>
+                                <p>Aplicamos la metodología Scrum con Jira y Git para garantizar entregas de calidad en cada sprint.</p>
+                                <a href="#nosotros-gp" class="btn-primario">Ver metodología →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="jm-slide" style="background-image: url('../../img/nosotros/banner-3.jpg');">
+                            <div class="jm-slide-contenido">
+                                <h2>Responsabilidad <span>y Compromiso</span></h2>
+                                <p>Cada integrante tiene un rol definido. Nuestro trabajo habla por nosotros.</p>
+                                <a href="#nosotros-matriz-cta" class="btn-primario">Ver Matriz RACI →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselNosotros" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselNosotros" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+
+            </div>
+        </section>
+
+    </header>
+
+    <main>
+
+        <!-- =============================================
+             MAPA ORGANIZACIONAL — RESPONSABLE: Enrique Prada
+             Diagrama HTML/CSS con árbol jerárquico.
+             Coordinador arriba, 5 integrantes en fila inferior.
+             Las fotos se añaden colocando la imagen en:
+             img/equipo/[iniciales]-[nombre].jpg
+             El onerror muestra las iniciales como fallback.
+             ============================================= -->
+        <!-- =============================================
+             INFORMACIÓN DE LA EMPRESA — RESPONSABLE: Enrique Prada
+             Misión, Visión, Objetivo Principal y Específicos.
+             ORDEN DOCENTE: primero Misión/Visión/Objetivos, luego Mapa.
+             ============================================= -->
+        <!-- Misión y Visión — fondo oscuro -->
+        <section id="nosotros-info" class="nos-section">
+            <div class="container">
+                <div class="nos-section-header">
+                    <h2>Información de <span>la Empresa</span></h2>
+                    <p>Quiénes somos y hacia dónde vamos</p>
+                </div>
+                <div class="nos-info-grid">
+                    <div class="nos-info-card">
+                        <h3><i class="fas fa-bullseye"></i> Misión</h3>
+                        <p>Brindar soluciones tecnológicas completas y accesibles — teléfonos, computadoras,
+                           componentes, accesorios y servicios especializados — con un equipo capacitado y
+                           orientado a la satisfacción del cliente, generando confianza en cada interacción.</p>
+                    </div>
+                    <div class="nos-info-card">
+                        <h3><i class="fas fa-eye"></i> Visión</h3>
+                        <p>Ser reconocidos como la empresa tecnológica de referencia en el Perú, destacando
+                           por la innovación constante, la calidad de nuestros productos y servicios, y la
+                           capacidad de acercar la tecnología del futuro a cada peruano.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objetivos — fondo blanco/claro -->
+        <section id="nosotros-objetivos" class="nos-section nos-section-alt">
+            <div class="container">
+                <div class="nos-section-header">
+                    <h2>Nuestros <span>Objetivos</span></h2>
+                    <p>Lo que buscamos lograr con este avance</p>
+                </div>
+                <div class="nos-obj-wrap">
+                    <h3><i class="fas fa-flag" style="color: var(--color-acento);"></i> Objetivos</h3>
+
+                    <div class="nos-obj-principal">
+                        <strong>Objetivo Principal:</strong> Posicionarse como la empresa tecnológica de referencia en el Perú,
+                        ofreciendo productos y servicios de calidad que satisfagan las necesidades tecnológicas de personas
+                        y empresas, con atención integral, confianza y compromiso en cada interacción.
+                    </div>
+
+                    <p class="nos-obj-sub">Objetivos Específicos</p>
+                    <ul class="nos-obj-especificos">
+                        <li>Comercializar productos tecnológicos de las principales marcas del mercado — teléfonos, laptops, componentes y accesorios — a precios competitivos.</li>
+                        <li>Brindar servicios técnicos especializados de soporte, mantenimiento, reparación e instalación con personal capacitado y certificado.</li>
+                        <li>Expandir la presencia digital de NXR TECH mediante un catálogo web funcional, accesible y actualizado.</li>
+                        <li>Fidelizar a los clientes a través de garantías competitivas, atención personalizada y seguimiento posventa.</li>
+                        <li>Consolidar alianzas estratégicas con marcas líderes como Intel, NVIDIA y Samsung para ofrecer las mejores soluciones del mercado.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             MAPA ORGANIZACIONAL — RESPONSABLE: Enrique Prada
+             Va después de la información de la empresa.
+             ============================================= -->
+        <section id="nosotros-organigrama" class="nos-section">
+            <div class="container">
+                <div class="nos-section-header">
+                    <h2>Mapa <span>Organizacional</span></h2>
+                    <p>Estructura jerárquica del equipo NXR TECH — Grupo 1, Ciclo 6</p>
+                </div>
+
+                <ul class="nos-org-tree">
+                    <li>
+                        <!-- Coordinador -->
+                        <div class="nos-org-node nos-org-coord">
+                            <div class="nos-org-avatar">
+                                <img src="../../img/equipo/ep-enrique.jpg" alt="Enrique Prada"
+                                     onerror="this.style.display='none'">
+                                EP
+                            </div>
+                            <h4>Ricardo Enrique Prada Guerra</h4>
+                            <span>Coordinador</span>
+                        </div>
+
+                        <!-- Integrantes del equipo -->
+                        <ul>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="../../img/equipo/mc-maykol.jpg" alt="Maykol Calle"
+                                             onerror="this.style.display='none'">
+                                        MC
+                                    </div>
+                                    <h4>Maykol Adan Calle Paredes</h4>
+                                    <span>Desarrollador Frontend</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="../../img/equipo/cd-christian.jpg" alt="Christian Díaz"
+                                             onerror="this.style.display='none'">
+                                        CD
+                                    </div>
+                                    <h4>Christian Alexander Díaz García</h4>
+                                    <span>Desarrollador Frontend</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="../../img/equipo/jm-juan.jpg" alt="Juan Morales"
+                                             onerror="this.style.display='none'">
+                                        JM
+                                    </div>
+                                    <h4>Juan José Morales Velásquez</h4>
+                                    <span>Analista de Requerimientos</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="../../img/equipo/js-joel.jpg" alt="Joel Saldaña"
+                                             onerror="this.style.display='none'">
+                                        JS
+                                    </div>
+                                    <h4>Joel Anthony Saldaña Chávez</h4>
+                                    <span>Desarrollador Frontend</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="../../img/equipo/xy-xiomara.jpg" alt="Xiomara Solís"
+                                             onerror="this.style.display='none'">
+                                        XS
+                                    </div>
+                                    <h4>Xiomara Yajhaira Solís Malpartida</h4>
+                                    <span>Desarrollador Frontend</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- =============================================
+             CV INTEGRANTES — RESPONSABLE: Enrique Prada
+             Coordinador en card destacada centrada (arriba).
+             5 integrantes en grid de una fila (abajo).
+             - Fotos: img/equipo/[iniciales]-[nombre].jpg
+             - Habilidades blandas: [placeholder] × 3 por persona
+             - Certificados: [placeholder] por persona
+             - Botón: enlaza al CV completo (PDF)
+             ============================================= -->
+        <section id="nosotros-equipo" class="nos-section">
+            <div class="container">
+                <div class="nos-section-header">
+                    <h2>Nuestro <span>Equipo</span></h2>
+                    <p>Perfiles profesionales de los integrantes de NXR Team</p>
+                </div>
+
+                <!-- ── 6 cards iguales en grid 3×2 ── -->
+                <div class="nos-cv-team-grid">
+
+                    <!-- Enrique -->
+                    <div class="nos-cv-card">
+                        <div class="nos-cv-header">
+                            <div class="nos-cv-foto-wrap">
+                                <img src="../../img/equipo/ep-enrique.jpg" alt="Enrique Prada"
+                                     onerror="this.style.display='none'">
+                                EP
+                            </div>
+                            <div class="nos-cv-identidad">
+                                <h3>Ricardo Enrique Prada Guerra</h3>
+                                <span class="nos-cv-rol">Scrum Master</span>
+                            </div>
+                        </div>
+                        <div class="nos-cv-body">
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
+                                <p class="nos-cv-sub">Lenguajes de Programación</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">HTML5</span>
+                                    <span class="nos-tag nos-tag-lang">CSS3</span>
+                                    <span class="nos-tag nos-tag-lang">JavaScript ES6+</span>
+                                    <span class="nos-tag nos-tag-lang">Bootstrap 5</span>
+                                    <span class="nos-tag nos-tag-lang">Git</span>
+                                    <span class="nos-tag nos-tag-lang">POO</span>
+                                </div>
+                                <p class="nos-cv-sub">Base de Datos</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
+                                </div>
+                                <p class="nos-cv-sub">Redes</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
+                                <ul class="nos-cv-certs">
+                                    <li>[Certificado placeholder]</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nos-cv-footer">
+                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Maykol -->
+                    <div class="nos-cv-card">
+                        <div class="nos-cv-header">
+                            <div class="nos-cv-foto-wrap">
+                                <img src="../../img/equipo/mc-maykol.jpg" alt="Maykol Calle"
+                                     onerror="this.style.display='none'">
+                                MC
+                            </div>
+                            <div class="nos-cv-identidad">
+                                <h3>Maykol Adan Calle Paredes</h3>
+                                <span class="nos-cv-rol">Development Team</span>
+                            </div>
+                        </div>
+                        <div class="nos-cv-body">
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
+                                <p class="nos-cv-sub">Lenguajes de Programación</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">HTML5</span>
+                                    <span class="nos-tag nos-tag-lang">CSS3</span>
+                                    <span class="nos-tag nos-tag-lang">JavaScript ES6+</span>
+                                    <span class="nos-tag nos-tag-lang">Bootstrap 5</span>
+                                    <span class="nos-tag nos-tag-lang">Git</span>
+                                </div>
+                                <p class="nos-cv-sub">Base de Datos</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
+                                </div>
+                                <p class="nos-cv-sub">Redes</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
+                                <ul class="nos-cv-certs">
+                                    <li>[Certificado placeholder]</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nos-cv-footer">
+                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Christian -->
+                    <div class="nos-cv-card">
+                        <div class="nos-cv-header">
+                            <div class="nos-cv-foto-wrap">
+                                <img src="../../img/equipo/cd-christian.jpg" alt="Christian Díaz"
+                                     onerror="this.style.display='none'">
+                                CD
+                            </div>
+                            <div class="nos-cv-identidad">
+                                <h3>Christian Alexander Díaz García</h3>
+                                <span class="nos-cv-rol">Development Team</span>
+                            </div>
+                        </div>
+                        <div class="nos-cv-body">
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
+                                <p class="nos-cv-sub">Lenguajes de Programación</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">HTML5</span>
+                                    <span class="nos-tag nos-tag-lang">CSS3</span>
+                                    <span class="nos-tag nos-tag-lang">JavaScript</span>
+                                    <span class="nos-tag nos-tag-lang">Bootstrap 5</span>
+                                    <span class="nos-tag nos-tag-lang">Git</span>
+                                </div>
+                                <p class="nos-cv-sub">Base de Datos</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
+                                </div>
+                                <p class="nos-cv-sub">Redes</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
+                                <ul class="nos-cv-certs">
+                                    <li>[Certificado placeholder]</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nos-cv-footer">
+                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Juan -->
+                    <div class="nos-cv-card">
+                        <div class="nos-cv-header">
+                            <div class="nos-cv-foto-wrap">
+                                <img src="../../img/equipo/jm-juan.jpg" alt="Juan Morales"
+                                     onerror="this.style.display='none'">
+                                JM
+                            </div>
+                            <div class="nos-cv-identidad">
+                                <h3>Juan José Morales Velásquez</h3>
+                                <span class="nos-cv-rol">Product Owner</span>
+                            </div>
+                        </div>
+                        <div class="nos-cv-body">
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
+                                <p class="nos-cv-sub">Lenguajes de Programación</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">HTML5</span>
+                                    <span class="nos-tag nos-tag-lang">CSS3</span>
+                                    <span class="nos-tag nos-tag-lang">JavaScript</span>
+                                    <span class="nos-tag nos-tag-lang">Bootstrap 5</span>
+                                    <span class="nos-tag nos-tag-lang">Git</span>
+                                </div>
+                                <p class="nos-cv-sub">Base de Datos</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
+                                </div>
+                                <p class="nos-cv-sub">Redes</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
+                                <ul class="nos-cv-certs">
+                                    <li>[Certificado placeholder]</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nos-cv-footer">
+                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Joel -->
+                    <div class="nos-cv-card">
+                        <div class="nos-cv-header">
+                            <div class="nos-cv-foto-wrap">
+                                <img src="../../img/equipo/js-joel.jpg" alt="Joel Saldaña"
+                                     onerror="this.style.display='none'">
+                                JS
+                            </div>
+                            <div class="nos-cv-identidad">
+                                <h3>Joel Anthony Saldaña Chávez</h3>
+                                <span class="nos-cv-rol">Development Team</span>
+                            </div>
+                        </div>
+                        <div class="nos-cv-body">
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
+                                <p class="nos-cv-sub">Lenguajes de Programación</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">HTML5</span>
+                                    <span class="nos-tag nos-tag-lang">CSS3</span>
+                                    <span class="nos-tag nos-tag-lang">JavaScript ES6+</span>
+                                    <span class="nos-tag nos-tag-lang">Git</span>
+                                </div>
+                                <p class="nos-cv-sub">Base de Datos</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
+                                </div>
+                                <p class="nos-cv-sub">Redes</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
+                                <ul class="nos-cv-certs">
+                                    <li>[Certificado placeholder]</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nos-cv-footer">
+                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Xiomara -->
+                    <div class="nos-cv-card">
+                        <div class="nos-cv-header">
+                            <div class="nos-cv-foto-wrap">
+                                <img src="../../img/equipo/xy-xiomara.jpg" alt="Xiomara Solís"
+                                     onerror="this.style.display='none'">
+                                XS
+                            </div>
+                            <div class="nos-cv-identidad">
+                                <h3>Xiomara Yajhaira Solís Malpartida</h3>
+                                <span class="nos-cv-rol">Development Team</span>
+                            </div>
+                        </div>
+                        <div class="nos-cv-body">
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
+                                <p class="nos-cv-sub">Lenguajes de Programación</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">HTML5</span>
+                                    <span class="nos-tag nos-tag-lang">CSS3</span>
+                                    <span class="nos-tag nos-tag-lang">JavaScript</span>
+                                    <span class="nos-tag nos-tag-lang">Font Awesome</span>
+                                    <span class="nos-tag nos-tag-lang">Git</span>
+                                </div>
+                                <p class="nos-cv-sub">Base de Datos</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
+                                </div>
+                                <p class="nos-cv-sub">Redes</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
+                                <div class="nos-cv-tags">
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
+                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
+                                <ul class="nos-cv-certs">
+                                    <li>[Certificado placeholder]</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nos-cv-footer">
+                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             GESTIÓN DEL PROYECTO — RESPONSABLE: Enrique Prada
+             Metodología Scrum con 3 sprints y herramientas.
+             ============================================= -->
+        <section id="nosotros-gp" class="nos-section nos-section-alt">
+            <div class="container">
+                <div class="nos-section-header">
+                    <h2>Gestión del <span>Proyecto</span></h2>
+                    <p>Metodología, herramientas y distribución de trabajo por sprint</p>
+                </div>
+
+                <!-- Herramientas en chips centrados -->
+                <div class="nos-gp-tools">
+                    <div class="nos-gp-tool">
+                        <i class="fas fa-sync-alt"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Marco de trabajo</h4>
+                            <p>Scrum Ágil</p>
+                        </div>
+                    </div>
+                    <div class="nos-gp-tool">
+                        <i class="fab fa-jira"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Gestión de tareas</h4>
+                            <p>Jira Software</p>
+                        </div>
+                    </div>
+                    <div class="nos-gp-tool">
+                        <i class="fab fa-git-alt"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Control de versiones</h4>
+                            <p>Git + Pull Requests</p>
+                        </div>
+                    </div>
+                    <div class="nos-gp-tool">
+                        <i class="fab fa-github"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Repositorio</h4>
+                            <p>GitHub — NXR-TECH</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Descripción centrada -->
+                <div class="nos-gp-desc">
+                    El proyecto se organizó bajo <strong>Scrum</strong>, dividiendo el trabajo en sprints con
+                    objetivos claros. Cada integrante trabajó en una rama propia de Git y los cambios se
+                    integraron a <code>main</code> mediante Pull Request revisado por el coordinador.
+                    Las tareas se gestionaron en <strong>Jira</strong> con un tablero kanban visible para todo el equipo.
+                </div>
+
+                <!-- Sprints con línea de tiempo -->
+                <div class="nos-gp-timeline-wrap">
+                    <div class="nos-gp-timeline">
+
+                        <div class="nos-sprint">
+                            <div class="nos-sprint-num">1</div>
+                            <div class="nos-sprint-header">
+                                <h4>Sprint 1 — Inicio</h4>
+                                <span class="nos-sprint-fecha">Marzo 2026 · Semanas 1–4</span>
+                            </div>
+                            <div class="nos-sprint-body">
+                                <ul>
+                                    <li>Estructura HTML semántica</li>
+                                    <li>Diseño de navbar responsive</li>
+                                    <li>Hero, video y secciones de inicio</li>
+                                    <li>Footer con mapa y redes</li>
+                                    <li>Estilos globales (base.css)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="nos-sprint">
+                            <div class="nos-sprint-num">2</div>
+                            <div class="nos-sprint-header">
+                                <h4>Sprint 2 — Catálogo</h4>
+                                <span class="nos-sprint-fecha">Abril – Mayo 2026 · Semanas 5–8</span>
+                            </div>
+                            <div class="nos-sprint-body">
+                                <ul>
+                                    <li>Carousel Bootstrap con 6 slides</li>
+                                    <li>Categorías visuales (20 categorías)</li>
+                                    <li>Modelo POO: clases e herencia</li>
+                                    <li>120 ítems en memoria (60+60)</li>
+                                    <li>Búsqueda dinámica y filtros</li>
+                                    <li>Listado, paginación y ordenamiento</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="nos-sprint">
+                            <div class="nos-sprint-num">3</div>
+                            <div class="nos-sprint-header">
+                                <h4>Sprint 3 — Nosotros</h4>
+                                <span class="nos-sprint-fecha">Mayo – Junio 2026 · Semanas 9–12</span>
+                            </div>
+                            <div class="nos-sprint-body">
+                                <ul>
+                                    <li>Mapa organizacional HTML/CSS</li>
+                                    <li>Misión, Visión y Objetivos</li>
+                                    <li>CV de cada integrante</li>
+                                    <li>Gestión del proyecto (Scrum)</li>
+                                    <li>Matriz de Responsabilidad RACI</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             BOTÓN MATRIZ RACI — RESPONSABLE: Enrique Prada
+             Al hacer clic abre el modal con la tabla RACI.
+             Programación: estructura condicional + evento JS.
+             ============================================= -->
+        <section id="nosotros-matriz-cta" class="nos-section">
+            <div class="container">
+                <div class="nos-matriz-cta">
+                    <h2>Matriz de <span>Responsabilidad</span></h2>
+                    <p>Visualiza quién hizo qué en cada etapa del proyecto NXR TECH</p>
+                    <button class="nos-btn-matriz" onclick="abrirMatriz()">
+                        <i class="fas fa-table"></i> Ver Matriz RACI
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =============================================
+         MODAL — MATRIZ DE RESPONSABILIDAD RACI
+         Se abre con abrirMatriz() y se cierra con:
+         - cerrarMatriz()
+         - tecla Escape
+         - clic fuera del contenido
+         Tabla: filas=tareas / columnas=integrantes
+         Colores: R=rojo A=verde C=amarillo I=azul
+         ============================================= -->
+    <div id="nos-modal-matriz" class="nos-modal-overlay">
+        <div class="nos-modal-content">
+            <button class="nos-modal-cerrar" onclick="cerrarMatriz()" aria-label="Cerrar">&times;</button>
+            <h3>Matriz de Responsabilidad — RACI</h3>
+            <p>Asignación de responsabilidades por tarea y por integrante del equipo NXR TECH.</p>
+
+            <div class="nos-matriz-wrap">
+                <table class="nos-tabla-raci">
+                    <thead>
+                        <tr>
+                            <th>Tarea / Actividad</th>
+                            <th>Enrique<br><small>Scrum Master</small></th>
+                            <th>Maykol</th>
+                            <th>Christian</th>
+                            <th>Juan</th>
+                            <th>Joel</th>
+                            <th>Xiomara</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sprint 1 -->
+                        <tr>
+                            <td>Estructura HTML y semántica de páginas</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                        </tr>
+                        <tr>
+                            <td>Navbar y menú responsive (Bootstrap)</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Carousel / portada visual</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Footer y estilos globales (base.css)</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                        </tr>
+                        <!-- Sprint 2 -->
+                        <tr>
+                            <td>Categorías visuales del catálogo</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                        </tr>
+                        <tr>
+                            <td>Modelo POO (clases e herencia)</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-c">C</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Datos del catálogo (120 ítems)</td>
+                            <td class="nos-r">RA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Búsqueda dinámica y filtros</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Listado, paginación y ordenamiento</td>
+                            <td class="nos-a">A</td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <!-- Sprint 3 -->
+                        <tr>
+                            <td>Navbar + Footer + Estructura base (nosotros.html)</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                        </tr>
+                        <tr>
+                            <td>Banner + Información de la Empresa</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Nuestros Objetivos + Mapa Organizacional</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Nuestro Equipo (CV cards)</td>
+                            <td class="nos-a">A</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-r">R</td>
+                            <td class="nos-c">C</td>
+                        </tr>
+                        <tr>
+                            <td>Gestión del Proyecto (sección)</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                        </tr>
+                        <tr>
+                            <td>Matriz de Responsabilidad RACI</td>
+                            <td class="nos-a">A</td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Integración Git (revisión de Pull Requests)</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Leyenda -->
+            <div class="nos-raci-leyenda">
+                <div class="nos-raci-leyenda-item">
+                    <div class="nos-raci-chip nos-r">R</div>
+                    <span><strong>Responsable</strong> — ejecuta la tarea</span>
+                </div>
+                <div class="nos-raci-leyenda-item">
+                    <div class="nos-raci-chip nos-a">A</div>
+                    <span><strong>Aprobador</strong> — valida y aprueba</span>
+                </div>
+                <div class="nos-raci-leyenda-item">
+                    <div class="nos-raci-chip nos-c">C</div>
+                    <span><strong>Consultado</strong> — aporta criterio</span>
+                </div>
+                <div class="nos-raci-leyenda-item">
+                    <div class="nos-raci-chip nos-i">I</div>
+                    <span><strong>Informado</strong> — recibe actualizaciones</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- =============================================
+         FOOTER — RESPONSABLE: Enrique Prada
+         Mismo footer compartido con inicio y catálogo.
+         ============================================= -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-top">
+                <div class="footer-marca">
+                    <a href="../../inicio.html" class="nav-logo">
+                        <img src="../../img/nxrtech_logo.png" alt="NXR TECH" class="nav-logo-img">
+                    </a>
+                    <p class="footer-descripcion">
+                        Tu aliado en soluciones tecnológicas completas. Comercializamos teléfonos,
+                        computadoras y accesorios, y ofrecemos soporte técnico, mantenimiento y
+                        asesoría especializada con calidad y confianza.
+                    </p>
+                    <p class="footer-redes-titulo">Síguenos en redes</p>
+                    <div class="footer-redes">
+                        <a href="https://www.facebook.com/NXRDuroCorp/" target="_blank" class="red-social facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/nxrdigitalsolution/" target="_blank" class="red-social instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/nxrt_io" target="_blank" class="red-social twitter" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://wa.me/51912016161" target="_blank" class="red-social whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@nxr.projects" target="_blank" class="red-social tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-asociadas">
+                    <p class="footer-asociadas-label">Empresas Asociadas</p>
+                    <div class="footer-asociadas-lista">
+                        <a href="https://www.intel.com" target="_blank" class="footer-asociadas-item">
+                            <img src="../../img/logo-intel.svg" alt="Intel">
+                        </a>
+                        <a href="https://www.nvidia.com" target="_blank" class="footer-asociadas-item">
+                            <img src="../../img/logo-nvidia.svg" alt="NVIDIA">
+                        </a>
+                        <a href="https://www.samsung.com" target="_blank" class="footer-asociadas-item">
+                            <img src="../../img/logo-samsung.svg" alt="Samsung">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-ubicacion">
+                <div class="footer-mapa-info">
+                    <h4><i class="fas fa-map-marker-alt"></i> Encuéntranos</h4>
+                    <p>Edificio Gerpal, Av Alfredo Benavides 768, Miraflores, Lima<br>Lima, Perú<br><br>
+                        <i class="fas fa-clock" style="color:var(--color-acento);margin-right:6px;"></i>Lun - Sab: 9am - 7pm<br>
+                        <i class="fas fa-phone" style="color:var(--color-acento);margin-right:6px;"></i>+51 999 888 777
+                    </p>
+                </div>
+                <div class="footer-mapa-wrapper">
+                    <iframe title="Ubicación de NXR TECH en Google Maps"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.807089340955!2d-77.02765046312203!3d-12.125347888167074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81ec97e7907%3A0x18b4e5cf9fd504b9!2sNextech%20Education%20Center!5e0!3m2!1ses-419!2spe!4v1775803092590!5m2!1ses-419!2spe"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 NXR TECH. Todos los derechos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts del proyecto -->
+    <script src="../../js/main.js"></script>
+    <script src="js/nosotros/matriz.js"></script>
+
+</body>
+
+</html>

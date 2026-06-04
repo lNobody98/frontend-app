@@ -166,7 +166,7 @@ nav {
     overflow: hidden;
     padding-top: 80px;
     padding-bottom: 80px;
-    background-image: url('../img/hero-bg.jpg');
+    background-image: url('../../img/inicio/videoposter.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
