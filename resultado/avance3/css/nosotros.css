@@ -1,22 +1,62 @@
 /* ============================================================
-   nosotros.css — NXR TECH — Avance 3
-   Estilos EXCLUSIVOS de nosotros.html.
-   Prefijo: nos- (Enrique Prada — Coordinador)
+   nosotros.css — NXR TECH — Sprint 3
+   Prefijo de clases: nos-  (evita conflictos con otros CSS)
 
-   SECCIONES:
-   - NAVBAR override      → nos-
-   - CAROUSEL (.jm-*)     → reutilizado de catalogo.css
-   - ORGANIGRAMA (.nos-org-*)
-   - INFO EMPRESA (.nos-info-*)
-   - CV INTEGRANTES (.nos-cv-*)
-   - GESTIÓN PROYECTO (.nos-gp-*)
-   - MATRIZ MODAL (.nos-modal-*, .nos-raci-*)
-   - RESPONSIVE
+   ╔══════════════════════════════════════════════════════════╗
+   ║   GUÍA DE IMPLEMENTACIÓN PARA EL EQUIPO NXR TECH        ║
+   ║   Este archivo es la REFERENCIA del avance 3.           ║
+   ║   Cada compañero debe copiar SU sección al proyecto      ║
+   ║   real, respetando prefijos y estructura indicada.       ║
+   ╚══════════════════════════════════════════════════════════╝
+
+   ┌──────────────────────────────────────────────────────────┐
+   │  SECCIÓN CSS                      RESPONSABLE           │
+   │  ─────────────────────────────────────────────────      │
+   │  NAVBAR + BASE + RESPONSIVE   →   Enrique (hecho)       │
+   │  CAROUSEL + INFO EMPRESA      →   Christian Díaz        │
+   │  MAPA ORG + OBJETIVOS         →   Juan Morales          │
+   │  CV INTEGRANTES               →   Joel Saldaña          │
+   │  GESTIÓN DEL PROYECTO         →   Xiomara Solís         │
+   │  BOTÓN RACI + MODAL RACI      →   Maykol Calle          │
+   └──────────────────────────────────────────────────────────┘
+
+   DEPENDENCIAS — todos deben tenerlas en el <head>:
+     Bootstrap 5.3    cdn.jsdelivr.net/npm/bootstrap@5.3.3/...
+     Font Awesome 6.5 cdnjs.cloudflare.com/.../font-awesome/...
+     Google Fonts     Poppins (300-800) + Space Grotesk (700,800)
+     base.css         ../../css/base.css (variables + estilos globales)
+
+   VARIABLES CSS usadas (vienen de base.css):
+     --color-acento        → azul marca #0071E3
+     --color-fondo         → fondo oscuro principal
+     --color-fondo-claro   → fondo secciones claras (blanco/gris)
+     --color-fondo-medio   → fondo oscuro intermedio
+     --color-texto         → texto principal (claro sobre oscuro)
+     --color-texto-oscuro  → texto (oscuro sobre fondo claro)
+     --color-texto-gris    → texto secundario / subtítulos
+     --color-borde         → borde sutil rgba(255,255,255,0.08)
+     --transicion          → transición estándar 0.25s ease
    ============================================================ */
 
 /* ============================================================
-   NAVBAR OVERRIDE
-   ------------------------------------------------------------ */
+   ▶ ENRIQUE PRADA — COORDINADOR (YA IMPLEMENTADO)
+   NAVBAR
+   ─────────────────────────────────────────────────────────
+   El equipo NO necesita copiar esta sección.
+   Enrique la entrega lista en la estructura base del proyecto.
+
+   ¿QUÉ HACE?
+   • Fondo oscuro con blur (backdrop-filter) al navbar fijo.
+   • Igual a catalogo.css — mismo patrón para consistencia.
+   • @media (min-width: 769px): ajusta el flex del collapse
+     de Bootstrap para que en escritorio los links se centren.
+   • En móvil Bootstrap maneja el toggle de forma nativa —
+     no se sobreescribe la animación (evita lag, igual que
+     en catalogo.html que no tiene problemas).
+
+   HTML asociado: <header id="navbar"> ... </header>
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
 #navbar .ep-navbar-bar {
     background-color: rgba(13, 13, 13, 0.92);
     backdrop-filter: blur(20px);
@@ -42,24 +82,47 @@
     flex-grow: 0;
 }
 
-@media (max-width: 767px) {
-    #navbar .ep-navbar-bar .navbar-collapse {
-        background-color: rgba(13, 13, 13, 0.97);
-        padding: 16px 24px;
-        border-top: 1px solid var(--color-borde);
-    }
-    #navbar .nav-links {
-        position: static;
-        transform: none;
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
+@media (min-width: 769px) {
+    #navbar .navbar-collapse {
+        flex-basis: auto;
+        flex-grow: 0;
     }
 }
 
 /* ============================================================
-   CAROUSEL — estilos .jm-* (Juan Morales, mismo patrón)
-   ------------------------------------------------------------ */
+   ▶ CHRISTIAN DÍAZ — BANNER + INFORMACIÓN DE LA EMPRESA  (1/2)
+   CAROUSEL — clases .jm-slide, .jm-slide-contenido
+   ─────────────────────────────────────────────────────────
+   CHRISTIAN: Copia todo desde aquí hasta el comentario
+   "ENRIQUE — ESTILOS DE SECCIÓN BASE" y pégalo en
+   css/nosotros.css del proyecto real.
+
+   ¿QUÉ HACE?
+   • .jm-slide: cada slide ocupa height:650px con su imagen
+     de fondo asignada inline en el HTML así:
+       style="background-image: url('img/nosotros/banner-1.jpg')"
+     La imagen cubre todo el slide con background-size:cover.
+
+   • .jm-slide::before: overlay degradado semitransparente
+     encima de la foto para que el texto siempre sea legible.
+     Usa ::before con position:absolute; inset:0 (cubre todo).
+
+   • .jm-slide-contenido: centra el texto con flexbox,
+     z-index:2 para quedar por encima del overlay.
+     max-width:700px para que las líneas no sean demasiado largas.
+
+   • Tipografía usa clamp(min, vw, max) → se escala solo
+     entre móvil y escritorio sin necesitar @media.
+     Ejemplo: font-size: clamp(2rem, 5vw, 3.2rem)
+
+   IMÁGENES NECESARIAS — coloca en img/nosotros/:
+     banner-1.jpg, banner-2.jpg, banner-3.jpg
+     Dimensión mínima recomendada: 1920 × 800 px
+
+   HTML asociado: <section id="nosotros-carousel"> dentro de
+                  <header id="navbar">
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
 #nosotros-carousel .jm-slide {
     height: 650px;
     background-size: cover;
@@ -106,8 +169,37 @@
 }
 
 /* ============================================================
-   SECCIONES — encabezados compartidos
-   ------------------------------------------------------------ */
+   ▶ ENRIQUE PRADA — COORDINADOR (YA IMPLEMENTADO)
+   ESTILOS DE SECCIÓN BASE — compartidos por toda la página
+   ─────────────────────────────────────────────────────────
+   El equipo NO necesita copiar esta sección.
+   Enrique la entrega lista. Son los estilos "base" que
+   usa toda la página — cada compañero los hereda.
+
+   ¿QUÉ HACE?
+   • .nos-section: padding 90px arriba/abajo para TODAS las
+     secciones (el @media al final lo reduce en móvil).
+
+   • .nos-section-alt: clase que pone fondo CLARO a una sección.
+     Se usa así: <section class="nos-section nos-section-alt">
+     Incluye overrides de color para TODOS los componentes
+     hijos (cards, org chart, sprint cards, etc.) para que
+     se vean bien sobre fondo blanco/gris.
+
+   • .nos-section-header: encabezado centrado de cada sección.
+     Estructura HTML estándar:
+       <div class="nos-section-header">
+         <h2>Título <span>en acento</span></h2>
+         <p>Subtítulo descriptivo</p>
+       </div>
+     El <span> dentro del <h2> queda en azul (--color-acento).
+     El font-size usa clamp() → responsive automático.
+
+   • #nosotros-organigrama: usa --color-fondo-medio como fondo.
+     El bloque .nos-section-alt también tiene overrides para
+     los nodos del organigrama sobre fondo claro.
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
 .nos-section {
     padding: 90px 0;
 }
@@ -256,8 +348,48 @@
 }
 
 /* ============================================================
-   MAPA ORGANIZACIONAL
-   ------------------------------------------------------------ */
+   ▶ JUAN MORALES — NUESTROS OBJETIVOS + MAPA ORGANIZACIONAL (1/2)
+   MAPA ORGANIZACIONAL — clases .nos-org-*
+   ─────────────────────────────────────────────────────────
+   JUAN: Copia todo este bloque (.nos-org-tree hasta
+   .nos-org-coord .nos-org-avatar) junto con el bloque
+   de OBJETIVOS que viene más adelante.
+
+   ¿QUÉ HACE?
+   El organigrama es HTML/CSS puro — sin librería externa.
+   Estructura: <ul class="nos-org-tree"> con <li> anidados.
+
+   • .nos-org-tree: lista vertical centrada con flexbox.
+     El primer <li> contiene el nodo coordinador y un <ul>
+     con los 5 integrantes.
+
+   • Líneas de conexión (pure CSS, sin SVG ni JS):
+     - Vertical desde coordinador:
+       .nos-org-tree > li > .nos-org-node::after
+       → pseudo-elemento con width:2px y height:70px
+     - Horizontal entre integrantes:
+       .nos-org-tree > li > ul::before
+       → pseudo-elemento con height:2px (left:10%, right:10%)
+     - Vertical bajando a cada integrante:
+       .nos-org-tree > li > ul > li::before
+       → pseudo-elemento con width:2px, top:-40px
+
+   • .nos-org-node: tarjeta de cada persona (border-radius:16px).
+     width:180px fijo. Hover levanta la tarjeta (translateY).
+
+   • .nos-org-coord: tarjeta del coordinador, más grande (220px),
+     con borde y fondo del color acento.
+
+   • .nos-org-avatar: círculo de foto (80px) con overflow:hidden.
+     El onerror="this.style.display='none'" en el <img> muestra
+     las iniciales (texto del div) si la foto no carga.
+
+   FOTOS del organigrama — coloca en img/nosotros/equipo/:
+     Usa los mismos archivos que las CV cards.
+
+   HTML asociado: <section id="nosotros-organigrama">
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
 .nos-org-tree {
     list-style: none;
     margin: 0;
@@ -406,8 +538,43 @@
 }
 
 /* ============================================================
-   INFORMACIÓN DE LA EMPRESA
-   ------------------------------------------------------------ */
+   ▶ CHRISTIAN DÍAZ — INFO EMPRESA (2/2) — clases .nos-info-*
+   ▶ JUAN MORALES — OBJETIVOS (2/2)      — clases .nos-obj-*
+   INFORMACIÓN DE LA EMPRESA + OBJETIVOS
+   ─────────────────────────────────────────────────────────
+   CHRISTIAN: Copia los estilos .nos-info-grid y .nos-info-card.
+   JUAN:      Copia los estilos .nos-obj-wrap y .nos-obj-*.
+
+   ── CHRISTIAN — .nos-info-grid / .nos-info-card ───────────
+   • .nos-info-grid: grid de 2 columnas (1fr 1fr) para las
+     tarjetas de Misión y Visión. Se colapsa a 1 col en tablet.
+   • .nos-info-card: cada tarjeta tiene una barra de acento de
+     4px a la izquierda hecha con ::before (position:absolute).
+     padding:36px 32px, border-radius:16px.
+   • Los íconos Font Awesome van dentro del <h3>:
+       <h3><i class="fas fa-bullseye"></i> Misión</h3>
+
+   HTML asociado: <section id="nosotros-info">
+
+   ── JUAN — .nos-obj-wrap / .nos-obj-* ─────────────────────
+   • .nos-obj-wrap: contenedor único de toda la sección de
+     objetivos. Mismo estilo visual que las info-cards.
+
+   • .nos-obj-principal: recuadro destacado del objetivo
+     principal. Usa border-left:4px para la raya de acento
+     y border-radius:0 12px 12px 0 (esquinas redondeadas
+     solo en el lado derecho).
+
+   • .nos-obj-especificos: lista numerada automática con CSS.
+     TÉCNICA: counter-reset/counter-increment + ::before.
+     Cada <li> tiene un círculo con el número generado
+     automáticamente — no hace falta numerarlos a mano.
+     El círculo: min-width:28px, background:--color-acento,
+     border-radius:50%, display:flex para centrar el número.
+
+   HTML asociado: <section id="nosotros-objetivos">
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
 .nos-info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -528,8 +695,55 @@
 }
 
 /* ============================================================
-   CV INTEGRANTES
-   ------------------------------------------------------------ */
+   ▶ JOEL SALDAÑA — NUESTRO EQUIPO (CV CARDS)
+   CV INTEGRANTES — clases .nos-cv-*
+   ─────────────────────────────────────────────────────────
+   JOEL: Copia todo este bloque completo (.nos-cv-team-grid
+   hasta .nos-cv-footer a) al proyecto real.
+
+   ¿QUÉ HACE?
+   • .nos-cv-team-grid: CSS Grid de 3 columnas × 2 filas
+     para las 6 cards. Se adapta:
+       escritorio:  3 columnas  (repeat(3, 1fr))
+       tablet:      2 columnas  (@media 1100px)
+       móvil:       1 columna   (@media 700px)
+
+   • .nos-cv-card: cada tarjeta tiene 3 partes:
+       .nos-cv-header   → foto + nombre + rol
+       .nos-cv-body     → programación / habilidades / certs
+       .nos-cv-footer   → botón "Ver CV completo"
+     La card usa display:flex + flex-direction:column para
+     que el footer siempre quede al fondo (flex:1 en body).
+
+   • FOTO CIRCULAR (.nos-cv-foto-wrap):
+     - position:relative es clave para que el <img> se
+       superponga encima del texto de iniciales.
+     - El <img> tiene position:absolute; inset:0;
+       object-fit:cover → llena el círculo sin deformar.
+     - Si la foto falla → onerror="this.style.display='none'"
+       oculta el <img> y las iniciales (texto del div) quedan
+       visibles gracias al flexbox del padre.
+     - Cada integrante tiene su clase: nos-foto-enrique,
+       nos-foto-maykol, etc. → para ajustar object-position
+       individualmente en la sección de fotos más abajo.
+
+   • TAGS DE HABILIDADES (.nos-cv-tags / .nos-tag):
+     - flex-wrap:wrap → los tags se acomodan solos en varias
+       filas según el ancho disponible.
+     - .nos-tag-lang  → azul acento (lenguajes/frameworks)
+     - .nos-tag-blanda → gris (habilidades blandas)
+
+   • CERTIFICADOS (.nos-cv-certs):
+     - Lista sin bullets. El bullet es el carácter '▸'
+       generado con ::before { content: '▸' }.
+
+   ARCHIVOS NECESARIOS para completar las cards:
+     Fotos:   img/nosotros/equipo/[nombre].jpg
+     PDFs:    pdf/nosotros/[nombre]_cv.pdf
+
+   HTML asociado: <section id="nosotros-equipo">
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
 
 /* Grid 6 cards iguales — 3 columnas × 2 filas */
 .nos-cv-team-grid {
@@ -742,8 +956,50 @@
 }
 
 /* ============================================================
-   GESTIÓN DEL PROYECTO
-   ------------------------------------------------------------ */
+   ▶ XIOMARA SOLÍS — GESTIÓN DEL PROYECTO
+   GESTIÓN DEL PROYECTO — clases .nos-gp-*
+   ─────────────────────────────────────────────────────────
+   XIOMARA: Copia todo este bloque (.nos-gp-tools hasta
+   .nos-sprint:hover .nos-sprint-body ul li) al proyecto real.
+
+   ¿QUÉ HACE?
+
+   ── HERRAMIENTAS (.nos-gp-tools / .nos-gp-tool) ──────────
+   • .nos-gp-tools: fila de chips centrados con flexbox +
+     flex-wrap (en móvil se apilan solos).
+   • .nos-gp-tool: chip individual tipo "pill" (border-radius:50px).
+     Tiene ícono Font Awesome a la izquierda y dos líneas
+     de texto (.nos-gp-tool-texto h4 + p).
+   • Hover: border cambia a color acento + translateY(-2px).
+
+   ── DESCRIPCIÓN (.nos-gp-desc) ────────────────────────────
+   • Párrafo centrado, max-width:780px, con soporte para
+     <strong> (texto resaltado) y <code> (texto inline en
+     fondo azul semitransparente).
+
+   ── TIMELINE DE SPRINTS (.nos-gp-timeline-wrap) ───────────
+   • .nos-gp-timeline-wrap: contenedor con padding-top:32px
+     para dejar espacio al número circular que sobresale.
+   • Línea horizontal del timeline: pseudo-elemento ::before
+     en el wrapper. Va de left:100%/6 a right:100%/6
+     (conecta exactamente los 3 dots de los sprints).
+     Se oculta en tablet (@media 992px → columna vertical).
+
+   • .nos-gp-timeline: CSS Grid de 3 columnas (se va a 1 col
+     en tablet via @media 992px en la sección RESPONSIVE).
+
+   • .nos-sprint-num: el círculo con el número del sprint.
+     TÉCNICA KEY: position:absolute; top:-28px; left:50%;
+     transform:translateX(-50%) → sobresale ARRIBA de la card.
+     Por eso .nos-gp-timeline-wrap tiene padding-top:32px
+     (para que el dot no quede tapado).
+
+   • .nos-sprint-header: tiene padding-top:44px para no quedar
+     tapado por el .nos-sprint-num que sobresale encima.
+
+   HTML asociado: <section id="nosotros-gp">
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
 
 /* Fila de herramientas — 4 chips centrados */
 .nos-gp-tools {
@@ -866,7 +1122,7 @@
     height: 56px;
     border-radius: 50%;
     background: var(--color-acento);
-    color: #000;
+    color: #fff;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
@@ -942,8 +1198,31 @@
 }
 
 /* ============================================================
-   SECCIÓN BOTÓN MATRIZ — gradiente oscuro como xs-cta de inicio
-   ------------------------------------------------------------ */
+   ▶ MAYKOL CALLE — MATRIZ DE RESPONSABILIDAD RACI  (1/2)
+   SECCIÓN BOTÓN MATRIZ — #nosotros-matriz-cta
+   ─────────────────────────────────────────────────────────
+   MAYKOL: Copia este bloque (#nosotros-matriz-cta,
+   .nos-matriz-cta y .nos-btn-matriz) junto con el bloque
+   del MODAL RACI que viene a continuación.
+
+   ¿QUÉ HACE?
+   • #nosotros-matriz-cta: sección de fondo azul oscuro
+     con gradiente radial sutil (efecto brillo en el centro).
+     Mismo patrón visual que la sección CTA de inicio.html.
+
+   • .nos-btn-matriz: botón que ABRE el modal al hacer clic.
+     El onclick llama a abrirMatriz() definida en:
+       js/nosotros/matriz.js
+     Ese archivo también maneja: Escape para cerrar y clic
+     fuera del modal para cerrar.
+
+   • FONT SIZE: usa clamp() para ser responsive.
+   • El botón es display:inline-flex para alinear el ícono
+     Font Awesome junto al texto sin esfuerzo.
+
+   HTML asociado: <section id="nosotros-matriz-cta">
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
 #nosotros-matriz-cta {
     background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
     position: relative;
@@ -1004,8 +1283,53 @@
 }
 
 /* ============================================================
-   MODAL MATRIZ RACI
-   ------------------------------------------------------------ */
+   ▶ MAYKOL CALLE — MATRIZ DE RESPONSABILIDAD RACI  (2/2)
+   MODAL MATRIZ RACI — clases .nos-modal-*, .nos-tabla-raci
+   ─────────────────────────────────────────────────────────
+   MAYKOL: Copia todo este bloque hasta el comentario RESPONSIVE.
+   También necesitas copiar el archivo JS:
+     js/nosotros/matriz.js  (abrirMatriz / cerrarMatriz)
+
+   ¿QUÉ HACE?
+
+   ── OVERLAY (.nos-modal-overlay) ──────────────────────────
+   • position:fixed; inset:0 → cubre TODA la pantalla.
+   • backdrop-filter:blur(8px) → desenfoca el fondo.
+   • Por defecto: opacity:0 + pointer-events:none (invisible
+     e inaccesible). El JS añade .nos-modal-visible para
+     mostrarlo (opacity:1 + pointer-events:all).
+   • CÓMO SE ABRE/CIERRA (en matriz.js):
+       abrirMatriz()  → agrega clase 'nos-modal-visible'
+       cerrarMatriz() → quita clase 'nos-modal-visible'
+       También cierra con: tecla Escape + clic en el overlay
+
+   ── CONTENIDO (.nos-modal-content) ────────────────────────
+   • max-width:980px, max-height:88vh con overflow-y:auto
+     (scroll interno si la tabla es muy larga en móvil).
+   • Animación de entrada: transform:translateY(24px) scale(0.98)
+     → quando .nos-modal-visible se agrega, vuelve a
+     translateY(0) scale(1) con transición cubic-bezier.
+
+   ── TABLA RACI (.nos-tabla-raci) ──────────────────────────
+   • min-width:700px en la tabla + overflow-x:auto en el
+     wrapper → scroll horizontal en móvil (tabla no se rompe).
+   • COLORES de las celdas:
+       .nos-r → Responsible  → fondo rojo  (#f87171)
+       .nos-a → Accountable  → fondo verde (#4ade80)
+       .nos-c → Consulted    → fondo amarillo (#facc15)
+       .nos-i → Informed     → fondo azul  (#60a5fa)
+   • Las celdas con RA (mismo que usamos para Enrique cuando
+     él ejecuta Y es responsable) usan nos-r pero el texto
+     en el HTML dice "RA".
+
+   ── LEYENDA (.nos-raci-leyenda) ───────────────────────────
+   • Fila de chips explicativos debajo de la tabla.
+     flex-wrap:wrap para móvil.
+
+   HTML asociado: <div id="nos-modal-matriz" ...>
+                  (va FUERA de <main>, antes de los scripts)
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
 .nos-modal-overlay {
     position: fixed;
     inset: 0;
@@ -1167,54 +1491,83 @@
 }
 
 /* ============================================================
-   RESPONSIVE
-   ------------------------------------------------------------ */
+   ▶ ENRIQUE PRADA — COORDINADOR (YA IMPLEMENTADO)
+   RESPONSIVE — media queries para toda la página
+   ─────────────────────────────────────────────────────────
+   El equipo NO necesita modificar esto.
+   Enrique lo entrega implementado. Cada compañero solo
+   debe asegurarse de que su sección use las clases correctas.
+
+   BREAKPOINTS usados y QUÉ CAMBIA en cada uno:
+   ┌──────────────┬────────────────────────────────────────┐
+   │  1100px      │ CV grid: 3 cols → 2 cols               │
+   │  992px       │ Sección padding ↓, info grid 1 col,    │
+   │              │ timeline 1 col, organigrama compacto    │
+   │  768px       │ Paddings de cards ↓, modal compacto    │
+   │  700px       │ CV grid: 2 cols → 1 col                │
+   │  576px       │ Tools full-width, botón RACI full-width │
+   │              │ Modal muy compacto, foto 88px           │
+   │  480px       │ Organigrama vertical (column), foto 80px│
+   └──────────────┴────────────────────────────────────────┘
+   ─────────────────────────────────────────────────────────
+   ============================================================ */
+
+/* ── 1100px: CV grid 3 → 2 columnas ── */
 @media (max-width: 1100px) {
     .nos-cv-team-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 900px) {
-    .nos-info-grid {
-        grid-template-columns: 1fr;
-    }
+/* ── 992px: tablets landscape ── */
+@media (max-width: 992px) {
+    .nos-section { padding: 60px 0; }
+    .nos-section-header { margin-bottom: 40px; }
 
-    .nos-gp-tools {
-        gap: 10px;
-    }
+    .nos-info-grid { grid-template-columns: 1fr; }
 
-    .nos-gp-timeline {
-        grid-template-columns: 1fr;
-    }
-
-    .nos-gp-timeline-wrap::before {
-        display: none;
-    }
-
+    .nos-gp-tools { gap: 10px; }
+    .nos-gp-timeline { grid-template-columns: 1fr; row-gap: 56px; }
+    .nos-gp-timeline-wrap::before { display: none; }
     .nos-sprint-num {
         position: static;
         transform: none;
         margin: -28px auto 0;
     }
+    .nos-sprint-header { padding-top: 20px; }
 
-    .nos-sprint-header {
-        padding-top: 20px;
+    .nos-org-tree > li > ul { gap: 12px; }
+    .nos-org-node { width: 150px; }
+    .nos-matriz-cta { padding: 50px 0; }
+}
+
+/* ── 768px: tablets portrait ── */
+@media (max-width: 768px) {
+    .nos-section { padding: 48px 0; }
+    .nos-section-header { margin-bottom: 28px; }
+
+    .nos-info-card,
+    .nos-obj-wrap { padding: 24px 18px; }
+
+    .nos-gp-desc { margin-bottom: 36px; }
+    .nos-gp-desc { font-size: 0.93rem; }
+
+    .nos-org-node { width: 130px; padding: 16px 12px; }
+    .nos-org-coord { width: 158px; }
+
+    .nos-modal-content {
+        padding: 28px 20px;
+        border-radius: 16px;
     }
-
-    .nos-org-tree > li > ul {
-        gap: 12px;
-    }
-
-    .nos-org-node {
-        width: 150px;
+    .nos-modal-content h3 {
+        font-size: 1.2rem;
+        padding-right: 40px;
     }
 }
 
+/* ── 700px: CV grid 2 → 1 columna ── */
 @media (max-width: 700px) {
-    .nos-cv-team-grid {
-        grid-template-columns: 1fr;
-    }
+    .nos-cv-team-grid { grid-template-columns: 1fr; }
 
     .nos-org-tree > li > ul::before {
         left: 5%;
@@ -1222,22 +1575,71 @@
     }
 }
 
+/* ── 576px: móviles ── */
+@media (max-width: 576px) {
+    .nos-section { padding: 36px 0; }
+    .nos-section-header { margin-bottom: 22px; }
+
+    .nos-gp-tool {
+        width: 100%;
+        justify-content: flex-start;
+        border-radius: 14px;
+        padding: 12px 18px;
+    }
+
+    .nos-btn-matriz {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.93rem;
+        padding: 12px 20px;
+    }
+
+    .nos-modal-content {
+        padding: 20px 14px;
+        max-height: 92vh;
+        border-radius: 12px;
+    }
+    .nos-modal-content h3 { font-size: 1.05rem; }
+    .nos-modal-content > p { font-size: 0.82rem; margin-bottom: 18px; }
+
+    .nos-raci-leyenda { gap: 10px; }
+    .nos-raci-leyenda-item { font-size: 0.76rem; }
+
+    .nos-cv-foto-wrap {
+        width: 88px;
+        height: 88px;
+        font-size: 1.3rem;
+    }
+}
+
+/* ── 480px: móviles pequeños ── */
 @media (max-width: 480px) {
+    .nos-section { padding: 28px 0; }
+
+    #nosotros-carousel .jm-slide { height: 360px; }
+
     .nos-org-tree > li > ul {
         flex-direction: column;
         align-items: center;
     }
-
-    .nos-org-tree > li > ul::before {
-        display: none;
-    }
-
+    .nos-org-tree > li > ul::before { display: none; }
     .nos-org-tree > li > ul > li::before {
         height: 24px;
         top: -24px;
     }
 
-    #nosotros-carousel .jm-slide {
-        height: 380px;
+    .nos-cv-foto-wrap {
+        width: 80px;
+        height: 80px;
+        font-size: 1.2rem;
+        border-width: 2px;
+    }
+
+    .nos-info-card,
+    .nos-obj-wrap { padding: 20px 14px; }
+
+    .nos-modal-content {
+        padding: 16px 12px;
+        border-radius: 10px;
     }
 }

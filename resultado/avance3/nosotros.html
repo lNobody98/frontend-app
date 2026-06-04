@@ -7,29 +7,52 @@
     <title>NXR TECH - Nosotros</title>
     <link rel="icon" type="image/x-icon" href="../../img/nxrtech.ico">
 
+    <!--
+    ══════════════════════════════════════════════════════════
+    DEPENDENCIAS — ENRIQUE (entregado listo, no modificar)
+    Todos necesitan estas 4 líneas en el <head>:
+      1. Google Fonts: Poppins (texto) + Space Grotesk (títulos)
+      2. Font Awesome 6.5: íconos (fas fa-*, fab fa-*)
+      3. Bootstrap 5.3 CSS: grid, navbar, carousel, collapse
+      4. base.css: variables CSS + estilos globales compartidos
+      5. nosotros.css: estilos exclusivos de esta página
+    ══════════════════════════════════════════════════════════
+    -->
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome 6.5 — íconos con clase fas/fab -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Bootstrap 5 -->
+    <!-- Bootstrap 5.3 — navbar collapse, carousel, grid -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
-    <!-- Estilos del proyecto -->
+    <!-- Estilos base (variables, navbar, footer) + exclusivos -->
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="css/nosotros.css">
 </head>
 
 <body>
 
-    <!-- =============================================
-         NAVBAR — RESPONSABLE: Christian Diaz
-         Mismo patrón que catalogo.html.
-         "Nosotros" marcado como activo con color acento.
-         ============================================= -->
+    <!--
+    ══════════════════════════════════════════════════════════
+    ▶ ENRIQUE PRADA — COORDINADOR (YA IMPLEMENTADO)
+    NAVBAR
+    ──────────────────────────────────────────────────────────
+    El equipo NO necesita modificar esta sección.
+    Enrique entrega el navbar listo en la estructura base.
+
+    CÓMO FUNCIONA:
+    • Bootstrap navbar con collapse automático en móvil.
+      El botón hamburger tiene data-bs-toggle="collapse"
+      apuntando a id="navNosotros".
+    • El link activo lleva style="color: var(--color-acento)"
+      para resaltar la página actual (Nosotros).
+    • El CSS del navbar está en nosotros.css sección NAVBAR.
+    ══════════════════════════════════════════════════════════
+    -->
     <header id="navbar">
         <div class="ep-navbar-bar">
             <nav class="container navbar navbar-expand-md">
@@ -54,11 +77,31 @@
             </nav>
         </div>
 
-        <!-- =============================================
-             CAROUSEL / BANNER — RESPONSABLE: Juan Morales
-             3 slides temáticos del equipo NXR TECH.
-             Mismo patrón Bootstrap que catalogo.html.
-             ============================================= -->
+        <!--
+        ══════════════════════════════════════════════════════
+        ▶ CHRISTIAN DÍAZ — BANNER + INFORMACIÓN DE LA EMPRESA
+        CAROUSEL / BANNER (1 de 2)
+        ────────────────────────────────────────────────────
+        CHRISTIAN: Copia este bloque <section id="nosotros-carousel">
+        completo y pégalo dentro del <header id="navbar"> del
+        proyecto real, justo después del bloque <nav>.
+
+        CÓMO FUNCIONA:
+        • Bootstrap carousel con 3 slides automáticos (5s).
+        • Cada .jm-slide recibe su imagen de fondo via CSS inline:
+            style="background-image: url('ruta/banner-N.jpg')"
+          El overlay oscuro es un ::before en CSS (no va en HTML).
+        • .jm-slide-contenido: contiene h2 + párrafo + botón.
+          El <span> dentro del <h2> queda en azul (var --color-acento).
+        • Los botones de navegación (prev/next) y los indicadores
+          (puntos) son parte de Bootstrap y van incluidos.
+
+        IMÁGENES necesarias en img/nosotros/:
+          banner-1.jpg → slide "Nuestro Equipo"
+          banner-2.jpg → slide "Gestión Ágil"
+          banner-3.jpg → slide "Responsabilidad y Compromiso"
+        ══════════════════════════════════════════════════════
+        -->
         <section id="nosotros-carousel">
             <div id="carouselNosotros" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
 
@@ -118,19 +161,24 @@
 
     <main>
 
-        <!-- =============================================
-             MAPA ORGANIZACIONAL — RESPONSABLE: Enrique Prada
-             Diagrama HTML/CSS con árbol jerárquico.
-             Coordinador arriba, 5 integrantes en fila inferior.
-             Las fotos se añaden colocando la imagen en:
-             img/equipo/[iniciales]-[nombre].jpg
-             El onerror muestra las iniciales como fallback.
-             ============================================= -->
-        <!-- =============================================
-             INFORMACIÓN DE LA EMPRESA — RESPONSABLE: Enrique Prada
-             Misión, Visión, Objetivo Principal y Específicos.
-             ORDEN DOCENTE: primero Misión/Visión/Objetivos, luego Mapa.
-             ============================================= -->
+        <!--
+        ══════════════════════════════════════════════════════
+        ▶ CHRISTIAN DÍAZ — BANNER + INFORMACIÓN DE LA EMPRESA
+        SECCIÓN MISIÓN Y VISIÓN (2 de 2)
+        ────────────────────────────────────────────────────
+        CHRISTIAN: Copia el bloque <section id="nosotros-info">
+        completo y pégalo en el proyecto real.
+
+        CÓMO FUNCIONA:
+        • Sección oscura (sin nos-section-alt) con 2 cards en grid.
+        • .nos-info-grid → CSS Grid 2 columnas (1fr 1fr).
+          En tablet se colapsa a 1 columna (ver @media 992px en CSS).
+        • Cada .nos-info-card tiene barra azul de 4px a la izquierda
+          generada con ::before en CSS — no va en el HTML.
+        • Ícono Font Awesome dentro del <h3>:
+            <h3><i class="fas fa-bullseye"></i> Misión</h3>
+        ══════════════════════════════════════════════════════
+        -->
         <!-- Misión y Visión — fondo oscuro -->
         <section id="nosotros-info" class="nos-section">
             <div class="container">
@@ -155,6 +203,27 @@
             </div>
         </section>
 
+        <!--
+        ══════════════════════════════════════════════════════
+        ▶ JUAN MORALES — NUESTROS OBJETIVOS + MAPA ORGANIZACIONAL
+        SECCIÓN OBJETIVOS (1 de 2)
+        ────────────────────────────────────────────────────
+        JUAN: Copia el bloque <section id="nosotros-objetivos">
+        completo y pégalo en el proyecto real.
+
+        CÓMO FUNCIONA:
+        • Sección CLARA: lleva la clase nos-section-alt que cambia
+          automáticamente los colores de texto a oscuro.
+        • .nos-obj-wrap: contenedor único con toda la sección.
+        • .nos-obj-principal: recuadro del objetivo general.
+          La barra azul de la izquierda viene del border-left en CSS.
+        • .nos-obj-especificos: lista <ul> sin bullets.
+          Los números circulares son automáticos (CSS counter) —
+          solo necesitas poner los <li> sin numerarlos.
+        • El texto del <p class="nos-obj-sub"> es una etiqueta
+          separadora en mayúsculas (TÉCNICA: text-transform en CSS).
+        ══════════════════════════════════════════════════════
+        -->
         <!-- Objetivos — fondo blanco/claro -->
         <section id="nosotros-objetivos" class="nos-section nos-section-alt">
             <div class="container">
@@ -183,10 +252,36 @@
             </div>
         </section>
 
-        <!-- =============================================
-             MAPA ORGANIZACIONAL — RESPONSABLE: Enrique Prada
-             Va después de la información de la empresa.
-             ============================================= -->
+        <!--
+        ══════════════════════════════════════════════════════
+        ▶ JUAN MORALES — NUESTROS OBJETIVOS + MAPA ORGANIZACIONAL
+        SECCIÓN MAPA ORGANIZACIONAL (2 de 2)
+        ────────────────────────────────────────────────────
+        JUAN: Copia el bloque <section id="nosotros-organigrama">
+        completo y pégalo en el proyecto real.
+
+        CÓMO FUNCIONA (árbol jerárquico puro HTML/CSS):
+        • <ul class="nos-org-tree"> → lista principal vertical.
+        • Primer <li> contiene: el nodo coordinador + un <ul>
+          con los 5 integrantes.
+        • Las líneas de conexión (vertical y horizontal) son
+          pseudo-elementos CSS (::before/::after) — no van en HTML.
+
+        ESTRUCTURA DE CADA NODO:
+          <div class="nos-org-node">           ← tarjeta base
+            <div class="nos-org-avatar">       ← círculo de foto
+              <img src="..." onerror="...">    ← foto (falla → iniciales)
+              XX                               ← iniciales fallback
+            </div>
+            <h4>Nombre completo</h4>
+            <span>Puesto / Rol</span>
+          </div>
+        El coordinador lleva clase extra: nos-org-node nos-org-coord
+
+        FOTOS del organigrama: img/nosotros/equipo/[nombre].jpg
+        (mismos archivos que las CV cards de Joel)
+        ══════════════════════════════════════════════════════
+        -->
         <section id="nosotros-organigrama" class="nos-section">
             <div class="container">
                 <div class="nos-section-header">
@@ -199,9 +294,7 @@
                         <!-- Coordinador -->
                         <div class="nos-org-node nos-org-coord">
                             <div class="nos-org-avatar">
-                                <img src="../../img/equipo/ep-enrique.jpg" alt="Enrique Prada"
-                                     onerror="this.style.display='none'">
-                                EP
+                                <i class="fas fa-crown"></i>
                             </div>
                             <h4>Ricardo Enrique Prada Guerra</h4>
                             <span>Coordinador</span>
@@ -212,9 +305,7 @@
                             <li>
                                 <div class="nos-org-node">
                                     <div class="nos-org-avatar">
-                                        <img src="../../img/equipo/mc-maykol.jpg" alt="Maykol Calle"
-                                             onerror="this.style.display='none'">
-                                        MC
+                                        <i class="fas fa-code"></i>
                                     </div>
                                     <h4>Maykol Adan Calle Paredes</h4>
                                     <span>Desarrollador Frontend</span>
@@ -223,9 +314,7 @@
                             <li>
                                 <div class="nos-org-node">
                                     <div class="nos-org-avatar">
-                                        <img src="../../img/equipo/cd-christian.jpg" alt="Christian Díaz"
-                                             onerror="this.style.display='none'">
-                                        CD
+                                        <i class="fas fa-code"></i>
                                     </div>
                                     <h4>Christian Alexander Díaz García</h4>
                                     <span>Desarrollador Frontend</span>
@@ -234,9 +323,7 @@
                             <li>
                                 <div class="nos-org-node">
                                     <div class="nos-org-avatar">
-                                        <img src="../../img/equipo/jm-juan.jpg" alt="Juan Morales"
-                                             onerror="this.style.display='none'">
-                                        JM
+                                        <i class="fas fa-clipboard-list"></i>
                                     </div>
                                     <h4>Juan José Morales Velásquez</h4>
                                     <span>Analista de Requerimientos</span>
@@ -245,9 +332,7 @@
                             <li>
                                 <div class="nos-org-node">
                                     <div class="nos-org-avatar">
-                                        <img src="../../img/equipo/js-joel.jpg" alt="Joel Saldaña"
-                                             onerror="this.style.display='none'">
-                                        JS
+                                        <i class="fas fa-code"></i>
                                     </div>
                                     <h4>Joel Anthony Saldaña Chávez</h4>
                                     <span>Desarrollador Frontend</span>
@@ -256,9 +341,7 @@
                             <li>
                                 <div class="nos-org-node">
                                     <div class="nos-org-avatar">
-                                        <img src="../../img/equipo/xy-xiomara.jpg" alt="Xiomara Solís"
-                                             onerror="this.style.display='none'">
-                                        XS
+                                        <i class="fas fa-code"></i>
                                     </div>
                                     <h4>Xiomara Yajhaira Solís Malpartida</h4>
                                     <span>Desarrollador Frontend</span>
@@ -271,379 +354,40 @@
             </div>
         </section>
 
-        <!-- =============================================
-             CV INTEGRANTES — RESPONSABLE: Enrique Prada
-             Coordinador en card destacada centrada (arriba).
-             5 integrantes en grid de una fila (abajo).
-             - Fotos: img/equipo/[iniciales]-[nombre].jpg
-             - Habilidades blandas: [placeholder] × 3 por persona
-             - Certificados: [placeholder] por persona
-             - Botón: enlaza al CV completo (PDF)
-             ============================================= -->
-        <section id="nosotros-equipo" class="nos-section">
-            <div class="container">
-                <div class="nos-section-header">
-                    <h2>Nuestro <span>Equipo</span></h2>
-                    <p>Perfiles profesionales de los integrantes de NXR Team</p>
-                </div>
+        <!--
+        ══════════════════════════════════════════════════════
+        ▶ XIOMARA SOLÍS — GESTIÓN DEL PROYECTO
+        SECCIÓN GESTIÓN DEL PROYECTO
+        ────────────────────────────────────────────────────
+        XIOMARA: Copia el bloque <section id="nosotros-gp">
+        completo y pégalo en el proyecto real.
 
-                <!-- ── 6 cards iguales en grid 3×2 ── -->
-                <div class="nos-cv-team-grid">
+        CÓMO FUNCIONA:
 
-                    <!-- Enrique -->
-                    <div class="nos-cv-card">
-                        <div class="nos-cv-header">
-                            <div class="nos-cv-foto-wrap nos-foto-enrique">
-                                <img src="../../img/nosotros/equipo/enrique.jpg" alt="Enrique Prada"
-                                     onerror="this.style.display='none'">
-                                EP
-                            </div>
-                            <div class="nos-cv-identidad">
-                                <h3>Ricardo Enrique Prada Guerra</h3>
-                                <span class="nos-cv-rol">Scrum Master</span>
-                            </div>
-                        </div>
-                        <div class="nos-cv-body">
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
-                                <p class="nos-cv-sub">Lenguajes y Frameworks</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">Java</span>
-                                    <span class="nos-tag nos-tag-lang">TypeScript</span>
-                                    <span class="nos-tag nos-tag-lang">JavaScript</span>
-                                    <span class="nos-tag nos-tag-lang">Angular 11-16</span>
-                                    <span class="nos-tag nos-tag-lang">Spring Boot</span>
-                                    <span class="nos-tag nos-tag-lang">HTML5</span>
-                                    <span class="nos-tag nos-tag-lang">CSS3</span>
-                                    <span class="nos-tag nos-tag-lang">PHP</span>
-                                </div>
-                                <p class="nos-cv-sub">Base de Datos</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">Oracle PL/SQL</span>
-                                    <span class="nos-tag nos-tag-lang">MongoDB</span>
-                                    <span class="nos-tag nos-tag-lang">MySQL</span>
-                                    <span class="nos-tag nos-tag-lang">SQL Server</span>
-                                </div>
-                                <p class="nos-cv-sub">Infraestructura y Redes</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">Docker</span>
-                                    <span class="nos-tag nos-tag-lang">Apache Kafka</span>
-                                    <span class="nos-tag nos-tag-lang">RabbitMQ</span>
-                                    <span class="nos-tag nos-tag-lang">Spring LDAP</span>
-                                    <span class="nos-tag nos-tag-lang">CI/CD</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-blanda">Aprendizaje continuo</span>
-                                    <span class="nos-tag nos-tag-blanda">Orientación a resultados</span>
-                                    <span class="nos-tag nos-tag-blanda">Trabajo en equipo</span>
-                                    <span class="nos-tag nos-tag-blanda">Proactividad</span>
-                                    <span class="nos-tag nos-tag-blanda">Análisis de requerimientos</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
-                                <ul class="nos-cv-certs">
-                                    <li>Scrum Developer Professional – SDPC (Certiprof, Feb 2025)</li>
-                                    <li>ITIL V4 (New Horizons, Nov 2023)</li>
-                                    <li>Angular Avanzado (Platzi, Nov 2025)</li>
-                                    <li>Angular &amp; Spring 5 Full Stack (Udemy, Nov 2020)</li>
-                                    <li>Microservicios con Spring Boot (Udemy, Nov 2020)</li>
-                                    <li>Tutor STEM – Física (UTP, 2024)</li>
-                                    <li>Tutor STEM – Matemática (UTP, 2024)</li>
-                                    <li>Tutor STEM – Algorítmica (UTP, 2025)</li>
-                                    <li>Excel Intermedio (UTP, 2025)</li>
-                                    <li>Certificaciones IBM, Google y Huawei (UTP)</li>
-                                    <li>Introducción a Ciberseguridad (Cisco – UTP, 2026)</li>
-                                    <li>Endpoint Security (Cisco – UTP, 2026)</li>
-                                    <li>Network Defense y Cyber Threat Management (Cisco – UTP, 2026)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="nos-cv-footer">
-                            <a href="../../pdf/nosotros/enrique_prada_cv.pdf" target="_blank" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
+        HERRAMIENTAS (.nos-gp-tools):
+        • Fila de chips tipo "pill" con ícono + texto.
+          Cada .nos-gp-tool lleva: ícono Font Awesome +
+          .nos-gp-tool-texto con <h4> (nombre) y <p> (valor).
+          Ejemplo de ícono: <i class="fab fa-jira"></i>
 
-                    <!-- Maykol -->
-                    <!-- TODO Maykol: sube tu foto a img/nosotros/equipo/maykol.jpg y ajusta object-position en nosotros.css -->
-                    <div class="nos-cv-card">
-                        <div class="nos-cv-header">
-                            <div class="nos-cv-foto-wrap nos-foto-maykol">
-                                <img src="../../img/nosotros/equipo/maykol.jpg" alt="Maykol Calle"
-                                     onerror="this.style.display='none'">
-                                MC
-                            </div>
-                            <div class="nos-cv-identidad">
-                                <h3>Maykol Adan Calle Paredes</h3>
-                                <span class="nos-cv-rol">Development Team</span>
-                            </div>
-                        </div>
-                        <div class="nos-cv-body">
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
-                                <p class="nos-cv-sub">Lenguajes de Programación</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">HTML5</span>
-                                    <span class="nos-tag nos-tag-lang">CSS3</span>
-                                    <span class="nos-tag nos-tag-lang">JavaScript ES6+</span>
-                                    <span class="nos-tag nos-tag-lang">Bootstrap 5</span>
-                                    <span class="nos-tag nos-tag-lang">Git</span>
-                                </div>
-                                <p class="nos-cv-sub">Base de Datos</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
-                                </div>
-                                <p class="nos-cv-sub">Redes</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
-                                <ul class="nos-cv-certs">
-                                    <li>[Certificado placeholder]</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="nos-cv-footer">
-                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
+        DESCRIPCIÓN (.nos-gp-desc):
+        • Párrafo centrado con <strong> para texto resaltado
+          y <code> para nombres de herramientas en azul.
 
-                    <!-- Christian -->
-                    <!-- TODO Christian: sube tu foto a img/nosotros/equipo/christian.jpg y ajusta object-position en nosotros.css -->
-                    <div class="nos-cv-card">
-                        <div class="nos-cv-header">
-                            <div class="nos-cv-foto-wrap nos-foto-christian">
-                                <img src="../../img/nosotros/equipo/christian.jpg" alt="Christian Díaz"
-                                     onerror="this.style.display='none'">
-                                CD
-                            </div>
-                            <div class="nos-cv-identidad">
-                                <h3>Christian Alexander Díaz García</h3>
-                                <span class="nos-cv-rol">Development Team</span>
-                            </div>
-                        </div>
-                        <div class="nos-cv-body">
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
-                                <p class="nos-cv-sub">Lenguajes de Programación</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">HTML5</span>
-                                    <span class="nos-tag nos-tag-lang">CSS3</span>
-                                    <span class="nos-tag nos-tag-lang">JavaScript</span>
-                                    <span class="nos-tag nos-tag-lang">Bootstrap 5</span>
-                                    <span class="nos-tag nos-tag-lang">Git</span>
-                                </div>
-                                <p class="nos-cv-sub">Base de Datos</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
-                                </div>
-                                <p class="nos-cv-sub">Redes</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
-                                <ul class="nos-cv-certs">
-                                    <li>[Certificado placeholder]</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="nos-cv-footer">
-                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
+        SPRINTS (.nos-gp-timeline-wrap > .nos-gp-timeline):
+        • Grid de 3 columnas. Cada .nos-sprint tiene:
+            .nos-sprint-num → círculo con número (1, 2, 3)
+              KEY: position:absolute top:-28px → sobresale
+              arriba de la tarjeta. Por eso el wrapper tiene
+              padding-top:32px.
+            .nos-sprint-header → título + fecha del sprint
+              KEY: padding-top:44px → no queda tapado por el dot
+            .nos-sprint-body > ul > li → lista de entregables
 
-                    <!-- Juan -->
-                    <!-- TODO Juan: sube tu foto a img/nosotros/equipo/juan.jpg y ajusta object-position en nosotros.css -->
-                    <div class="nos-cv-card">
-                        <div class="nos-cv-header">
-                            <div class="nos-cv-foto-wrap nos-foto-juan">
-                                <img src="../../img/nosotros/equipo/juan.jpg" alt="Juan Morales"
-                                     onerror="this.style.display='none'">
-                                JM
-                            </div>
-                            <div class="nos-cv-identidad">
-                                <h3>Juan José Morales Velásquez</h3>
-                                <span class="nos-cv-rol">Product Owner</span>
-                            </div>
-                        </div>
-                        <div class="nos-cv-body">
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
-                                <p class="nos-cv-sub">Lenguajes de Programación</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">HTML5</span>
-                                    <span class="nos-tag nos-tag-lang">CSS3</span>
-                                    <span class="nos-tag nos-tag-lang">JavaScript</span>
-                                    <span class="nos-tag nos-tag-lang">Bootstrap 5</span>
-                                    <span class="nos-tag nos-tag-lang">Git</span>
-                                </div>
-                                <p class="nos-cv-sub">Base de Datos</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
-                                </div>
-                                <p class="nos-cv-sub">Redes</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
-                                <ul class="nos-cv-certs">
-                                    <li>[Certificado placeholder]</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="nos-cv-footer">
-                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Joel -->
-                    <!-- TODO Joel: sube tu foto a img/nosotros/equipo/joel.jpg y ajusta object-position en nosotros.css -->
-                    <div class="nos-cv-card">
-                        <div class="nos-cv-header">
-                            <div class="nos-cv-foto-wrap nos-foto-joel">
-                                <img src="../../img/nosotros/equipo/joel.jpg" alt="Joel Saldaña"
-                                     onerror="this.style.display='none'">
-                                JS
-                            </div>
-                            <div class="nos-cv-identidad">
-                                <h3>Joel Anthony Saldaña Chávez</h3>
-                                <span class="nos-cv-rol">Development Team</span>
-                            </div>
-                        </div>
-                        <div class="nos-cv-body">
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
-                                <p class="nos-cv-sub">Lenguajes de Programación</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">HTML5</span>
-                                    <span class="nos-tag nos-tag-lang">CSS3</span>
-                                    <span class="nos-tag nos-tag-lang">JavaScript ES6+</span>
-                                    <span class="nos-tag nos-tag-lang">Git</span>
-                                </div>
-                                <p class="nos-cv-sub">Base de Datos</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
-                                </div>
-                                <p class="nos-cv-sub">Redes</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
-                                <ul class="nos-cv-certs">
-                                    <li>[Certificado placeholder]</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="nos-cv-footer">
-                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Xiomara -->
-                    <!-- TODO Xiomara: sube tu foto a img/nosotros/equipo/xiomara.jpg y ajusta object-position en nosotros.css -->
-                    <div class="nos-cv-card">
-                        <div class="nos-cv-header">
-                            <div class="nos-cv-foto-wrap nos-foto-xiomara">
-                                <img src="../../img/nosotros/equipo/xiomara.jpg" alt="Xiomara Solís"
-                                     onerror="this.style.display='none'">
-                                XS
-                            </div>
-                            <div class="nos-cv-identidad">
-                                <h3>Xiomara Yajhaira Solís Malpartida</h3>
-                                <span class="nos-cv-rol">Development Team</span>
-                            </div>
-                        </div>
-                        <div class="nos-cv-body">
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
-                                <p class="nos-cv-sub">Lenguajes de Programación</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">HTML5</span>
-                                    <span class="nos-tag nos-tag-lang">CSS3</span>
-                                    <span class="nos-tag nos-tag-lang">JavaScript</span>
-                                    <span class="nos-tag nos-tag-lang">Font Awesome</span>
-                                    <span class="nos-tag nos-tag-lang">Git</span>
-                                </div>
-                                <p class="nos-cv-sub">Base de Datos</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Base de datos]</span>
-                                </div>
-                                <p class="nos-cv-sub">Redes</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-lang">[Redes]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
-                                <div class="nos-cv-tags">
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 1]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 2]</span>
-                                    <span class="nos-tag nos-tag-blanda">[Habilidad 3]</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
-                                <ul class="nos-cv-certs">
-                                    <li>[Certificado placeholder]</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="nos-cv-footer">
-                            <a href="#" class="btn-primario">Ver CV completo <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- =============================================
-             GESTIÓN DEL PROYECTO — RESPONSABLE: Enrique Prada
-             Metodología Scrum con 3 sprints y herramientas.
-             ============================================= -->
+        NOTA: La línea horizontal del timeline es un ::before
+        en CSS sobre .nos-gp-timeline-wrap. No va en el HTML.
+        ══════════════════════════════════════════════════════
+        -->
         <section id="nosotros-gp" class="nos-section nos-section-alt">
             <div class="container">
                 <div class="nos-section-header">
@@ -752,11 +496,75 @@
             </div>
         </section>
 
-        <!-- =============================================
-             BOTÓN MATRIZ RACI — RESPONSABLE: Enrique Prada
-             Al hacer clic abre el modal con la tabla RACI.
-             Programación: estructura condicional + evento JS.
-             ============================================= -->
+        <!--
+        ══════════════════════════════════════════════════════
+        ▶ JOEL SALDAÑA — NUESTRO EQUIPO (CV CARDS)
+        SECCIÓN CV INTEGRANTES
+        ────────────────────────────────────────────────────
+        JOEL: Esta sección YA NO tiene cards en el HTML.
+        Las cards se generan automáticamente con JavaScript
+        mediante Programación Orientada a Objetos (POO).
+
+        ¿CÓMO FUNCIONA? (lee js/nosotros/equipo.js)
+        ┌────────────────────────────────────────────────────┐
+        │  1. Clase Integrante                               │
+        │     Es el "molde" de cada persona del equipo.      │
+        │     Tiene atributos: nombre, rol, skills, certs…   │
+        │     Tiene método: renderCard() → genera el HTML    │
+        │                                                    │
+        │  2. Array equipo[]                                 │
+        │     Lista de 6 objetos, uno por integrante.        │
+        │     Cada uno es: new Integrante({ ... })           │
+        │                                                    │
+        │  3. renderEquipo()                                 │
+        │     Recorre el array con .map() llamando           │
+        │     renderCard() en cada objeto y lo inyecta       │
+        │     en el <div class="nos-cv-team-grid"> de abajo. │
+        └────────────────────────────────────────────────────┘
+
+        TU TAREA JOEL:
+        • Abre js/nosotros/equipo.js
+        • Busca el objeto con tu nombre (Joel Saldaña)
+        • Reemplaza los [...] con tus datos reales
+        • Sube tu foto a img/nosotros/equipo/joel.jpg
+        • Sube tu CV a pdf/nosotros/joel_saldana_cv.pdf
+          y actualiza el campo pdf: en tu objeto
+
+        LOS DEMÁS COMPAÑEROS hacen lo mismo en su objeto.
+        Nadie toca el HTML — solo su objeto en equipo.js.
+
+        CSS asociado: nosotros.css sección ▶ JOEL SALDAÑA
+        ══════════════════════════════════════════════════════
+        -->
+        <section id="nosotros-equipo" class="nos-section">
+            <div class="container">
+                <div class="nos-section-header">
+                    <h2>Nuestro <span>Equipo</span></h2>
+                    <p>Perfiles profesionales de los integrantes de NXR Team</p>
+                </div>
+
+                <!-- Cards generadas dinámicamente por js/nosotros/equipo.js -->
+                <div class="nos-cv-team-grid"></div>
+            </div>
+        </section>
+
+        <!--
+        ══════════════════════════════════════════════════════
+        ▶ MAYKOL CALLE — MATRIZ DE RESPONSABILIDAD RACI (1 de 2)
+        SECCIÓN BOTÓN RACI
+        ────────────────────────────────────────────────────
+        MAYKOL: Copia el bloque <section id="nosotros-matriz-cta">
+        completo y pégalo en el proyecto real.
+        También copia el MODAL que viene después de </main>.
+        Y el archivo JS: js/nosotros/matriz.js
+
+        CÓMO FUNCIONA:
+        • El botón llama a abrirMatriz() con onclick.
+        • abrirMatriz() (en matriz.js) agrega la clase
+          'nos-modal-visible' al div del modal → lo hace visible.
+        • El fondo oscuro con gradiente radial es puro CSS.
+        ══════════════════════════════════════════════════════
+        -->
         <section id="nosotros-matriz-cta" class="nos-section">
             <div class="container">
                 <div class="nos-matriz-cta">
@@ -771,15 +579,39 @@
 
     </main>
 
-    <!-- =============================================
-         MODAL — MATRIZ DE RESPONSABILIDAD RACI
-         Se abre con abrirMatriz() y se cierra con:
-         - cerrarMatriz()
-         - tecla Escape
-         - clic fuera del contenido
-         Tabla: filas=tareas / columnas=integrantes
-         Colores: R=rojo A=verde C=amarillo I=azul
-         ============================================= -->
+    <!--
+    ══════════════════════════════════════════════════════════
+    ▶ MAYKOL CALLE — MATRIZ DE RESPONSABILIDAD RACI (2 de 2)
+    MODAL RACI — va FUERA de <main>, antes de los scripts
+    ──────────────────────────────────────────────────────────
+    MAYKOL: Copia este bloque <div id="nos-modal-matriz">
+    completo y pégalo FUERA de <main>, justo antes de <footer>
+    en el proyecto real.
+
+    CÓMO FUNCIONA EL MODAL:
+    • Por defecto es invisible: opacity:0 + pointer-events:none.
+    • El JS (matriz.js) agrega/quita la clase 'nos-modal-visible':
+        abrirMatriz()  → agrega la clase → modal aparece
+        cerrarMatriz() → quita la clase  → modal desaparece
+    • 3 formas de cerrar: botón ×, tecla Escape, clic en overlay.
+    • El backdrop (fondo desenfocado) es backdrop-filter:blur en CSS.
+
+    TABLA RACI — CÓMO AGREGAR FILAS:
+      <tr>
+        <td>Nombre de la tarea</td>
+        <td class="nos-r">R</td>   ← Responsible (rojo)
+        <td class="nos-a">A</td>   ← Accountable (verde)
+        <td class="nos-c">C</td>   ← Consulted (amarillo)
+        <td class="nos-i">I</td>   ← Informed (azul)
+        <td></td>                  ← celda vacía
+      </tr>
+    • "RA" en una celda = misma persona Responsible + Accountable.
+    • El orden de columnas es: Enrique, Maykol, Christian, Juan,
+      Joel, Xiomara (mismo orden que el encabezado del thead).
+
+    ARCHIVO JS NECESARIO: js/nosotros/matriz.js
+    ══════════════════════════════════════════════════════════
+    -->
     <div id="nos-modal-matriz" class="nos-modal-overlay">
         <div class="nos-modal-content">
             <button class="nos-modal-cerrar" onclick="cerrarMatriz()" aria-label="Cerrar">&times;</button>
@@ -974,10 +806,15 @@
         </div>
     </div>
 
-    <!-- =============================================
-         FOOTER — RESPONSABLE: Enrique Prada
-         Mismo footer compartido con inicio y catálogo.
-         ============================================= -->
+    <!--
+    ══════════════════════════════════════════════════════════
+    ▶ ENRIQUE PRADA — COORDINADOR (YA IMPLEMENTADO)
+    FOOTER — mismo en inicio.html, catalogo.html y nosotros.html
+    ──────────────────────────────────────────────────────────
+    El equipo NO necesita modificar esto.
+    Enrique entrega el footer listo. Sus estilos están en base.css.
+    ══════════════════════════════════════════════════════════
+    -->
     <footer>
         <div class="container">
 
@@ -1045,12 +882,29 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!--
+    ══════════════════════════════════════════════════════════
+    ▶ ENRIQUE PRADA — COORDINADOR (YA IMPLEMENTADO)
+    SCRIPTS — van al FINAL del body, en este orden exacto
+    ──────────────────────────────────────────────────────────
+    1. bootstrap.bundle.min.js → activa carousel, collapse, etc.
+    2. main.js → lógica global (navbar scroll, animaciones base).
+    3. matriz.js → abrirMatriz() / cerrarMatriz() para el modal RACI.
+       MAYKOL: este archivo te corresponde. Está en:
+       js/nosotros/matriz.js
+    ══════════════════════════════════════════════════════════
+    -->
+    <!-- Bootstrap JS — habilita carousel + navbar collapse -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Scripts del proyecto -->
+    <!-- main.js — lógica global del proyecto -->
     <script src="../../js/main.js"></script>
+
+    <!-- matriz.js — MAYKOL: abre/cierra el modal RACI -->
     <script src="js/nosotros/matriz.js"></script>
+
+    <!-- equipo.js — JOEL: genera las CV cards desde objetos JavaScript (POO) -->
+    <script src="js/nosotros/equipo.js"></script>
 
 </body>
 
