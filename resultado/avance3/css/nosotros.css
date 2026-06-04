@@ -125,6 +125,7 @@
    ============================================================ */
 #nosotros-carousel .jm-slide {
     height: 650px;
+    padding-top: 85px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1616,7 +1617,7 @@
 @media (max-width: 480px) {
     .nos-section { padding: 28px 0; }
 
-    #nosotros-carousel .jm-slide { height: 360px; }
+    #nosotros-carousel .jm-slide { height: 440px; }
 
     .nos-org-tree > li > ul {
         flex-direction: column;
