@@ -116,7 +116,7 @@ const equipo = [
     new Integrante({
         nombre: "Ricardo Enrique Prada Guerra",
         rol: "Scrum Master",
-        foto: "../../img/nosotros/equipo/enrique.jpg",
+        foto: "img/nosotros/equipo/enrique.jpg",
         skills: {
             lenguajes: ["Java", "TypeScript", "JavaScript", "Angular 11-16", "Spring Boot", "HTML5", "CSS3", "PHP"],
             bd: ["Oracle PL/SQL", "MongoDB", "MySQL", "SQL Server"],
@@ -204,7 +204,7 @@ const equipo = [
     new Integrante({
         nombre: "Joel Anthony Saldaña Chávez",
         rol: "Development Team",
-        foto: "../../img/nosotros/equipo/joel.jpg",
+        foto: "img/nosotros/equipo/joel.png",
         skills: {
             lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Java", "Python", "Bootstrap 5"],
             bd: ["PostgreSQL", "SQL Server", "MongoDB"],
