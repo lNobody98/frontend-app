@@ -143,7 +143,7 @@ const equipo = [
             "Endpoint Security (Cisco – UTP, 2026)",
             "Network Defense y Cyber Threat Management (Cisco – UTP, 2026)"
         ],
-        pdf: "../../pdf/nosotros/enrique_prada_cv.pdf",
+        pdf: "pdf/nosotros/enrique_prada_cv.pdf",
         iniciales: "EP",
         fotoClase: "nos-foto-enrique"
     }),
@@ -226,7 +226,7 @@ const equipo = [
             "Excel Intermedio (UTP, 2025)",
             "Inglés Básico/Intermedio - Lectura Técnica (UTP, 2025)"
         ],
-        pdf: "/pdf/nosotros/cv_joel_saldana.pdf",
+        pdf: "pdf/nosotros/cv_joel_saldana.pdf",
         iniciales: "JS",
         fotoClase: "nos-foto-joel"
     }),
