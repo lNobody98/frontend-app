@@ -41,15 +41,15 @@ class Integrante {
      * @param {string} pdf         - Ruta al CV en PDF (o '#' si aún no está)
      */
     constructor({ nombre, rol, foto, skills, habilidades, certs, pdf, iniciales, fotoClase }) {
-        this.nombre      = nombre;
-        this.rol         = rol;
-        this.foto        = foto;
-        this.skills      = skills;       // objeto con 3 sub-arrays
+        this.nombre = nombre;
+        this.rol = rol;
+        this.foto = foto;
+        this.skills = skills;       // objeto con 3 sub-arrays
         this.habilidades = habilidades;  // array de strings
-        this.certs       = certs;        // array de strings
-        this.pdf         = pdf;
-        this.iniciales   = iniciales;
-        this.fotoClase   = fotoClase;
+        this.certs = certs;        // array de strings
+        this.pdf = pdf;
+        this.iniciales = iniciales;
+        this.fotoClase = fotoClase;
     }
 
     // ─────────────────────────────────────────────────────────
@@ -125,13 +125,13 @@ const equipo = [
 
     // ── Enrique Prada (completo — sirve como referencia) ──
     new Integrante({
-        nombre:     "Ricardo Enrique Prada Guerra",
-        rol:        "Scrum Master",
-        foto:       "../../img/nosotros/equipo/enrique.jpg",
+        nombre: "Ricardo Enrique Prada Guerra",
+        rol: "Scrum Master",
+        foto: "../../img/nosotros/equipo/enrique.jpg",
         skills: {
             lenguajes: ["Java", "TypeScript", "JavaScript", "Angular 11-16", "Spring Boot", "HTML5", "CSS3", "PHP"],
-            bd:        ["Oracle PL/SQL", "MongoDB", "MySQL", "SQL Server"],
-            infra:     ["Docker", "Apache Kafka", "RabbitMQ", "Spring LDAP", "CI/CD"]
+            bd: ["Oracle PL/SQL", "MongoDB", "MySQL", "SQL Server"],
+            infra: ["Docker", "Apache Kafka", "RabbitMQ", "Spring LDAP", "CI/CD"]
         },
         habilidades: [
             "Aprendizaje continuo",
@@ -154,99 +154,99 @@ const equipo = [
             "Endpoint Security (Cisco – UTP, 2026)",
             "Network Defense y Cyber Threat Management (Cisco – UTP, 2026)"
         ],
-        pdf:        "../../pdf/nosotros/enrique_prada_cv.pdf",
-        iniciales:  "EP",
-        fotoClase:  "nos-foto-enrique"
+        pdf: "../../pdf/nosotros/enrique_prada_cv.pdf",
+        iniciales: "EP",
+        fotoClase: "nos-foto-enrique"
     }),
 
     // ── Maykol Calle ──────────────────────────────────────
     // TODO Maykol: reemplaza los [...] con tus datos reales
     new Integrante({
-        nombre:     "Maykol Adan Calle Paredes",
-        rol:        "Development Team",
-        foto:       "../../img/nosotros/equipo/maykol.jpg",
+        nombre: "Maykol Adan Calle Paredes",
+        rol: "Development Team",
+        foto: "../../img/nosotros/equipo/maykol.jpg",
         skills: {
             lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git"],
-            bd:        ["[Base de datos]"],
-            infra:     ["[Redes]"]
+            bd: ["[Base de datos]"],
+            infra: ["[Redes]"]
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs:       ["[Certificado placeholder]"],
-        pdf:         "#",
-        iniciales:   "MC",
-        fotoClase:   "nos-foto-maykol"
+        certs: ["[Certificado placeholder]"],
+        pdf: "#",
+        iniciales: "MC",
+        fotoClase: "nos-foto-maykol"
     }),
 
     // ── Christian Díaz ────────────────────────────────────
     // TODO Christian: reemplaza los [...] con tus datos reales
     new Integrante({
-        nombre:     "Christian Alexander Díaz García",
-        rol:        "Development Team",
-        foto:       "../../img/nosotros/equipo/christian.jpg",
+        nombre: "Christian Alexander Díaz García",
+        rol: "Development Team",
+        foto: "../../img/nosotros/equipo/christian.jpg",
         skills: {
             lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
-            bd:        ["[Base de datos]"],
-            infra:     ["[Redes]"]
+            bd: ["[Base de datos]"],
+            infra: ["[Redes]"]
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs:       ["[Certificado placeholder]"],
-        pdf:         "#",
-        iniciales:   "CD",
-        fotoClase:   "nos-foto-christian"
+        certs: ["[Certificado placeholder]"],
+        pdf: "#",
+        iniciales: "CD",
+        fotoClase: "nos-foto-christian"
     }),
 
     // ── Juan Morales ──────────────────────────────────────
     // TODO Juan: reemplaza los [...] con tus datos reales
     new Integrante({
-        nombre:     "Juan José Morales Velásquez",
-        rol:        "Product Owner",
-        foto:       "../../img/nosotros/equipo/juan.jpg",
+        nombre: "Juan José Morales Velásquez",
+        rol: "Product Owner",
+        foto: "../../img/nosotros/equipo/juan.jpg",
         skills: {
             lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
-            bd:        ["[Base de datos]"],
-            infra:     ["[Redes]"]
+            bd: ["[Base de datos]"],
+            infra: ["[Redes]"]
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs:       ["[Certificado placeholder]"],
-        pdf:         "#",
-        iniciales:   "JM",
-        fotoClase:   "nos-foto-juan"
+        certs: ["[Certificado placeholder]"],
+        pdf: "#",
+        iniciales: "JM",
+        fotoClase: "nos-foto-juan"
     }),
 
     // ── Joel Saldaña ──────────────────────────────────────
     // TODO Joel: reemplaza los [...] con tus datos reales
     new Integrante({
-        nombre:     "Joel Anthony Saldaña Chávez",
-        rol:        "Development Team",
-        foto:       "../../img/nosotros/equipo/joel.jpg",
+        nombre: "Joel Anthony Saldaña Chávez",
+        rol: "Development Team",
+        foto: "../../img/nosotros/equipo/joel.jpg",
         skills: {
             lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Git"],
-            bd:        ["[Base de datos]"],
-            infra:     ["[Redes]"]
+            bd: ["[Base de datos]"],
+            infra: ["[Redes]"]
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs:       ["[Certificado placeholder]"],
-        pdf:         "#",
-        iniciales:   "JS",
-        fotoClase:   "nos-foto-joel"
+        certs: ["[Certificado placeholder]"],
+        pdf: "#",
+        iniciales: "JS",
+        fotoClase: "nos-foto-joel"
     }),
 
     // ── Xiomara Solís ─────────────────────────────────────
     // TODO Xiomara: reemplaza los [...] con tus datos reales
     new Integrante({
-        nombre:     "Xiomara Yajhaira Solís Malpartida",
-        rol:        "Development Team",
-        foto:       "../../img/nosotros/equipo/xiomara.jpg",
+        nombre: "Xiomara Yajhaira Solís Malpartida",
+        rol: "Development Team",
+        foto: "../../img/nosotros/equipo/xiomara.jpg",
         skills: {
             lenguajes: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Git"],
-            bd:        ["[Base de datos]"],
-            infra:     ["[Redes]"]
+            bd: ["[Base de datos]"],
+            infra: ["[Redes]"]
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs:       ["[Certificado placeholder]"],
-        pdf:         "#",
-        iniciales:   "XS",
-        fotoClase:   "nos-foto-xiomara"
+        certs: ["[Certificado placeholder]"],
+        pdf: "#",
+        iniciales: "XS",
+        fotoClase: "nos-foto-xiomara"
     })
 ];
 
