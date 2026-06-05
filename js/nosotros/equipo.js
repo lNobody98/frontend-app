@@ -148,19 +148,28 @@ const equipo = [
         fotoClase: "nos-foto-enrique"
     }),
 
-    // ── TODO Maykol: rellena tu objeto ──
+   // ── Maykol Calle ──────────────────────────────────────
+    // TODO Maykol: reemplaza los [...] con tus datos reales
     new Integrante({
         nombre: "Maykol Adan Calle Paredes",
         rol: "Development Team",
-        foto: "../../img/nosotros/equipo/maykol.jpg",
+        foto: "img/nosotros/equipo/maykol.jpg",
         skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
+            lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git", "Python", "Java"],
+            bd: ["MongoDB", "MySQL", "SQL Server", "PostgreSQL"],
+            infra: ["Networking (TCP/IP)","Supabase"]
         },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
+        habilidades: [
+    "Trabajo en equipo",
+    "Resolución de problemas",
+    "Comunicación efectiva",
+    "Adaptabilidad",
+    "Aprendizaje rápido",
+    "Pensamiento analítico"
+],
+
+        certs: ["Redes y Comunicación de Datos I (UTP, 2025)",],
+        pdf:"pdf/nosotros/Maykol Adán Calle Paredes.pdf",
         iniciales: "MC",
         fotoClase: "nos-foto-maykol"
     }),
@@ -171,7 +180,7 @@ const equipo = [
         rol: "Development Team",
         foto: "../../img/nosotros/equipo/christian.jpg",
         skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
+            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git",],
             bd: ["[Base de datos]"],
             infra: ["[Redes]"]
         },
