@@ -232,18 +232,20 @@ const equipo = [
     }),
 
     // ── TODO Xiomara: rellena tu objeto ──
-    new Integrante({
-        nombre: "Xiomara Yajhaira Solís Malpartida",
+new Integrante({
+        nombre: "Xiomara Yajhaira Solis Malpartida",
         rol: "Development Team",
-        foto: "../../img/nosotros/equipo/xiomara.jpg",
+        foto: "img/nosotros/equipo/xiomara.jpg",
         skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
+            lenguajes: ["HTML5", "CSS3", "JavaScript"],
+            bd: ["MongoDB", "MySQL", "SQL Server"],
+            infra: [ "Fundamentos de Redes",
+            "Seguridad Informática",
+            "Ciberseguridad (nivel introductorio)"]
         },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
+        habilidades: [ "Trabajo en equipo","Aprendizaje continuo","Resolución de problemas"],
+        certs: ["Introduction to Cybersecurity - Cisco Networking Academy","Manejo de SAP R3","Asistente en Gestión de Empresas","Excel Intermedio","Inglés Básico A2"],
+        pdf: "pdf/nosotros/CV_Xiomara_Solis.pdf",
         iniciales: "XS",
         fotoClase: "nos-foto-xiomara"
     })
