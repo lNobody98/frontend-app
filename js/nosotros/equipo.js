@@ -169,14 +169,14 @@ const equipo = [
     new Integrante({
         nombre: "Christian Alexander Díaz García",
         rol: "Development Team",
-        foto: "../../img/nosotros/equipo/christian.jpg",
+        foto: "img/nosotros/equipo/christian.jpg",
         skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
+            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git" ,"python", "java"],
+            bd: ["MongoDB", "MySQL", "PostgreSQL", "SQL Server"],
+            infra: ["Networking (TCP/IP)", "supabase"]
         },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
+        habilidades: ["Trabajo en equipo", "Resolución de problemas", "Adaptabilidad", "Aprendizaje continuo", "Autodidacta"],
+        certs: ["Certificado python básico (UNI 2025)", "Certificado ciberseguridad (Cisco - UTP 2026)", "Certificado excel intermedio (cenap 2026)" ],
         pdf: "#",
         iniciales: "CD",
         fotoClase: "nos-foto-christian"
