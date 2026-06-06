@@ -186,15 +186,15 @@ const equipo = [
     new Integrante({
         nombre: "Juan José Morales Velásquez",
         rol: "Product Owner",
-        foto: "../../img/nosotros/equipo/juan.jpg",
+        foto: "img/nosotros/equipo/JuanJosé.jpg",
         skills: {
             lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
+            bd: ["MySQL","PostgreSQL","SQL Server"],
+            infra: ["Linux (Bash/CLI)", "Windows Server", "Git", "GitHub","Apache"]
         },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
+        habilidades: ["Trabajo en equipo", "Resolución de problemas", "Comunicación efectiva"],
+        certs: ["Cisco Networking Basics", "Fundamentos de Git y GitHub", "Introducción a Linux"],
+        pdf: "pdf/nosotros/cv-juan.dpf",
         iniciales: "JM",
         fotoClase: "nos-foto-juan"
     }),
