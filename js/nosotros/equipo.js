@@ -237,11 +237,11 @@ new Integrante({
         rol: "Development Team",
         foto: "img/nosotros/equipo/xiomara.jpg",
         skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript"],
+            lenguajes: ["HTML5", "CSS3", "JavaScript","Java"],
             bd: ["MongoDB", "MySQL", "SQL Server"],
             infra: [ "Fundamentos de Redes",
             "Seguridad Informática",
-            "Ciberseguridad (nivel introductorio)"]
+            "Ciberseguridad"]
         },
         habilidades: [ "Trabajo en equipo","Aprendizaje continuo","Resolución de problemas"],
         certs: ["Introduction to Cybersecurity - Cisco Networking Academy","Manejo de SAP R3","Asistente en Gestión de Empresas","Excel Intermedio","Inglés Básico A2"],
@@ -249,6 +249,7 @@ new Integrante({
         iniciales: "XS",
         fotoClase: "nos-foto-xiomara"
     })
+
 ];
 
 
