@@ -185,34 +185,116 @@
             </div>
         </section>
 
-        <!-- ============================================================
-             ▶ XIOMARA SOLÍS — GESTIÓN DEL PROYECTO
-             Referencia: resultado/avance3/nosotros.html
-             → <section id="nosotros-gp">
-             ============================================================ -->
+
+         <!--
+        ══════════════════════════════════════════════════════
+        ▶ XIOMARA SOLÍS — GESTIÓN DEL PROYECTO
+        SECCIÓN GESTIÓN DEL PROYECTO
+        -->
         <section id="nosotros-gp" class="nos-section nos-section-alt">
             <div class="container">
-                <div style="
-                    border: 2px dashed rgba(0,0,0,0.25);
-                    padding: 60px 20px;
-                    background: rgba(0,0,0,0.04);
-                    font-family: monospace;
-                    color: rgba(0,0,0,0.6);
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                ">
-                    <span style="font-size:1.5rem;font-weight:700;color:#000;">▶ XIOMARA SOLÍS</span>
-                    <span style="font-size:1rem;">GESTIÓN DEL PROYECTO</span>
-                    <span style="font-size:0.85rem;">Copia desde: resultado/avance3/nosotros.html</span>
-                    <span style="font-size:0.85rem;">→ contenido interno del <code
-                            style="color:rgba(0,0,0,0.8)">&lt;section id="nosotros-gp"&gt;</code></span>
-                    <span
-                        style="border:1px dashed rgba(0,0,0,0.25);padding:4px 14px;border-radius:4px;font-size:0.78rem;">
-                        BORRA ESTE DIV Y PEGA TU SECCIÓN
-                    </span>
+                <div class="nos-section-header">
+                    <h2>Gestión del <span>Proyecto</span></h2>
+                    <p>Metodología, herramientas y distribución de trabajo por sprint</p>
+                </div>
+
+                <!-- Herramientas en chips centrados -->
+                <div class="nos-gp-tools">
+                    <div class="nos-gp-tool">
+                        <i class="fas fa-sync-alt"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Marco de trabajo</h4>
+                            <p>Scrum Ágil</p>
+                        </div>
+                    </div>
+                    <div class="nos-gp-tool">
+                        <i class="fab fa-jira"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Gestión de tareas</h4>
+                            <p>Jira Software</p>
+                        </div>
+                    </div>
+                    <div class="nos-gp-tool">
+                        <i class="fab fa-git-alt"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Control de versiones</h4>
+                            <p>Git + Pull Requests</p>
+                        </div>
+                    </div>
+                    <div class="nos-gp-tool">
+                        <i class="fab fa-github"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Repositorio</h4>
+                            <p>GitHub — NXR-TECH</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Descripción centrada -->
+                <div class="nos-gp-desc">
+                    El proyecto se organizó bajo <strong>Scrum</strong>, dividiendo el trabajo en sprints con
+                    objetivos claros. Cada integrante trabajó en una rama propia de Git y los cambios se
+                    integraron a <code>main</code> mediante Pull Request revisado por el coordinador.
+                    Las tareas se gestionaron en <strong>Jira</strong> con un tablero kanban visible para todo el equipo.
+                </div>
+
+                <!-- Sprints con línea de tiempo -->
+                <div class="nos-gp-timeline-wrap">
+                    <div class="nos-gp-timeline">
+
+                        <div class="nos-sprint">
+                            <div class="nos-sprint-num">1</div>
+                            <div class="nos-sprint-header">
+                                <h4>Sprint 1 — Inicio</h4>
+                                <span class="nos-sprint-fecha">Marzo 2026 · Semanas 1–4</span>
+                            </div>
+                            <div class="nos-sprint-body">
+                                <ul>
+                                    <li>Estructura HTML semántica</li>
+                                    <li>Diseño de navbar responsive</li>
+                                    <li>Hero, video y secciones de inicio</li>
+                                    <li>Footer con mapa y redes</li>
+                                    <li>Estilos globales (base.css)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="nos-sprint">
+                            <div class="nos-sprint-num">2</div>
+                            <div class="nos-sprint-header">
+                                <h4>Sprint 2 — Catálogo</h4>
+                                <span class="nos-sprint-fecha">Abril – Mayo 2026 · Semanas 5–8</span>
+                            </div>
+                            <div class="nos-sprint-body">
+                                <ul>
+                                    <li>Carousel Bootstrap con 6 slides</li>
+                                    <li>Categorías visuales (20 categorías)</li>
+                                    <li>Modelo POO: clases e herencia</li>
+                                    <li>120 ítems en memoria (60+60)</li>
+                                    <li>Búsqueda dinámica y filtros</li>
+                                    <li>Listado, paginación y ordenamiento</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="nos-sprint">
+                            <div class="nos-sprint-num">3</div>
+                            <div class="nos-sprint-header">
+                                <h4>Sprint 3 — Nosotros</h4>
+                                <span class="nos-sprint-fecha">Mayo – Junio 2026 · Semanas 9–12</span>
+                            </div>
+                            <div class="nos-sprint-body">
+                                <ul>
+                                    <li>Mapa organizacional HTML/CSS</li>
+                                    <li>Misión, Visión y Objetivos</li>
+                                    <li>CV de cada integrante</li>
+                                    <li>Gestión del proyecto (Scrum)</li>
+                                    <li>Matriz de Responsabilidad RACI</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </section>
