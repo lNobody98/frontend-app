@@ -252,11 +252,85 @@
 
 
 /* ============================================================
-   ▶ CHRISTIAN DÍAZ — COPIA TU CSS AQUÍ
-   Desde: resultado/avance3/css/nosotros.css
-   Sección: "▶ CHRISTIAN DÍAZ — BANNER + INFORMACIÓN DE LA EMPRESA"
-   Clases a copiar: .jm-slide, .jm-slide-contenido, .nos-info-grid, .nos-info-card
+   ▶ CHRISTIAN DÍAZ — BANNER + INFORMACIÓN DE LA EMPRESA  (1/2)
+   CAROUSEL — clases .jm-slide, .jm-slide-contenido
+   ─────────────────────────────────────────────────────────
+   CHRISTIAN: Copia todo desde aquí hasta el comentario
+   "ENRIQUE — ESTILOS DE SECCIÓN BASE" y pégalo en
+   css/nosotros.css del proyecto real.
+
+   ¿QUÉ HACE?
+   • .jm-slide: cada slide ocupa height:650px con su imagen
+     de fondo asignada inline en el HTML así:
+       style="background-image: url('img/nosotros/banner-1.jpg')"
+     La imagen cubre todo el slide con background-size:cover.
+
+   • .jm-slide::before: overlay degradado semitransparente
+     encima de la foto para que el texto siempre sea legible.
+     Usa ::before con position:absolute; inset:0 (cubre todo).
+
+   • .jm-slide-contenido: centra el texto con flexbox,
+     z-index:2 para quedar por encima del overlay.
+     max-width:700px para que las líneas no sean demasiado largas.
+
+   • Tipografía usa clamp(min, vw, max) → se escala solo
+     entre móvil y escritorio sin necesitar @media.
+     Ejemplo: font-size: clamp(2rem, 5vw, 3.2rem)
+
+   IMÁGENES NECESARIAS — coloca en img/nosotros/:
+     banner-1.jpg, banner-2.jpg, banner-3.jpg
+     Dimensión mínima recomendada: 1920 × 800 px
+
+   HTML asociado: <section id="nosotros-carousel"> dentro de
+                  <header id="navbar">
+   ─────────────────────────────────────────────────────────
    ============================================================ */
+#nosotros-carousel .jm-slide {
+    height: 650px;
+    padding-top: 85px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nosotros-carousel .jm-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 100%);
+}
+
+#nosotros-carousel .jm-slide-contenido {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    padding: 0 24px;
+}
+
+#nosotros-carousel .jm-slide-contenido h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.15;
+}
+
+#nosotros-carousel .jm-slide-contenido h2 span {
+    color: var(--color-acento);
+}
+
+#nosotros-carousel .jm-slide-contenido p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
 
 
 /* ============================================================
