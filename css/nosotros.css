@@ -493,15 +493,201 @@
 
 /* ============================================================
    ▶ XIOMARA SOLÍS — COPIA TU CSS AQUÍ
-   Desde: resultado/avance3/css/nosotros.css
-   Sección: "▶ XIOMARA SOLÍS — GESTIÓN DEL PROYECTO"
-   Clases a copiar: .nos-gp-tools, .nos-gp-tool, .nos-gp-desc,
-                    .nos-gp-timeline-wrap, .nos-gp-timeline,
-                    .nos-sprint, .nos-sprint-num, .nos-sprint-header,
-                    .nos-sprint-body, .nos-sprint-fecha
-   ============================================================ */
+/* Fila de herramientas — 4 chips centrados */
+.nos-gp-tools {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 50px;
+}
 
+.nos-gp-tool {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--color-borde);
+    border-radius: 50px;
+    padding: 12px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+}
 
+.nos-gp-tool:hover {
+    border-color: var(--color-acento);
+    transform: translateY(-2px);
+}
+
+.nos-gp-tool i {
+    font-size: 1.3rem;
+    color: var(--color-acento);
+}
+
+.nos-gp-tool-texto h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin: 0 0 2px;
+}
+
+.nos-gp-tool-texto p {
+    font-size: 0.75rem;
+    color: var(--color-texto-gris);
+    margin: 0;
+}
+
+/* Descripción centrada */
+.nos-gp-desc {
+    max-width: 780px;
+    margin: 0 auto 60px;
+    text-align: center;
+    color: var(--color-texto-gris);
+    line-height: 1.85;
+    font-size: 0.97rem;
+}
+
+.nos-gp-desc code {
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    color: var(--color-acento);
+    background: rgba(var(--color-acento-rgb, 0,180,216), 0.1);
+    padding: 1px 8px;
+    border-radius: 4px;
+}
+
+.nos-gp-desc strong {
+    color: var(--color-texto);
+    font-weight: 600;
+}
+
+/* ── Timeline wrapper: reserva espacio para los dots ── */
+.nos-gp-timeline-wrap {
+    position: relative;
+    padding-top: 32px;
+}
+
+/* Línea horizontal que conecta los 3 dots */
+.nos-gp-timeline-wrap::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(100% / 6);
+    right: calc(100% / 6);
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        rgba(var(--color-acento-rgb,0,180,216), 0.2) 0%,
+        var(--color-acento) 30%,
+        var(--color-acento) 70%,
+        rgba(var(--color-acento-rgb,0,180,216), 0.2) 100%
+    );
+    z-index: 0;
+}
+
+/* Grid de cards */
+.nos-gp-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Cada card */
+.nos-sprint {
+    border-radius: 20px;
+    overflow: visible;
+    border: 1px solid var(--color-borde);
+    background: rgba(255,255,255,0.03);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    margin-top: 0;
+}
+
+.nos-sprint:hover {
+    box-shadow: 0 0 0 1px var(--color-acento),
+                0 8px 40px rgba(var(--color-acento-rgb,0,180,216), 0.2);
+    border-color: var(--color-acento);
+}
+
+/* Dot de número — sobresale arriba de la card */
+.nos-sprint-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-acento);
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 0 5px rgba(var(--color-acento-rgb,0,180,216),0.2),
+                0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* Header del sprint — sin número, solo texto */
+.nos-sprint-header {
+    background: linear-gradient(135deg,
+        rgba(var(--color-acento-rgb,0,180,216),0.18) 0%,
+        rgba(var(--color-acento-rgb,0,180,216),0.06) 100%
+    );
+    border-bottom: 1px solid rgba(var(--color-acento-rgb,0,180,216),0.2);
+    padding: 44px 20px 18px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.nos-sprint-header h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: var(--color-texto);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.nos-sprint-fecha {
+    font-size: 0.75rem;
+    color: var(--color-acento);
+    display: block;
+    font-weight: 500;
+}
+
+/* Cuerpo del sprint */
+.nos-sprint-body {
+    padding: 20px 20px 24px;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+}
+
+.nos-sprint-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nos-sprint-body ul li {
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.88);
+    padding: 8px 12px 8px 14px;
+    border-left: 2px solid rgba(var(--color-acento-rgb,0,180,216), 0.4);
+    border-radius: 0 8px 8px 0;
+    background: rgba(255,255,255,0.03);
+    line-height: 1.4;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.nos-sprint:hover .nos-sprint-body ul li {
+    border-left-color: var(--color-acento);
+    background: rgba(255,255,255,0.05);
+}
 /* ============================================================
    ▶ MAYKOL CALLE — COPIA TU CSS AQUÍ
    Desde: resultado/avance3/css/nosotros.css
