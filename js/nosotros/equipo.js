@@ -194,7 +194,7 @@ const equipo = [
         },
         habilidades: ["Trabajo en equipo", "Resolución de problemas", "Comunicación efectiva"],
         certs: ["Cisco Networking Basics", "Fundamentos de Git y GitHub", "Introducción a Linux"],
-        pdf: "pdf/nosotros/cv-juan.dpf",
+        pdf: "pdf/nosotros/cv-juan.pdf",
         iniciales: "JM",
         fotoClase: "nos-foto-juan"
     }),
