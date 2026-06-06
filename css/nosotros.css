@@ -266,6 +266,153 @@
    Clases a copiar: .nos-org-tree, .nos-org-node, .nos-org-coord,
                     .nos-org-avatar, .nos-obj-wrap, .nos-obj-*
    ============================================================ */
+   .nos-org-tree {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nos-org-tree > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.nos-org-tree > li > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    padding-top: 40px;
+    width: 100%;
+}
+
+/* Línea vertical desde el coordinador — margin crea el espacio real en flex */
+.nos-org-tree > li > .nos-org-node {
+    position: relative;
+    margin-bottom: 70px;
+    z-index: 1;
+}
+
+.nos-org-tree > li > .nos-org-node::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 70px;
+    background: var(--color-acento);
+    z-index: 2;
+}
+
+/* Línea horizontal que conecta al equipo */
+.nos-org-tree > li > ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: var(--color-acento);
+}
+
+/* Línea vertical bajando desde horizontal hasta cada integrante */
+.nos-org-tree > li > ul > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 0;
+}
+
+.nos-org-tree > li > ul > li::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: var(--color-acento);
+}
+
+/* Nodo base */
+.nos-org-node {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    width: 180px;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.nos-org-node:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-acento);
+}
+
+/* Nodo coordinador — destacado */
+.nos-org-coord {
+    border-color: var(--color-acento);
+    background: rgba(var(--color-acento-rgb, 0,180,216), 0.08);
+    width: 220px;
+    padding: 28px 24px;
+}
+
+/* Avatar circular */
+.nos-org-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    overflow: hidden;
+    border: 2px solid var(--color-acento);
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-acento);
+}
+
+.nos-org-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nos-org-coord .nos-org-avatar {
+    width: 96px;
+    height: 96px;
+    font-size: 1.6rem;
+}
+
+.nos-org-node h4 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.nos-org-node span {
+    font-size: 0.75rem;
+    color: var(--color-acento);
+    font-weight: 500;
+}
+
 
 
 /* ============================================================
