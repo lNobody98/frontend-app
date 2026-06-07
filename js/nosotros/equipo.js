@@ -4,11 +4,13 @@
 // Clase Integrante — Enrique Prada
 class Integrante {
 
-    constructor({ nombre, rol, foto, skills, habilidades, certs, cv }) {
+    constructor({ nombre, rol, foto, lenguajes, bd, infra, habilidades, certs, cv }) {
         this.nombre = nombre;
         this.rol = rol;
         this.foto = foto;
-        this.skills = skills;
+        this.lenguajes = lenguajes;
+        this.bd = bd;
+        this.infra = infra;
         this.habilidades = habilidades;
         this.certs = certs;
         this.cv = cv;
@@ -35,11 +37,11 @@ class Integrante {
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
                         <p class="nos-cv-sub">Lenguajes y Frameworks</p>
-                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.lenguajes, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.lenguajes, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Base de Datos</p>
-                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.bd, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.bd, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Infraestructura y Redes</p>
-                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.infra, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.infra, 'nos-tag-lang')}</div>
                     </div>
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
@@ -69,11 +71,9 @@ const equipo = [
         nombre: "Ricardo Enrique Prada Guerra",
         rol: "Scrum Master",
         foto: "img/nosotros/equipo/enrique.jpg",
-        skills: {
-            lenguajes: ["Java", "TypeScript", "JavaScript", "Angular 11-16", "Spring Boot", "HTML5", "CSS3", "PHP"],
-            bd: ["Oracle PL/SQL", "MongoDB", "MySQL", "SQL Server"],
-            infra: ["Docker", "Apache Kafka", "RabbitMQ", "Spring LDAP", "CI/CD"]
-        },
+        lenguajes: ["Java", "TypeScript", "JavaScript", "Angular 11-16", "Spring Boot", "HTML5", "CSS3", "PHP"],
+        bd: ["Oracle PL/SQL", "MongoDB", "MySQL", "SQL Server"],
+        infra: ["Docker", "Apache Kafka", "RabbitMQ", "Spring LDAP", "CI/CD"],
         habilidades: [
             "Aprendizaje continuo",
             "Orientación a resultados",
@@ -103,11 +103,9 @@ const equipo = [
         nombre: "Maykol Adan Calle Paredes",
         rol: "Development Team",
         foto: "img/nosotros/equipo/maykol.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git", "Python", "Java"],
-            bd: ["MongoDB", "MySQL", "SQL Server", "PostgreSQL"],
-            infra: ["Networking (TCP/IP)", "Supabase"]
-        },
+        lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git", "Python", "Java"],
+        bd: ["MongoDB", "MySQL", "SQL Server", "PostgreSQL"],
+        infra: ["Networking (TCP/IP)", "Supabase"],
         habilidades: [
             "Trabajo en equipo",
             "Resolución de problemas",
@@ -125,11 +123,9 @@ const equipo = [
         nombre: "Christian Alexander Díaz García",
         rol: "Development Team",
         foto: "img/nosotros/equipo/christian.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git", "Python", "Java"],
-            bd: ["MongoDB", "MySQL", "PostgreSQL", "SQL Server"],
-            infra: ["Networking (TCP/IP)", "Supabase"]
-        },
+        lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git", "Python", "Java"],
+        bd: ["MongoDB", "MySQL", "PostgreSQL", "SQL Server"],
+        infra: ["Networking (TCP/IP)", "Supabase"],
         habilidades: ["Trabajo en equipo", "Resolución de problemas", "Adaptabilidad", "Aprendizaje continuo", "Autodidacta"],
         certs: [
             "Certificado Python Básico (UNI, 2025)",
@@ -144,11 +140,9 @@ const equipo = [
         nombre: "Juan José Morales Velásquez",
         rol: "Product Owner",
         foto: "img/nosotros/equipo/JuanJosé.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
-            bd: ["MySQL", "PostgreSQL", "SQL Server"],
-            infra: ["Linux (Bash/CLI)", "Windows Server", "Git", "GitHub", "Apache"]
-        },
+        lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
+        bd: ["MySQL", "PostgreSQL", "SQL Server"],
+        infra: ["Linux (Bash/CLI)", "Windows Server", "Git", "GitHub", "Apache"],
         habilidades: ["Trabajo en equipo", "Resolución de problemas", "Comunicación efectiva"],
         certs: [
             "Cisco Networking Basics",
@@ -163,11 +157,9 @@ const equipo = [
         nombre: "Joel Anthony Saldaña Chávez",
         rol: "Development Team",
         foto: "img/nosotros/equipo/joel.png",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Java", "Python", "Bootstrap 5"],
-            bd: ["PostgreSQL", "SQL Server", "MongoDB"],
-            infra: ["Linux (Bash/CLI)", "Supabase", "Git", "Networking (TCP/IP)"]
-        },
+        lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Java", "Python", "Bootstrap 5"],
+        bd: ["PostgreSQL", "SQL Server", "MongoDB"],
+        infra: ["Linux (Bash/CLI)", "Supabase", "Git", "Networking (TCP/IP)"],
         habilidades: [
             "Adaptabilidad",
             "Trabajo en equipo",
@@ -192,11 +184,9 @@ const equipo = [
         nombre: "Xiomara Yajhaira Solis Malpartida",
         rol: "Development Team",
         foto: "img/nosotros/equipo/xiomara.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Java"],
-            bd: ["MongoDB", "MySQL", "SQL Server"],
-            infra: ["Fundamentos de Redes", "Seguridad Informática", "Ciberseguridad"]
-        },
+        lenguajes: ["HTML5", "CSS3", "JavaScript", "Java"],
+        bd: ["MongoDB", "MySQL", "SQL Server"],
+        infra: ["Fundamentos de Redes", "Seguridad Informática", "Ciberseguridad"],
         habilidades: ["Trabajo en equipo", "Aprendizaje continuo", "Resolución de problemas"],
         certs: [
             "Introduction to Cybersecurity – Cisco Networking Academy",

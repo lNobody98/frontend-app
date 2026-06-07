@@ -33,16 +33,20 @@ class Integrante {
      * @param {string} nombre      - Nombre completo
      * @param {string} rol         - Rol Scrum (Scrum Master, Development Team…)
      * @param {string} foto        - Ruta a la foto (img/nosotros/equipo/nombre.jpg)
-     * @param {Object} skills      - { lenguajes: [], bd: [], infra: [] }
+     * @param {string[]} lenguajes - Lenguajes y frameworks
+     * @param {string[]} bd        - Bases de datos
+     * @param {string[]} infra     - Infraestructura y redes
      * @param {string[]} habilidades - Habilidades blandas (mínimo 3)
      * @param {string[]} certs     - Lista de certificados
      * @param {string} cv         - Ruta al CV en PDF
      */
-    constructor({ nombre, rol, foto, skills, habilidades, certs, cv }) {
+    constructor({ nombre, rol, foto, lenguajes, bd, infra, habilidades, certs, cv }) {
         this.nombre = nombre;
         this.rol = rol;
         this.foto = foto;
-        this.skills = skills;       // objeto con 3 sub-arrays
+        this.lenguajes = lenguajes;
+        this.bd = bd;
+        this.infra = infra;
         this.habilidades = habilidades;  // array de strings
         this.certs = certs;        // array de strings
         this.cv = cv;
@@ -78,11 +82,11 @@ class Integrante {
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
                         <p class="nos-cv-sub">Lenguajes y Frameworks</p>
-                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.lenguajes, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.lenguajes, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Base de Datos</p>
-                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.bd, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.bd, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Infraestructura y Redes</p>
-                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.infra, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.infra, 'nos-tag-lang')}</div>
                     </div>
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
@@ -118,11 +122,9 @@ const equipo = [
         nombre: "Ricardo Enrique Prada Guerra",
         rol: "Scrum Master",
         foto: "../../img/nosotros/equipo/enrique.jpg",
-        skills: {
-            lenguajes: ["Java", "TypeScript", "JavaScript", "Angular 11-16", "Spring Boot", "HTML5", "CSS3", "PHP"],
-            bd: ["Oracle PL/SQL", "MongoDB", "MySQL", "SQL Server"],
-            infra: ["Docker", "Apache Kafka", "RabbitMQ", "Spring LDAP", "CI/CD"]
-        },
+        lenguajes: ["Java", "TypeScript", "JavaScript", "Angular 11-16", "Spring Boot", "HTML5", "CSS3", "PHP"],
+        bd: ["Oracle PL/SQL", "MongoDB", "MySQL", "SQL Server"],
+        infra: ["Docker", "Apache Kafka", "RabbitMQ", "Spring LDAP", "CI/CD"],
         habilidades: [
             "Aprendizaje continuo",
             "Orientación a resultados",
@@ -153,11 +155,9 @@ const equipo = [
         nombre: "Maykol Adan Calle Paredes",
         rol: "Development Team",
         foto: "../../img/nosotros/equipo/maykol.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
-        },
+        lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git"],
+        bd: ["[Base de datos]"],
+        infra: ["[Redes]"],
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
         certs: ["[Certificado placeholder]"],
         cv: "#"
@@ -217,11 +217,9 @@ const equipo = [
         nombre: "Xiomara Yajhaira Solís Malpartida",
         rol: "Development Team",
         foto: "../../img/nosotros/equipo/xiomara.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
-        },
+        lenguajes: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Git"],
+        bd: ["[Base de datos]"],
+        infra: ["[Redes]"],
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
         certs: ["[Certificado placeholder]"],
         cv: "#"
