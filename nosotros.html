@@ -60,28 +60,57 @@
              → <section id="nosotros-carousel"> va DENTRO del header
              ============================================================ -->
         <section id="nosotros-carousel">
-            <div style="
-                border: 2px dashed rgba(255,255,255,0.3);
-                padding: 60px 20px;
-                margin-top: 85px;
-                background: rgba(255,255,255,0.03);
-                font-family: monospace;
-                color: rgba(255,255,255,0.7);
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            ">
-                <span style="font-size:1.5rem;font-weight:700;color:#fff;">▶ CHRISTIAN DÍAZ</span>
-                <span style="font-size:1rem;">CAROUSEL / BANNER</span>
-                <span style="font-size:0.85rem;">Copia desde: resultado/avance3/nosotros.html</span>
-                <span style="font-size:0.85rem;">→ contenido del <code
-                        style="color:rgba(255,255,255,0.9)">&lt;section id="nosotros-carousel"&gt;</code></span>
-                <span
-                    style="border:1px dashed rgba(255,255,255,0.3);padding:4px 14px;border-radius:4px;font-size:0.78rem;">
-                    BORRA ESTE DIV Y PEGA EL CAROUSEL
-                </span>
+            <div id="carouselNosotros" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselNosotros" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselNosotros" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselNosotros" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <div class="jm-slide" style="background-image: url('../../img/nosotros/banner-1.jpg');">
+                            <div class="jm-slide-contenido">
+                                <h2>Nuestro <span>Equipo</span></h2>
+                                <p>Somos NXR Team — seis ingenieros comprometidos con la innovación tecnológica y el trabajo colaborativo.</p>
+                                <a href="#nosotros-organigrama" class="btn-primario">Conoce al equipo →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="jm-slide" style="background-image: url('../../img/nosotros/banner-2.jpg');">
+                            <div class="jm-slide-contenido">
+                                <h2>Gestión <span>Ágil</span></h2>
+                                <p>Aplicamos la metodología Scrum con Jira y Git para garantizar entregas de calidad en cada sprint.</p>
+                                <a href="#nosotros-gp" class="btn-primario">Ver metodología →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="jm-slide" style="background-image: url('../../img/nosotros/banner-3.jpg');">
+                            <div class="jm-slide-contenido">
+                                <h2>Responsabilidad <span>y Compromiso</span></h2>
+                                <p>Cada integrante tiene un rol definido. Nuestro trabajo habla por nosotros.</p>
+                                <a href="#nosotros-matriz-cta" class="btn-primario">Ver Matriz RACI →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselNosotros" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselNosotros" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+
             </div>
         </section>
 
@@ -96,30 +125,27 @@
              ============================================================ -->
         <section id="nosotros-info" class="nos-section">
             <div class="container">
-                <div style="
-                    border: 2px dashed rgba(255,255,255,0.3);
-                    padding: 60px 20px;
-                    background: rgba(255,255,255,0.03);
-                    font-family: monospace;
-                    color: rgba(255,255,255,0.7);
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                ">
-                    <span style="font-size:1.5rem;font-weight:700;color:#fff;">▶ CHRISTIAN DÍAZ</span>
-                    <span style="font-size:1rem;">INFORMACIÓN DE LA EMPRESA (Misión y Visión)</span>
-                    <span style="font-size:0.85rem;">Copia desde: resultado/avance3/nosotros.html</span>
-                    <span style="font-size:0.85rem;">→ contenido interno del <code
-                            style="color:rgba(255,255,255,0.9)">&lt;section id="nosotros-info"&gt;</code></span>
-                    <span
-                        style="border:1px dashed rgba(255,255,255,0.3);padding:4px 14px;border-radius:4px;font-size:0.78rem;">
-                        BORRA ESTE DIV Y PEGA TU SECCIÓN
-                    </span>
+                <div class="nos-section-header">
+                    <h2>Información de <span>la Empresa</span></h2>
+                    <p>Quiénes somos y hacia dónde vamos</p>
+                </div>
+                <div class="nos-info-grid">
+                    <div class="nos-info-card">
+                        <h3><i class="fas fa-bullseye"></i> Misión</h3>
+                        <p>Brindar soluciones tecnológicas completas y accesibles — teléfonos, computadoras,
+                           componentes, accesorios y servicios especializados — con un equipo capacitado y
+                           orientado a la satisfacción del cliente, generando confianza en cada interacción.</p>
+                    </div>
+                    <div class="nos-info-card">
+                        <h3><i class="fas fa-eye"></i> Visión</h3>
+                        <p>Ser reconocidos como la empresa tecnológica de referencia en el Perú, destacando
+                           por la innovación constante, la calidad de nuestros productos y servicios, y la
+                           capacidad de acercar la tecnología del futuro a cada peruano.</p>
+                    </div>
                 </div>
             </div>
         </section>
+
 
         <!-- ============================================================
              ▶ JUAN MORALES — OBJETIVOS (parte 1 de 2)
