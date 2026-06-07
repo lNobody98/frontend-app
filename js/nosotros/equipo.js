@@ -186,7 +186,7 @@ const equipo = [
         },
         habilidades: ["Trabajo en equipo", "Resolución de problemas", "Adaptabilidad", "Aprendizaje continuo", "Autodidacta"],
         certs: ["Certificado python básico (UNI 2025)", "Certificado ciberseguridad (Cisco - UTP 2026)", "Certificado excel intermedio (cenap 2026)" ],
-        pdf: "#",
+        pdf: "pdf/nosotros/cv_christian_diaz.pdf",
         iniciales: "CD",
         fotoClase: "nos-foto-christian"
     }),
