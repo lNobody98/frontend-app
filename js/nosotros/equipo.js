@@ -148,19 +148,28 @@ const equipo = [
         fotoClase: "nos-foto-enrique"
     }),
 
-    // ── TODO Maykol: rellena tu objeto ──
+   // ── Maykol Calle ──────────────────────────────────────
+    // TODO Maykol: reemplaza los [...] con tus datos reales
     new Integrante({
         nombre: "Maykol Adan Calle Paredes",
         rol: "Development Team",
-        foto: "../../img/nosotros/equipo/maykol.jpg",
+        foto: "img/nosotros/equipo/maykol.jpg",
         skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
+            lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git", "Python", "Java"],
+            bd: ["MongoDB", "MySQL", "SQL Server", "PostgreSQL"],
+            infra: ["Networking (TCP/IP)","Supabase"]
         },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
+        habilidades: [
+    "Trabajo en equipo",
+    "Resolución de problemas",
+    "Comunicación efectiva",
+    "Adaptabilidad",
+    "Aprendizaje rápido",
+    "Pensamiento analítico"
+],
+
+        certs: ["Redes y Comunicación de Datos I (UTP, 2025)",],
+        pdf:"pdf/nosotros/Maykol Adán Calle Paredes.pdf",
         iniciales: "MC",
         fotoClase: "nos-foto-maykol"
     }),
@@ -171,7 +180,7 @@ const equipo = [
         rol: "Development Team",
         foto: "img/nosotros/equipo/christian.jpg",
         skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git" ,"python", "java"],
+            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git" ,"python", "java",],
             bd: ["MongoDB", "MySQL", "PostgreSQL", "SQL Server"],
             infra: ["Networking (TCP/IP)", "supabase"]
         },
@@ -186,15 +195,15 @@ const equipo = [
     new Integrante({
         nombre: "Juan José Morales Velásquez",
         rol: "Product Owner",
-        foto: "../../img/nosotros/equipo/juan.jpg",
+        foto: "img/nosotros/equipo/JuanJosé.jpg",
         skills: {
             lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
+            bd: ["MySQL","PostgreSQL","SQL Server"],
+            infra: ["Linux (Bash/CLI)", "Windows Server", "Git", "GitHub","Apache"]
         },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
+        habilidades: ["Trabajo en equipo", "Resolución de problemas", "Comunicación efectiva"],
+        certs: ["Cisco Networking Basics", "Fundamentos de Git y GitHub", "Introducción a Linux"],
+        pdf: "pdf/nosotros/cv-Juan-Morales.pdf",
         iniciales: "JM",
         fotoClase: "nos-foto-juan"
     }),
@@ -232,21 +241,24 @@ const equipo = [
     }),
 
     // ── TODO Xiomara: rellena tu objeto ──
-    new Integrante({
-        nombre: "Xiomara Yajhaira Solís Malpartida",
+new Integrante({
+        nombre: "Xiomara Yajhaira Solis Malpartida",
         rol: "Development Team",
-        foto: "../../img/nosotros/equipo/xiomara.jpg",
+        foto: "img/nosotros/equipo/xiomara.jpg",
         skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
+            lenguajes: ["HTML5", "CSS3", "JavaScript","Java"],
+            bd: ["MongoDB", "MySQL", "SQL Server"],
+            infra: [ "Fundamentos de Redes",
+            "Seguridad Informática",
+            "Ciberseguridad"]
         },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
+        habilidades: [ "Trabajo en equipo","Aprendizaje continuo","Resolución de problemas"],
+        certs: ["Introduction to Cybersecurity - Cisco Networking Academy","Manejo de SAP R3","Asistente en Gestión de Empresas","Excel Intermedio","Inglés Básico A2"],
+        pdf: "pdf/nosotros/CV_Xiomara_Solis.pdf",
         iniciales: "XS",
         fotoClase: "nos-foto-xiomara"
     })
+
 ];
 
 
