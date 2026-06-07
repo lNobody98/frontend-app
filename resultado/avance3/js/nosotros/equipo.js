@@ -11,14 +11,14 @@
 //
 //   1. Clase Integrante → el "molde" (blueprint) de cada persona
 //   2. Array equipo[]   → lista de los 6 integrantes
-//   3. renderEquipo()   → genera el HTML automáticamente
+//   3. generarTarjeta() → genera el HTML automáticamente
 //
 // FLUJO:
-//   Datos (equipo.js)  →  renderCard()  →  innerHTML del grid HTML
+//   Datos (equipo.js)  →  generarTarjeta()  →  innerHTML del grid HTML
 //
 // PARA AGREGAR O EDITAR UN INTEGRANTE:
 //   Solo modifica su objeto dentro del array equipo[].
-//   No toques el HTML, no toques renderCard().
+//   No toques el HTML, no toques generarTarjeta().
 // ============================================================
 
 
@@ -32,52 +32,42 @@ class Integrante {
     /**
      * @param {string} nombre      - Nombre completo
      * @param {string} rol         - Rol Scrum (Scrum Master, Development Team…)
-     * @param {string} iniciales   - 2 letras para el fallback del avatar (ej: "EP")
-     * @param {string} fotoClase   - Clase CSS individual (nos-foto-enrique, etc.)
      * @param {string} foto        - Ruta a la foto (img/nosotros/equipo/nombre.jpg)
      * @param {Object} skills      - { lenguajes: [], bd: [], infra: [] }
      * @param {string[]} habilidades - Habilidades blandas (mínimo 3)
      * @param {string[]} certs     - Lista de certificados
-     * @param {string} pdf         - Ruta al CV en PDF (o '#' si aún no está)
+     * @param {string} cv         - Ruta al CV en PDF
      */
-    constructor({ nombre, rol, foto, skills, habilidades, certs, pdf, iniciales, fotoClase }) {
+    constructor({ nombre, rol, foto, skills, habilidades, certs, cv }) {
         this.nombre = nombre;
         this.rol = rol;
         this.foto = foto;
         this.skills = skills;       // objeto con 3 sub-arrays
         this.habilidades = habilidades;  // array de strings
         this.certs = certs;        // array de strings
-        this.pdf = pdf;
-        this.iniciales = iniciales;
-        this.fotoClase = fotoClase;
+        this.cv = cv;
     }
 
     // ─────────────────────────────────────────────────────────
-    // MÉTODO PRIVADO: convierte un array de strings en tags HTML
+    // MÉTODO AUXILIAR: convierte un array de strings en tags HTML
     // Ejemplo: ["Java", "CSS"] → '<span class="nos-tag nos-tag-lang">Java</span>...'
     // ─────────────────────────────────────────────────────────
-    _tags(arr, tipo) {
+    generarEtiquetas(arr, tipo) {
         if (!arr || arr.length === 0) return '<span class="nos-tag">—</span>';
         return arr.map(s => `<span class="nos-tag ${tipo}">${s}</span>`).join('');
     }
 
     // ─────────────────────────────────────────────────────────
     // MÉTODO PRINCIPAL: genera el HTML completo de la card
-    // Se llama automáticamente por renderEquipo() para cada objeto
-    // del array equipo[].
+    // Se llama automáticamente por el .map() del DOMContentLoaded
+    // para cada objeto del array equipo[].
     // ─────────────────────────────────────────────────────────
-    renderCard() {
-        const enlacePDF = this.pdf !== '#'
-            ? `href="${this.pdf}" target="_blank"`
-            : `href="#"`;
-
+    generarTarjeta() {
         return `
             <div class="nos-cv-card">
                 <div class="nos-cv-header">
-                    <div class="nos-cv-foto-wrap ${this.fotoClase}">
-                        <img src="${this.foto}" alt="${this.nombre}"
-                             onerror="this.style.display='none'">
-                        ${this.iniciales}
+                    <div class="nos-cv-foto-wrap">
+                        <img src="${this.foto}" alt="${this.nombre}">
                     </div>
                     <div class="nos-cv-identidad">
                         <h3>${this.nombre}</h3>
@@ -88,15 +78,15 @@ class Integrante {
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
                         <p class="nos-cv-sub">Lenguajes y Frameworks</p>
-                        <div class="nos-cv-tags">${this._tags(this.skills.lenguajes, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.lenguajes, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Base de Datos</p>
-                        <div class="nos-cv-tags">${this._tags(this.skills.bd, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.bd, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Infraestructura y Redes</p>
-                        <div class="nos-cv-tags">${this._tags(this.skills.infra, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.infra, 'nos-tag-lang')}</div>
                     </div>
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
-                        <div class="nos-cv-tags">${this._tags(this.habilidades, 'nos-tag-blanda')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.habilidades, 'nos-tag-blanda')}</div>
                     </div>
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
@@ -106,7 +96,7 @@ class Integrante {
                     </div>
                 </div>
                 <div class="nos-cv-footer">
-                    <a ${enlacePDF} class="btn-primario">
+                    <a href="${this.cv}" target="_blank" class="btn-primario">
                         Ver CV completo <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -154,9 +144,7 @@ const equipo = [
             "Endpoint Security (Cisco – UTP, 2026)",
             "Network Defense y Cyber Threat Management (Cisco – UTP, 2026)"
         ],
-        pdf: "../../pdf/nosotros/enrique_prada_cv.pdf",
-        iniciales: "EP",
-        fotoClase: "nos-foto-enrique"
+        cv: "../../pdf/nosotros/enrique_prada_cv.pdf"
     }),
 
     // ── Maykol Calle ──────────────────────────────────────
@@ -172,9 +160,7 @@ const equipo = [
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
         certs: ["[Certificado placeholder]"],
-        pdf: "#",
-        iniciales: "MC",
-        fotoClase: "nos-foto-maykol"
+        cv: "#"
     }),
 
     // ── Christian Díaz ────────────────────────────────────
@@ -190,9 +176,7 @@ const equipo = [
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
         certs: ["[Certificado placeholder]"],
-        pdf: "#",
-        iniciales: "CD",
-        fotoClase: "nos-foto-christian"
+        cv: "#"
     }),
 
     // ── Juan Morales ──────────────────────────────────────
@@ -208,9 +192,7 @@ const equipo = [
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
         certs: ["[Certificado placeholder]"],
-        pdf: "#",
-        iniciales: "JM",
-        fotoClase: "nos-foto-juan"
+        cv: "#"
     }),
 
     // ── Joel Saldaña ──────────────────────────────────────
@@ -226,9 +208,7 @@ const equipo = [
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
         certs: ["[Certificado placeholder]"],
-        pdf: "#",
-        iniciales: "JS",
-        fotoClase: "nos-foto-joel"
+        cv: "#"
     }),
 
     // ── Xiomara Solís ─────────────────────────────────────
@@ -244,16 +224,14 @@ const equipo = [
         },
         habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
         certs: ["[Certificado placeholder]"],
-        pdf: "#",
-        iniciales: "XS",
-        fotoClase: "nos-foto-xiomara"
+        cv: "#"
     })
 ];
 
 
 // ============================================================
 // FUNCIÓN renderEquipo()
-// Recorre el array equipo[] y llama a renderCard() en cada objeto.
+// Recorre el array equipo[] y llama a generarTarjeta() en cada objeto.
 // El resultado (HTML como string) se inyecta en el grid del HTML.
 //
 // ¿POR QUÉ DOMContentLoaded?
@@ -265,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const grid = document.querySelector('.nos-cv-team-grid');
     if (!grid) return;
 
-    // .map() recorre cada Integrante y llama a renderCard()
+    // .map() recorre cada Integrante y llama a generarTarjeta()
     // .join('') une todos los strings HTML en uno solo
-    grid.innerHTML = equipo.map(integrante => integrante.renderCard()).join('');
+    grid.innerHTML = equipo.map(integrante => integrante.generarTarjeta()).join('');
 });

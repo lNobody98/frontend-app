@@ -751,10 +751,6 @@
      - Si la foto falla → onerror="this.style.display='none'"
        oculta el <img> y las iniciales (texto del div) quedan
        visibles gracias al flexbox del padre.
-     - Cada integrante tiene su clase: nos-foto-enrique,
-       nos-foto-maykol, etc. → para ajustar object-position
-       individualmente en la sección de fotos más abajo.
-
    • TAGS DE HABILIDADES (.nos-cv-tags / .nos-tag):
      - flex-wrap:wrap → los tags se acomodan solos en varias
        filas según el ancho disponible.
@@ -818,14 +814,7 @@
     overflow: hidden;
     border: 3px solid var(--color-acento);
     background: rgba(255,255,255,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-shrink: 0;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--color-acento);
 }
 
 .nos-cv-foto-wrap img {
@@ -842,17 +831,6 @@
     display: none;
 }
 
-/* ── Ajuste de foto individual por integrante ──────────────────
-   Usa object-position para encuadrar la cara correctamente.
-   Descomenta y ajusta cuando cada integrante suba su foto.
-   ─────────────────────────────────────────────────────────── */
-.nos-foto-enrique img { object-position: center top; }
-
-/* .nos-foto-maykol   img { object-position: center top; } */
-/* .nos-foto-christian img { object-position: center top; } */
-/* .nos-foto-juan     img { object-position: center top; } */
-/* .nos-foto-joel     img { object-position: center top; } */
-/* .nos-foto-xiomara  img { object-position: center top; } */
 
 .nos-cv-identidad h3 {
     font-size: 0.9rem;
@@ -1646,7 +1624,6 @@
     .nos-cv-foto-wrap {
         width: 88px;
         height: 88px;
-        font-size: 1.3rem;
     }
 }
 
@@ -1676,7 +1653,6 @@
     .nos-cv-foto-wrap {
         width: 80px;
         height: 80px;
-        font-size: 1.2rem;
         border-width: 2px;
     }
 

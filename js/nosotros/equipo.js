@@ -4,35 +4,27 @@
 // Clase Integrante — Enrique Prada
 class Integrante {
 
-    constructor({ nombre, rol, foto, skills, habilidades, certs, pdf, iniciales, fotoClase }) {
+    constructor({ nombre, rol, foto, skills, habilidades, certs, cv }) {
         this.nombre = nombre;
         this.rol = rol;
         this.foto = foto;
         this.skills = skills;
         this.habilidades = habilidades;
         this.certs = certs;
-        this.pdf = pdf;
-        this.iniciales = iniciales;
-        this.fotoClase = fotoClase;
+        this.cv = cv;
     }
 
-    _tags(arr, tipo) {
+    generarEtiquetas(arr, tipo) {
         if (!arr || arr.length === 0) return '<span class="nos-tag">—</span>';
         return arr.map(s => `<span class="nos-tag ${tipo}">${s}</span>`).join('');
     }
 
-    renderCard() {
-        const enlacePDF = this.pdf !== '#'
-            ? `href="${this.pdf}" target="_blank"`
-            : `href="#"`;
-
+    generarTarjeta() {
         return `
             <div class="nos-cv-card">
                 <div class="nos-cv-header">
-                    <div class="nos-cv-foto-wrap ${this.fotoClase}">
-                        <img src="${this.foto}" alt="${this.nombre}"
-                             onerror="this.style.display='none'">
-                        ${this.iniciales}
+                    <div class="nos-cv-foto-wrap">
+                        <img src="${this.foto}" alt="${this.nombre}">
                     </div>
                     <div class="nos-cv-identidad">
                         <h3>${this.nombre}</h3>
@@ -43,15 +35,15 @@ class Integrante {
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
                         <p class="nos-cv-sub">Lenguajes y Frameworks</p>
-                        <div class="nos-cv-tags">${this._tags(this.skills.lenguajes, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.lenguajes, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Base de Datos</p>
-                        <div class="nos-cv-tags">${this._tags(this.skills.bd, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.bd, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Infraestructura y Redes</p>
-                        <div class="nos-cv-tags">${this._tags(this.skills.infra, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.skills.infra, 'nos-tag-lang')}</div>
                     </div>
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
-                        <div class="nos-cv-tags">${this._tags(this.habilidades, 'nos-tag-blanda')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.habilidades, 'nos-tag-blanda')}</div>
                     </div>
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
@@ -61,7 +53,7 @@ class Integrante {
                     </div>
                 </div>
                 <div class="nos-cv-footer">
-                    <a ${enlacePDF} class="btn-primario">
+                    <a href="${this.cv}" target="_blank" class="btn-primario">
                         Ver CV completo <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -103,9 +95,7 @@ const equipo = [
             "Endpoint Security (Cisco – UTP, 2026)",
             "Network Defense y Cyber Threat Management (Cisco – UTP, 2026)"
         ],
-        pdf: "pdf/nosotros/enrique_prada_cv.pdf",
-        iniciales: "EP",
-        fotoClase: "nos-foto-enrique"
+        cv: "pdf/nosotros/enrique_prada_cv.pdf"
     }),
 
     // Maykol Calle
@@ -127,9 +117,7 @@ const equipo = [
             "Pensamiento analítico"
         ],
         certs: ["Redes y Comunicación de Datos I (UTP, 2025)"],
-        pdf: "pdf/nosotros/Maykol Adán Calle Paredes.pdf",
-        iniciales: "MC",
-        fotoClase: "nos-foto-maykol"
+        cv: "pdf/nosotros/Maykol Adán Calle Paredes.pdf"
     }),
 
     // Christian Díaz
@@ -148,9 +136,7 @@ const equipo = [
             "Certificado Ciberseguridad (Cisco – UTP, 2026)",
             "Certificado Excel Intermedio (CENAP, 2026)"
         ],
-        pdf: "pdf/nosotros/cv_christian_diaz.pdf",
-        iniciales: "CD",
-        fotoClase: "nos-foto-christian"
+        cv: "pdf/nosotros/cv_christian_diaz.pdf"
     }),
 
     // Juan Morales
@@ -169,9 +155,7 @@ const equipo = [
             "Fundamentos de Git y GitHub",
             "Introducción a Linux"
         ],
-        pdf: "pdf/nosotros/cv-Juan-Morales.pdf",
-        iniciales: "JM",
-        fotoClase: "nos-foto-juan"
+        cv: "pdf/nosotros/cv-Juan-Morales.pdf"
     }),
 
     // Joel Saldaña
@@ -200,9 +184,7 @@ const equipo = [
             "Excel Intermedio (UTP, 2025)",
             "Inglés Básico/Intermedio - Lectura Técnica (UTP, 2025)"
         ],
-        pdf: "pdf/nosotros/cv_joel_saldana.pdf",
-        iniciales: "JS",
-        fotoClase: "nos-foto-joel"
+        cv: "pdf/nosotros/cv_joel_saldana.pdf"
     }),
 
     // Xiomara Solís
@@ -223,9 +205,7 @@ const equipo = [
             "Excel Intermedio",
             "Inglés Básico A2"
         ],
-        pdf: "pdf/nosotros/CV_Xiomara_Solis.pdf",
-        iniciales: "XS",
-        fotoClase: "nos-foto-xiomara"
+        cv: "pdf/nosotros/CV_Xiomara_Solis.pdf"
     })
 
 ];
@@ -234,5 +214,5 @@ const equipo = [
 document.addEventListener('DOMContentLoaded', function () {
     const grid = document.querySelector('.nos-cv-team-grid');
     if (!grid) return;
-    grid.innerHTML = equipo.map(integrante => integrante.renderCard()).join('');
+    grid.innerHTML = equipo.map(integrante => integrante.generarTarjeta()).join('');
 });

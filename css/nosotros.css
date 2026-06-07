@@ -498,14 +498,7 @@
     overflow: hidden;
     border: 3px solid var(--color-acento);
     background: rgba(255,255,255,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-shrink: 0;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--color-acento);
 }
 .nos-cv-foto-wrap img {
     position: absolute;
@@ -516,14 +509,6 @@
     display: block;
 }
 .nos-cv-foto-wrap img.nos-foto-error { display: none; }
-
-/* Ajuste de encuadre individual — descomentar al subir foto */
-.nos-foto-enrique img { object-position: center top; }
-/* .nos-foto-maykol   img { object-position: center top; } */
-/* .nos-foto-christian img { object-position: center top; } */
-/* .nos-foto-juan     img { object-position: center top; } */
-/* .nos-foto-joel     img { object-position: center top; } */
-/* .nos-foto-xiomara  img { object-position: center top; } */
 
 .nos-cv-identidad h3 {
     font-size: 0.9rem;
@@ -966,7 +951,7 @@
     .nos-modal-content > p { font-size: 0.82rem; margin-bottom: 18px; }
     .nos-raci-leyenda { gap: 10px; }
     .nos-raci-leyenda-item { font-size: 0.76rem; }
-    .nos-cv-foto-wrap { width: 88px; height: 88px; font-size: 1.3rem; }
+    .nos-cv-foto-wrap { width: 88px; height: 88px; }
 }
 
 @media (max-width: 480px) {
@@ -977,7 +962,7 @@
     .nos-org-tree > li > ul { flex-direction: column; align-items: center; }
     .nos-org-tree > li > ul::before { display: none; }
     .nos-org-tree > li > ul > li::before { height: 24px; top: -24px; }
-    .nos-cv-foto-wrap { width: 80px; height: 80px; font-size: 1.2rem; border-width: 2px; }
+    .nos-cv-foto-wrap { width: 80px; height: 80px; border-width: 2px; }
     .nos-info-card, .nos-obj-wrap { padding: 20px 14px; }
     .nos-modal-content { padding: 16px 12px; border-radius: 10px; }
 }
