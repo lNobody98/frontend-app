@@ -114,7 +114,12 @@ const equipo = [
             "Aprendizaje rápido",
             "Pensamiento analítico"
         ],
-        certs: ["Redes y Comunicación de Datos I (UTP, 2025)"],
+        certs: [
+            "Redes y Comunicación de Datos I (UTP, 2025)",
+            "Tutor STEM – Física (UTP, 2024)",
+            "Tutor STEM – Matemática (UTP, 2024)",
+            "Tutor STEM – Algorítmica (UTP, 2025)"
+        ],
         cv: "pdf/nosotros/Maykol Adán Calle Paredes.pdf"
     }),
 

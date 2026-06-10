@@ -150,17 +150,28 @@ const equipo = [
     }),
 
     // ── Maykol Calle ──────────────────────────────────────
-    // TODO Maykol: reemplaza los [...] con tus datos reales
     new Integrante({
         nombre: "Maykol Adan Calle Paredes",
         rol: "Development Team",
         foto: "../../img/nosotros/equipo/maykol.jpg",
-        lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git"],
-        bd: ["[Base de datos]"],
-        infra: ["[Redes]"],
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        cv: "#"
+        lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git", "Python", "Java"],
+        bd: ["MongoDB", "MySQL", "SQL Server", "PostgreSQL"],
+        infra: ["Networking (TCP/IP)", "Supabase"],
+        habilidades: [
+            "Trabajo en equipo",
+            "Resolución de problemas",
+            "Comunicación efectiva",
+            "Adaptabilidad",
+            "Aprendizaje rápido",
+            "Pensamiento analítico"
+        ],
+        certs: [
+            "Redes y Comunicación de Datos I (UTP, 2025)",
+            "Tutor STEM – Física (UTP, 2024)",
+            "Tutor STEM – Matemática (UTP, 2024)",
+            "Tutor STEM – Algorítmica (UTP, 2025)"
+        ],
+        cv: "../../pdf/nosotros/Maykol Adán Calle Paredes.pdf"
     }),
 
     // ── Christian Díaz ────────────────────────────────────
