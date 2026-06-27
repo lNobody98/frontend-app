@@ -1,75 +1,32 @@
-// ============================================================
 // equipo.js — NXR TECH — CV Cards del equipo
 // Responsable: Joel Saldaña
-//
-// ▶ JOEL: Este archivo genera las cards automáticamente.
-//   Tu tarea es completar los objetos del array equipo[].
-//   Referencia completa: resultado/avance3/js/nosotros/equipo.js
-//
-// INSTRUCCIONES:
-//   1. Copia la clase Integrante desde resultado/avance3/js/nosotros/equipo.js
-//   2. Copia la función renderEquipo() desde el mismo archivo
-//   3. Rellena cada objeto del array equipo[] con datos reales
-//   4. Cada compañero rellena SU objeto — nadie toca los demás
-// ============================================================
 
-
-// ============================================================
-// ▶ JOEL: PASO 1 — Copia aquí la clase Integrante completa
-// Desde: resultado/avance3/js/nosotros/equipo.js
-// ============================================================
-
+// Clase Integrante — Enrique Prada
 class Integrante {
 
-    /**
-     * @param {string} nombre      - Nombre completo
-     * @param {string} rol         - Rol Scrum (Scrum Master, Development Team…)
-     * @param {string} iniciales   - 2 letras para el fallback del avatar (ej: "EP")
-     * @param {string} fotoClase   - Clase CSS individual (nos-foto-enrique, etc.)
-     * @param {string} foto        - Ruta a la foto (img/nosotros/equipo/nombre.jpg)
-     * @param {Object} skills      - { lenguajes: [], bd: [], infra: [] }
-     * @param {string[]} habilidades - Habilidades blandas (mínimo 3)
-     * @param {string[]} certs     - Lista de certificados
-     * @param {string} pdf         - Ruta al CV en PDF (o '#' si aún no está)
-     */
-    constructor({ nombre, rol, foto, skills, habilidades, certs, pdf, iniciales, fotoClase }) {
+    constructor({ nombre, rol, foto, lenguajes, bd, infra, habilidades, certs, cv }) {
         this.nombre = nombre;
         this.rol = rol;
         this.foto = foto;
-        this.skills = skills;       // objeto con 3 sub-arrays
-        this.habilidades = habilidades;  // array de strings
-        this.certs = certs;        // array de strings
-        this.pdf = pdf;
-        this.iniciales = iniciales;
-        this.fotoClase = fotoClase;
+        this.lenguajes = lenguajes;
+        this.bd = bd;
+        this.infra = infra;
+        this.habilidades = habilidades;
+        this.certs = certs;
+        this.cv = cv;
     }
 
-    // ─────────────────────────────────────────────────────────
-    // MÉTODO PRIVADO: convierte un array de strings en tags HTML
-    // Ejemplo: ["Java", "CSS"] → '<span class="nos-tag nos-tag-lang">Java</span>...'
-    // ─────────────────────────────────────────────────────────
-    _tags(arr, tipo) {
+    generarEtiquetas(arr, tipo) {
         if (!arr || arr.length === 0) return '<span class="nos-tag">—</span>';
         return arr.map(s => `<span class="nos-tag ${tipo}">${s}</span>`).join('');
     }
 
-    // ─────────────────────────────────────────────────────────
-    // MÉTODO PRINCIPAL: genera el HTML completo de la card
-    // Se llama automáticamente por renderEquipo() para cada objeto
-    // del array equipo[].
-    // ─────────────────────────────────────────────────────────
-    renderCard() {
-        const enlacePDF = this.pdf !== '#'
-            ? `href="${this.pdf}" target="_blank"`
-            : `href="#"`;
-
+    generarTarjeta() {
         return `
             <div class="nos-cv-card">
                 <div class="nos-cv-header">
-                    <div class="nos-cv-foto-wrap ${this.fotoClase}">
-                        <img src="${this.foto}" alt="${this.nombre}"
-                             onerror="this.style.display='none'">
-                        ${this.iniciales}
+                    <div class="nos-cv-foto-wrap">
+                        <img src="${this.foto}" alt="${this.nombre}">
                     </div>
                     <div class="nos-cv-identidad">
                         <h3>${this.nombre}</h3>
@@ -80,15 +37,15 @@ class Integrante {
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-code"></i> Capacidad de Programación</p>
                         <p class="nos-cv-sub">Lenguajes y Frameworks</p>
-                        <div class="nos-cv-tags">${this._tags(this.skills.lenguajes, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.lenguajes, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Base de Datos</p>
-                        <div class="nos-cv-tags">${this._tags(this.skills.bd, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.bd, 'nos-tag-lang')}</div>
                         <p class="nos-cv-sub">Infraestructura y Redes</p>
-                        <div class="nos-cv-tags">${this._tags(this.skills.infra, 'nos-tag-lang')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.infra, 'nos-tag-lang')}</div>
                     </div>
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-handshake"></i> Habilidades Blandas</p>
-                        <div class="nos-cv-tags">${this._tags(this.habilidades, 'nos-tag-blanda')}</div>
+                        <div class="nos-cv-tags">${this.generarEtiquetas(this.habilidades, 'nos-tag-blanda')}</div>
                     </div>
                     <div>
                         <p class="nos-cv-bloque-titulo"><i class="fas fa-certificate"></i> Certificados</p>
@@ -98,7 +55,7 @@ class Integrante {
                     </div>
                 </div>
                 <div class="nos-cv-footer">
-                    <a ${enlacePDF} class="btn-primario">
+                    <a href="${this.cv}" target="_blank" class="btn-primario">
                         Ver CV completo <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -106,22 +63,17 @@ class Integrante {
     }
 }
 
-// ============================================================
-// ▶ JOEL: PASO 2 — Completa el array con los 6 integrantes
-// Cada compañero edita SOLO su objeto (el que tiene su nombre)
-// ============================================================
+// Array equipo[] — completar por cada integrante
 const equipo = [
 
-    // ── Enrique Prada (completo — sirve como referencia) ──
+    // Enrique Prada
     new Integrante({
         nombre: "Ricardo Enrique Prada Guerra",
         rol: "Scrum Master",
         foto: "img/nosotros/equipo/enrique.jpg",
-        skills: {
-            lenguajes: ["Java", "TypeScript", "JavaScript", "Angular 11-16", "Spring Boot", "HTML5", "CSS3", "PHP"],
-            bd: ["Oracle PL/SQL", "MongoDB", "MySQL", "SQL Server"],
-            infra: ["Docker", "Apache Kafka", "RabbitMQ", "Spring LDAP", "CI/CD"]
-        },
+        lenguajes: ["Java", "TypeScript", "JavaScript", "Angular 11-16", "Spring Boot", "HTML5", "CSS3", "PHP"],
+        bd: ["Oracle PL/SQL", "MongoDB", "MySQL", "SQL Server"],
+        infra: ["Docker", "Apache Kafka", "RabbitMQ", "Spring LDAP", "CI/CD"],
         habilidades: [
             "Aprendizaje continuo",
             "Orientación a resultados",
@@ -143,73 +95,76 @@ const equipo = [
             "Endpoint Security (Cisco – UTP, 2026)",
             "Network Defense y Cyber Threat Management (Cisco – UTP, 2026)"
         ],
-        pdf: "pdf/nosotros/enrique_prada_cv.pdf",
-        iniciales: "EP",
-        fotoClase: "nos-foto-enrique"
+        cv: "pdf/nosotros/enrique_prada_cv.pdf"
     }),
 
-    // ── TODO Maykol: rellena tu objeto ──
+    // Maykol Calle
     new Integrante({
         nombre: "Maykol Adan Calle Paredes",
         rol: "Development Team",
-        foto: "../../img/nosotros/equipo/maykol.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
-        },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
-        iniciales: "MC",
-        fotoClase: "nos-foto-maykol"
+        foto: "img/nosotros/equipo/maykol.jpg",
+        lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5", "Git", "Python", "Java"],
+        bd: ["MongoDB", "MySQL", "SQL Server", "PostgreSQL"],
+        infra: ["Networking (TCP/IP)", "Supabase"],
+        habilidades: [
+            "Trabajo en equipo",
+            "Resolución de problemas",
+            "Comunicación efectiva",
+            "Adaptabilidad",
+            "Aprendizaje rápido",
+            "Pensamiento analítico"
+        ],
+        certs: [
+            "Redes y Comunicación de Datos I (UTP, 2025)",
+            "Tutor STEM – Física (UTP, 2024)",
+            "Tutor STEM – Matemática (UTP, 2024)",
+            "Tutor STEM – Algorítmica (UTP, 2025)"
+        ],
+        cv: "pdf/nosotros/Maykol Adán Calle Paredes.pdf"
     }),
 
-    // ── TODO Christian: rellena tu objeto ──
+    // Christian Díaz
     new Integrante({
         nombre: "Christian Alexander Díaz García",
         rol: "Development Team",
-        foto: "../../img/nosotros/equipo/christian.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
-        },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
-        iniciales: "CD",
-        fotoClase: "nos-foto-christian"
+        foto: "img/nosotros/equipo/christian.jpg",
+        lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git", "Python", "Java"],
+        bd: ["MongoDB", "MySQL", "PostgreSQL", "SQL Server"],
+        infra: ["Networking (TCP/IP)", "Supabase"],
+        habilidades: ["Trabajo en equipo", "Resolución de problemas", "Adaptabilidad", "Aprendizaje continuo", "Autodidacta"],
+        certs: [
+            "Certificado Python Básico (UNI, 2025)",
+            "Certificado Ciberseguridad (Cisco – UTP, 2026)",
+            "Certificado Excel Intermedio (CENAP, 2026)"
+        ],
+        cv: "pdf/nosotros/cv_christian_diaz.pdf"
     }),
 
-    // ── TODO Juan: rellena tu objeto ──
+    // Juan Morales
     new Integrante({
         nombre: "Juan José Morales Velásquez",
         rol: "Product Owner",
-        foto: "../../img/nosotros/equipo/juan.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
-        },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
-        iniciales: "JM",
-        fotoClase: "nos-foto-juan"
+        foto: "img/nosotros/equipo/JuanJosé.jpg",
+        lenguajes: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Git"],
+        bd: ["MySQL", "PostgreSQL", "SQL Server"],
+        infra: ["Linux (Bash/CLI)", "Windows Server", "Git", "GitHub", "Apache"],
+        habilidades: ["Trabajo en equipo", "Resolución de problemas", "Comunicación efectiva"],
+        certs: [
+            "Cisco Networking Basics",
+            "Fundamentos de Git y GitHub",
+            "Introducción a Linux"
+        ],
+        cv: "pdf/nosotros/cv-Juan-Morales.pdf"
     }),
 
-
-    // ── TODO Joel: rellena TU objeto ──
+    // Joel Saldaña
     new Integrante({
         nombre: "Joel Anthony Saldaña Chávez",
         rol: "Development Team",
         foto: "img/nosotros/equipo/joel.png",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Java", "Python", "Bootstrap 5"],
-            bd: ["PostgreSQL", "SQL Server", "MongoDB"],
-            infra: ["Linux (Bash/CLI)", "Supabase", "Git", "Networking (TCP/IP)"]
-        },
+        lenguajes: ["HTML5", "CSS3", "JavaScript ES6+", "Java", "Python", "Bootstrap 5"],
+        bd: ["PostgreSQL", "SQL Server", "MongoDB"],
+        infra: ["Linux (Bash/CLI)", "Supabase", "Git", "Networking (TCP/IP)"],
         habilidades: [
             "Adaptabilidad",
             "Trabajo en equipo",
@@ -226,41 +181,33 @@ const equipo = [
             "Excel Intermedio (UTP, 2025)",
             "Inglés Básico/Intermedio - Lectura Técnica (UTP, 2025)"
         ],
-        pdf: "pdf/nosotros/cv_joel_saldana.pdf",
-        iniciales: "JS",
-        fotoClase: "nos-foto-joel"
+        cv: "pdf/nosotros/cv_joel_saldana.pdf"
     }),
 
-    // ── TODO Xiomara: rellena tu objeto ──
+    // Xiomara Solís
     new Integrante({
-        nombre: "Xiomara Yajhaira Solís Malpartida",
+        nombre: "Xiomara Yajhaira Solis Malpartida",
         rol: "Development Team",
-        foto: "../../img/nosotros/equipo/xiomara.jpg",
-        skills: {
-            lenguajes: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Git"],
-            bd: ["[Base de datos]"],
-            infra: ["[Redes]"]
-        },
-        habilidades: ["[Habilidad 1]", "[Habilidad 2]", "[Habilidad 3]"],
-        certs: ["[Certificado placeholder]"],
-        pdf: "#",
-        iniciales: "XS",
-        fotoClase: "nos-foto-xiomara"
+        foto: "img/nosotros/equipo/xiomara.jpg",
+        lenguajes: ["HTML5", "CSS3", "JavaScript", "Java"],
+        bd: ["MongoDB", "MySQL", "SQL Server"],
+        infra: ["Fundamentos de Redes", "Seguridad Informática", "Ciberseguridad"],
+        habilidades: ["Trabajo en equipo", "Aprendizaje continuo", "Resolución de problemas"],
+        certs: [
+            "Introduction to Cybersecurity – Cisco Networking Academy",
+            "Manejo de SAP R3",
+            "Asistente en Gestión de Empresas",
+            "Excel Intermedio",
+            "Inglés Básico A2"
+        ],
+        cv: "pdf/nosotros/CV_Xiomara_Solis.pdf"
     })
+
 ];
 
-
-// ============================================================
-// ▶ JOEL: PASO 3 — Copia aquí el DOMContentLoaded con renderEquipo()
-// Desde: resultado/avance3/js/nosotros/equipo.js
-// ============================================================
-
+// Render — Joel Saldaña
 document.addEventListener('DOMContentLoaded', function () {
     const grid = document.querySelector('.nos-cv-team-grid');
     if (!grid) return;
-
-    // .map() recorre cada Integrante y llama a renderCard()
-    // .join('') une todos los strings HTML en uno solo
-    grid.innerHTML = equipo.map(integrante => integrante.renderCard()).join('');
+    grid.innerHTML = equipo.map(integrante => integrante.generarTarjeta()).join('');
 });
-

@@ -1,23 +1,22 @@
-// ============================================================
-// matriz.js — Modal Matriz de Responsabilidad RACI
+// matriz.js — NXR TECH — Modal RACI
 // Responsable: Maykol Calle
-//
-// ▶ MAYKOL: Copia el contenido completo desde:
-//   resultado/avance3/js/nosotros/matriz.js
-//
-// INSTRUCCIONES:
-//   1. Abre resultado/avance3/js/nosotros/matriz.js
-//   2. Copia TODO el código (las funciones y los listeners)
-//   3. Pégalo aquí reemplazando este comentario
-// ============================================================
 
-
-// ▶ MAYKOL: PEGA TU CÓDIGO AQUÍ
+const modalMatriz = document.getElementById("nos-modal-matriz");
 
 function abrirMatriz() {
-    /* completar */
+    modalMatriz.classList.add("nos-modal-visible");
+    document.body.style.overflow = "hidden";
 }
 
 function cerrarMatriz() {
-    /* completar */
+    modalMatriz.classList.remove("nos-modal-visible");
+    document.body.style.overflow = "";
 }
+
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") cerrarMatriz();
+});
+
+modalMatriz.addEventListener("click", function (e) {
+    if (e.target === this) cerrarMatriz();
+});

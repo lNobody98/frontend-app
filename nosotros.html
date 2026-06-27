@@ -27,10 +27,7 @@
 
 <body>
 
-    <!-- ============================================================
-         ▶ ENRIQUE PRADA — NAVBAR (YA IMPLEMENTADO)
-         No modificar. Enrique entrega esta sección lista.
-         ============================================================ -->
+    <!-- Enrique Prada — Navbar -->
     <header id="navbar">
         <div class="ep-navbar-bar">
             <nav class="container navbar navbar-expand-md">
@@ -54,34 +51,59 @@
             </nav>
         </div>
 
-        <!-- ============================================================
-             ▶ CHRISTIAN DÍAZ — CAROUSEL / BANNER (parte 1 de 2)
-             Referencia: resultado/avance3/nosotros.html
-             → <section id="nosotros-carousel"> va DENTRO del header
-             ============================================================ -->
+        <!-- Christian Díaz — Banner / Carousel -->
         <section id="nosotros-carousel">
-            <div style="
-                border: 2px dashed rgba(255,255,255,0.3);
-                padding: 60px 20px;
-                margin-top: 85px;
-                background: rgba(255,255,255,0.03);
-                font-family: monospace;
-                color: rgba(255,255,255,0.7);
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            ">
-                <span style="font-size:1.5rem;font-weight:700;color:#fff;">▶ CHRISTIAN DÍAZ</span>
-                <span style="font-size:1rem;">CAROUSEL / BANNER</span>
-                <span style="font-size:0.85rem;">Copia desde: resultado/avance3/nosotros.html</span>
-                <span style="font-size:0.85rem;">→ contenido del <code
-                        style="color:rgba(255,255,255,0.9)">&lt;section id="nosotros-carousel"&gt;</code></span>
-                <span
-                    style="border:1px dashed rgba(255,255,255,0.3);padding:4px 14px;border-radius:4px;font-size:0.78rem;">
-                    BORRA ESTE DIV Y PEGA EL CAROUSEL
-                </span>
+            <div id="carouselNosotros" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselNosotros" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselNosotros" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselNosotros" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <div class="jm-slide" style="background-image: url('img/nosotros/banner-1.jpg');">
+                            <div class="jm-slide-contenido">
+                                <h2>Nuestro <span>Equipo</span></h2>
+                                <p>Somos NXR Team — seis ingenieros comprometidos con la innovación tecnológica y el trabajo colaborativo.</p>
+                                <a href="#nosotros-organigrama" class="btn-primario">Conoce al equipo →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="jm-slide" style="background-image: url('img/nosotros/banner-2.jpg');">
+                            <div class="jm-slide-contenido">
+                                <h2>Gestión <span>Ágil</span></h2>
+                                <p>Aplicamos la metodología Scrum con Jira y Git para garantizar entregas de calidad en cada sprint.</p>
+                                <a href="#nosotros-gp" class="btn-primario">Ver metodología →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="jm-slide" style="background-image: url('img/nosotros/banner-3.jpg');">
+                            <div class="jm-slide-contenido">
+                                <h2>Responsabilidad <span>y Compromiso</span></h2>
+                                <p>Cada integrante tiene un rol definido. Nuestro trabajo habla por nosotros.</p>
+                                <a href="#nosotros-matriz-cta" class="btn-primario">Ver Matriz RACI →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselNosotros" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselNosotros" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+
             </div>
         </section>
 
@@ -89,214 +111,516 @@
 
     <main>
 
-        <!-- ============================================================
-             ▶ CHRISTIAN DÍAZ — INFORMACIÓN DE LA EMPRESA (parte 2 de 2)
-             Referencia: resultado/avance3/nosotros.html
-             → <section id="nosotros-info">
-             ============================================================ -->
+        <!-- Christian Díaz — Información de la Empresa -->
         <section id="nosotros-info" class="nos-section">
             <div class="container">
-                <div style="
-                    border: 2px dashed rgba(255,255,255,0.3);
-                    padding: 60px 20px;
-                    background: rgba(255,255,255,0.03);
-                    font-family: monospace;
-                    color: rgba(255,255,255,0.7);
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                ">
-                    <span style="font-size:1.5rem;font-weight:700;color:#fff;">▶ CHRISTIAN DÍAZ</span>
-                    <span style="font-size:1rem;">INFORMACIÓN DE LA EMPRESA (Misión y Visión)</span>
-                    <span style="font-size:0.85rem;">Copia desde: resultado/avance3/nosotros.html</span>
-                    <span style="font-size:0.85rem;">→ contenido interno del <code
-                            style="color:rgba(255,255,255,0.9)">&lt;section id="nosotros-info"&gt;</code></span>
-                    <span
-                        style="border:1px dashed rgba(255,255,255,0.3);padding:4px 14px;border-radius:4px;font-size:0.78rem;">
-                        BORRA ESTE DIV Y PEGA TU SECCIÓN
-                    </span>
+                <div class="nos-section-header">
+                    <h2>Información de <span>la Empresa</span></h2>
+                    <p>Quiénes somos y hacia dónde vamos</p>
+                </div>
+                <div class="nos-info-grid">
+                    <div class="nos-info-card">
+                        <h3><i class="fas fa-bullseye"></i> Misión</h3>
+                        <p>Brindar soluciones tecnológicas completas y accesibles — teléfonos, computadoras,
+                           componentes, accesorios y servicios especializados — con un equipo capacitado y
+                           orientado a la satisfacción del cliente, generando confianza en cada interacción.</p>
+                    </div>
+                    <div class="nos-info-card">
+                        <h3><i class="fas fa-eye"></i> Visión</h3>
+                        <p>Ser reconocidos como la empresa tecnológica de referencia en el Perú, destacando
+                           por la innovación constante, la calidad de nuestros productos y servicios, y la
+                           capacidad de acercar la tecnología del futuro a cada peruano.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============================================================
-             ▶ JUAN MORALES — OBJETIVOS (parte 1 de 2)
-             Referencia: resultado/avance3/nosotros.html
-             → <section id="nosotros-objetivos">
-             ============================================================ -->
+        <!-- Juan Morales — Objetivos -->
         <section id="nosotros-objetivos" class="nos-section nos-section-alt">
             <div class="container">
-                <div style="
-                    border: 2px dashed rgba(0,0,0,0.25);
-                    padding: 60px 20px;
-                    background: rgba(0,0,0,0.04);
-                    font-family: monospace;
-                    color: rgba(0,0,0,0.6);
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                ">
-                    <span style="font-size:1.5rem;font-weight:700;color:#000;">▶ JUAN MORALES</span>
-                    <span style="font-size:1rem;">NUESTROS OBJETIVOS</span>
-                    <span style="font-size:0.85rem;">Copia desde: resultado/avance3/nosotros.html</span>
-                    <span style="font-size:0.85rem;">→ contenido interno del <code
-                            style="color:rgba(0,0,0,0.8)">&lt;section id="nosotros-objetivos"&gt;</code></span>
-                    <span
-                        style="border:1px dashed rgba(0,0,0,0.25);padding:4px 14px;border-radius:4px;font-size:0.78rem;">
-                        BORRA ESTE DIV Y PEGA TU SECCIÓN
-                    </span>
+                <div class="nos-section-header">
+                    <h2>Nuestros <span>Objetivos</span></h2>
+                    <p>Lo que buscamos lograr con este avance</p>
+                </div>
+                <div class="nos-obj-wrap">
+                    <h3><i class="fas fa-flag" style="color: var(--color-acento);"></i> Objetivos</h3>
+
+                    <div class="nos-obj-principal">
+                        <strong>Objetivo Principal:</strong> Posicionarse como la empresa tecnológica de referencia en el Perú,
+                        ofreciendo productos y servicios de calidad que satisfagan las necesidades tecnológicas de personas
+                        y empresas, con atención integral, confianza y compromiso en cada interacción.
+                    </div>
+
+                    <p class="nos-obj-sub">Objetivos Específicos</p>
+                    <ul class="nos-obj-especificos">
+                        <li>Comercializar productos tecnológicos de las principales marcas del mercado — teléfonos, laptops, componentes y accesorios — a precios competitivos.</li>
+                        <li>Brindar servicios técnicos especializados de soporte, mantenimiento, reparación e instalación con personal capacitado y certificado.</li>
+                        <li>Expandir la presencia digital de NXR TECH mediante un catálogo web funcional, accesible y actualizado.</li>
+                        <li>Fidelizar a los clientes a través de garantías competitivas, atención personalizada y seguimiento posventa.</li>
+                        <li>Consolidar alianzas estratégicas con marcas líderes como Intel, NVIDIA y Samsung para ofrecer las mejores soluciones del mercado.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- ============================================================
-             ▶ JUAN MORALES — MAPA ORGANIZACIONAL (parte 2 de 2)
-             Referencia: resultado/avance3/nosotros.html
-             → <section id="nosotros-organigrama">
-             ============================================================ -->
+        <!-- Juan Morales — Mapa Organizacional -->
         <section id="nosotros-organigrama" class="nos-section">
             <div class="container">
-                <div style="
-                    border: 2px dashed rgba(255,255,255,0.3);
-                    padding: 60px 20px;
-                    background: rgba(255,255,255,0.03);
-                    font-family: monospace;
-                    color: rgba(255,255,255,0.7);
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                ">
-                    <span style="font-size:1.5rem;font-weight:700;color:#fff;">▶ JUAN MORALES</span>
-                    <span style="font-size:1rem;">MAPA ORGANIZACIONAL</span>
-                    <span style="font-size:0.85rem;">Copia desde: resultado/avance3/nosotros.html</span>
-                    <span style="font-size:0.85rem;">→ contenido interno del <code
-                            style="color:rgba(255,255,255,0.9)">&lt;section id="nosotros-organigrama"&gt;</code></span>
-                    <span
-                        style="border:1px dashed rgba(255,255,255,0.3);padding:4px 14px;border-radius:4px;font-size:0.78rem;">
-                        BORRA ESTE DIV Y PEGA TU SECCIÓN
-                    </span>
+                <div class="nos-section-header">
+                    <h2>Mapa <span>Organizacional</span></h2>
+                    <p>Estructura jerárquica del equipo NXR TECH</p>
                 </div>
+
+                <ul class="nos-org-tree">
+                    <li>
+                        <div class="nos-org-node nos-org-coord">
+                            <div class="nos-org-avatar nos-org-avatar-enrique">
+                                <img src="img/nosotros/equipo/enrique.jpg" alt="Enrique Prada">
+                            </div>
+                            <h4>Ricardo Enrique Prada Guerra</h4>
+                            <span>Coordinador</span>
+                        </div>
+
+                        <ul>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="img/nosotros/equipo/maykol.jpg" alt="Maykol Calle">
+                                    </div>
+                                    <h4>Maykol Adan Calle Paredes</h4>
+                                    <span>Desarrollador Frontend</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="img/nosotros/equipo/christian.jpg" alt="Christian Díaz">
+                                    </div>
+                                    <h4>Christian Alexander Díaz García</h4>
+                                    <span>Desarrollador Frontend</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="img/nosotros/equipo/JuanJosé.jpg" alt="Juan Morales">
+                                    </div>
+                                    <h4>Juan José Morales Velásquez</h4>
+                                    <span>Analista de Requerimientos</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="img/nosotros/equipo/joel.png" alt="Joel Saldaña">
+                                    </div>
+                                    <h4>Joel Anthony Saldaña Chávez</h4>
+                                    <span>Desarrollador Frontend</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nos-org-node">
+                                    <div class="nos-org-avatar">
+                                        <img src="img/nosotros/equipo/xiomara.jpg" alt="Xiomara Solís">
+                                    </div>
+                                    <h4>Xiomara Yajhaira Solís Malpartida</h4>
+                                    <span>Desarrollador Frontend</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
             </div>
         </section>
 
-        <!-- ============================================================
-             ▶ XIOMARA SOLÍS — GESTIÓN DEL PROYECTO
-             Referencia: resultado/avance3/nosotros.html
-             → <section id="nosotros-gp">
-             ============================================================ -->
+        <!-- Xiomara Solís — Gestión del Proyecto -->
         <section id="nosotros-gp" class="nos-section nos-section-alt">
             <div class="container">
-                <div style="
-                    border: 2px dashed rgba(0,0,0,0.25);
-                    padding: 60px 20px;
-                    background: rgba(0,0,0,0.04);
-                    font-family: monospace;
-                    color: rgba(0,0,0,0.6);
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                ">
-                    <span style="font-size:1.5rem;font-weight:700;color:#000;">▶ XIOMARA SOLÍS</span>
-                    <span style="font-size:1rem;">GESTIÓN DEL PROYECTO</span>
-                    <span style="font-size:0.85rem;">Copia desde: resultado/avance3/nosotros.html</span>
-                    <span style="font-size:0.85rem;">→ contenido interno del <code
-                            style="color:rgba(0,0,0,0.8)">&lt;section id="nosotros-gp"&gt;</code></span>
-                    <span
-                        style="border:1px dashed rgba(0,0,0,0.25);padding:4px 14px;border-radius:4px;font-size:0.78rem;">
-                        BORRA ESTE DIV Y PEGA TU SECCIÓN
-                    </span>
+                <div class="nos-section-header">
+                    <h2>Gestión del <span>Proyecto</span></h2>
+                    <p>Metodología, herramientas y distribución de trabajo por sprint</p>
+                </div>
+
+                <div class="nos-gp-tools">
+                    <div class="nos-gp-tool">
+                        <i class="fas fa-sync-alt"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Marco de trabajo</h4>
+                            <p>Scrum Ágil</p>
+                        </div>
+                    </div>
+                    <div class="nos-gp-tool">
+                        <i class="fab fa-jira"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Gestión de tareas</h4>
+                            <p>Jira Software</p>
+                        </div>
+                    </div>
+                    <div class="nos-gp-tool">
+                        <i class="fab fa-git-alt"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Control de versiones</h4>
+                            <p>Git + Pull Requests</p>
+                        </div>
+                    </div>
+                    <div class="nos-gp-tool">
+                        <i class="fab fa-github"></i>
+                        <div class="nos-gp-tool-texto">
+                            <h4>Repositorio</h4>
+                            <p>GitHub — NXR-TECH</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nos-gp-desc">
+                    El proyecto se organizó bajo <strong>Scrum</strong>, dividiendo el trabajo en sprints con
+                    objetivos claros. Cada integrante trabajó en una rama propia de Git y los cambios se
+                    integraron a <code>main</code> mediante Pull Request revisado por el coordinador.
+                    Las tareas se gestionaron en <strong>Jira</strong> con un tablero kanban visible para todo el equipo.
+                </div>
+
+                <div class="nos-gp-timeline-wrap">
+                    <div class="nos-gp-timeline">
+
+                        <div class="nos-sprint">
+                            <div class="nos-sprint-num">1</div>
+                            <div class="nos-sprint-header">
+                                <h4>Sprint 1 — Inicio</h4>
+                                <span class="nos-sprint-fecha">Marzo 2026 · Semanas 1–4</span>
+                            </div>
+                            <div class="nos-sprint-body">
+                                <ul>
+                                    <li>Estructura HTML semántica</li>
+                                    <li>Diseño de navbar responsive</li>
+                                    <li>Hero, video y secciones de inicio</li>
+                                    <li>Footer con mapa y redes</li>
+                                    <li>Estilos globales (base.css)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="nos-sprint">
+                            <div class="nos-sprint-num">2</div>
+                            <div class="nos-sprint-header">
+                                <h4>Sprint 2 — Catálogo</h4>
+                                <span class="nos-sprint-fecha">Abril – Mayo 2026 · Semanas 5–8</span>
+                            </div>
+                            <div class="nos-sprint-body">
+                                <ul>
+                                    <li>Carousel Bootstrap con 6 slides</li>
+                                    <li>Categorías visuales (20 categorías)</li>
+                                    <li>Modelo POO: clases e herencia</li>
+                                    <li>120 ítems en memoria (60+60)</li>
+                                    <li>Búsqueda dinámica y filtros</li>
+                                    <li>Listado, paginación y ordenamiento</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="nos-sprint">
+                            <div class="nos-sprint-num">3</div>
+                            <div class="nos-sprint-header">
+                                <h4>Sprint 3 — Nosotros</h4>
+                                <span class="nos-sprint-fecha">Mayo – Junio 2026 · Semanas 9–12</span>
+                            </div>
+                            <div class="nos-sprint-body">
+                                <ul>
+                                    <li>Mapa organizacional HTML/CSS</li>
+                                    <li>Misión, Visión y Objetivos</li>
+                                    <li>CV de cada integrante</li>
+                                    <li>Gestión del proyecto (Scrum)</li>
+                                    <li>Matriz de Responsabilidad RACI</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============================================================
-             ▶ JOEL SALDAÑA — NUESTRO EQUIPO (CV CARDS)
-             Las cards se generan automáticamente con JS (POO).
-             Referencia: resultado/avance3/nosotros.html
-             → <section id="nosotros-equipo">
-             IMPORTANTE: también debes completar js/nosotros/equipo.js
-             ============================================================ -->
+        <!-- Joel Saldaña — Equipo CV Cards -->
         <section id="nosotros-equipo" class="nos-section">
             <div class="container">
                 <div class="nos-section-header">
                     <h2>Nuestro <span>Equipo</span></h2>
                     <p>Perfiles profesionales de los integrantes de NXR Team</p>
                 </div>
-
-                <!-- Cards generadas dinámicamente por js/nosotros/equipo.js -->
                 <div class="nos-cv-team-grid"></div>
             </div>
         </section>
 
-        <!-- ============================================================
-             ▶ MAYKOL CALLE — BOTÓN MATRIZ RACI
-             Referencia: resultado/avance3/nosotros.html
-             → <section id="nosotros-matriz-cta">
-             ============================================================ -->
+        <!-- Maykol Calle — Sección RACI -->
         <section id="nosotros-matriz-cta" class="nos-section">
             <div class="container">
-                <div style="
-                    border: 2px dashed rgba(255,255,255,0.3);
-                    padding: 60px 20px;
-                    background: rgba(255,255,255,0.03);
-                    font-family: monospace;
-                    color: rgba(255,255,255,0.7);
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                ">
-                    <span style="font-size:1.5rem;font-weight:700;color:#fff;">▶ MAYKOL CALLE</span>
-                    <span style="font-size:1rem;">BOTÓN + MODAL MATRIZ RACI</span>
-                    <span style="font-size:0.85rem;">Copia desde: resultado/avance3/nosotros.html</span>
-                    <span style="font-size:0.85rem;">→ <code
-                            style="color:rgba(255,255,255,0.9)">&lt;section id="nosotros-matriz-cta"&gt;</code> + el
-                        modal que va fuera de &lt;main&gt;</span>
-                    <span style="font-size:0.85rem;color:#fff;font-weight:bold;">⚠ ADEMÁS: completa
-                        js/nosotros/matriz.js</span>
-                    <span
-                        style="border:1px dashed rgba(255,255,255,0.3);padding:4px 14px;border-radius:4px;font-size:0.78rem;">
-                        BORRA ESTE DIV Y PEGA TU SECCIÓN
-                    </span>
+                <div class="nos-matriz-cta">
+                    <h2>Matriz de <span>Responsabilidad</span></h2>
+                    <p>Visualiza quién hizo qué en cada etapa del proyecto NXR TECH</p>
+                    <button class="nos-btn-matriz" onclick="abrirMatriz()">
+                        <i class="fas fa-table"></i> Ver Matriz RACI
+                    </button>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- ============================================================
-         ▶ MAYKOL CALLE — MODAL RACI (va fuera de <main>)
-         Referencia: resultado/avance3/nosotros.html
-         → <div id="nos-modal-matriz" ...>
-         ============================================================ -->
-    <div style="
-        border: 2px dashed rgba(255,255,255,0.3);
-        padding: 20px;
-        margin: 10px;
-        background: rgba(255,255,255,0.03);
-        font-family: monospace;
-        color: rgba(255,255,255,0.7);
-        text-align: center;
-    ">
-        <strong style="color:#fff;">▶ MAYKOL — MODAL RACI</strong><br>
-        Copia el <code style="color:rgba(255,255,255,0.9)">&lt;div id="nos-modal-matriz"&gt;</code> completo desde
-        resultado/avance3/nosotros.html<br>
-        <small>BORRA ESTE DIV Y PEGA EL MODAL</small>
+    <!-- Maykol Calle — Modal RACI -->
+    <div id="nos-modal-matriz" class="nos-modal-overlay">
+        <div class="nos-modal-content">
+            <button class="nos-modal-cerrar" onclick="cerrarMatriz()" aria-label="Cerrar">&times;</button>
+            <h3>Matriz de Responsabilidad — RACI</h3>
+            <p>Asignación de responsabilidades por tarea y por integrante del equipo NXR TECH.</p>
+
+            <div class="nos-matriz-wrap">
+                <table class="nos-tabla-raci">
+                    <thead>
+                        <tr>
+                            <th>Tarea / Actividad</th>
+                            <th>Enrique<br><small>Scrum Master</small></th>
+                            <th>Maykol</th>
+                            <th>Christian</th>
+                            <th>Juan</th>
+                            <th>Joel</th>
+                            <th>Xiomara</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="nos-raci-sep">
+                            <td colspan="7"><span class="nos-raci-sep-badge nos-sep-inicio">Inicio</span></td>
+                        </tr>
+                        <tr>
+                            <td>Estructura HTML y semántica de páginas</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                        </tr>
+                        <tr>
+                            <td>Navbar y menú responsive (Bootstrap)</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Carousel / portada visual</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Footer y estilos globales (base.css)</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                        </tr>
+                        <tr>
+                            <td>Video representativo + Contador</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sección Soluciones Tecnológicas</td>
+                            <td class="nos-a">A</td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sección Productos Destacados</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sección Testimonios</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sección Noticias + CTA</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                        </tr>
+                        <tr class="nos-raci-sep">
+                            <td colspan="7"><span class="nos-raci-sep-badge nos-sep-catalogo">Catálogo</span></td>
+                        </tr>
+                        <tr>
+                            <td>Carousel / portada del catálogo</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Categorías visuales del catálogo</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                        </tr>
+                        <tr>
+                            <td>Modelo POO (clases e herencia)</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-c">C</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Datos del catálogo (120 ítems)</td>
+                            <td class="nos-r">RA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Búsqueda dinámica y filtros</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Listado, paginación y ordenamiento</td>
+                            <td class="nos-a">A</td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="nos-raci-sep">
+                            <td colspan="7"><span class="nos-raci-sep-badge nos-sep-nosotros">Nosotros</span></td>
+                        </tr>
+                        <tr>
+                            <td>Navbar + Footer + Estructura base (nosotros.html)</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                            <td class="nos-i">I</td>
+                        </tr>
+                        <tr>
+                            <td>Banner + Información de la Empresa</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Nuestros Objetivos + Mapa Organizacional</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Nuestro Equipo (CV cards)</td>
+                            <td class="nos-a">A</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-r">R</td>
+                            <td class="nos-c">C</td>
+                        </tr>
+                        <tr>
+                            <td>Gestión del Proyecto (sección)</td>
+                            <td class="nos-a">A</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="nos-r">R</td>
+                        </tr>
+                        <tr>
+                            <td>Matriz de Responsabilidad RACI</td>
+                            <td class="nos-a">A</td>
+                            <td class="nos-r">R</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Integración Git (revisión de Pull Requests)</td>
+                            <td class="nos-r">RA</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                            <td class="nos-c">C</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="nos-raci-leyenda">
+                <div class="nos-raci-leyenda-item">
+                    <div class="nos-raci-chip nos-r">R</div>
+                    <span><strong>Responsable</strong> — ejecuta la tarea</span>
+                </div>
+                <div class="nos-raci-leyenda-item">
+                    <div class="nos-raci-chip nos-a">A</div>
+                    <span><strong>Aprobador</strong> — valida y aprueba</span>
+                </div>
+                <div class="nos-raci-leyenda-item">
+                    <div class="nos-raci-chip nos-c">C</div>
+                    <span><strong>Consultado</strong> — aporta criterio</span>
+                </div>
+                <div class="nos-raci-leyenda-item">
+                    <div class="nos-raci-chip nos-i">I</div>
+                    <span><strong>Informado</strong> — recibe actualizaciones</span>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <!-- ============================================================
-         ▶ ENRIQUE PRADA — FOOTER (YA IMPLEMENTADO)
-         No modificar.
-         ============================================================ -->
+    <!-- Enrique Prada — Footer -->
     <footer>
         <div class="container">
 
@@ -369,13 +693,9 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- main.js — lógica global -->
     <script src="js/main.js"></script>
-    <!-- matriz.js — MAYKOL -->
     <script src="js/nosotros/matriz.js"></script>
-    <!-- equipo.js — JOEL -->
     <script src="js/nosotros/equipo.js"></script>
 
 </body>
