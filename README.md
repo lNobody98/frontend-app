@@ -55,7 +55,7 @@ Página de catálogo completo con búsqueda, filtros y listado dinámico generad
 
 ---
 
-### Avance 3 — `nosotros.html` 🚧
+### Avance 3 — `nosotros.html` ✅
 Página institucional: misión/visión, objetivos, organigrama, equipo (CV cards con POO), gestión del proyecto y matriz RACI.
 
 | Integrante | Sección | Archivo(s) |
@@ -77,6 +77,30 @@ Página institucional: misión/visión, objetivos, organigrama, equipo (CV cards
 
 ---
 
+### Avance 4 (Final) — Carrito, Administración y Reportes 🚧
+Último avance del proyecto. Se agregan las funcionalidades de cliente (contacto, carrito) y de administrador (login, gestión de catálogo, reportes), todo simulado con JavaScript sin base de datos real.
+
+| Integrante | Parte | Página(s) | Usuario |
+|---|---|---|---|
+| Xiomara Solís | Contactos — formulario de opinión + Google Maps | `contactos.html` | Cliente |
+| Christian Diaz | Login + Panel del administrador | `admin/login.html` · `admin/panel.html` | Administrador |
+| Juan Morales | Gestión de catálogo (CRUD de productos/servicios) | `admin/gestion-catalogo.html` | Administrador |
+| Joel Saldaña | Carrito de compras + modal de confirmación en catálogo | catálogo.html (modal) + página/modal propio | Cliente |
+| Maykol Calle | Reportes — 2 gráficos (barras/circular) | `admin/reportes.html` | Administrador |
+| Enrique Prada | Coordinación, arquitectura de páginas, wireframes guía y RACI | — | — |
+
+**Wireframes guía (sin estilos, solo layout):** `ayuda/` — un boceto en escala de grises por pantalla nueva, para orientar el diseño sin imponer una implementación.
+
+**Reglas clave del Avance 4:**
+- El cliente **nunca** usa login — solo Contactos y Carrito, de acceso libre
+- El administrador entra por `admin/login.html` y accede a `admin/panel.html`, donde se integran la gestión de catálogo y los reportes
+- Eliminar un producto es opcional; se recomienda "dar de baja" (ocultar sin borrar)
+- Descuentos de Fiestas Patrias: mínimo 3 tipos (ej. 10% / 20% / 30%)
+- Exactamente 2 gráficos obligatorios (barras o circular) en Reportes
+- JavaScript obligatorio para carrito y gráficos; sin base de datos — datos simulados en memoria o `localStorage`
+
+---
+
 ## Estructura del Proyecto
 
 ```
@@ -84,6 +108,13 @@ frontend-app/
 ├── inicio.html              # Avance 1 — página principal
 ├── catalogo.html            # Avance 2 — catálogo de productos y servicios
 ├── nosotros.html            # Avance 3 — página institucional del equipo
+├── contactos.html           # Avance 4 — formulario de contacto + mapa (Xiomara)
+│
+├── admin/                   # Avance 4 — subsistema del administrador
+│   ├── login.html           # Acceso del administrador (Christian)
+│   ├── panel.html           # Panel/dashboard del administrador (Christian)
+│   ├── gestion-catalogo.html # CRUD de productos y servicios (Juan)
+│   └── reportes.html        # Gráficos y reportes (Maykol)
 │
 ├── css/
 │   ├── base.css             # Variables globales y reset — NO MODIFICAR
@@ -111,6 +142,7 @@ frontend-app/
 │   ├── avance2/             # Código de referencia completo con comentarios
 │   └── avance3/             # Código de referencia completo con comentarios
 │
+├── ayuda/                   # Wireframes guía del Avance 4 (escala de grises, sin estilos)
 ├── info/                    # Indicaciones y ejemplos del profesor
 ├── img/                     # Imágenes del sitio y catálogo
 ├── video/                   # Video demostrativo
@@ -119,14 +151,15 @@ frontend-app/
 
 ---
 
-## Flujo de Trabajo — Avance 3
+## Flujo de Trabajo — Avance 4
 
-1. Consulta `resultado/avance3/` para ver el código de referencia completo
-2. Abre `nosotros.html` y busca el placeholder con tu nombre (borde punteado)
-3. Elimina el placeholder y pega tu sección desde `resultado/avance3/nosotros.html`
-4. Copia tu bloque CSS a `css/nosotros.css` en la sección marcada con tu nombre
-5. Si tienes JS propio, completa tu archivo en `js/nosotros/`
-6. Pull Request hacia `main` cuando tu sección esté lista
+A diferencia de los avances anteriores, en este avance **no se entrega código de referencia para copiar y pegar**. Cada responsable recibe únicamente la especificación funcional (qué debe lograr la página) y un wireframe guía en `ayuda/` (solo layout, sin estilos ni código) — el diseño, las clases y la implementación quedan a criterio de cada integrante.
+
+1. Revisa el wireframe de tu página en `ayuda/` y la historia de usuario asignada
+2. Tu página ya existe vacía en la raíz o en `admin/` — empieza desde ahí
+3. Crea tu propio CSS y JS en `css/` y `js/` (o subcarpeta si aplica)
+4. Juan y Maykol: repliquen el navbar/menú del panel que define Christian en `admin/panel.html` dentro de sus propias páginas (`admin/gestion-catalogo.html` y `admin/reportes.html`) para que el panel se sienta consistente entre páginas
+5. Pull Request hacia `main` cuando tu parte esté lista
 
 ---
 
@@ -141,6 +174,11 @@ El sitio se despliega automáticamente a GitHub Pages en cada push a `main`.
 | Inicio | `/frontend-app/inicio.html` |
 | Catálogo | `/frontend-app/catalogo.html` |
 | Nosotros | `/frontend-app/nosotros.html` |
+| Contactos | `/frontend-app/contactos.html` |
+| Login (admin) | `/frontend-app/admin/login.html` |
+| Panel (admin) | `/frontend-app/admin/panel.html` |
+| Gestión de catálogo (admin) | `/frontend-app/admin/gestion-catalogo.html` |
+| Reportes (admin) | `/frontend-app/admin/reportes.html` |
 
 > **Configuración inicial (solo una vez):** en GitHub → Settings → Pages → Source → seleccionar **GitHub Actions**.
 
@@ -151,9 +189,13 @@ El sitio se despliega automáticamente a GitHub Pages en cada push a `main`.
 | Página | Descripción |
 |---|---|
 | Inicio | Hero, productos, video, testimonios, noticias, CTA |
-| Catálogo | Catálogo completo, categorías, búsqueda, filtros, listado |
+| Catálogo | Catálogo completo, categorías, búsqueda, filtros, listado, modal de carrito |
 | Nosotros | Misión, visión, equipo, historia, valores, RACI |
-| Contactos | Formulario, mapa, WhatsApp, soporte, FAQ |
+| Contactos | Formulario de opinión + mapa de la sucursal (cliente) |
+| Login (admin) | Acceso del administrador, validado con JavaScript |
+| Panel (admin) | Dashboard del administrador, punto de entrada al sistema |
+| Gestión de catálogo (admin) | CRUD de productos y servicios (añadir, modificar, buscar, dar de baja) |
+| Reportes (admin) | 2 gráficos (barras/circular) sobre ventas y clientes |
 
 ---
 
