@@ -1,0 +1,167 @@
+/* ============================================================
+   login.css — NXR TECH — Login de administrador
+   Responsable: Christian Diaz
+   ============================================================ */
+
+.login-topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--color-borde);
+    background-color: var(--color-fondo-medio);
+}
+
+.login-topbar img {
+    height: 34px;
+    width: auto;
+}
+
+.login-topbar span {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--color-texto-claro);
+}
+
+.login-wrapper {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0, 113, 227, 0.12), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(0, 113, 227, 0.08), transparent 40%),
+        var(--color-fondo-oscuro);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-card);
+    padding: 40px 36px;
+    text-align: center;
+}
+
+.login-card-icono {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(0, 113, 227, 0.12);
+    color: var(--color-acento);
+    font-size: 1.6rem;
+}
+
+.login-card h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 28px;
+    color: var(--color-texto-claro);
+}
+
+.login-campo {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.login-campo label {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--color-texto-gris-claro);
+    margin-bottom: 6px;
+}
+
+.login-campo-input {
+    position: relative;
+}
+
+.login-campo input {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: var(--color-fondo-oscuro);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    color: var(--color-texto-claro);
+    font-family: var(--fuente-principal);
+    font-size: 0.95rem;
+    transition: var(--transicion);
+}
+
+.login-campo input:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 3px var(--color-acento-glow);
+}
+
+.login-campo-input .fa-eye,
+.login-campo-input .fa-eye-slash {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-texto-gris);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.login-boton {
+    width: 100%;
+    padding: 13px;
+    margin-top: 8px;
+    background-color: var(--color-texto-oscuro);
+    color: var(--color-fondo-claro);
+    border: none;
+    border-radius: 10px;
+    font-family: var(--fuente-principal);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.login-boton:hover {
+    background-color: var(--color-acento);
+}
+
+.login-mensaje-error {
+    min-height: 20px;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: #ff6b6b;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.login-mensaje-error.visible {
+    opacity: 1;
+}
+
+.login-volver {
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 0.82rem;
+    color: var(--color-texto-gris);
+}
+
+.login-volver:hover {
+    color: var(--color-acento);
+}
+
+/* Pequeña animación de "shake" cuando los datos no coinciden */
+@keyframes login-shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+}
+
+.login-card.login-shake {
+    animation: login-shake 0.4s ease;
+}
