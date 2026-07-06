@@ -24,7 +24,6 @@ function iniciarSesion(usuario, contrasena) {
         usuario: admin.usuario,
         nombre: admin.nombre,
         correo: admin.correo,
-        rol: admin.rol,
         fechaAcceso: new Date().toLocaleString("es-PE")
     };
 

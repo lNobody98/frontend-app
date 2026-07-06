@@ -190,6 +190,10 @@ body {
 
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 768px) {
+    .panel-topbar {
+        padding: 12px 16px;
+    }
+
     .panel-layout {
         flex-direction: column;
     }
@@ -214,5 +218,33 @@ body {
 
     .panel-topbar-datos {
         display: none;
+    }
+
+    .panel-contenido {
+        padding: 20px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .panel-topbar-marca span {
+        display: none;
+    }
+
+    .panel-btn-salir-texto {
+        display: none;
+    }
+
+    .panel-btn-salir {
+        padding: 8px 10px;
+    }
+
+    .panel-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .panel-bienvenida {
+        font-size: 1.1rem;
     }
 }

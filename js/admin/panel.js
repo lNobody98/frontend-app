@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("panel-avatar-iniciales").textContent = iniciales;
     document.getElementById("panel-nombre-admin").textContent = sesion.nombre;
-    document.getElementById("panel-rol-admin").textContent = sesion.rol;
     document.getElementById("panel-bienvenida").textContent = "Bienvenido, " + primerNombre;
 
     // --- Tarjeta: Total de productos (dato real del catálogo) ---
@@ -50,11 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("nxrVisitasPanel", visitasActuales);
     document.getElementById("stat-visitas").textContent = visitasActuales;
 
-    // --- Cerrar sesión (botón superior y del menú lateral) ---
+    // --- Cerrar sesión (botón superior) ---
     document.getElementById("btn-cerrar-sesion-top").addEventListener("click", () => cerrarSesion());
-    document.getElementById("btn-cerrar-sesion-menu").addEventListener("click", (e) => {
-        e.preventDefault();
-        cerrarSesion();
-    });
-
 });
