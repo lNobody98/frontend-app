@@ -51,5 +51,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- Cerrar sesión (botón superior) ---
     document.getElementById("btn-cerrar-sesion-top").addEventListener("click", () => cerrarSesion());
-
 });
