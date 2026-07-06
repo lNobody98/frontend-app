@@ -26,19 +26,19 @@
 
     <!-- Christian Díaz — Barra superior del panel -->
     <header class="panel-topbar">
-        <div class="panel-topbar-marca">
+        <a href="../inicio.html" class="panel-topbar-marca" style="text-decoration: none;">
             <img src="../img/nxrtech_logo.png" alt="NXR TECH">
             <span>Panel Administrativo</span>
-        </div>
+        </a>
 
         <div class="panel-topbar-usuario">
             <div class="panel-avatar" id="panel-avatar-iniciales">--</div>
             <div class="panel-topbar-datos">
                 <strong id="panel-nombre-admin">Cargando...</strong>
                 <small id="panel-rol-admin">Administrador</small>
-            </div>
+            </div>   
             <button class="panel-btn-salir" id="btn-cerrar-sesion-top">
-                <i class="fa-solid fa-right-from-bracket"></i> Salir
+                <i class="fa-solid fa-right-from-bracket"></i> <span class="panel-btn-salir-texto">Salir</span>
             </button>
         </div>
     </header>
@@ -53,9 +53,6 @@
             <a href="gestion-catalogo.html" class="panel-sidebar-link">
                 <i class="fa-solid fa-boxes-stacked"></i> Productos y servicios
             </a>
-            <a href="reportes.html" class="panel-sidebar-link">
-                <i class="fa-solid fa-chart-column"></i> Reportes
-            </a>
 
             <div class="panel-sidebar-separador"></div>
 
@@ -64,8 +61,8 @@
             </a>
         </aside>
 
-        <!-- Zona de contenido: aquí se monta el CRUD (Juan) y los
-             reportes (Maykol) cuando entren desde el menú lateral -->
+         <!-- Zona de contenido: este Dashboard es donde Maykol monta sus
+             gráficos/reportes. El CRUD de Juan va en gestion-catalogo.html -->
         <main class="panel-contenido">
             <h1 class="panel-bienvenida" id="panel-bienvenida">Bienvenido</h1>
 
