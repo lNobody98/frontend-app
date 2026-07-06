@@ -14,28 +14,25 @@
 const usuariosAdmin = [
     {
         usuario: "cdiaz",
-        contrasena: "12346",
+        contrasena: "1234",
         nombre: "Christian Díaz",
-        correo: "christian.diaz@nxrtech.com",
-        rol: "Administrador"
+        correo: "christian.diaz@nxrtech.com"
     },
     {
         usuario: "jmorales",
         contrasena: "jm2026",
         nombre: "Juan Morales",
-        correo: "juan.morales@nxrtech.com",
-        rol: "Administrador"
+        correo: "juan.morales@nxrtech.com"
     },
     {
         usuario: "mcalle",
         contrasena: "mc2026",
         nombre: "Maykol Calle",
-        correo: "maykol.calle@nxrtech.com",
-        rol: "Administrador"
+        correo: "maykol.calle@nxrtech.com"
     }
 ];
 
 // Demo rápida para la sustentación:
-// usuario: cdiaz    / contraseña: cd2026
+// usuario: cdiaz    / contraseña: 1234
 // usuario: jmorales / contraseña: jm2026
 // usuario: mcalle   / contraseña: mc2026
