@@ -9,6 +9,7 @@
     align-items: stretch;
     justify-content: space-between;
     gap: 22px;
+    min-width: 0;
     margin: 28px 0 20px;
     padding: 22px;
     border: 1px solid var(--color-borde);
@@ -38,6 +39,7 @@
     max-width: 720px;
     color: var(--color-texto-gris-claro);
     font-size: 0.92rem;
+    overflow-wrap: anywhere;
 }
 
 .dashboard-fecha {
@@ -92,6 +94,7 @@
     color: var(--color-texto-claro);
     font-size: 1.28rem;
     line-height: 1.25;
+    overflow-wrap: anywhere;
 }
 
 .dashboard-grid {
@@ -139,6 +142,8 @@
 .dashboard-grafico-titulo h2 {
     color: var(--color-texto-claro);
     font-size: 1rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
 }
 
 .dashboard-grafico-titulo span {
@@ -183,25 +188,65 @@
 }
 
 @media (max-width: 1100px) {
-    .dashboard-grid,
     .dashboard-indicadores {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-grid {
         grid-template-columns: 1fr;
     }
 
-    .dashboard-canvas,
+    .dashboard-canvas {
+        height: 320px;
+    }
+
     .dashboard-canvas-linea {
-        height: 330px;
+        height: 350px;
     }
 }
 
 @media (max-width: 768px) {
+    .dashboard-cabecera {
+        align-items: stretch;
+        gap: 16px;
+        margin-top: 20px;
+        padding: 18px;
+    }
+
     .dashboard-cabecera,
     .dashboard-grafico-titulo {
         flex-direction: column;
     }
 
+    .dashboard-indicadores {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .dashboard-indicador {
+        min-height: auto;
+        padding: 16px;
+    }
+
+    .dashboard-grid {
+        gap: 16px;
+    }
+
+    .dashboard-grafico {
+        padding: 14px;
+    }
+
+    .dashboard-grafico-titulo {
+        gap: 10px;
+    }
+
+    .dashboard-grafico-titulo span {
+        align-self: flex-start;
+    }
+
     .dashboard-fecha {
         width: 100%;
+        min-width: 0;
     }
 
     .dashboard-cabecera h1,
@@ -213,5 +258,39 @@
     .dashboard-canvas-linea {
         height: 300px;
         padding: 10px;
+    }
+
+    .dashboard-explicacion {
+        min-height: auto;
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-cabecera {
+        padding: 16px;
+    }
+
+    .dashboard-cabecera h1,
+    .dashboard-cabecera h2 {
+        font-size: 1.12rem;
+    }
+
+    .dashboard-descripcion,
+    .dashboard-explicacion {
+        font-size: 0.8rem;
+    }
+
+    .dashboard-indicador strong {
+        font-size: 1.1rem;
+    }
+
+    .dashboard-canvas {
+        height: 260px;
+        padding: 8px;
+    }
+
+    .dashboard-canvas-linea {
+        height: 285px;
     }
 }

@@ -115,6 +115,7 @@ function configurarChartBase() {
 function crearGraficoLineas(canvasId, datos) {
     const canvas = document.getElementById(canvasId);
     if (!canvas || typeof Chart === "undefined") return;
+    const esMovil = window.matchMedia("(max-width: 480px)").matches;
 
     new Chart(canvas, {
         type: "line",
@@ -157,10 +158,10 @@ function crearGraficoLineas(canvasId, datos) {
                     position: "top",
                     labels: {
                         color: "#111827",
-                        boxWidth: 34,
+                        boxWidth: esMovil ? 22 : 34,
                         usePointStyle: true,
                         pointStyle: "line",
-                        font: { size: 12, weight: "600" }
+                        font: { size: esMovil ? 10 : 12, weight: "600" }
                     }
                 }
             },
@@ -171,13 +172,18 @@ function crearGraficoLineas(canvasId, datos) {
                     ticks: {
                         stepSize: 200,
                         color: "#4b5563",
+                        maxTicksLimit: esMovil ? 5 : 10,
                         callback: valor => "S/ " + valor
                     },
                     grid: { color: "rgba(17, 24, 39, 0.10)" },
                     border: { display: false }
                 },
                 x: {
-                    ticks: { color: "#4b5563", font: { weight: "600" } },
+                    ticks: {
+                        color: "#4b5563",
+                        maxRotation: esMovil ? 45 : 0,
+                        font: { size: esMovil ? 10 : 12, weight: "600" }
+                    },
                     grid: { color: "rgba(17, 24, 39, 0.08)" },
                     border: { display: false }
                 }
@@ -189,6 +195,7 @@ function crearGraficoLineas(canvasId, datos) {
 function crearGraficoMasVendidos(canvasId, datos) {
     const canvas = document.getElementById(canvasId);
     if (!canvas || typeof Chart === "undefined") return;
+    const esMovil = window.matchMedia("(max-width: 480px)").matches;
 
     const totalPedidos = datos.reduce((total, producto) => total + producto.pedidos, 0);
     const centroAnillo = {
@@ -234,6 +241,7 @@ function crearGraficoMasVendidos(canvasId, datos) {
             plugins: {
                 title: { display: false },
                 legend: {
+                    display: !esMovil,
                     position: "bottom",
                     labels: {
                         color: "#111827",
@@ -259,6 +267,7 @@ function crearGraficoMasVendidos(canvasId, datos) {
 function crearGraficoComparacionCiudades(canvasId, datos) {
     const canvas = document.getElementById(canvasId);
     if (!canvas || typeof Chart === "undefined") return;
+    const esMovil = window.matchMedia("(max-width: 480px)").matches;
 
     const etiquetasBarras = {
         id: "etiquetasClientesCiudad",
@@ -320,7 +329,11 @@ function crearGraficoComparacionCiudades(canvasId, datos) {
                     border: { display: false }
                 },
                 x: {
-                    ticks: { color: "#4b5563", font: { weight: "700" } },
+                    ticks: {
+                        color: "#4b5563",
+                        maxRotation: esMovil ? 35 : 0,
+                        font: { size: esMovil ? 10 : 12, weight: "700" }
+                    },
                     grid: { display: false },
                     border: { display: false }
                 }
