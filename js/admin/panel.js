@@ -49,11 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("nxrVisitasPanel", visitasActuales);
     document.getElementById("stat-visitas").textContent = visitasActuales;
 
-    // --- Cerrar sesión (botón superior y del menú lateral) ---
+    // --- Cerrar sesión (botón superior) ---
     document.getElementById("btn-cerrar-sesion-top").addEventListener("click", () => cerrarSesion());
-    document.getElementById("btn-cerrar-sesion-menu").addEventListener("click", (e) => {
-        e.preventDefault();
-        cerrarSesion();
-    });
-
 });
