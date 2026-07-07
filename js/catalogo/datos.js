@@ -1,5 +1,47 @@
 
-const listaCatalogo = [
+let listaCatalogo = [];
+
+const data = JSON.parse(localStorage.getItem("productos"));
+
+if (data && data.length > 0) {
+
+    listaCatalogo = data.map(item => {
+
+        if (item.tipo === "Producto") {
+
+            return new Producto(
+                item.id,
+                item.nombre,
+                item.subcategoria,
+                item.precio,
+                item.marca,
+                item.stock,
+                item.descripcion,
+                item.imagen,
+                item.estado
+            );
+
+        } else {
+
+            return new Servicio(
+                item.id,
+                item.nombre,
+                item.subcategoria,
+                item.precio,
+                item.garantia,
+                item.modalidad,
+                item.descripcion,
+                item.imagen,
+                item.estado
+            );
+
+        }
+    });
+
+} else {
+
+    listaCatalogo = [
+
 
     // ════════════════════════════════════════════════════════
     //  PRODUCTOS (60)
@@ -169,3 +211,6 @@ const listaCatalogo = [
     new Servicio(119, "Optimización SEO", "Desarrollo Web", 400, "3 meses", "Remota", "Auditoría y optimización técnica y de contenido para mejora en buscadores.", "img/catalogo/servicios/s-54.jpg"),
     new Servicio(120, "Integración de Pasarela de Pago", "Desarrollo Web", 700, "3 meses", "Remota", "Integración de Culqi, Mercado Pago, PayPal o Stripe en sitios existentes.", "img/catalogo/servicios/s-55.jpg"),
 ];
+
+localStorage.setItem("productos", JSON.stringify(listaCatalogo));
+}
