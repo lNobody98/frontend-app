@@ -4,84 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NXR TECH - Panel Administrador</title>
+    <title>NXR TECH - Dashboard</title>
     <link rel="icon" type="image/x-icon" href="../img/nxrtech.ico">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome 6.5 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Estilos del proyecto -->
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="stylesheet" href="../css/Dashboard.css">
 </head>
 
 <body>
-
-    <!-- Christian Díaz — Barra superior del panel -->
     <header class="panel-topbar">
-        <a href="../inicio.html" class="panel-topbar-marca" style="text-decoration: none;">
+        <div class="panel-topbar-marca">
             <img src="../img/nxrtech_logo.png" alt="NXR TECH">
             <span>Panel Administrativo</span>
-        </a>
+        </div>
 
         <div class="panel-topbar-usuario">
             <div class="panel-avatar" id="panel-avatar-iniciales">--</div>
             <div class="panel-topbar-datos">
                 <strong id="panel-nombre-admin">Cargando...</strong>
                 <small id="panel-rol-admin">Administrador</small>
-            </div>   
+            </div>
             <button class="panel-btn-salir" id="btn-cerrar-sesion-top">
-                <i class="fa-solid fa-right-from-bracket"></i> <span class="panel-btn-salir-texto">Salir</span>
+                <i class="fa-solid fa-right-from-bracket"></i> Salir
             </button>
         </div>
     </header>
 
     <div class="panel-layout">
-
-        <!-- Christian Díaz — Menú lateral del panel -->
         <aside class="panel-sidebar">
-            <a href="panel.html" class="panel-sidebar-link activo">
+            <a href="panel.html" class="panel-sidebar-link">
                 <i class="fa-solid fa-gauge"></i> Dashboard
             </a>
             <a href="gestion-catalogo.html" class="panel-sidebar-link">
                 <i class="fa-solid fa-boxes-stacked"></i> Productos y servicios
             </a>
+            <a href="Dashboard.html" class="panel-sidebar-link activo">
+                <i class="fa-solid fa-chart-column"></i> Dashboard
+            </a>
+
+            <div class="panel-sidebar-separador"></div>
+
+            <a href="#" class="panel-sidebar-link" id="btn-cerrar-sesion-menu">
+                <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesion
+            </a>
         </aside>
 
-         <!-- Zona de contenido: este Dashboard es donde Maykol monta sus
-             gráficos/reportes. El CRUD de Juan va en gestion-catalogo.html -->
         <main class="panel-contenido">
-            <h1 class="panel-bienvenida" id="panel-bienvenida">Bienvenido</h1>
-
-            <div class="panel-stats">
-                <div class="panel-stat-card">
-                    <i class="fa-solid fa-boxes-stacked"></i>
-                    <span>Total Productos</span>
-                    <strong id="stat-total-productos">—</strong>
-                </div>
-                <div class="panel-stat-card">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Pedidos del día</span>
-                    <strong id="stat-pedidos-dia">—</strong>
-                </div>
-                <div class="panel-stat-card">
-                    <i class="fa-solid fa-eye"></i>
-                    <span>Visitas</span>
-                    <strong id="stat-visitas">—</strong>
-                </div>
-            </div>
             <section class="dashboard-cabecera">
                 <div>
                     <p class="dashboard-kicker">Dashboard administrativo</p>
-                    <h2>Gráficos de desempeño</h2>
+                    <h1>Gráficos de desempeño</h1>
                     <p class="dashboard-descripcion">
                         Vista privada para administradores con datos simulados del sistema.
                     </p>
@@ -158,17 +139,12 @@
             </section>
 
         </main>
-
     </div>
 
-    <!-- Scripts -->
-    <!-- catalogo.js + datos.js: solo para leer el total real de productos -->
     <script src="../js/catalogo/catalogo.js"></script>
     <script src="../js/catalogo/datos.js"></script>
-
     <script src="../js/admin/usuarios.js"></script>
     <script src="../js/admin/auth.js"></script>
-    <script src="../js/admin/panel.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/Dashboard/Dashboard.js"></script>
 </body>
