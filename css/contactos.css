@@ -7,7 +7,11 @@
 }
 
 /*==========================================================
+<<<<<<< HEAD
+                    BANNER
+=======
                     BANNER I
+>>>>>>> a245842f706e7b2e2ae29c23d28b92eccebf2494
 ==========================================================*/
 
 .ct-slide{
@@ -285,47 +289,47 @@
 
     flex-direction:column;
 
-    gap:22px;
+     gap: 18px;
 
 }
 
 .dato{
-
-    display:flex;
-
-    gap:16px;
-
-    align-items:flex-start;
-
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
 }
 
 .dato i{
 
     width:48px;
-
     height:48px;
 
     background:var(--color-acento);
-
     color:#fff;
 
     border-radius:50%;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     font-size:1rem;
 
     flex-shrink:0;
 
+    margin-top:2px;
+
+}
+
+.dato div{
+    margin-top:-2px;
+    flex-direction:column;
+    justify-content:flex-start;
 }
 
 .dato h4{
 
-    margin-bottom:4px;
+    margin: 0 0 6px 0;
 
     color:var(--color-texto-oscuro);
 
@@ -333,7 +337,7 @@
 
 .dato p{
 
-    margin:0;
+    margin: 0;
 
     color:var(--color-texto-gris);
 
@@ -387,4 +391,41 @@ font-size:2rem;
 
 }
 
+}
+
+/*==========================================================
+                Flechas
+==========================================================*/
+
+.carousel-control-prev,
+.carousel-control-next{
+    width: 45px;
+    height: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(13, 110, 253, 0.35); /* Transparente */
+    border-radius: 50%;
+    opacity: 1;
+    transition: all .3s ease;
+}
+
+.carousel-control-prev{
+    left: 100px;
+}
+
+.carousel-control-next{
+    right: 100px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover{
+    background: #0d6efd;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    filter: brightness(0) invert(1);
+    width: 18px;
+    height: 18px;
 }
