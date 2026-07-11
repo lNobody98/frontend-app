@@ -37,7 +37,7 @@
 .crud-card:hover {
 
     transform: translateY(-2px);
-    box-shadow: 0 18px 40px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .08);
 
 }
 
@@ -162,6 +162,7 @@
     vertical-align: middle;
     background: var(--color-fondo-medio);
     color: var(--color-texto-claro) !important;
+
 }
 
 .crud-table thead th{
@@ -171,9 +172,11 @@
     transition: .2s;
 
 }
+
 .crud-table tbody tr:hover {
 
-    background: #252525;
+    background: var(--color-fondo-medio);
+    background: #f8fbff;
 
 }
 
@@ -294,14 +297,6 @@
 
     animation: aparecerCrud .25s ease;
 
-}
-.crud-table th,
-.crud-table td {
-    color: var(--color-texto-claro) !important;
-}
-
-.crud-table tbody tr {
-    background-color: var(--color-fondo-medio);
 }
 
 @keyframes aparecerCrud {

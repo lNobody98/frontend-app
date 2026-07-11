@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header class="panel-topbar">
+  <header class="panel-topbar">
         <a href="../inicio.html" class="panel-topbar-marca" style="text-decoration: none;">
             <img src="../img/nxrtech_logo.png" alt="NXR TECH">
             <span>Panel Administrativo</span>
@@ -25,7 +25,8 @@
             <div class="panel-topbar-datos">
                 <strong id="panel-nombre-admin">Cargando...</strong>
                 <small id="panel-rol-admin">Administrador</small>
-            </div>
+            </div>   
+          
             <button class="btn btn-primary btn-lg px-4" onclick="abrirModalRegistrar()">
 
                 <i class="fa-solid fa-plus me-2"></i>
@@ -36,14 +37,25 @@
             <button class="panel-btn-salir" onclick="cerrarSesion()">
                 <i class="fa-solid fa-right-from-bracket"></i> <span class="panel-btn-salir-texto">Salir</span>
             </button>
-        </div>
-
-            <button class="panel-btn-salir" onclick="cerrarSesion()">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                Salir
-            </button>
-        </div>
+      
     </header>
+
+    <div class="panel-layout">
+
+        <!-- Christian Díaz — Menú lateral del panel -->
+        <aside class="panel-sidebar">
+            <a href="panel.html" class="panel-sidebar-link activo">
+                <i class="fa-solid fa-gauge"></i> Dashboard
+            </a>
+            <a href="gestion-catalogo.html" class="panel-sidebar-link">
+                <i class="fa-solid fa-boxes-stacked"></i> Productos y servicios
+            </a>
+            
+        </aside>
+
+
+
+
 
 
     <div class="container py-4 crud-container">
