@@ -4,6 +4,14 @@ let ordenActivo  = "relevancia";
 
 const POR_PAGINA = 12;
 
+function esc(texto) {
+    return String(texto)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
+
 
 
 function renderizar(items) {
@@ -67,15 +75,15 @@ function _pintar() {
     let html = pagina.map(item => `
         <div class="mc-item">
             <div class="mc-item-img-wrapper">
-                <img src="${item.imagen}" alt="${item.nombre}" class="mc-item-img">
+                <img src="${item.imagen}" alt="${esc(item.nombre)}" class="mc-item-img">
                 <span class="mc-tipo-badge mc-badge-${item.tipo.toLowerCase()}">${item.tipo}</span>
             </div>
             <div class="mc-item-contenido">
-                <h5 class="mc-item-categoria">${item.subcategoria}${item.getEtiquetaComercial() ? " · " + item.getEtiquetaComercial() : ""}</h5>
-                <h3 class="mc-item-titulo">${item.nombre}</h3>
-                <p class="mc-item-extra">${item.getDetalleExtra()}</p>
-                ${item.getGarantiaTexto() ? `<p class="mc-item-garantia">${item.getGarantiaTexto()}</p>` : ""}
-                <p class="mc-item-descripcion">${item.descripcion}</p>
+                <h5 class="mc-item-categoria">${esc(item.subcategoria)}${item.getEtiquetaComercial() ? " · " + esc(item.getEtiquetaComercial()) : ""}</h5>
+                <h3 class="mc-item-titulo">${esc(item.nombre)}</h3>
+                <p class="mc-item-extra">${esc(item.getDetalleExtra())}</p>
+                ${item.getGarantiaTexto() ? `<p class="mc-item-garantia">${esc(item.getGarantiaTexto())}</p>` : ""}
+                <p class="mc-item-descripcion">${esc(item.descripcion)}</p>
                 <span class="mc-item-precio">${item.getPrecioTexto()}</span>
                 <div class="mc-item-botones">
                     <button class="btn-primario">Consultar</button>
@@ -98,4 +106,4 @@ function _pintar() {
     contenedor.innerHTML = html;
 }
 
-renderizar(listaCatalogo);
+renderizar(listaCatalogo.filter(item => item.estado !== "INACTIVO"));

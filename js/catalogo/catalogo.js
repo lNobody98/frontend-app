@@ -1,8 +1,7 @@
-// catalogo.js — Clases del catálogo NXR TECH — Enrique Prada
 
 class ItemCatalogo {
 
-    constructor(id, nombre, tipo, subcategoria, precio, descripcion, imagen) {
+    constructor(id, nombre, tipo, subcategoria, precio, descripcion, imagen,estado="ACTIVO") {
         this.id           = id;
         this.nombre       = nombre;
         this.tipo         = tipo;
@@ -10,6 +9,7 @@ class ItemCatalogo {
         this.precio       = precio;
         this.descripcion  = descripcion;
         this.imagen       = imagen;
+        this.estado       = estado;
     }
 
     getPrecioTexto() {
@@ -28,8 +28,8 @@ class ItemCatalogo {
 
 class Producto extends ItemCatalogo {
 
-    constructor(id, nombre, subcategoria, precio, marca, stock, descripcion, imagen) {
-        super(id, nombre, "Producto", subcategoria, precio, descripcion, imagen);
+    constructor(id, nombre, subcategoria, precio, marca, stock, descripcion, imagen,estado="ACTIVO") {
+        super(id, nombre, "Producto", subcategoria, precio, descripcion, imagen,estado);
         this.marca = marca;
         this.stock = stock;
     }
@@ -42,8 +42,8 @@ class Producto extends ItemCatalogo {
 
 class Servicio extends ItemCatalogo {
 
-    constructor(id, nombre, subcategoria, precio, garantia, modalidad, descripcion, imagen) {
-        super(id, nombre, "Servicio", subcategoria, precio, descripcion, imagen);
+    constructor(id, nombre, subcategoria, precio, garantia, modalidad, descripcion, imagen,estado="ACTIVO") {
+        super(id, nombre, "Servicio", subcategoria, precio, descripcion, imagen,estado);
         this.garantia = garantia;
         this.modalidad = modalidad;
     }
