@@ -173,9 +173,13 @@ function guardarItem() {
 
         listaCatalogo[indice] = item;
 
+        alert("✅ Producto/Servicio modificado correctamente.");
+
     } else {
 
         listaCatalogo.push(item);
+
+        alert("✅ Producto/Servicio agregado correctamente.");
 
     }
 
@@ -302,28 +306,50 @@ function editarItem(id) {
 
     modalCatalogo.show();
 }
-//busqueda//
+// búsqueda por nombre
 function buscar() {
 
-    const texto = document.getElementById("txtBuscar").value.trim();
+    const texto = document.getElementById("txtBuscar").value.trim().toLowerCase();
 
     if (texto === "") {
         mostrarLista(listaCatalogo);
         return;
     }
 
-    const resultado = listaCatalogo.filter(item =>
-        String(item.id).includes(texto)
-    );
+    const resultado = listaCatalogo.filter(item => {
+
+        const nombre = item.nombre?.toLowerCase() || "";
+        const marca = item.marca?.toLowerCase() || "";
+        const descripcion = item.descripcion?.toLowerCase() || "";
+        const categoria = item.subcategoria?.toLowerCase() || "";
+        const tipo = item.tipo?.toLowerCase() || "";
+
+        return (
+            nombre.includes(texto) ||
+            marca.includes(texto) ||
+            descripcion.includes(texto) ||
+            categoria.includes(texto) ||
+            tipo.includes(texto)
+        );
+
+    });
 
     mostrarLista(resultado);
 }
-//dar de baja //
+// dar de baja //
 function cambiarEstado(id) {
 
     const item = listaCatalogo.find(x => x.id === id);
 
     if (!item) return;
+
+    const confirmar = confirm(
+        `¿Está seguro que desea dar de baja "${item.nombre}"?`
+    );
+
+    if (!confirmar) {
+        return;
+    }
 
     item.estado =
         item.estado === "ACTIVO"
