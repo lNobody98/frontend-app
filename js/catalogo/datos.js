@@ -1,9 +1,15 @@
 
 let listaCatalogo = [];
 
-const data = JSON.parse(localStorage.getItem("productos"));
+let data = null;
 
-if (data && data.length > 0) {
+try {
+    data = JSON.parse(localStorage.getItem("productos"));
+} catch (e) {
+    data = null;
+}
+
+if (Array.isArray(data) && data.length > 0) {
 
     listaCatalogo = data.map(item => {
 
