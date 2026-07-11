@@ -29,7 +29,7 @@ const usuariosAdmin = [
         contrasena: "mc2026",
         nombre: "Maykol Calle",
         correo: "maykol.calle@nxrtech.com"
-    }
+    },
     {
         usuario: "jsalda",
         contrasena: "1806",

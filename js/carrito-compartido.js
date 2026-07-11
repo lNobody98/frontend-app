@@ -28,7 +28,7 @@ function actualizarContadorNavbar() {
     if (contador) {
         const total = obtenerCantidadTotal();
         contador.textContent = total;
-        contador.style.display = total > 0 ? "block" : "none";
+        contador.style.display = total > 0 ? "inline-block" : "none";
     }
 }
 

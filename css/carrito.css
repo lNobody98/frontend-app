@@ -51,17 +51,28 @@
 .nav-carrito-contador {
     background-color: var(--color-acento);
     color: #fff;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    padding: 2px 7px;
+    padding: 1px 6px;
     border-radius: 10px;
     position: absolute;
-    top: -8px;
-    right: -12px;
-    min-width: 18px;
+    top: -10px;
+    left: 8px;
+    min-width: 17px;
     text-align: center;
+    line-height: 1.5;
+    border: 2px solid var(--color-fondo-oscuro);
     box-shadow: 0 2px 8px var(--color-acento-glow);
     animation: popContador 0.3s ease-out;
+}
+
+/* En el menú móvil desplegado el badge va en línea junto al texto */
+@media (max-width: 768px) {
+    .nav-carrito-contador {
+        position: static;
+        margin-left: 8px;
+        border: none;
+    }
 }
 
 @keyframes popContador {
