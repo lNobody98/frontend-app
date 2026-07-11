@@ -250,6 +250,14 @@ function abrirModalRegistrar() {
 
     document.getElementById("garantia").value = "";
 
+    document.getElementById("subcategoria").value = "";
+
+    document.getElementById("tipo").value = "Producto";
+
+    document.getElementById("modalidad").value = "Presencial";
+
+    cambiarFormulario();
+
     document.getElementById("preview").src = "../img/sin-imagen.png";
 
     modalCatalogo.show();
