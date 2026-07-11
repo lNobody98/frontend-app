@@ -4,6 +4,46 @@
     --crud-transicion: .25s ease;
 
 }
+.panel-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 26px;
+    background-color: var(--color-fondo-medio);
+    border-bottom: 1px solid var(--color-borde);
+}
+.panel-topbar-marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.panel-topbar-usuario {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.panel-btn-salir {
+
+    padding: 8px 18px;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    border-radius: 8px;
+    color: white;
+    font-family: var(--fuente-principal);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: .25s ease;
+
+}
+
+
+.panel-btn-salir:hover {
+
+    background-color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+
+}
 
 .crud-container {
 
@@ -32,6 +72,34 @@
     transition: var(--crud-transicion);
     background: var(--color-fondo-card);
 
+}
+.panel-btn-agregar {
+
+    padding: 8px 18px;
+    background-color: var(--color-acento);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-family: var(--fuente-principal);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transicion);
+
+}
+
+
+.panel-btn-agregar:hover {
+
+    background-color: var(--color-acento-hover);
+    box-shadow: 0 0 15px var(--color-acento-glow);
+
+}
+.panel-layout {
+    display: flex;
+}
+.panel-sidebar {
+    width: 240px;
+    background-color: var(--color-fondo-medio);
 }
 
 .crud-card:hover {
