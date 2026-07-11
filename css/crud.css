@@ -15,6 +15,10 @@
 
     color: var(--color-texto-claro);
 
+    font-size: 1.3rem;
+
+    font-weight: 600;
+
 }
 
 .crud-titulo p {
@@ -201,8 +205,9 @@
 
 .crud-btn-nuevo {
 
-    border-radius: 12px;
-    padding: .7rem 1.2rem;
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    font-size: .9rem;
     font-weight: 600;
     transition: .2s;
 
