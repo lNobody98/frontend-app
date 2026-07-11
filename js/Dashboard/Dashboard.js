@@ -53,7 +53,7 @@ function cargarDatosAdministrador(sesion) {
 
     document.getElementById("panel-avatar-iniciales").textContent = iniciales;
     document.getElementById("panel-nombre-admin").textContent = sesion.nombre;
-    document.getElementById("panel-rol-admin").textContent = sesion.rol;
+    document.getElementById("panel-rol-admin").textContent = sesion.rol || "Administrador";
     document.getElementById("dashboard-fecha").textContent = new Date().toLocaleDateString("es-PE");
 }
 

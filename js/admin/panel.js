@@ -26,29 +26,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("panel-avatar-iniciales").textContent = iniciales;
     document.getElementById("panel-nombre-admin").textContent = sesion.nombre;
-    document.getElementById("panel-bienvenida").textContent = "Bienvenido, " + primerNombre;
+
+    // Los elementos de aquí en adelante solo existen en panel.html.
+    // Este script también se carga en gestion-catalogo.html (topbar
+    // compartido), por eso se verifica cada elemento antes de usarlo.
+    const bienvenida = document.getElementById("panel-bienvenida");
+    if (bienvenida) bienvenida.textContent = "Bienvenido, " + primerNombre;
 
     // --- Tarjeta: Total de productos (dato real del catálogo) ---
     const statProductos = document.getElementById("stat-total-productos");
-    if (typeof listaCatalogo !== "undefined") {
-        statProductos.textContent = listaCatalogo.length;
-    } else {
-        statProductos.textContent = "—";
+    if (statProductos) {
+        statProductos.textContent =
+            typeof listaCatalogo !== "undefined" ? listaCatalogo.length : "—";
     }
 
     // --- Tarjeta: Pedidos del día ---
     // Simulado: el carrito de Joel aún no genera pedidos reales.
     // Cuando exista, reemplazar esto por el conteo real.
-    document.getElementById("stat-pedidos-dia").textContent = "12";
+    const statPedidos = document.getElementById("stat-pedidos-dia");
+    if (statPedidos) statPedidos.textContent = "12";
 
     // --- Tarjeta: Visitas ---
     // Simulado con localStorage: suma 1 cada vez que se abre el panel.
     // Maykol puede reemplazar esta lógica cuando conecte los reportes reales.
-    const visitasPrevias = parseInt(localStorage.getItem("nxrVisitasPanel") || "0", 10);
-    const visitasActuales = visitasPrevias + 1;
-    localStorage.setItem("nxrVisitasPanel", visitasActuales);
-    document.getElementById("stat-visitas").textContent = visitasActuales;
+    const statVisitas = document.getElementById("stat-visitas");
+    if (statVisitas) {
+        const visitasPrevias = parseInt(localStorage.getItem("nxrVisitasPanel") || "0", 10);
+        const visitasActuales = visitasPrevias + 1;
+        localStorage.setItem("nxrVisitasPanel", visitasActuales);
+        statVisitas.textContent = visitasActuales;
+    }
 
     // --- Cerrar sesión (botón superior) ---
-    document.getElementById("btn-cerrar-sesion-top").addEventListener("click", () => cerrarSesion());
+    const btnSalir = document.getElementById("btn-cerrar-sesion-top");
+    if (btnSalir) btnSalir.addEventListener("click", () => cerrarSesion());
 });

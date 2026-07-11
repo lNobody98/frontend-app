@@ -91,6 +91,28 @@ body {
     color: var(--color-acento);
 }
 
+.panel-btn-ver-pagina {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: transparent;
+    border: 1px solid var(--color-acento);
+    border-radius: 7px;
+    color: var(--color-acento);
+    font-family: var(--fuente-principal);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.panel-btn-ver-pagina:hover {
+    background: var(--color-acento);
+    color: #fff;
+}
+
 /* ---------------- LAYOUT: SIDEBAR + CONTENIDO ---------------- */
 .panel-layout {
     display: flex;
@@ -230,11 +252,13 @@ body {
         display: none;
     }
 
-    .panel-btn-salir-texto {
+    .panel-btn-salir-texto,
+    .panel-btn-ver-pagina-texto {
         display: none;
     }
 
-    .panel-btn-salir {
+    .panel-btn-salir,
+    .panel-btn-ver-pagina {
         padding: 8px 10px;
     }
 
