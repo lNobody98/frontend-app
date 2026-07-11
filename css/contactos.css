@@ -2,81 +2,120 @@
                     CONTACTOS
 ==========================================================*/
 
-#contacto-carousel {
-    margin-top: 80px;
+/* ── Enrique Prada — Navbar (idéntico a nosotros.css) ── */
+#navbar .ep-navbar-bar {
+    background-color: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+#navbar .ep-navbar-bar nav {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
+
+#navbar .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    font-size: inherit;
+}
+
+#navbar .ep-navbar-bar .collapse.navbar-collapse {
+    flex-grow: 0;
+}
+
+@media (min-width: 769px) {
+    #navbar .navbar-collapse {
+        flex-basis: auto;
+        flex-grow: 0;
+    }
 }
 
 /*==========================================================
-                    BANNER I
+                    BANNER
 ==========================================================*/
 
-.ct-slide {
+.ct-slide{
 
-    min-height: 420px;
+    height:650px;
 
-    background-size: cover;
+    padding-top:85px;
 
-    background-position: center;
+    background-size:cover;
 
-    display: flex;
+    background-position:center;
 
-    justify-content: center;
+    display:flex;
 
-    align-items: center;
+    justify-content:center;
 
-    position: relative;
+    align-items:center;
 
-}
+    position:relative;
 
-.ct-slide::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background: rgba(0, 0, 0, .55);
+    overflow:hidden;
 
 }
 
-.ct-slide-contenido {
+.ct-slide::before{
 
-    position: relative;
+    content:"";
 
-    z-index: 2;
+    position:absolute;
 
-    text-align: center;
+    inset:0;
 
-    max-width: 760px;
-
-    color: var(--color-texto-claro);
+    background:linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 100%);
 
 }
 
-.ct-slide-contenido h2 {
+.ct-slide-contenido{
 
-    font-size: 3rem;
+    position:relative;
 
-    font-weight: 800;
+    z-index:2;
 
-    margin-bottom: 18px;
+    text-align:center;
+
+    max-width:700px;
+
+    padding:0 24px;
+
+    color:var(--color-texto-claro);
 
 }
 
-.ct-slide-contenido span {
+.ct-slide-contenido h2{
 
-    color: var(--color-acento);
+    font-family:'Space Grotesk', sans-serif;
+
+    font-size:clamp(2rem, 5vw, 3.2rem);
+
+    color:#fff;
+
+    margin-bottom:16px;
+
+    line-height:1.15;
 
 }
 
-.ct-slide-contenido p {
+.ct-slide-contenido span{
 
-    font-size: 1.1rem;
+    color:var(--color-acento);
 
-    margin-bottom: 35px;
+}
 
-    color: #ececec;
+.ct-slide-contenido p{
+
+    font-size:clamp(1rem, 2.5vw, 1.2rem);
+
+    margin-bottom:28px;
+
+    color:rgba(255,255,255,0.88);
 
 }
 
@@ -84,59 +123,59 @@
                     SECCIÓN
 ==========================================================*/
 
-#contacto-formulario {
+#contacto-formulario{
 
-    padding: 100px 0;
+    padding:60px 0;
 
-    background: var(--color-fondo-claro);
-
-}
-
-.contacto-header {
-
-    text-align: center;
-
-    margin-bottom: 60px;
+    background:var(--color-fondo-claro);
 
 }
 
-.contacto-badge {
+.contacto-header{
 
-    display: inline-block;
+    text-align:center;
 
-    padding: 8px 18px;
-
-    border-radius: 30px;
-
-    background: rgba(0, 113, 227, .10);
-
-    color: var(--color-acento);
-
-    font-size: .85rem;
-
-    font-weight: 600;
-
-    margin-bottom: 18px;
+    margin-bottom:40px;
 
 }
 
-.contacto-header h2 {
+.contacto-badge{
 
-    color: var(--color-texto-oscuro);
+    display:inline-block;
 
-    margin-bottom: 15px;
+    padding:8px 18px;
 
-    font-size: 2.4rem;
+    border-radius:30px;
+
+    background:rgba(0,113,227,.10);
+
+    color:var(--color-acento);
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    margin-bottom:18px;
 
 }
 
-.contacto-header p {
+.contacto-header h2{
 
-    color: var(--color-texto-gris);
+    color:var(--color-texto-oscuro);
 
-    max-width: 700px;
+    margin-bottom:15px;
 
-    margin: auto;
+    font-size:2.4rem;
+
+}
+
+.contacto-header p{
+
+    color:var(--color-texto-gris);
+
+    max-width:700px;
+
+    margin:auto;
 
 }
 
@@ -144,15 +183,15 @@
                     GRID
 ==========================================================*/
 
-.contacto-grid {
+.contacto-grid{
 
-    display: grid;
+    display:grid;
 
-    grid-template-columns: 1.2fr .9fr;
+    grid-template-columns:1.2fr .9fr;
 
-    gap: 35px;
+    gap:35px;
 
-    align-items: start;
+    align-items:stretch;
 
 }
 
@@ -160,31 +199,33 @@
                     TARJETAS
 ==========================================================*/
 
-.contacto-card {
+.contacto-card{
 
-    background: var(--color-fondo-card);
+    background:var(--color-fondo-card);
 
-    border-radius: var(--radio-borde);
+    border-radius:var(--radio-borde);
 
-    box-shadow: var(--sombra-card);
+    box-shadow:var(--sombra-card);
 
-    padding: 35px;
+    padding:35px;
 
-    transition: var(--transicion);
-
-}
-
-.contacto-card:hover {
-
-    transform: translateY(-5px);
+    transition:var(--transicion);
 
 }
 
-.contacto-card h3 {
+.contacto-card:hover{
 
-    margin-bottom: 25px;
+    transform:translateY(-5px);
 
-    color: var(--color-texto-claro);
+}
+
+.contacto-card h3{
+
+    margin-bottom:25px;
+
+    color:var(--color-texto-claro);
+
+    font-size:1.25rem;
 
 }
 
@@ -192,62 +233,64 @@
                     FORMULARIO
 ==========================================================*/
 
-.campo {
+.campo{
 
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    margin-bottom: 22px;
+    margin-bottom:22px;
 
 }
 
-.campo label {
+.campo label{
 
-    display: block;
+    display:block;
 
-    margin-bottom: 8px;
+    margin-bottom:8px;
 
-    font-weight: 600;
+    font-weight:600;
 
-    color: var(--color-texto-claro);
+    font-size:.9rem;
+
+    color:var(--color-texto-claro);
 
 }
 
 .campo input,
 
-.campo textarea {
+.campo textarea{
 
-    width: 100%;
+    width:100%;
 
-    border: 1px solid #d8d8d8;
+    border:1px solid #d8d8d8;
 
-    border-radius: 12px;
+    border-radius:12px;
 
-    padding: 14px 18px;
+    padding:14px 18px;
 
-    font-family: inherit;
+    font-family:inherit;
 
-    transition: .3s;
+    transition:.3s;
 
 }
 
 
-.campo textarea {
+.campo textarea{
 
-    resize: none;
+    resize:none;
 
 }
 
 .campo input:focus,
 
-.campo textarea:focus {
+.campo textarea:focus{
 
-    outline: none;
+    outline:none;
 
-    border-color: var(--color-acento);
+    border-color:var(--color-acento);
 
-    box-shadow: 0 0 0 3px rgba(0, 113, 227, .15);
+    box-shadow:0 0 0 3px rgba(0,113,227,.15);
 
 }
 
@@ -255,23 +298,23 @@
                     MAPA
 ==========================================================*/
 
-.mapa {
+.mapa{
 
-    overflow: hidden;
+    overflow:hidden;
 
-    border-radius: 16px;
+    border-radius:16px;
 
-    margin-bottom: 25px;
+    margin-bottom:25px;
 
 }
 
-.mapa iframe {
+.mapa iframe{
 
-    width: 100%;
+    width:100%;
 
-    height: 280px;
+    height:280px;
 
-    border: 0;
+    border:0;
 
 }
 
@@ -279,65 +322,65 @@
             DATOS DE LA SUCURSAL
 ==========================================================*/
 
-.datos-sucursal {
+.datos-sucursal{
 
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    gap: 22px;
-
-}
-
-.dato {
-
-    display: flex;
-
-    gap: 16px;
-
-    align-items: flex-start;
+     gap: 18px;
 
 }
 
-.dato i {
-
-    width: 48px;
-
-    height: 48px;
-
-    background: var(--color-acento);
-
-    color: #fff;
-
-    border-radius: 50%;
-
+.dato{
     display: flex;
-
-    justify-content: center;
-
     align-items: center;
+    gap: 18px;
+}
 
-    font-size: 1rem;
+.dato i{
 
-    flex-shrink: 0;
+    width:48px;
+    height:48px;
+
+    background:var(--color-acento);
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:1rem;
+
+    flex-shrink:0;
 
 }
 
-.dato h4 {
+.dato h4{
 
-    margin-bottom: 4px;
+    margin: 0 0 6px 0;
 
-    color: var(--color-texto-oscuro);
+    color: var(--color-texto-claro);
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
 
 }
 
-.dato p {
+.dato p{
 
     margin: 0;
 
-    color: var(--color-texto-gris);
+    color:var(--color-texto-gris-claro);
 
-    line-height: 1.6;
+    line-height:1.6;
 
 }
 
@@ -345,46 +388,82 @@
                 RESPONSIVE
 ==========================================================*/
 
-@media(max-width:992px) {
+@media(max-width:992px){
 
-    .contacto-grid {
+.contacto-grid{
 
-        grid-template-columns: 1fr;
-
-    }
-
-    .ct-slide {
-
-        min-height: 350px;
-
-    }
-
-    .ct-slide-contenido h2 {
-
-        font-size: 2.3rem;
-
-    }
+grid-template-columns:1fr;
 
 }
 
-@media(max-width:768px) {
+}
 
-    #contacto-formulario {
+@media(max-width:768px){
 
-        padding: 70px 0;
+#contacto-formulario{
 
-    }
+padding:40px 0;
 
-    .contacto-card {
+}
 
-        padding: 25px;
+.contacto-card{
 
-    }
+padding:25px;
 
-    .ct-slide-contenido h2 {
+}
 
-        font-size: 2rem;
+.ct-slide{
 
+height:460px;
+
+padding-top:65px;
+
+}
+
+.ct-slide-contenido p{
+
+font-size:.92rem;
+
+margin-bottom:20px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.ct-slide{
+
+height:380px;
+
+padding-top:65px;
+
+}
+
+}
+
+/*==========================================================
+                Flechas
+==========================================================*/
+
+#contacto-carousel .carousel-control-prev,
+#contacto-carousel .carousel-control-next{
+    z-index: 3;
+}
+
+#contacto-carousel .carousel-control-prev-icon,
+#contacto-carousel .carousel-control-next-icon{
+    background-color: rgba(0, 113, 227, 0.5);
+    border-radius: 50%;
+    padding: 18px;
+    background-size: 50%;
+}
+
+@media(max-width:768px){
+
+    #contacto-carousel .carousel-control-prev-icon,
+    #contacto-carousel .carousel-control-next-icon{
+        padding: 12px;
     }
 
 }
