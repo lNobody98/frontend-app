@@ -2,6 +2,39 @@
    carrito.css — Estilos del Carrito de Compras NXR TECH
    ============================================================ */
 
+
+body:has(.carrito-seccion) #navbar .ep-navbar-bar {
+    background-color: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+body:has(.carrito-seccion) #navbar .ep-navbar-bar nav {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
+
+body:has(.carrito-seccion) #navbar .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    font-size: inherit;
+}
+
+body:has(.carrito-seccion) #navbar .ep-navbar-bar .collapse.navbar-collapse {
+    flex-grow: 0;
+}
+
+@media (min-width: 769px) {
+    body:has(.carrito-seccion) #navbar .navbar-collapse {
+        flex-basis: auto;
+        flex-grow: 0;
+    }
+}
+
 /* Insignias y precios de descuento en el catálogo */
 .mc-descuento-badge {
     position: absolute;
