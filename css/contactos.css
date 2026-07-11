@@ -2,17 +2,48 @@
                     CONTACTOS
 ==========================================================*/
 
-#contacto-carousel{
-    margin-top:80px;
+/* ── Enrique Prada — Navbar (idéntico a nosotros.css) ── */
+#navbar .ep-navbar-bar {
+    background-color: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+#navbar .ep-navbar-bar nav {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
+
+#navbar .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    font-size: inherit;
+}
+
+#navbar .ep-navbar-bar .collapse.navbar-collapse {
+    flex-grow: 0;
+}
+
+@media (min-width: 769px) {
+    #navbar .navbar-collapse {
+        flex-basis: auto;
+        flex-grow: 0;
+    }
 }
 
 /*==========================================================
-                    BANNER I
+                    BANNER
 ==========================================================*/
 
 .ct-slide{
 
-    min-height:420px;
+    height:650px;
+
+    padding-top:85px;
 
     background-size:cover;
 
@@ -26,6 +57,8 @@
 
     position:relative;
 
+    overflow:hidden;
+
 }
 
 .ct-slide::before{
@@ -36,7 +69,7 @@
 
     inset:0;
 
-    background:rgba(0,0,0,.55);
+    background:linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 100%);
 
 }
 
@@ -48,7 +81,9 @@
 
     text-align:center;
 
-    max-width:760px;
+    max-width:700px;
+
+    padding:0 24px;
 
     color:var(--color-texto-claro);
 
@@ -56,11 +91,15 @@
 
 .ct-slide-contenido h2{
 
-    font-size:3rem;
+    font-family:'Space Grotesk', sans-serif;
 
-    font-weight:800;
+    font-size:clamp(2rem, 5vw, 3.2rem);
 
-    margin-bottom:18px;
+    color:#fff;
+
+    margin-bottom:16px;
+
+    line-height:1.15;
 
 }
 
@@ -72,11 +111,11 @@
 
 .ct-slide-contenido p{
 
-    font-size:1.1rem;
+    font-size:clamp(1rem, 2.5vw, 1.2rem);
 
-    margin-bottom:35px;
+    margin-bottom:28px;
 
-    color:#ececec;
+    color:rgba(255,255,255,0.88);
 
 }
 
@@ -86,7 +125,7 @@
 
 #contacto-formulario{
 
-    padding:100px 0;
+    padding:60px 0;
 
     background:var(--color-fondo-claro);
 
@@ -96,7 +135,7 @@
 
     text-align:center;
 
-    margin-bottom:60px;
+    margin-bottom:40px;
 
 }
 
@@ -152,7 +191,7 @@
 
     gap:35px;
 
-    align-items:start;
+    align-items:stretch;
 
 }
 
@@ -186,6 +225,8 @@
 
     color:var(--color-texto-claro);
 
+    font-size:1.25rem;
+
 }
 
 /*==========================================================
@@ -209,6 +250,8 @@
     margin-bottom:8px;
 
     font-weight:600;
+
+    font-size:.9rem;
 
     color:var(--color-texto-claro);
 
@@ -285,36 +328,28 @@
 
     flex-direction:column;
 
-    gap:22px;
+     gap: 18px;
 
 }
 
 .dato{
-
-    display:flex;
-
-    gap:16px;
-
-    align-items:flex-start;
-
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
 
 .dato i{
 
     width:48px;
-
     height:48px;
 
     background:var(--color-acento);
-
     color:#fff;
 
     border-radius:50%;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     font-size:1rem;
@@ -325,17 +360,25 @@
 
 .dato h4{
 
-    margin-bottom:4px;
+    margin: 0 0 6px 0;
 
-    color:var(--color-texto-oscuro);
+    color: var(--color-texto-claro);
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
 
 }
 
 .dato p{
 
-    margin:0;
+    margin: 0;
 
-    color:var(--color-texto-gris);
+    color:var(--color-texto-gris-claro);
 
     line-height:1.6;
 
@@ -353,25 +396,13 @@ grid-template-columns:1fr;
 
 }
 
-.ct-slide{
-
-min-height:350px;
-
-}
-
-.ct-slide-contenido h2{
-
-font-size:2.3rem;
-
-}
-
 }
 
 @media(max-width:768px){
 
 #contacto-formulario{
 
-padding:70px 0;
+padding:40px 0;
 
 }
 
@@ -381,10 +412,58 @@ padding:25px;
 
 }
 
-.ct-slide-contenido h2{
+.ct-slide{
 
-font-size:2rem;
+height:460px;
+
+padding-top:65px;
 
 }
+
+.ct-slide-contenido p{
+
+font-size:.92rem;
+
+margin-bottom:20px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.ct-slide{
+
+height:380px;
+
+padding-top:65px;
+
+}
+
+}
+
+/*==========================================================
+                Flechas
+==========================================================*/
+
+#contacto-carousel .carousel-control-prev,
+#contacto-carousel .carousel-control-next{
+    z-index: 3;
+}
+
+#contacto-carousel .carousel-control-prev-icon,
+#contacto-carousel .carousel-control-next-icon{
+    background-color: rgba(0, 113, 227, 0.5);
+    border-radius: 50%;
+    padding: 18px;
+    background-size: 50%;
+}
+
+@media(max-width:768px){
+
+    #contacto-carousel .carousel-control-prev-icon,
+    #contacto-carousel .carousel-control-next-icon{
+        padding: 12px;
+    }
 
 }
