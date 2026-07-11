@@ -76,9 +76,13 @@ function _pintar() {
                 <p class="mc-item-extra">${item.getDetalleExtra()}</p>
                 ${item.getGarantiaTexto() ? `<p class="mc-item-garantia">${item.getGarantiaTexto()}</p>` : ""}
                 <p class="mc-item-descripcion">${item.descripcion}</p>
-                <span class="mc-item-precio">${item.getPrecioTexto()}</span>
+                <div class="mc-item-precios-wrapper">
+                    <span class="mc-item-precio">${item.getPrecioTexto()}</span>
+                </div>
                 <div class="mc-item-botones">
-                    <button class="btn-primario">Consultar</button>
+                    <button class="btn-primario" onclick="confirmarAgregarAlCarrito(${item.id})">
+                        <i class="fa-solid fa-cart-plus"></i> Seleccionar
+                    </button>
                     <button class="btn-secundario">Ver más</button>
                 </div>
             </div>

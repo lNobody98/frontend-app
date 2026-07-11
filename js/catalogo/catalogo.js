@@ -17,6 +17,35 @@ class ItemCatalogo {
         return "S/ " + this.precio.toLocaleString("es-PE") + ".00";
     }
 
+    getDescuentoPorcentaje() {
+        if (this.tipo === "Servicio") return 0;
+        switch (this.subcategoria) {
+            case "Laptops":
+            case "Componentes":
+                return 10;
+            case "Teléfonos":
+            case "Tablets":
+                return 20;
+            case "Accesorios":
+            case "Wearables":
+                return 30;
+            default:
+                return 0;
+        }
+    }
+
+    getPrecioConDescuento() {
+        const desc = this.getDescuentoPorcentaje();
+        if (desc === 0) return this.precio;
+        return Math.round(this.precio * (1 - desc / 100));
+    }
+
+    getPrecioConDescuentoTexto() {
+        const precioDesc = this.getPrecioConDescuento();
+        if (precioDesc === 0) return "Gratis";
+        return "S/ " + precioDesc.toLocaleString("es-PE") + ".00";
+    }
+
     getTipo()              { return this.tipo; }
     getSubcategoria()      { return this.subcategoria; }
     getEtiquetaComercial() { return ""; }

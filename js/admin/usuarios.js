@@ -30,9 +30,16 @@ const usuariosAdmin = [
         nombre: "Maykol Calle",
         correo: "maykol.calle@nxrtech.com"
     }
+    {
+        usuario: "jsalda",
+        contrasena: "1806",
+        nombre: "Joel Saldaña",
+        correo: "Joel.saldaña@nxrtech.com"
+    }
 ];
 
 // Demo rápida para la sustentación:
 // usuario: cdiaz    / contraseña: 1234
 // usuario: jmorales / contraseña: jm2026
 // usuario: mcalle   / contraseña: mc2026
+// usuario: jsalda   / contraseña: 1806
