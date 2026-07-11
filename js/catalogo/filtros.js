@@ -65,7 +65,7 @@ function filtrar(debeScrollear = true) {
 
     const resultado = listaCatalogo.filter(item => {
         const coincideTexto = !texto ||
-            norm(item.nombre).includes(texto)                 ||
+            norm(item.nombre).includes(texto) ||
             norm(item.getEtiquetaComercial()).includes(texto) ||
             norm(item.descripcion).includes(texto);
 

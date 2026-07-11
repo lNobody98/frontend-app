@@ -3,13 +3,13 @@
 class ItemCatalogo {
 
     constructor(id, nombre, tipo, subcategoria, precio, descripcion, imagen) {
-        this.id           = id;
-        this.nombre       = nombre;
-        this.tipo         = tipo;
+        this.id = id;
+        this.nombre = nombre;
+        this.tipo = tipo;
         this.subcategoria = subcategoria;
-        this.precio       = precio;
-        this.descripcion  = descripcion;
-        this.imagen       = imagen;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
     }
 
     getPrecioTexto() {
@@ -46,11 +46,11 @@ class ItemCatalogo {
         return "S/ " + precioDesc.toLocaleString("es-PE") + ".00";
     }
 
-    getTipo()              { return this.tipo; }
-    getSubcategoria()      { return this.subcategoria; }
+    getTipo() { return this.tipo; }
+    getSubcategoria() { return this.subcategoria; }
     getEtiquetaComercial() { return ""; }
-    getDetalleExtra()      { return ""; }
-    getGarantiaTexto()     { return ""; }
+    getDetalleExtra() { return ""; }
+    getGarantiaTexto() { return ""; }
 
 }
 
@@ -64,7 +64,7 @@ class Producto extends ItemCatalogo {
     }
 
     getEtiquetaComercial() { return this.marca; }
-    getDetalleExtra()      { return "Stock: " + this.stock + " unidades"; }
+    getDetalleExtra() { return "Stock: " + this.stock + " unidades"; }
 
 }
 
@@ -78,7 +78,7 @@ class Servicio extends ItemCatalogo {
     }
 
     getEtiquetaComercial() { return ""; }
-    getDetalleExtra()      { return "Modalidad: " + this.modalidad; }
-    getGarantiaTexto()     { return "Garantía: " + this.garantia; }
+    getDetalleExtra() { return "Modalidad: " + this.modalidad; }
+    getGarantiaTexto() { return "Garantía: " + this.garantia; }
 
 }

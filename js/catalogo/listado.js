@@ -1,6 +1,6 @@
 let _listaActual = [];
 let paginaActual = 1;
-let ordenActivo  = "relevancia";
+let ordenActivo = "relevancia";
 
 const POR_PAGINA = 12;
 
@@ -23,7 +23,7 @@ function irAPagina(n) {
 
 
 function setOrden(select) {
-    ordenActivo  = select.value;
+    ordenActivo = select.value;
     paginaActual = 1;
     _pintar();
 }
@@ -33,22 +33,22 @@ function setOrden(select) {
 function sortLista(lista) {
     const copia = [...lista];
     switch (ordenActivo) {
-        case "precio-asc":  return copia.sort((a, b) => a.precio - b.precio);
+        case "precio-asc": return copia.sort((a, b) => a.precio - b.precio);
         case "precio-desc": return copia.sort((a, b) => b.precio - a.precio);
-        case "nombre-az":   return copia.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
-        case "nombre-za":   return copia.sort((a, b) => b.nombre.localeCompare(a.nombre, "es"));
-        default:            return copia;
+        case "nombre-az": return copia.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
+        case "nombre-za": return copia.sort((a, b) => b.nombre.localeCompare(a.nombre, "es"));
+        default: return copia;
     }
 }
 
 
 
 function _pintar() {
-    const lista         = sortLista(_listaActual);
-    const contenedor    = document.getElementById("catalogo-lista");
+    const lista = sortLista(_listaActual);
+    const contenedor = document.getElementById("catalogo-lista");
     const sinResultados = document.getElementById("catalogo-sin-resultados");
-    const contador      = document.getElementById("catalogo-contador");
-    const sufijo        = lista.length !== 1 ? "s" : "";
+    const contador = document.getElementById("catalogo-contador");
+    const sufijo = lista.length !== 1 ? "s" : "";
 
     contador.textContent = lista.length + " resultado" + sufijo + " encontrado" + sufijo;
 
@@ -61,8 +61,8 @@ function _pintar() {
     sinResultados.style.display = "none";
 
     const totalPaginas = Math.ceil(lista.length / POR_PAGINA);
-    const inicio       = (paginaActual - 1) * POR_PAGINA;
-    const pagina       = lista.slice(inicio, inicio + POR_PAGINA);
+    const inicio = (paginaActual - 1) * POR_PAGINA;
+    const pagina = lista.slice(inicio, inicio + POR_PAGINA);
 
     let html = pagina.map(item => `
         <div class="mc-item">
