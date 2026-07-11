@@ -1,5 +1,6 @@
 let imagenTemporal = "";
 let imagenEdicion = "";
+let modalCatalogo;
 
 //Lista//
 function mostrarLista(lista = listaCatalogo) {
@@ -65,7 +66,7 @@ function mostrarLista(lista = listaCatalogo) {
     });
 
     document.getElementById("lblCantidad").textContent =
-        `${listaCatalogo.length} registros`;
+        `${lista.length} registros`;
 
 
 }
@@ -92,6 +93,10 @@ function crearObjeto() {
         imagen = imagenTemporal;
     } else {
         imagen = imagenEdicion;
+    }
+
+    if (!imagen) {
+        imagen = "img/sin-imagen.png";
     }
 
 
@@ -165,28 +170,61 @@ function generarID() {
 //guardar objeto//
 function guardarItem() {
 
+    const nombre = document.getElementById("nombre").value.trim();
+    const precio = document.getElementById("precio").value;
+
+    if (!nombre) {
+        alert("El nombre es obligatorio.");
+        return;
+    }
+
+    if (precio === "" || Number(precio) < 0) {
+        alert("Ingrese un precio válido.");
+        return;
+    }
+
     const item = crearObjeto();
 
     const indice = listaCatalogo.findIndex(x => x.id === item.id);
+
+    const anterior = indice >= 0 ? listaCatalogo[indice] : null;
 
     if (indice >= 0) {
 
         listaCatalogo[indice] = item;
 
-        alert("✅ Producto/Servicio modificado correctamente.");
-
     } else {
 
         listaCatalogo.push(item);
 
-        alert("✅ Producto/Servicio agregado correctamente.");
+    }
+
+    try {
+
+        localStorage.setItem(
+            "productos",
+            JSON.stringify(listaCatalogo)
+        );
+
+    } catch (e) {
+
+        if (anterior) {
+            listaCatalogo[indice] = anterior;
+        } else {
+            listaCatalogo.pop();
+        }
+
+        alert("No se pudo guardar: la imagen pesa demasiado. Pruebe con una imagen más liviana.");
+
+        return;
 
     }
 
-    localStorage.setItem(
-        "productos",
-        JSON.stringify(listaCatalogo)
-    );
+    if (anterior) {
+        alert("✅ Producto/Servicio modificado correctamente.");
+    } else {
+        alert("✅ Producto/Servicio agregado correctamente.");
+    }
 
     mostrarLista();
 
@@ -195,6 +233,8 @@ function guardarItem() {
 }
 //modal registrar//
 function abrirModalRegistrar() {
+
+    document.getElementById("tituloModal").textContent = "Nuevo Registro";
 
     document.getElementById("itemID").value = "";
 
@@ -278,6 +318,9 @@ function editarItem(id) {
     document.getElementById("descripcion").value = item.descripcion;
     document.getElementById("tipo").value = item.tipo;
 
+    document.getElementById("tituloModal").textContent =
+        item.tipo === "Producto" ? "Editar Producto" : "Editar Servicio";
+
     let img = item.imagen;
 
     if (!img.startsWith("data:image")) {
@@ -343,8 +386,10 @@ function cambiarEstado(id) {
 
     if (!item) return;
 
+    const accion = item.estado === "ACTIVO" ? "dar de baja" : "activar";
+
     const confirmar = confirm(
-        `¿Está seguro que desea dar de baja "${item.nombre}"?`
+        `¿Está seguro que desea ${accion} "${item.nombre}"?`
     );
 
     if (!confirmar) {
@@ -356,10 +401,25 @@ function cambiarEstado(id) {
             ? "INACTIVO"
             : "ACTIVO";
 
-    localStorage.setItem(
-        "productos",
-        JSON.stringify(listaCatalogo)
-    );
+    try {
+
+        localStorage.setItem(
+            "productos",
+            JSON.stringify(listaCatalogo)
+        );
+
+    } catch (e) {
+
+        item.estado =
+            item.estado === "ACTIVO"
+                ? "INACTIVO"
+                : "ACTIVO";
+
+        alert("No se pudo guardar el cambio de estado.");
+
+        return;
+
+    }
 
     mostrarLista();
 

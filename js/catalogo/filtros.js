@@ -30,6 +30,15 @@ const SUBCATEGORIAS = {
 };
 
 
+function obtenerSubcategorias(tipo) {
+    const base = SUBCATEGORIAS[tipo] || [];
+    const extras = listaCatalogo
+        .filter(item => item.tipo === tipo && item.estado !== "INACTIVO" && item.subcategoria && !base.includes(item.subcategoria))
+        .map(item => item.subcategoria);
+    return [...base, ...new Set(extras)];
+}
+
+
 function norm(texto) {
     return texto
         .toLowerCase()
@@ -46,7 +55,7 @@ function actualizarSubcategorias(debeScrollear = true) {
         selectSubcategoria.disabled = true;
         selectSubcategoria.innerHTML = '<option value="">Selecciona productos o servicios</option>';
     } else {
-        const opciones = SUBCATEGORIAS[tipo]
+        const opciones = obtenerSubcategorias(tipo)
             .map(subcategoria => `<option value="${subcategoria}">${subcategoria}</option>`)
             .join("");
 
@@ -64,6 +73,8 @@ function filtrar(debeScrollear = true) {
     const subcategoria = document.getElementById("selectSubcategoria").value;
 
     const resultado = listaCatalogo.filter(item => {
+        if (item.estado === "INACTIVO") return false;
+
         const coincideTexto = !texto ||
             norm(item.nombre).includes(texto)                 ||
             norm(item.getEtiquetaComercial()).includes(texto) ||
